@@ -17,6 +17,17 @@
 	
 	<!--TODO ADD A IE SUPPORT-->
 	<link rel="stylesheet" href="index_style.css">
+	<script>
+		var r = new XMLHttpRequest();
+		r.open("GET", "http://plantpro.github.io/data.txt", false);
+		r.send();
+		if(r.status == 200)
+		{
+			alert(r.responseText);	
+		} else {
+			alert("Error");	
+		}
+	</script>
 </head>
 <body>
 <div id="layout" class="pure-g">
