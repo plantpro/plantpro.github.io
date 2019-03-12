@@ -10,7 +10,7 @@ html,body{
 
 html .container,
 body .container{
-	position:fixed;
+	/*position:fixed;*/
 	background-color:#222;
 	user-select:none;
 	top:0;
@@ -21,7 +21,7 @@ body .container{
 	height:100%;
 	border:1px solid;
 	margin:auto;
-	overflow:hidden
+	overflow:hidden;
 }
 
 html .container .view,
