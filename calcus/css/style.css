@@ -6,7 +6,8 @@ body {
 	border:0;
 	border-spacing:0;
 	margin:0;
-	padding:0
+	padding:0;
+	background-color:#222;
 }
 
 html .container,
@@ -26,7 +27,7 @@ body .container{
 html .container .view,
 body .container .view {
 	width:90%;
-	height:20px;
+	height:13%;
 	border:1px solid;
 	margin:20px auto;
 	line-height:20px;
@@ -47,7 +48,7 @@ body .container .keyboard {
 
 html .container .keyboard .keyboard-row,
 body .container .keyboard .keyboard-row {
-	height: 23%
+	height: 18%
 }
 
 html .container .keyboard .keyboard-row .keyboard-key,
