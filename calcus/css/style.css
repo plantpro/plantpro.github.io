@@ -27,7 +27,7 @@ body .container{
 html .container .view,
 body .container .view {
 	width:100%;
-	height: 20%;
+	height: 20vh;
 	border:1px solid;
 
 	padding:10px;
@@ -39,13 +39,13 @@ html .container .keyboard,
 body .container .keyboard { 
 	position:relative;
 	width:100%;
-	height: 80%;
+	height: 80vh;
 	text-align:center
 }
 
 html .container .keyboard .keyboard-row,
 body .container .keyboard .keyboard-row {
-	height: 18%
+	height: 18vh
 }
 
 html .container .keyboard .keyboard-row .keyboard-key,
@@ -53,8 +53,7 @@ body .container .keyboard .keyboard-row .keyboard-key {
 	width:70px;
 	background-color:#333;
 	color:#fff;
-	font-weight:600;
-	font-size:20px;
+	font-size:5em;
 	cursor:pointer
 }
 
