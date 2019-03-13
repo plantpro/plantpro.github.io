@@ -59,3 +59,7 @@ body .container .keyboard .keyboard-row .keyboard-key {
 
 html .container .keyboard .keyboard-row .keyboard-key.soft,
 body .container .keyboard .keyboard-row .keyboard-key.soft{background-color:#334}
+
+.tip {
+	color: #FFFFFF;
+}
