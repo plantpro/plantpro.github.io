@@ -94,7 +94,7 @@ function isTop(offset) {
     var day = getDateWithOffset(offset);
     var dayOfWeek = normalize(day.getDay());
     day.setDate(day.getDate() - dayOfWeek + 1);
-    return day.getDate() % 2 == 0;
+    return day.getDate() % 2 != 0;
 }
 function getCurrentWeek() {
     if (!isTop(0)) {
