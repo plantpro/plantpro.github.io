@@ -3,57 +3,65 @@ function runApplication() {
 	let genotype2 = document.mainForm.genotype2.value;
 
 	let gametesFirst = makeGametes(genotype1);
-	let gametesSecond = makeGametes(genotype2);
+	let gametesSecond = genotype1 === genotype2 ? gametesFirst : makeGametes(genotype2);
 	
 	document.getElementById("tableplace").innerHTML = createTable(gametesFirst, gametesSecond);
 }
 
 function createTable(g1, g2) {
-	let result = "<table class='pure-table'><tr><td></td>";
+	let counter = new Map();
+
+	let builder = "<table class='pure-table'><tr><td></td>";
 
 	for(let i of g2) {
-		result += "<td>" + i + "</td>";
+		builder += "<td>" + i + "</td>"; 
 	}
 
-	result += "</tr>";
+	builder += "</tr>";
 
 	for(let i of g1) {
-		result += "<tr>" + "<td>" + i + "</td>";
+		builder += "<tr>"+ "<td>"+ i+"</td>";
 		for(let j of g2) {
-			result += "<td>" + combineGametes(i, j)  + "</td>"
+			let genotype = combineGametes(i, j);
+			if(counter.has(genotype)) {
+				counter.set(genotype, counter.get(genotype) + 1);
+			} else {
+				counter.set(genotype, 1);
+			}
+			builder += "<td>" + genotype + "</td>";
 		}
-		result += "</tr>"
+		builder += "</tr>"; 
 	}
-
-	return result + "</table>"
+	builder += "</table><br><div>Расщепление: " + [...counter.values()].sort((x, y) => y < x ? -1 : y === x ? 0 : 1).join(" : ") + "</div>";
+	return builder;
 }
 
 function combineGametes(g1, g2) {
 	let result = "";
 	for(let i = 0; i < g1.length; i++) {
-		result += g1[i] + g2[i];
+		if(g1[i] < g2[i]) {
+			result += g1[i] + g2[i];
+		} else {
+			result += g2[i] + g1[i];
+		}
 	}
 	return result;
-}
-
-function comb(A, a, B, b) {
-	return [...new Set([[A, B], [A, b], [a, B], [a, b]])];
 }
 
 function makeGametes(genotype, position=0) {
 	if(position >= genotype.length) {
 		return;
 	}
+
 	let gams = makeGametes(genotype, position + 2);
+	
+	if(gams === undefined) {
+		return [...new Set([genotype[position], genotype[position + 1]])];
+	}
+
 	if(genotype[position] === genotype[position+1]) {
-		if(gams === undefined) {
-			return [genotype[position]];
-		}
 		return (gams.map(i => genotype[position] + i));
 	} else {
-		if(gams === undefined) {
-			return [genotype[position], genotype[position + 1]];
-		}
 		return ([...gams.map(i => genotype[position] + i), ...gams.map(i => genotype[position + 1] + i)]);
 	}
 }
