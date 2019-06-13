@@ -1,116 +1,191 @@
-const COMPLIMENTARY = new Map([
-	["A", "U"],
-	["G", "C"],
-	["U", "A"],
-	["T", "A"],
-	["C", "G"]
+const DNA_VALID_CHARS = ["A", "T", "G", "C", "a", "t", "g", "c", "А", "Т", "Г", "Ц", "а", "т", "г", "ц"];
+
+const DNA_COMPLIMENTARY = new Map([
+	["А", "Т"],
+	["Т", "А"],
+	["Г", "Ц"],
+	["Ц", "Г"]
+]);
+
+const RNA_COMPLIMENTARY = new Map([
+	["А", "У"],
+	["Т", "А"],
+	["У", "А"],
+	["Г", "Ц"],
+	["Ц", "Г"]
+]);
+
+const GENETIC_CODE = new Map([
+	["УУУ", "ФЕН"],
+	["УУЦ", "ФЕН"],
+	["УУА", "ЛЕЙ"],
+	["УЦУ", "СЕР"],
+	["УЦЦ", "СЕР"],
+	["УЦА", "СЕР"],
+	["УЦГ", "СЕР"],
+	["УАУ", "ТИР"],
+	["УАЦ", "ТИР"],
+	["УАА", "СТОП"],
+	["УАГ", "СТОП"],
+	["УГУ", "ЦИС"],
+	["УГЦ", "ЦИС"],
+	["УГА", "СТОП"],
+	["УГГ", "ТРИ"],
+	["ЦУУ", "ЛЕЙ"],
+	["ЦУЦ", "ЛЕЙ"],
+	["ЦУА", "ЛЕЙ"],
+	["ЦУГ", "ЛЕЙ"],
+	["ЦЦУ", "ПРО"],
+	["ЦЦЦ", "ПРО"],
+	["ЦЦА", "ПРО"],
+	["ЦЦГ", "ПРО"],
+	["ЦАУ", "ГИС"],
+	["ЦАЦ", "ГИС"],
+	["ЦАА", "ГЛУ"],
+	["ЦАГ", "ГЛУ"],
+	["ЦГУ", "АРГ"],
+	["ЦГЦ", "АРГ"],
+	["ЦГА", "АРГ"],
+	["ЦГГ", "АРГ"],
+	["АУУ", "ИЛЕ"],
+	["АУЦ", "ИЛЕ"],
+	["АУА", "ИЛЕ"],
+	["АУГ", "МЕТ"],
+	["ГУУ", "ВАЛ"],
+	["ГУЦ", "ВАЛ"],
+	["ГУА", "ВАЛ"],
+	["ГУГ", "ВАЛ"],
+	["АЦУ", "ТРЕ"],
+	["АЦЦ", "ТРЕ"],
+	["АЦА", "ТРЕ"],
+	["АЦГ", "ТРЕ"],
+	["ГЦУ", "АЛА"],
+	["ГЦЦ", "АЛА"],
+	["ГЦА", "АЛА"],
+	["ГЦГ", "АЛА"],
+	["ААУ", "АСН"],
+	["ААЦ", "АСН"],
+	["ААА", "ЛИЗ"],
+	["ААГ", "ЛИЗ"],
+	["ГАУ", "АСП"],
+	["ГАЦ", "АСП"],
+	["ГАА", "ГЛУ"],
+	["ГАГ", "ГЛУ"],
+	["АГУ", "СЕР"],
+	["АГЦ", "СЕР"],
+	["АГА", "АРГ"],
+	["АГГ", "АРГ"],
+	["ГГУ", "ГЛИ"],
+	["ГГЦ", "ГЛИ"],
+	["ГГА", "ГЛИ"],
+	["ГГГ", "ГЛИ"],
 ])
 
-function runApplication(language) {
+
+function runApplication() {
 	let dnaInput = document.mainForm.dnaInput;
+	let dna2Input = document.mainForm.dna2Input;
 	let irnaInput = document.mainForm.irnaInput;
 	let trnaInput = document.mainForm.trnaInput;
+	let proteinInput = document.mainForm.proteinInput;
 
-	let uniformedDNA = uniformChain(dnaInput.value);
-	let irnaChain = makeChain(uniformedDNA);
-	let trnaChain = makeChain(irnaChain);
+	let dna1Sequence = uniformDNA(dnaInput.value);
+	let dna2Sequence = makeDNA2(dna1Sequence);
+	let irnaSequence = makeiRNA(dna1Sequence);
+	let trnaSequence = maketRNA(irnaSequence);
+  let proteinSequence = makeProtein(irnaSequence);
 
-	dnaInput.value = localizeChain(uniformedDNA, language);
-	irnaInput.value = localizeChain(irnaChain, language);
-	trnaInput.value = localizeChain(trnaChain, language);
+	dnaInput.value = dna1Sequence;
+	dna2Input.value = dna2Sequence;
+	irnaInput.value = irnaSequence;
+	trnaInput.value = trnaSequence;
+	proteinInput.value = proteinSequence;
 }
 
-function localizeChain(chain, language) {
-	if(language === "ru") {
-		let complimentaryChain = "";
-		for(let char of chain) {
-			complimentaryChain += uniformRuChar(char);
+function makeProtein(irna) {
+	function divideIntoTriplets(irna) {
+		let triplets = [];
+		let triplet = "";
+		let index = 0;
+		for(let i of irna) {
+			triplet += i;
+			index++;
+			if(index === 3) {
+				triplets.push(triplet);
+				triplet = "";
+				index = 0;
+			}
 		}
-		return complimentaryChain;
+		return triplets;
 	}
-	return chain;
+
+	let triplets = divideIntoTriplets(irna);
+	return triplets.map(x => GENETIC_CODE.get(x)).join("-");
 }
 
-function makeChain(dna, language) {
-	let complimentaryChain = "";
-	for(let char of dna) {
-		complimentaryChain += findComplimentary(char);
+function makeDNA2(dna1) {
+	let dna2 = "";
+	for(let symbol of dna1) {
+		dna2 += DNA_COMPLIMENTARY.get(symbol);
 	}
-	return uniformChain(complimentaryChain, language);
+	return dna2;
 }
 
-function uniformChain(dna) {
-	let uniformed = "";
-	for(let char of dna) {
-		uniformed += uniformEnChar(char);
+function makeiRNA(dna1) {
+	let irna = "";
+	for(let symbol of dna1) {
+		irna += RNA_COMPLIMENTARY.get(symbol);
 	}
-	return uniformed;
+	return irna;
 }
 
-function uniformEnChar(char) {
-	char = char.toUpperCase();
-
-	if (char === "А") {
-		return "A";
+function maketRNA(irna) {
+	let trna = "";
+	for(let symbol of irna) {
+		trna += RNA_COMPLIMENTARY.get(symbol);
 	}
-
-	if (char === "Т") {
-		return "T";
-	}
-
-	if (char === "Г") {
-		return "G";
-	}
-
-	if (char === "Ц") {
-		return "C";
-	}
-
-	if (char === "У") {
-		return "U";
-	}
-
-	return char;
+	return trna;
 }
 
-function uniformRuChar(char) {
-	char = char.toUpperCase();
+function uniformDNA(dna) {
+	let uniformedDNA = "";
+	for(let i of dna) {
+		uniformedDNA += uniform(i);
+	}
+	return uniformedDNA;
+}
 
-	if (char === "A") {
+function uniform(nucleotideProto) {
+	nucleotideProto = nucleotideProto.toUpperCase();
+
+	if (nucleotideProto === "A") {
 		return "А";
 	}
 
-	if (char === "T") {
+	if (nucleotideProto === "T") {
 		return "Т";
 	}
 
-	if (char === "G") {
+	if (nucleotideProto === "G") {
 		return "Г";
 	}
 
-	if (char === "C") {
+	if (nucleotideProto === "C") {
 		return "Ц";
 	}
 
-	if (char === "U") {
+	if (nucleotideProto === "U") {
 		return "У";
 	}
 
-	return char;
+	return nucleotideProto;
 }
 
-function findComplimentary(char) {
-	return COMPLIMENTARY.get(char);
+function filterDNA(event) {
+	let char = String.fromCharCode(event.keyCode);
+	event.returnValue = isValidChar(char);
 }
 
-
-const DNA_VALID_CHARS = ["A", "T", "G", "C", "a", "t", "g", "c", "А", "Т", "Г", "Ц", "а", "т", "г", "ц"]
-
-function filterDNA(e) {
-	let i = String.fromCharCode(e.keyCode);
-	if(DNA_VALID_CHARS.includes(i)) {
-		e.returnValue = true;
-		return;
-	}
-	e.returnValue = false;
+function isValidChar(char) {
+	return DNA_VALID_CHARS.includes(char);
 }

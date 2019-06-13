@@ -27,14 +27,20 @@
 	</div>
 
 	<div class="content" >
-		<form name="mainForm" class="pure-form pure-form-stacked">
-			<legend>Комплиментатор</legend>
+		<form name="mainForm" class="pure-form pure-form-aligned">
+			<fieldset>
+				<input type="text" class="pure-input pure-input-1" name="dnaInput" id="dnaInput" placeholder="ДНК 1" onkeypress="filterDNA(event)" > <br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="dna2Input" placeholder="ДНК 2" onkeypress="filterDNA(event)"> <br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="irnaInput" placeholder="иРНК"><br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="trnaInput" placeholder="тРНК"><br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="proteinInput" placeholder="Белок"><br><br>
 
-			<input type="text" class="pure-input-rounded pure-input-1" name="dnaInput" placeholder="DNA" onkeypress="filterDNA(event)" > 
-			<input type="text" class="pure-input-rounded pure-input-1" name="irnaInput" placeholder="iRNA">
-			<input type="text" class="pure-input-rounded pure-input-1" name="trnaInput" placeholder="tRNA">
-			<!--input type="text" class="pure-input-rounded pure-input-1" name="proteinInput" placeholder="Protein"-->
-			<input type="button" value="Построить" class="pure-input-rounded pure-button pure-button-primary" onclick="runApplication('ru')">
+				<input type="button" value="Построить" class="pure-input pure-button pure-button-primary" onclick="runApplication()">
+			</fieldset>
 		</form>
 	</div>
 </body>
