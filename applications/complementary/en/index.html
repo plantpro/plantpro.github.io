@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Статьи по защите растений">
-    <title>Защита растений</title>
+    <title>Plant protection</title>
     
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     
@@ -15,26 +15,34 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <!--<![endif]-->
 
-	<link rel="stylesheet" href="../../index_style.css">
+	<link rel="stylesheet" href="../../../index_style.css">
 	<script src="script.js"></script>
 </head>
 <body>
 	<div class="header">
 		<div style="display: table;">
-			<img src="../../406465.png" class="pure-img pure-img-responsive" style="height: 32px; display: table-cell;"> 
+			<img src="../../../406465.png" class="pure-img pure-img-responsive" style="height: 32px; display: table-cell;"> 
 			<h1 style="display: table-cell; text-align: center; padding-left: 10px;">PL-PRO</h1>
 		</div>
 	</div>
 
 	<div class="content" >
-		<form name="mainForm" class="pure-form pure-form-stacked">
-			<legend>Complimenter</legend>
+		This application help you to build the second chain of DNA, iRNA, tRNA and protein by sequence of nucleotids.<br><br>
 
-			<input type="text" class="pure-input-rounded pure-input-1" name="dnaInput" placeholder="DNA" onkeypress="filterDNA(event)" > 
-			<input type="text" class="pure-input-rounded pure-input-1" name="irnaInput" placeholder="iRNA">
-			<input type="text" class="pure-input-rounded pure-input-1" name="trnaInput" placeholder="tRNA">
-			<!--input type="text" class="pure-input-rounded pure-input-1" name="proteinInput" placeholder="Protein"-->
-			<input type="button" value="Построить" class="pure-input-rounded pure-button pure-button-primary" onclick="runApplication('English')">
+		<form name="mainForm" class="pure-form pure-form-aligned">
+			<fieldset>
+				<input type="text" class="pure-input pure-input-1" name="dnaInput" id="dnaInput" placeholder="DNA 1" onkeypress="filterDNA(event)" > <br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="dna2Input" placeholder="DNA 2" onkeypress="filterDNA(event)"> <br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="irnaInput" placeholder="iRNA"><br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="trnaInput" placeholder="tRNA"><br><br>
+				
+				<input type="text" class="pure-input pure-input-1" name="proteinInput" placeholder="Protein"><br><br>
+
+				<input type="button" value="Build" class="pure-input pure-button pure-button-primary" onclick="runApplication()">
+			</fieldset>
 		</form>
 	</div>
 </body>

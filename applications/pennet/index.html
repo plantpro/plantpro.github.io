@@ -26,22 +26,21 @@
 		</div>
 	</div>
 
-	<div class="content" >
-
+	<div class="content">
 		<form name="mainForm" class="pure-form pure-form-aligned">
 			<fieldset>
 				<input type="text" class="pure-input pure-input-1-2" name="genotype1" id="dnaInput" placeholder="Генотип 1" onkeyup="onChangeText(event)"> <br><br>
 				
-				<input type="text" class="pure-input pure-input-1-2" name="genotype2" placeholder="Генотип 2"> <br><br>
+				<input type="text" class="pure-input pure-input-1-2" name="genotype2" placeholder="Генотип 2" onkeyup="onChangeText(event)"> <br><br>
 				
+				<div id="gametparams"></div>
+				<div id="errorlogs"></div>
+
 				<input type="button" value="Построить" class="pure-input pure-button pure-button-primary" onclick="runApplication()">
 			</fieldset>
-			<div id="gametparams">
-			</div>
 		</form>
 
-		<div id="tableplace">
-		</div>
+		<div id="tableplace"></div>
 	</div>
 </body>
 </html>
