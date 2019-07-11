@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru">
-<head>
+	<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Статьи по защите растений">
@@ -15,18 +15,20 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <!--<![endif]-->
 
-	<link rel="stylesheet" href="../../index_style.css">
-	<script src="script.js"></script>
+	<link rel="stylesheet" href="../stylesheets/style.css">
+	<script src="../scripts/pennet.js"></script>
 </head>
 <body>
 	<div class="header">
 		<div style="display: table;">
-			<img src="../../406465.png" class="pure-img pure-img-responsive" style="height: 32px; display: table-cell;"> 
+			<img src="../resources/images/logo.png" class="pure-img pure-img-responsive" style="height: 32px; display: table-cell;"> 
 			<h1 style="display: table-cell; text-align: center; padding-left: 10px;">PL-PRO</h1>
 		</div>
 	</div>
 
 	<div class="content">
+		Это приложение строит решётку Пеннета, определяет расщепления по генотипу и фентоипу по заданным генотипам родительских особей.<br><br>
+		Введите генотипы, используя стандартную запись: маленькая буква для рецессивного аллеля, большая - для доминантного (например AaBb и Aabb), введите фенотипы (если нужно) и нажмите построить.<br><br>
 		<form name="mainForm" class="pure-form pure-form-aligned">
 			<fieldset>
 				<input type="text" class="pure-input pure-input-1-2" name="genotype1" id="dnaInput" placeholder="Генотип 1" onkeyup="onChangeText(event)"> <br><br>

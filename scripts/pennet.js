@@ -1,10 +1,10 @@
 function runApplication() {
 	clearError();
 
-	let genotype1 = document.mainForm.genotype1.value;
-	let genotype2 = document.mainForm.genotype2.value;
+	let genotype1 = document.mainForm.genotype1.value.trim();
+	let genotype2 = document.mainForm.genotype2.value.trim();
 
-	if(!checkGenotypes(genotype1, genotype2)) {
+	if (!checkGenotypes(genotype1, genotype2)) {
 		return;
 	}
 
@@ -28,7 +28,7 @@ class Counter {
 	}
 
 	count(element) {
-		if(this.counter.has(element)) {
+		if (this.counter.has(element)) {
 			this.counter.set(element, this.counter.get(element) + 1);
 		} else {
 			this.counter.set(element, 1);
@@ -42,16 +42,16 @@ class Counter {
 	getTable(tableName) {
 		let builder = tableName + ": <br><table class='pure-table'><tr>";
 
-		for(let k of this.counter.keys()) {
-				builder += "<td>" + k + "</td>"
+		for (let k of this.counter.keys()) {
+			builder += "<td>" + k + "</td>"
 		}
-	
+
 		builder += "</tr><tr>"
-	
-		for(let v of this.counter.values()) {
+
+		for (let v of this.counter.values()) {
 			builder += "<td>" + v + "</td>"
 		}
-	
+
 		return builder + "</tr></table>";
 	}
 }
@@ -62,17 +62,17 @@ function createOutput(g1, g2) {
 
 	let builder = "Решётка Пеннета: <table class='pure-table'><tr><td></td>";
 
-	for(let i of g2) {
-		builder += `<td>${i}</td>`; 
+	for (let i of g2) {
+		builder += `<td>${i}</td>`;
 	}
 
 	builder += "</tr>";
 
-	for(let i of g1) {
+	for (let i of g1) {
 		builder += `<tr><td>${i}</td>`;
-		for(let j of g2) {
+		for (let j of g2) {
 			let genotype = combineGametes(i, j);
-			if(genotype === null) {
+			if (genotype === null) {
 				return "";
 			}
 			let phenotype = evalPhenotype(genotype);
@@ -86,12 +86,12 @@ function createOutput(g1, g2) {
 				builder += `<td>${genotype}</td>`;
 			}
 		}
-		builder += "</tr>"; 
+		builder += "</tr>";
 	}
 
 	let subbuilder = genotypeCounter.getTable("Расщепление по генотипу");
 
-	if(phenotypeCounter.getSize() > 1) {
+	if (phenotypeCounter.getSize() > 1) {
 		subbuilder += "<br>" + phenotypeCounter.getTable("Расщепление по фенотипу");
 	}
 
@@ -104,9 +104,9 @@ function evalPhenotype(genotype) {
 
 	for (const allel of genotype) {
 		let element = document.getElementById("inputFor" + allel);
-		if(element.value !== "" && allel.toUpperCase() === allel && element !== null) {
+		if (element.value !== "" && allel.toUpperCase() === allel && element !== null) {
 			phenotypeParts.set(allel, element.value)
-		} else if(element.value !== "" &&  !phenotypeParts.has(allel.toUpperCase()) && element !== null) {
+		} else if (element.value !== "" && !phenotypeParts.has(allel.toUpperCase()) && element !== null) {
 			phenotypeParts.set(allel, element.value)
 		}
 	}
@@ -116,14 +116,14 @@ function evalPhenotype(genotype) {
 
 // Комбинирует гаметы для создания нового генотипа
 function combineGametes(gamet1, gamet2) {
-	if(gamet1.length != gamet2.length) {
+	if (gamet1.length != gamet2.length) {
 		browseError("wrong gamet length");
 		return null;
 	}
 
 	let genotype = "";
-	for(let i = 0; i < gamet1.length; i++) {
-		if(gamet1[i] < gamet2[i]) {
+	for (let i = 0; i < gamet1.length; i++) {
+		if (gamet1[i] < gamet2[i]) {
 			genotype += gamet1[i] + gamet2[i];
 		} else {
 			genotype += gamet2[i] + gamet1[i];
@@ -136,22 +136,22 @@ function combineGametes(gamet1, gamet2) {
 function makeGametes(genotype) {
 	clearError();
 
-	if(!checkGenotype(genotype)) {
+	if (!checkGenotype(genotype)) {
 		return null;
 	}
 
 	function helper(genotype, position) {
-		if(position >= genotype.length) {
+		if (position >= genotype.length) {
 			return;
 		}
-	
+
 		let gams = helper(genotype, position + 2);
-		
-		if(gams === undefined) {
+
+		if (gams === undefined) {
 			return [...new Set([genotype[position], genotype[position + 1]])];
 		}
-	
-		if(genotype[position] === genotype[position+1]) { // гомозиготные по аллели?
+
+		if (genotype[position] === genotype[position + 1]) { // гомозиготные по аллели?
 			return gams.map(i => genotype[position] + i);
 		} else {
 			return [...gams.map(i => genotype[position] + i), ...gams.map(i => genotype[position + 1] + i)];
@@ -163,22 +163,22 @@ function makeGametes(genotype) {
 
 function onChangeText() {
 	document.getElementById("gametparams").innerHTML = "";
-	
-	if(!checkGenotypes(document.mainForm.genotype1.value, document.mainForm.genotype2.value)) {
+
+	if (!checkGenotypes(document.mainForm.genotype1.value, document.mainForm.genotype2.value)) {
 		return;
 	}
 
 	let genotype = document.mainForm.genotype1.value;
 	let gametes = makeGametes(genotype);
-	if(gametes === null) {
+	if (gametes === null) {
 		return;
 	}
 	let alleles = mergeStrings(gametes[0].toUpperCase(), gametes[0].toLowerCase());
 	let result = "";
-	for(let allel of alleles) {
+	for (let allel of alleles) {
 		result += `${allel} - <input type='text' class='pure-input' id='inputFor${allel}' 
-		placeholder='Фенотип ${allel}'> ${getInter(allel, alleles)} <br><br>`;
-	} 
+		placeholder='Фенотип ${allel}'><br><br>`;
+	}
 	document.getElementById("gametparams").innerHTML = result;
 }
 
@@ -186,12 +186,12 @@ function getInter(allel, alleles) {
 	let result = `<select id="optionFor${allel}" name="optionFor${allel}">`;
 
 	result += `<option selected value="no">Полное доминирование</option>`;
-	for(let a of alleles) {
-		if(a !== allel && a.toLowerCase() !== allel.toLowerCase()) {
+	for (let a of alleles) {
+		if (a !== allel && a.toLowerCase() !== allel.toLowerCase()) {
 			result += `<option value="epi-${a}">Эпистаз к ${a}</option>`;
 		}
 
-		if(a !== allel && a.toLowerCase() !== allel.toLowerCase()) {
+		if (a !== allel && a.toLowerCase() !== allel.toLowerCase()) {
 			result += `<option value="sce-${a}">Сцеплен с ${a}</option>`;
 		}
 	}
@@ -200,15 +200,15 @@ function getInter(allel, alleles) {
 }
 
 function checkGenotype(genotype) {
-	if(genotype.length % 2 !== 0) {
+	if (genotype.length % 2 !== 0) {
 		browseError("Веедён некорректный генотип " + genotype);
 		return false;
 	}
 
 	let member = [];
 
-	for(let i = 0; i < genotype.length; i += 2) {
-		if(member.includes(genotype[i].toLowerCase())) {
+	for (let i = 0; i < genotype.length; i += 2) {
+		if (member.includes(genotype[i].toLowerCase())) {
 			browseError("Веедён некорректный генотип " + genotype);
 			return false;
 		}
@@ -219,21 +219,21 @@ function checkGenotype(genotype) {
 }
 
 function checkGenotypes(genotype1, genotype2) {
-	if(!checkGenotype(genotype1)) {
+	if (!checkGenotype(genotype1)) {
 		return false;
 	}
 
-	if(!checkGenotype(genotype2)) {
+	if (!checkGenotype(genotype2)) {
 		return false;
 	}
 
-	if(genotype1.length !== genotype2.length) {
+	if (genotype1.length !== genotype2.length) {
 		browseError(`Генотипы ${genotype1} и ${genotype2} некорректны`);
 		return false;
 	}
 
-	for(let i = 0; i < genotype1.length; i += 1) {
-		if(genotype1[i].toLowerCase() !== genotype2[i].toLowerCase()) {
+	for (let i = 0; i < genotype1.length; i += 1) {
+		if (genotype1[i].toLowerCase() !== genotype2[i].toLowerCase()) {
 			browseError(`Генотипы ${genotype1} и ${genotype2} некорректны`);
 			return false;
 		}
@@ -244,7 +244,7 @@ function checkGenotypes(genotype1, genotype2) {
 
 function mergeStrings(string1, string2) {
 	let result = "";
-	for(let i = 0; i < string1.length; i++) {
+	for (let i = 0; i < string1.length; i++) {
 		result += string1[i] + string2[i];
 	}
 	return result;
