@@ -93,7 +93,7 @@ function runApplication() {
 	let dna2Sequence = makeDNA2(dna1Sequence);
 	let irnaSequence = makeiRNA(dna1Sequence);
 	let trnaSequence = maketRNA(irnaSequence);
-  let proteinSequence = makeProtein(irnaSequence);
+	let proteinSequence = makeProtein(irnaSequence);
 
 	dnaInput.value = dna1Sequence;
 	dna2Input.value = dna2Sequence;
@@ -107,10 +107,10 @@ function makeProtein(irna) {
 		let triplets = [];
 		let triplet = "";
 		let index = 0;
-		for(let i of irna) {
+		for (let i of irna) {
 			triplet += i;
 			index++;
-			if(index === 3) {
+			if (index === 3) {
 				triplets.push(triplet);
 				triplet = "";
 				index = 0;
@@ -125,7 +125,7 @@ function makeProtein(irna) {
 
 function makeDNA2(dna1) {
 	let dna2 = "";
-	for(let symbol of dna1) {
+	for (let symbol of dna1) {
 		dna2 += DNA_COMPLIMENTARY.get(symbol);
 	}
 	return dna2;
@@ -133,7 +133,7 @@ function makeDNA2(dna1) {
 
 function makeiRNA(dna1) {
 	let irna = "";
-	for(let symbol of dna1) {
+	for (let symbol of dna1) {
 		irna += RNA_COMPLIMENTARY.get(symbol);
 	}
 	return irna;
@@ -141,7 +141,7 @@ function makeiRNA(dna1) {
 
 function maketRNA(irna) {
 	let trna = "";
-	for(let symbol of irna) {
+	for (let symbol of irna) {
 		trna += RNA_COMPLIMENTARY.get(symbol);
 	}
 	return trna;
@@ -149,7 +149,7 @@ function maketRNA(irna) {
 
 function uniformDNA(dna) {
 	let uniformedDNA = "";
-	for(let i of dna) {
+	for (let i of dna) {
 		uniformedDNA += uniform(i);
 	}
 	return uniformedDNA;
