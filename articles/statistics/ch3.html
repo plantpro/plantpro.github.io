@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Что такое pH и как его считать?">
-    <title>Статистика. Часть 3. Меры центральной тенденции</title>
+    <title>Статистика. Часть 2. Меры центральной тенденции</title>
     
     <link rel="stylesheet" href="../../stylesheets/material.min.css">
 		<script src="../../scripts/material.min.js"></script>
@@ -20,65 +20,6 @@
 			line-height: 25px;
 		}
 		</style>
-
-<!--Load the AJAX API-->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-
-	// Load the Visualization API and the corechart package.
-	google.charts.load('current', {'packages':['corechart']});
-
-	// Set a callback to run when the Google Visualization API is loaded.
-	google.charts.setOnLoadCallback(drawChart);
-
-	// Callback that creates and populates a data table,
-	// instantiates the pie chart, passes in the data and
-	// draws it.
-	function drawChart() {
-		// Instantiate and draw our chart, passing in some options.
-		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-		chart.draw(google.visualization.arrayToDataTable([
-			["Группа", "Частота"],
-			["0", 0],
-			["10", 0],
-			["20", 1],
-			["30", 0],
-			["40", 1],
-			["50", 1],
-			["60", 3],
-			["70", 10],
-			["80", 5],
-			["90", 8],
-			["100", 3],
-		]), {
-			title:'Гистограмма частот', 
-			subtitle: 'Баллы учащихся',
-			legend: { position: 'none' },
-			//vAxis: {maxValue: 12}
-		});
-
-		chart = new google.visualization.ColumnChart(document.getElementById('reldiagram'));
-		chart.draw(google.visualization.arrayToDataTable([
-			["Группа", "Частота"],
-			["0", 0],
-			["10", 0],
-			["20", 1/30],
-			["30", 0],
-			["40", 1/30],
-			["50", 1/30],
-			["60", 3/30],
-			["70", 10/30],
-			["80", 5/30],
-			["90", 8/30],
-			["100", 3/30],
-		]), {
-			title:'Гистограмма относительных частот', 
-			subtitle: 'Баллы учащихся',
-			legend: { position: 'none' },
-			//vAxis: {maxValue: 12}
-		});
-	}
-</script>
 
 </head>
 <body>
@@ -110,9 +51,37 @@
 			<div class="page-content">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-						<h3>Статистика. Часть 1. Введение в статистику</h3>
-						<div id="chart_div"></div>
-						<div id="reldiagram"></div>
+						<h3>Статистика. Часть 3. Меры центральной тенденции</h3>
+						<p class="article-text">
+							<b>Меры центральной тенденции (measures of central location)</b> позволяют ответить на вопрос "где находится центр данных?".
+						</p>
+						<h4>1. Среднее</h4>
+						<p class="article-text">
+							Среднее - это мера центральной тенденции, хорошо знакомая всем.<br>
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="definition mdl-card__supporting-text">
+									<b>Среднее выборки (sample mean)</b> - это число, определяемое по формуле:
+									<div style="text-align: center">
+										`bar x = (sum_(i=1)^n x_i)/n`
+									</div>
+									Где:<br> 
+									`n` - размер выборки<br>
+									`sum_(i=1)^n x_i` - сумма всех наблюдений выборки
+								</div>
+							</div>
+							<br>
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="definition mdl-card__supporting-text">
+									<b>Среднее генеральной совокупности (population mean)</b> - это число, определяемое по формуле:
+									<div style="text-align: center">
+										`mu = (sum_(i=1)^N x_i)/N`
+									</div>
+									Где:<br> 
+									`N` - размер генеральной совокупности<br>
+									`sum_(i=1)^N x_i` - сумма всех наблюдений генеральной совокупности
+								</div>
+							</div>
+						</p>
           </div>
 				</div>
 			</div>
