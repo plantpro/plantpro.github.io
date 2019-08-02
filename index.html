@@ -6,111 +6,145 @@
 		<meta name="description" content="Статьи по защите растений">
 
 		<title>Защита растений</title>
-			
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-			
-		<!--[if lte IE 8]>
-			<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-		<![endif]-->
-		<!--[if gt IE 8]><!-->
-			<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-		<!--<![endif]-->
 
-		<link rel="stylesheet" href="stylesheets/style.css">
+		<link rel="stylesheet" href="stylesheets/material.min.css">
+		<script src="scripts/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	</head>
 	<body>
-		<div class="header">
-			<div style="display: table;">
-				<img src="resources/images/logo.png" class="pure-img pure-img-responsive logo-style"> 
-				<h1 class="site-name">PL-PRO</h1>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title">PLANT PROTECTION</span>
+					<!-- Add spacer, to align navigation to the right -->
+					<div class="mdl-layout-spacer"></div>
+					<!-- Navigation. We hide it in small screens. -->
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<a class="mdl-navigation__link" href="about.html">О сайте</a>
+					</nav>
+				</div>
+			</header>
+			
+			<div class="mdl-layout__drawer">
+				<span class="mdl-layout-title">Разделы</span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="articles/index.html">Статьи</a>
+					<a class="mdl-navigation__link" href="library/index.html">Библиотека</a>
+					<a class="mdl-navigation__link" href="applications/index.html">Приложения</a>
+					<a class="mdl-navigation__link" href="genetic-tasks/index.html">Сборник задач по генетике</a>
+				</nav>
 			</div>
+					
+			<main class="mdl-layout__content">
+				<div class="page-content">
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+							<div class="article-card mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card--expand post-category-geology">
+									<h2 class="mdl-card__title-text">Минералы</h2>
+								</div>
+
+								<div class="mdl-card__supporting-text">
+									Минералы и их физические свойства<br><br>
+								</div>
+								
+								<div class="mdl-card__actions">
+										<a class="post-category post-category-geology">Почвоведение</a>
+								</div>
+
+								<div class="mdl-card__actions mdl-card--border">
+									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="articles/soil_science/minerals.html">Читать</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+							<div class="article-card mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card--expand post-category-biochemistry">
+									<h2 class="mdl-card__title-text">Биоэнергетика. Часть 1: Фосфагены</h2>
+								</div>
+
+								<div class="mdl-card__supporting-text">
+									В этой лекции об основах биоэнергетики мы рассмортим фосфагены
+								</div>
+
+								<div class="mdl-card__actions">
+									<a class="post-category post-category-biochemistry">Биохимия</a>
+									<a class="post-category post-category-microbiology">Микробиология</a>
+								</div>
+
+								<div class="mdl-card__actions mdl-card--border">
+									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="articles/biochemistry/bioenergetics1.html">Читать</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+							<div class="article-card mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card--expand post-category-plant-phisiology">
+									<h2 class="mdl-card__title-text">Аквапорины</h2>
+								</div>
+								<div class="mdl-card__supporting-text">
+									Что такое аквапорины и в чём их суть<br><br>
+								</div>
+
+								<div class="mdl-card__actions">
+									<a class="post-category post-category-plant-phisiology">Физиология растений</a>
+								</div>
+
+								<div class="mdl-card__actions mdl-card--border">
+									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="articles/biochemistry/acquaporines.html">Читать</a>
+								</div>
+							</div>
+						</div>
+		
+						<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+							<div class="article-card mdl-card mdl-shadow--2dp">
+
+								<div class="mdl-card__title mdl-card--expand post-category-microbiology">
+									<h2 class="mdl-card__title-text">Дыхание микроорганизмов</h2>
+								</div>
+
+								<div class="mdl-card__supporting-text">
+										Дыхание микроорганизмов<br><br>
+								</div>
+
+								<div class="mdl-card__actions">
+									<a class="post-category post-category-microbiology">Микробиология</a>
+								</div>
+
+								<div class="mdl-card__actions mdl-card--border">
+									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="articles/microbiology/micro-art2.html">Читать</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+							<div class="article-card mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card--expand post-category-common-chemistry">
+									<h2 class="mdl-card__title-text">Что такое pH и как его считать</h2>
+								</div>
+
+								<div class="mdl-card__supporting-text">
+									Люди откровенно не понимают что такое показатель кислотности. Сейчас мы это исправим!
+								</div>
+
+								<div class="mdl-card__actions">
+									<a class="post-category post-category-common-chemistry">Общая химия</a>
+								</div>
+
+								<div class="mdl-card__actions mdl-card--border">
+									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="articles/pcc-ph-basics.html">Читать</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</main>
 		</div>
 
-		<div class="content pure-g">
-			<div class="pure-u-md-2-3 pure-u-1">
-				<div class="posts">
-					<h1 class="content-subhead">Последние статьи</h1>
-					<section class="post">
-						<header class="post-header">
-							<h2 class="post-title"><a href="articles/soil_science/minerals.html">Минералы</a></h2>
-				
-							<p class="post-meta">
-								Категории: <a class="post-category post-category-geology" href="articles/soil_science/index.html">Почвоведение</a>
-							</p>
-						</header>
-				
-						<div class="post-description">
-							<p>Минералы и их физические свойства</p>
-						</div>
-					</section>
-
-					<section class="post">
-						<header class="post-header">
-							<h2 class="post-title"><a href="articles/biochemistry/bioenergetics1.html">Биоэнергетика. Часть 1. Фосфагены.</a></h2>
-			
-							<p class="post-meta">
-								Категории: <a class="post-category post-category-biochemistry" href="#">Биохимия</a>
-														<a class="post-category post-category-microbiology" href="#">Микробиология</a>
-							</p>
-						</header>
-			
-						<div class="post-description">
-							<p>В этой лекции о основах биоэнергетики мы рассмотрим фосфагены.</p>
-						</div>
-					</section>
-
-					<section class="post">
-						<header class="post-header">
-							<h2 class="post-title"><a href="articles/biochemistry/acquaporines.html">Аквапорины</a></h2>
-			
-							<p class="post-meta">
-								Категории: <a class="post-category post-category-plant-phisiology" href="#">Физиология растений</a>
-							</p>
-						</header>
-			
-						<div class="post-description">
-							<p>
-							Что такое аквапорины? В чём их суть?
-						</p>
-						</div>
-					</section>
-
-					<section class="post">
-						<header class="post-header">
-							<h2 class="post-title"><a href="articles/microbiology/micro-art2.html">	Дыхание микроорганизмов	</a></h2>
-				
-							<p class="post-meta">
-								Категории: <a class="post-category post-category-microbiology" href="#">Микробиология</a>
-													 <a class="post-category post-category-biochemistry" href="#">Биохимия</a>
-							</p>
-						</header>
-				
-						<div class="post-description">
-							<p>
-								Дыхание микроорганизмов
-							</p>
-						</div>
-					</section>
-
-					<section class="post">
-						<header class="post-header">
-							<h2 class="post-title"><a href="articles/chemistry/common/pcc-ph-basics.html">Что такое pH и как его считать?</a></h2>
-
-							<p class="post-meta">
-								Категории: <a class="post-category post-category-common-chemistry" href="#">Общая химия</a>
-													 <a class="post-category post-category-phiscolloid-chemistry" href="#">Физколлоидная химия</a>
-							</p>
-						</header>
-
-						<div class="post-description">
-							<p>
-								Люди откровенно не понимают что такое показатель кислотности. Сейчас мы это исправим!
-							</p>
-						</div>
-					</section>
-				</div>
-			</div>
-
+		<!---
 			<div class="pure-u-md-1-3 pure-u-1">
 				<div class="posts">
 					<h1 class="content-subhead">Категории</h1>
@@ -142,6 +176,6 @@
 					</section>
 				</div>
 			</div>
-		</div>
+		</div-->
 	</body>
 </html>

@@ -1,51 +1,76 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Статьи по защите растений">
-    <title>Защита растений</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Статьи по защите растений">
+  <title>Комплементарность</title>
     
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-    
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-    <!--<![endif]-->
-
-	<link rel="stylesheet" href="../stylesheets/style.css">
+  <link rel="stylesheet" href="../stylesheets/material.min.css">
+	<script src="../scripts/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="../scripts/ru-complementarity.js"></script>
 </head>
 <body>
-	<div class="header">
-		<div style="display: table;">
-			<img src="../resources/images/logo.png" class="pure-img pure-img-responsive" style="height: 32px; display: table-cell;"> 
-			<h1 style="display: table-cell; text-align: center; padding-left: 10px;">PL-PRO</h1>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title">PLANT PROTECTION</span>
+					<!-- Add spacer, to align navigation to the right -->
+					<div class="mdl-layout-spacer"></div>
+					<!-- Navigation. We hide it in small screens. -->
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<a class="mdl-navigation__link" href="about.html">О сайте</a>
+					</nav>
+				</div>
+			</header>
+			
+			<div class="mdl-layout__drawer">
+				<span class="mdl-layout-title">Разделы</span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="../index.html">Статьи</a>
+					<a class="mdl-navigation__link" href="library/index.html">Библиотека</a>
+					<a class="mdl-navigation__link" href="applications/index.html">Приложения</a>
+					<a class="mdl-navigation__link" href="genetic-tasks/index.html">Сборник задач по генетике</a>
+				</nav>
+			</div>
+					
+			<main class="mdl-layout__content">
+				<div class="page-content">
+					<form name="mainForm" class="pure-form pure-form-aligned">
+						<fieldset>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text"  id="dnaInput" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
+								<label class="mdl-textfield__label" for="dnaInput">ДНК 1</label>
+								<span class="mdl-textfield__error">Неполный триплет!</span>
+							</div>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text"  id="dna2Input" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
+								<label class="mdl-textfield__label" for="dna2Input">ДНК 2</label>
+								<span class="mdl-textfield__error">Неполный триплет!</span>
+							</div>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" id="irnaInput">
+								<label class="mdl-textfield__label" for="irnaInput">иРНК</label>
+							</div>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text"  id="trnaInput">
+								<label class="mdl-textfield__label" for="trnaInput">тРНК</label>
+							</div>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text"  id="proteinInput">
+								<label class="mdl-textfield__label" for="proteinInput">Белок</label>
+							</div>
+
+							<input type="button" value="Построить" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="runApplication()">
+						</fieldset>
+					</form>
+				</div>
+			</main>
 		</div>
-	</div>
-
-	<div class="content" >
-		Это приложение позволяет вам быстро построить вторую цепь ДНК, иРНК, тРНК и белок по заданной последовательности нуклеотидов.<br><br>
-		Введите цепь ДНК 1 сплошным текстом и нажмите "Построить". Нуклеотиды можно вводить как русскими, так и английскими буквами (А, Т, Г, Ц, T, G, C), как маленькими, так и заглавными.
-		<br><br>
-
-		<form name="mainForm" class="pure-form pure-form-aligned">
-			<fieldset>
-				<input type="text" class="pure-input pure-input-1" name="dnaInput" id="dnaInput" placeholder="ДНК 1" onkeypress="filterDNA(event)" > <br><br>
-				
-				<input type="text" class="pure-input pure-input-1" name="dna2Input" placeholder="ДНК 2" onkeypress="filterDNA(event)"> <br><br>
-				
-				<input type="text" class="pure-input pure-input-1" name="irnaInput" placeholder="иРНК"><br><br>
-				
-				<input type="text" class="pure-input pure-input-1" name="trnaInput" placeholder="тРНК"><br><br>
-				
-				<input type="text" class="pure-input pure-input-1" name="proteinInput" placeholder="Белок"><br><br>
-
-				<input type="button" value="Построить" class="pure-input pure-button pure-button-primary" onclick="runApplication()">
-			</fieldset>
-		</form>
-	</div>
 </body>
 </html>
