@@ -1,61 +1,251 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Статьи по защите растений">
-    <title>Защита растений</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-    
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-    <!--<![endif]-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Статьи по защите растений">
+	<title>Библиотека</title>
 
-	<link rel="stylesheet" href="../stylesheets/library-style.css">
+	<link rel="stylesheet" href="../stylesheets/material.min.css">
+	<script src="../scripts/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
-	<div class="header"><h1>Библиотека PL-PRO</h1></div>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">PLANT PROTECTION</span>
+				<!-- Add spacer, to align navigation to the right -->
+				<div class="mdl-layout-spacer"></div>
+				<!-- Navigation. We hide it in small screens. -->
+				<nav class="mdl-navigation mdl-layout--large-screen-only">
+					<a class="mdl-navigation__link" href="about.html">О сайте</a>
+				</nav>
+			</div>
+		</header>
 
-	<div class="content">
-		<h1 class="content-subhead">Книги</h1>
-		<section class="post pure-g">
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: blueviolet;">
-				<a href="https://drive.google.com/open?id=1DHHn4ElLM46k91iX0kk07oVqM1XeXeY0">Пиневич. Микробиология в 3-х томах.</a>
-			</div>
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Разделы</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="#"><i class="material-icons">subject</i>Статьи</a>
+				<a class="mdl-navigation__link" href="library/index.html"><i class="material-icons">book</i>Библиотека</a>
+				<a class="mdl-navigation__link" href="applications/index.html"><i
+						class="material-icons">widgets</i>Приложения</a>
+				<a class="mdl-navigation__link" href="genetic-tasks/index.html"><i class="material-icons">list_alt</i>Сборник
+					задач по генетике</a>
+				<a class="mdl-navigation__link" href="about.html"><i class="material-icons"
+						style="font-size: 24px">live_help</i> О сайте</a>
+			</nav>
+		</div>
 
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: crimson;">
-				<a href="https://drive.google.com/open?id=1qRPv_SrkH5Ak-i1Ys7r1_67YhQxvggEk">Основы биохимии Ленинджера</a>
-			</div>
+		<main class="mdl-layout__content">
+			<div class="page-content">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<div class="article-card mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--expand post-category-microbiology">
+								<h2 class="mdl-card__title-text">Пиневич. Микробиология в 3-х томах.</h2>
+							</div>
 
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: darkgreen;">
-				<a href="https://drive.google.com/open?id=1rwqjry1pAjqjvPZGYTnqi8iDfmlJ631J">Страсбургер. Ботаника</a>
-			</div>
+							<div class="mdl-card__supporting-text">
+								<span style="vertical-align: top">Рейтинг:</span>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<br>
+								<span style="vertical-align: top">Сложность:</span>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+							</div>
 
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: deepskyblue;">
-				<a href="https://drive.google.com/open?id=1E7JOA67H07szlvnI6GCDM61H_pUcPL0R">Шлегель. Общая микробиология</a>
-			</div>
 
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: lightblue;">
-				<a href="https://drive.google.com/open?id=1VQwqYJ_n4df_bIESAtrknQMA9Xkm3I86">Гусев. Микробиология</a>
-			</div>
+							<div class="mdl-card__actions">
+								<a class="post-category post-category-microbiology">Микробиология</a>
+								<a class="post-category post-category-biochemistry">Биохимия</a>
+							</div>
 
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: lightskyblue;">
-				<a href="https://drive.google.com/open?id=16syzS8v6O1jGV-wzMBXln5vN5MyDfr_q">Нетрусов. Микробиология</a>
-			</div>
-		</section>
-		<h1 class="content-subhead">Интернет-ресурсы</h1>
-		<section class="post pure-g">
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: blueviolet;">
-				<a href="https://medach.pro">Медач</a>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-6 block" style="background-color: purple;">
-					<a href="http://antropogenez.ru">Антропогенез.ру</a>
+							<div class="mdl-card__actions mdl-card--border">
+								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+									href="https://drive.google.com/open?id=1DHHn4ElLM46k91iX0kk07oVqM1XeXeY0">Скачать</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<div class="article-card mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--expand post-category-biochemistry">
+								<h2 class="mdl-card__title-text">Основы биохимии Ленинджера</h2>
+							</div>
+
+							<div class="mdl-card__supporting-text">
+								<span style="vertical-align: top">Рейтинг:</span>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i><br>
+								<span style="vertical-align: top">Сложность:</span>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+							</div>
+
+							<div class="mdl-card__actions">
+								<a class="post-category post-category-biochemistry">Биохимия</a>
+							</div>
+
+							<div class="mdl-card__actions mdl-card--border">
+								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+									href="https://drive.google.com/open?id=1qRPv_SrkH5Ak-i1Ys7r1_67YhQxvggEk">Скачать</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<div class="article-card mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--expand post-category-plant-anatomy">
+								<h2 class="mdl-card__title-text">Страсбургер. Ботаника</h2>
+							</div>
+
+							<div class="mdl-card__supporting-text">
+								<span style="vertical-align: top">Рейтинг:</span>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star_border</i>
+								<br>
+								<span style="vertical-align: top">Сложность:</span>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+							</div>
+
+							<div class="mdl-card__actions">
+								<a class="post-category post-category-plant-anatomy">Ботаника</a>
+							</div>
+
+							<div class="mdl-card__actions mdl-card--border">
+								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+									href="https://drive.google.com/open?id=1rwqjry1pAjqjvPZGYTnqi8iDfmlJ631J">Скачать</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<div class="article-card mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--expand post-category-microbiology">
+								<h2 class="mdl-card__title-text">Шлегель. Общая микробиология</h2>
+							</div>
+
+							<div class="mdl-card__supporting-text">
+								<span style="vertical-align: top">Рейтинг:</span>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<br>
+								<span style="vertical-align: top">Сложность:</span>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+							</div>
+
+							<div class="mdl-card__actions">
+								<a class="post-category post-category-microbiology">Микробиология</a>
+								<a class="post-category post-category-biochemistry">Биохимия</a>
+							</div>
+
+							<div class="mdl-card__actions mdl-card--border">
+								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+									href="https://drive.google.com/open?id=1E7JOA67H07szlvnI6GCDM61H_pUcPL0R">Скачать</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<div class="article-card mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--expand post-category-microbiology">
+								<h2 class="mdl-card__title-text">Гусев. Микробиология</h2>
+							</div>
+
+							<div class="mdl-card__supporting-text">
+								<span style="vertical-align: top">Рейтинг:</span>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star_border</i>
+								<br>
+								<span style="vertical-align: top">Сложность:</span>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+							</div>
+
+							<div class="mdl-card__actions">
+								<a class="post-category post-category-microbiology">Микробиология</a>
+							</div>
+
+							<div class="mdl-card__actions mdl-card--border">
+								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+									href="https://drive.google.com/open?id=1VQwqYJ_n4df_bIESAtrknQMA9Xkm3I86">Скачать</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<div class="article-card mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--expand post-category-microbiology">
+								<h2 class="mdl-card__title-text">Нетрусов. Микробиология</h2>
+							</div>
+
+							<div class="mdl-card__supporting-text">
+								<span style="vertical-align: top">Рейтинг:</span>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:gold;">star_border</i>
+								<br>
+								<span style="vertical-align: top">Сложность:</span>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+								<i class="material-icons" style="font-size: 18px;color:orangered;">star_border</i>
+							</div>
+
+							<div class="mdl-card__actions">
+								<a class="post-category post-category-microbiology">Микробиология</a>
+							</div>
+
+							<div class="mdl-card__actions mdl-card--border">
+								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+									href="https://drive.google.com/open?id=16syzS8v6O1jGV-wzMBXln5vN5MyDfr_q">Скачать</a>
+							</div>
+						</div>
+					</div>
 				</div>
-		</section>
+			</div>
+		</main>
 	</div>
 </body>
+
 </html>
