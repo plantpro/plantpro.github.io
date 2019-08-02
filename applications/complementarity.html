@@ -37,36 +37,45 @@
 					
 			<main class="mdl-layout__content">
 				<div class="page-content">
-					<form name="mainForm" class="pure-form pure-form-aligned">
+					<form name="mainForm">
 						<fieldset>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text"  id="dnaInput" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
-								<label class="mdl-textfield__label" for="dnaInput">ДНК 1</label>
-								<span class="mdl-textfield__error">Неполный триплет!</span>
+						<div class="mdl-grid">
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<input class="mdl-textfield__input" type="text"  id="dnaInput" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
+									<label class="mdl-textfield__label" for="dnaInput">ДНК 1</label>
+									<span class="mdl-textfield__error">Неполный триплет!</span>
+								</div>
 							</div>
-
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text"  id="dna2Input" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
-								<label class="mdl-textfield__label" for="dna2Input">ДНК 2</label>
-								<span class="mdl-textfield__error">Неполный триплет!</span>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<input class="mdl-textfield__input" type="text"  id="dna2Input" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
+									<label class="mdl-textfield__label" for="dna2Input">ДНК 2</label>
+									<span class="mdl-textfield__error">Неполный триплет!</span>
+								</div>
 							</div>
-
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="irnaInput">
-								<label class="mdl-textfield__label" for="irnaInput">иРНК</label>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<input class="mdl-textfield__input" type="text" id="irnaInput">
+									<label class="mdl-textfield__label" for="irnaInput">иРНК</label>
+								</div>
 							</div>
-
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text"  id="trnaInput">
-								<label class="mdl-textfield__label" for="trnaInput">тРНК</label>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<input class="mdl-textfield__input" type="text"  id="trnaInput">
+									<label class="mdl-textfield__label" for="trnaInput">тРНК</label>
+								</div>
 							</div>
-
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text"  id="proteinInput">
-								<label class="mdl-textfield__label" for="proteinInput">Белок</label>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<input class="mdl-textfield__input" type="text"  id="proteinInput">
+									<label class="mdl-textfield__label" for="proteinInput">Белок</label>
+								</div>
 							</div>
-
-							<input type="button" value="Построить" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="runApplication()">
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<input type="button" value="Построить" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="runApplication()">
+							</div>
+						</div>
 						</fieldset>
 					</form>
 				</div>
