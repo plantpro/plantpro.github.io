@@ -41,35 +41,35 @@
 						<fieldset>
 						<div class="mdl-grid">
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-									<input class="mdl-textfield__input" type="text"  id="dnaInput" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
-									<label class="mdl-textfield__label" for="dnaInput">ДНК 1</label>
+								<div class="mdl-textfield mdl-js-textfield">
+									<label class="tblbl">ДНК 1</label>
+									<input class="mdl-textfield__input" type="text" name="inpuu" id="dnaInput" pattern="(.{3})*" onkeypress="filterDNA(event)">
 									<span class="mdl-textfield__error">Неполный триплет!</span>
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<div class="mdl-textfield mdl-js-textfield">
+									<label class="tblbl">ДНК 2</label>
 									<input class="mdl-textfield__input" type="text"  id="dna2Input" pattern="((A|T|G|C|a|t|g|c|А|Т|Г|Ц|а|т|г|ц){3})*" onkeypress="filterDNA(event)">
-									<label class="mdl-textfield__label" for="dna2Input">ДНК 2</label>
 									<span class="mdl-textfield__error">Неполный триплет!</span>
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<label class="tblbl">иРНК</label>
 									<input class="mdl-textfield__input" type="text" id="irnaInput">
-									<label class="mdl-textfield__label" for="irnaInput">иРНК</label>
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<div class="mdl-textfield mdl-js-textfield">
+									<label class="tblbl">тРНК</label>
 									<input class="mdl-textfield__input" type="text"  id="trnaInput">
-									<label class="mdl-textfield__label" for="trnaInput">тРНК</label>
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-									<input class="mdl-textfield__input" type="text"  id="proteinInput">
-									<label class="mdl-textfield__label" for="proteinInput">Белок</label>
+								<div class="mdl-textfield mdl-js-textfield">
+									<label class="tblbl">Белок</label>
+									<input class="text-box-with-label mdl-textfield__input" type="text"  id="proteinInput">
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
