@@ -40,7 +40,7 @@ class Counter {
 	}
 
 	getTable(tableName) {
-		let builder = tableName + ": <br><table class='pure-table'><tr>";
+		let builder = `<label class="tblbl">` + tableName + ": </label><br><table class='mdl-data-table mdl-js-data-table'><tr>";
 
 		for (let k of this.counter.keys()) {
 			builder += "<td>" + k + "</td>"
@@ -60,7 +60,7 @@ function createOutput(g1, g2) {
 	let genotypeCounter = new Counter();
 	let phenotypeCounter = new Counter();
 
-	let builder = "Решётка Пеннета: <table class='pure-table'><tr><td></td>";
+	let builder = "<br><label class=\"tblbl\">Решётка Пеннета: </label><br><table class='mdl-data-table mdl-js-data-table'><tr><td></td>";
 
 	for (let i of g2) {
 		builder += `<td>${i}</td>`;
@@ -176,8 +176,8 @@ function onChangeText() {
 	let alleles = mergeStrings(gametes[0].toUpperCase(), gametes[0].toLowerCase());
 	let result = "";
 	for (let allel of alleles) {
-		result += `${allel} - <input type='text' class='pure-input' id='inputFor${allel}' 
-		placeholder='Фенотип ${allel}'><br><br>`;
+		result += `<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+		<div class="mdl-textfield mdl-js-textfield"><label class="tblbl">Фенотип ${allel}</label> <input type='text' class='mdl-textfield__input' id='inputFor${allel}'></div></div>`;
 	}
 	document.getElementById("gametparams").innerHTML = result;
 }
