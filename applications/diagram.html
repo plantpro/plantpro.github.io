@@ -13,46 +13,7 @@
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-<style class="cp-pen-styles">
-	@import "compass/css3";
-
-		.table-editable {
-			position: relative;
-			
-			.glyphicon {
-				font-size: 20px;
-			}
-		}
-		
-		.table-remove {
-			color: #700;
-			cursor: pointer;
-			
-			&:hover {
-				color: #f00;
-			}
-		}
-		
-		.table-up, .table-down {
-			color: #007;
-			cursor: pointer;
-			
-			&:hover {
-				color: #00f;
-			}
-		}
-		
-		.table-add {
-			color: #070;
-			cursor: pointer;
-			position: absolute;
-			top: 8px;
-			right: 0;
-			
-			&:hover {
-				color: #0b0;
-			}
-		}</style>
+	<link rel="stylesheet" href="../stylesheets/editable.css">
 </head>
 
 <body>
@@ -64,7 +25,7 @@
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<a class="mdl-navigation__link" href="about.html">О сайте</a>
+					<a class="mdl-navigation__link" href="../about.html">О сайте</a>
 				</nav>
 			</div>
 		</header>
@@ -84,9 +45,9 @@
 
 		<main class="mdl-layout__content">
 			<div class="page-content">
-					<div class="mdl-grid">
-							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-					<div id="table" class="table-editable">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+						<div id="table" class="table-editable">
 							<span class="table-add glyphicon glyphicon-plus"></span>
 							<table class="table">
 								<tr>
@@ -120,8 +81,26 @@
 								</tr>
 							</table>
 						</div>
-						
-						<button id="export-btn" class="btn btn-primary">Построить</button>
+
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+							<input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+							<span class="mdl-radio__label">Гистограмма</span>
+						</label><br>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+							<input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+							<span class="mdl-radio__label">Гистограмма относительных частот</span>
+						</label><br>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+								<input type="radio" id="option-4" class="mdl-radio__button" name="options" value="4">
+								<span class="mdl-radio__label">Горизонтальная гистограмма</span>
+							</label><br>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+							<input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3">
+							<span class="mdl-radio__label">Диаграмма</span>
+						</label><br><br>
+
+						<button id="export-btn"
+							class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Построить</button>
 						<div id="plot"> </div>
 					</div>
 				</div>
@@ -130,79 +109,40 @@
 	</div>
 </body>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+	function drawPlot(data) {
+		if (document.getElementById("option-1").checked) {
+			var chart = new google.visualization.ColumnChart(document.getElementById("plot"));
+			chart.draw(google.visualization.arrayToDataTable(data), { legend: { position: 'none' } });
+		} else if (document.getElementById("option-4").checked) {
+			var chart = new google.visualization.BarChart(document.getElementById("plot"));
+			chart.draw(google.visualization.arrayToDataTable(data), { legend: { position: 'none' } });
+		} else if (document.getElementById("option-2").checked) {
+			let n = 0;
 
-	<script>
-
-	var $TABLE = $('#table');
-	var $BTN = $('#export-btn');
-
-	$('.table-add').click(function () {
-  	var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
-  	$TABLE.find('table').append($clone);
-	});
-
-	$('.table-remove').click(function () {
-  	$(this).parents('tr').detach();
-	});
-
-$('.table-up').click(function () {
-  var $row = $(this).parents('tr');
-  if ($row.index() === 1) return; // Don't go above the header
-  $row.prev().before($row.get(0));
-});
-
-$('.table-down').click(function () {
-  var $row = $(this).parents('tr');
-  $row.next().after($row.get(0));
-});
-
-// A few jQuery helpers for exporting only
-jQuery.fn.pop = [].pop;
-jQuery.fn.shift = [].shift;
-
-$BTN.click(function () {
-  var $rows = $TABLE.find('tr:not(:hidden)');
-  var headers = [];
-  var data = [["", ""]];
-  
-  // Get the headers (add special header logic here)
-  $($rows.shift()).find('th:not(:empty)').each(function () {
-    headers.push($(this).text().toLowerCase());
-  });
-  
-  // Turn all existing rows into a loopable array
-  $rows.each(function () {
-    var $td = $(this).find('td');
-    var h = [];
-    
-    // Use the headers from earlier to name our hash keys
-    headers.forEach(function (header, i) {
-			if(i == 0) {
-				h.push($td.eq(i).text());   
-			} else { 
-				h.push(parseInt($td.eq(i).text()));   
+			for(let i of data) {
+				if((typeof i[1]) === "number")
+					n += i[1];
 			}
-    });
-    
-    data.push(h);
-	});
-	
-	// Load the Visualization API and the corechart package.
-	google.charts.load('current', {'packages':['corechart']});
+			
+			for(let i of data) {
+				if((typeof i[1]) === "number")
+					i[1] = i[1] / n;
+			}
 
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(() => {
-	console.log(data)
-	var chart = new google.visualization.ColumnChart(document.getElementById("plot"));
-	chart.draw(google.visualization.arrayToDataTable(data), { legend:{position:'none'}});
-});
-
-});
+			var chart = new google.visualization.ColumnChart(document.getElementById("plot"));
+			chart.draw(google.visualization.arrayToDataTable(data), { legend: { position: 'none' } });
+		} else {
+			var chart = new google.visualization.PieChart(document.getElementById("plot"));
+			chart.draw(google.visualization.arrayToDataTable(data));
+		}
+	}
 </script>
+<script type="text/javascript" src="../scripts/editable.js"></script>
 
 </html>

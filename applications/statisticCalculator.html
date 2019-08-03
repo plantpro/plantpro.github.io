@@ -5,12 +5,18 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Статьи по защите растений">
-	<title>Решётка Пеннета</title>
+	<title>Статистический калькулятор</title>
 
 	<link rel="stylesheet" href="../stylesheets/material.min.css">
 	<script src="../scripts/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<script src="../scripts/pennet.js"></script>
+	<script src="../scripts/statistic-calc.js"></script>
+
+	<style>
+		.mdl-textfield {
+			width: 100%;
+		}
+	</style>
 </head>
 
 <body>
@@ -22,7 +28,7 @@
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<a class="mdl-navigation__link" href="../about.html">О сайте</a>
+					<a class="mdl-navigation__link" id="help" href="#">Помощь</a>
 				</nav>
 			</div>
 		</header>
@@ -35,8 +41,8 @@
 				<a class="mdl-navigation__link" href="index.html"><i class="material-icons">widgets</i>Приложения</a>
 				<a class="mdl-navigation__link" href="../genetic-tasks/index.html"><i class="material-icons">list_alt</i>Сборник
 					задач по генетике</a>
-				<a class="mdl-navigation__link" href="../about.html"><i class="material-icons"
-						style="font-size: 24px">live_help</i> О сайте</a>
+				<a class="mdl-navigation__link" id="help2" href="#"><i class="material-icons"
+						style="font-size: 24px">live_help</i> Помощь</a>
 			</nav>
 		</div>
 
@@ -47,33 +53,49 @@
 						<div class="mdl-grid">
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
-									<label class="tblbl">Генотип 1</label>
-									<input type="text" class="mdl-textfield__input" name="genotype1" id="dnaInput"
-										onkeyup="onChangeText(event)">
+									<label class="tblbl">Введите данные:</label>
+									<textarea class="mdl-textfield__input" rows="1" type="text" name="seqInput" id="seqInput"> </textarea>
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div class="mdl-textfield mdl-js-textfield">
-									<label class="tblbl">Генотип 2</label>
-									<input type="text" class="mdl-textfield__input" name="genotype2" onkeyup="onChangeText(event)">
-								</div>
-							</div>
-							<div id="gametparams"></div>
-							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div id="errorlogs"></div>
-
-								<input type="button" value="Построить"
+								<input type="button" value="Рассчитать"
 									class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="runApplication()">
 							</div>
+
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div id="tableplace"></div>
+								<div id="reportPlace"></div>
 							</div>
 						</div>
 					</fieldset>
 				</form>
 			</div>
 		</main>
+<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
+<script>
+(function() {
+  'use strict';
+  var snackbarContainer = document.querySelector('#demo-snackbar-example');
+	var showSnackbarButton = document.querySelector('#help');
+	var showSnackbarButton2 = document.querySelector('#help2');
+
+	function handler() {
+    'use strict';
+    var data = {
+      message: 'Введите числовые значения в поле через запятые или пробел и нажмите Рассчитать. Для отделения дробной части используйте точку, например: 4.5, 7.2',
+      timeout: 10000
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  }
+
+	showSnackbarButton2.addEventListener('click', handler);
+  showSnackbarButton.addEventListener('click', handler);
+}());
+</script>
 	</div>
 </body>
+
 
 </html>
