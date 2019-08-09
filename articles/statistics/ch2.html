@@ -13,12 +13,20 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML" async></script>
 
 	<style>
-	/*	.article-text {
-			font-size: 16px;
-		}*/
-
-		.definition {
+	.definition {
+			padding: 15px 10px;
+			background-color: #dfe2fa;
 			line-height: 25px;
+		}
+
+		.definition-header {
+			padding: 5px 5px;
+			background-color: #3f51b5;
+			line-height: 25px;
+			color: white;
+			text-align: center;
+			text-transform: uppercase;
+			box-shadow: 5px #0000;
 		}
 	</style>
 
@@ -103,8 +111,8 @@
 							central location)</b>,
 						которые позволяют ответить на вопрос "где находится центр данных?".<br>
 						<h4> 1. Среднее </h4><br>Среднее - это мера центральной тенденции, хорошо знакомая всем.<br><br>
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Определение</div>
+						<div class="definition">
 								<b> Среднее выборки (sample mean) </b> - это число, определяемое по формуле:<br>
 								<div style="text-align: center">
 									` bar x = (sum_(i=1)^n x_i)/n `
@@ -112,11 +120,10 @@
 								Где:<br>
 								`n` - размер выборки <br>
 								`sum_(i=1)^n x_i` - сумма всех наблюдений выборки
-							</div>
 						</div>
 						<br>
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Определение</div>
+						<div class="definition">
 								<b>Среднее генеральной совокупности (population mean)</b> - это число, определяемое по формуле:<br>
 								<div style="text-align: center">
 									` mu = (sum_(i=1)^N x_i)/N `
@@ -125,21 +132,18 @@
 								`N` - размер генеральной совокупности<br>
 								`sum_(i=1)^N x_i` - сумма всех наблюдений генеральной совокупности<br>
 							</div>
-						</div>
 						<br>
 						Например:<br><br>
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Пример</div>
+						<div class="definition">
 								`x = { 2, -1, 0, 2 }`<br>`bar x = (sum_(i=1)^4 x_i)/4 = (2 + (-1) + 0 + 2)/4 = 3/4 = 0.75`<br>
 							</div>
-						</div>
 						<br>
 						Для нашего примера мы таже можем рассчитать среднее:<br><br>
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Пример</div>
+						<div class="definition">
 								`bar x = (sum_(i=1)^30 x_i)/4 = 2330/30 = 77.6`<br>
 							</div>
-						</div>
 
 						<h5>Найти среднее по шагам:</h5>
 						<ul class="mdl-list">
@@ -151,39 +155,35 @@
 						<h4>2. Медиана</h4><br>
 						У среднего обычно существуют некоторые проблемы. Например, найдём среднее этой
 						выборки:<br><br>
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Пример</div>
+						<div class="definition">
 								`x = { 24.8, 22.8, 24.6, 192.5, 25.2, 18.5, 23.7 }` <br>`bar x = 47.4`<br>
-							</div>
 						</div><br>Очевидно, что для этой выборки среднее слишком велико из-за того, что там имеется одно значение
 						(`192.5`), которое резко отличается от всех остальных. Такие значения называются
 						<b>выбросами</b>.<br><br>
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Определение</div>
+						<div class="definition">
 								<b>Выброс (outlier)</b> - это значение, которое сильно отличается от основного набора данных и которое
 								может исказить результаты исследования. <br>
 							</div>
-						</div>
 						<br>
 						В таком случае более подходящей мерой центральной тенденции будет <b>медиана</b>.<br><br>
 
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Определение</div>
+						<div class="definition">
 								<b> Медиана выборки (sample median) </b> - это значение, которое лежит ровно в центре упорядоченной выборки 
-								и обозначаемое как `~x`
+								и обозначаемое как `tilde x`
 							</div>
-						</div>
 						<br>
 						Обратите внимание на слово "упорядоченной" - перед поиском медианы вы должны расположить ваши значения в 
 						порядке возрастания. Найдём медиану примера выше:<br><br>
 
-						<div class="mdl-card mdl-shadow--2dp" style="min-height: 0px">
-							<div class="definition mdl-card__supporting-text">
+						<div class="definition-header">Пример</div>
+						<div class="definition">
 								`x = { 24.8, 22.8, 24.6, 192.5, 25.2, 18.5, 23.7 }` <br>
 								Отсортируем выборку:<br>
 								`x = { 18.5, 22.8, 23.7, 24.6, 24.8, 25.2, 192.5 }`<br>
 								`tilde x = 24.6`<br>
-							</div>
 						</div><br>
 
 						Итак, медиана в этом случае равна `24.6`, так как это число лежит ровно в середине и разделяет нашу выборку пополам. 
