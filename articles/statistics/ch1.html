@@ -28,6 +28,10 @@
 			text-transform: uppercase;
 			box-shadow: 5px #0000;
 		}
+
+		img {
+			max-height: 300px;
+		}
 	</style>
 
 </head>
@@ -65,6 +69,7 @@
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 						<h3>Статистика. Часть 1. Введение в статистику</h3>
+						<h5>Основные понятия статистики</h5>
 						Начнём с небольшого примера: в мире более 7.5 миллиардов человек, каждый из которых имеет
 						какой-либо рост. Как мы можем узнать средний рост человека? Очевидно, измерять каждого человека - очень
 						плохая идея. Вместо этого мы можем взять лишь часть всех людей, скажем, 800 и найти среднее для них.
@@ -105,8 +110,18 @@
 						<br>
 						Продолжая наш пример, если средний рост людей в нашей выборке составит 168см, то мы можем предположить
 						что это средний рост всех людей в целом. То есть мы делаем предположение о генеральной совокупности на
-						основании
-						нашей выборки. Обобщая, можно сказать что статистика это наука о данных и делится на две основные ветви:
+						основании нашей выборки.
+						Взаимосвязь всех этих понятий видна на следующей картинке:
+						<br>
+						<div style="text-align: center">
+							<img src="../../resources/article-res/images/statistics/grand_picture.jpg">
+						</div>
+						<br>
+						У нас есть генеральная совокупность, мы создаём из неё выборку, затем проводим измерения нашей выборки и
+						получаем данные, затем, анализируя данные, мы получаем некие статистики, характерные для нашей выборки и
+						обобщаем результаты исследования получая параметры для всей генеральной совокупности.
+						<br>
+						Обобщая, можно сказать что статистика это наука о данных и делится на две основные ветви:
 						описательную статистику, целью которой является описание свойств данных и индуктивную статистику, целью
 						которой
 						является обобщение данных, полученных из выборки на всю генеральную совокупность.
@@ -127,11 +142,194 @@
 							<b>Индуктивная статистика (inferential statistics)</b> - ветвь статистики,
 							задачей которой является обобщение данных, полученных из выборки на всю генеральную совокупность.
 						</div>
+						<br>
+						Стоит сказать что измерения, полученные в ходе ислледования не обязательно должны быть числовыми. Например,
+						мы можем учитывать пол человека: мужской и женский. Очевидно что его не нужно описывать какими-то числами
+						(хотя сделать это мы можем). Слледовательно, данные мы можем разделить на 2 больших типа: количественные и
+						качественные.
+						<br>
+						<br>
+						<div class="definition-header">Определение</div>
+						<div class="definition">
+							<b>Качественные данные (qualitative data)</b> - это измерения, для которых нет числовой шкалы, они
+							описываются различными нечисловыми значениями, например, метками.
+						</div>
+						<br>
+						<div class="definition-header">Определение</div>
+						<div class="definition">
+							<b>Количественные данные (quantitative data)</b> - числовые значения, то есть те, которые мы можем
+							расположить на числовой шкале.
+							Из количественных данных мы можем получить количественные статистики выборки (такие как среднее).
+						</div>
+						<br>
+						<h5>Популярные способы представления данных</h5>
+						Итак, вы измерили какую-то характеристику вашей выборки и теперь вам нужно как-то представить ваши данные
+						для последующего анализа. В этих статьях мы будем пользоваться двумя способами. Первый - это так
+						называемый <b>список данных (data list)</b>. Список данных - это простое перечисление всех измерений для
+						выборки:
+						<br><br>
+						<div class="definition-header">Пример</div>
+						<div class="definition">
+							Возраст 21 случайных студентов СПбГАУ может быть представлен так:
+							<math xml:id="fwk-shafer-ch01-m0005" display="block">
+								<mrow>
+									<mtable columnspacing="0.5em" columnlines="none none none none none none none none none none">
+										<mtr>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>19</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>19</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>19</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>22</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>20</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>17</mn>
+											</mtd>
+										</mtr>
+										<mtr>
+											<mtd columnalign="center">
+												<mn>19</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>24</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>20</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>21</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>20</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>17</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>19</mn>
+											</mtd>
+											<mtd></mtd>
+										</mtr>
+									</mtable>
+								</mrow>
+							</math>
+							или так:
+							<math xml:id="fwk-shafer-ch01-m0006" display="block">
+								<mrow>
+									<mrow>
+										<mo>{</mo>
+										<mrow>
+											<mn>18, 18, 19, 19, 19, 18, 22, 20, 18, 18, 17, 19, 18, 24, 18, 20, 18, 21, 20, 17, 19</mn>
+										</mrow>
+										<mo>}</mo>
+									</mrow>
+								</mrow>
+							</math>
+						</div>
+						<br>
+						Набор данных также может быть представлен <b>таблицей частот (data frequency table)</b> - это таблица, где
+						указан <math><mi>x</mi></math> - конкретное значение и соответствующая частота <math><mi>f</mi></math> 
+						(то есть количество этого значения в нашем наборе).<br><br>
+						<div class="definition-header">Пример</div>
+						<div class="definition">
+							Перепишем представленные выше данные в виде таблицы частот:
+							<math display="block">
+								<mrow>
+									<mtable columnspacing="0.5em" columnlines="solid none none none none none none" rowlines="solid">
+										<mtr>
+											<mtd columnalign="center">
+												<mi>x</mi>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>17</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>18</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>19</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>20</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>21</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>22</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>24</mn>
+											</mtd>
+										</mtr>
+										<mtr>
+											<mtd columnalign="center">
+												<mi>f</mi>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>2</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>8</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>5</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>3</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>1</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>1</mn>
+											</mtd>
+											<mtd columnalign="center">
+												<mn>1</mn>
+											</mtd>
+										</mtr>
+									</mtable>
+								</mrow>
+							</math>
+						</div>
 					</div>
 				</div>
 			</div>
 		</main>
 	</div>
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
 </body>
 
 </html>
