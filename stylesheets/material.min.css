@@ -108,3 +108,28 @@
 	bottom: 0;
   display: block;
 }
+
+.definition {
+	padding: 15px 10px;
+	background-color: #dfe2fa;
+	line-height: 25px;
+	overflow: auto;
+}
+
+.definition-header {
+	padding: 5px 5px;
+	background-color: #3f51b5;
+	line-height: 25px;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	box-shadow: 5px #0000;
+}
+
+img {
+	max-height: 300px;
+}
+
+a {
+	color: #3f51b5;
+}
