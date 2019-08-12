@@ -1,12 +1,18 @@
-const DNA_VALID_CHARS = ["A", "T", "G", "C", "a", "t", "g", "c", "А", "Т", "Г", "Ц", "а", "т", "г", "ц"];
+/* 
+ * Complimentarity application © 2019
+ * Autor: Tsvikevich Denis
+ */
+
+const DNA_VALID_CHARS = ["A", "T", "G", "C", "a", "t", "g", "c", "А", "Т", "Г", "Ц", "а", "т", "г", "ц", " "];
+const RNA_VALID_CHARS = ["A", "U", "G", "C", "a", "u", "g", "c", "А", "У", "Г", "Ц", "а", "у", "г", "ц", " "];
 
 const DNA_COMPLIMENTARY = new Map([
 	["А", "Т"],
 	["Т", "А"],
 	["Г", "Ц"],
+	["У", "А"],
 	["Ц", "Г"]
 ]);
-
 const RNA_COMPLIMENTARY = new Map([
 	["А", "У"],
 	["Т", "А"],
@@ -81,7 +87,17 @@ const GENETIC_CODE = new Map([
 	["ГГГ", "ГЛИ"],
 ])
 
+const INPUT_TYPE = {
+	DNA1: 1,
+	DNA2: 2,
+	IRNA: 3,
+	TRNA: 4,
+	PROTEIN: 5
+}
 
+var lastInputType = 1;
+
+// Entry point for application
 function runApplication() {
 	let dnaInput = document.mainForm.dnaInput;
 	let dna2Input = document.mainForm.dna2Input;
@@ -89,30 +105,85 @@ function runApplication() {
 	let trnaInput = document.mainForm.trnaInput;
 	let proteinInput = document.mainForm.proteinInput;
 
-	let dna1Sequence = uniformDNA(dnaInput.value);
-	let dna2Sequence = makeDNA2(dna1Sequence);
-	let irnaSequence = makeiRNA(dna1Sequence);
-	let trnaSequence = maketRNA(irnaSequence);
-	let proteinSequence = makeProtein(irnaSequence);
+	let result;
+	switch (lastInputType) {
+		case 1:
+			result = buildByDnaOne();
+			break;
+		case 2:
+			result = buildByDnaTwo();
+			break;
+		case 3:
+			result = buildByInformationalRna();
+			break;
+		case 4:
+			result = buildByTransferRna();
+			break;
+	}
 
-	dnaInput.value = dna1Sequence;
-	dna2Input.value = dna2Sequence;
-	irnaInput.value = irnaSequence;
-	trnaInput.value = trnaSequence;
-	proteinInput.value = proteinSequence;
+	dnaInput.value = formatOutput(result.firstDnaSequence);
+	dna2Input.value = formatOutput(result.secondDnaSequence);
+	irnaInput.value = formatOutput(result.informationalRnaSequence);
+	trnaInput.value = formatOutput(result.transferRnaSequence);
+	proteinInput.value = result.proteinSequence;
 }
 
-function makeProtein(irna) {
+function buildByDnaOne() {
+	let firstDnaSequence = uniformSequence(dnaInput.value);
+	let secondDnaSequence = makeComplimentaryDna(firstDnaSequence);
+	let informationalRnaSequence = makeInformationalRna(firstDnaSequence);
+	let transferRnaSequence = makeTransferRna(informationalRnaSequence);
+	let proteinSequence = makeProteinFromInformationalRna(informationalRnaSequence);
+
+	return { firstDnaSequence, secondDnaSequence, informationalRnaSequence, transferRnaSequence, proteinSequence };
+}
+
+function buildByDnaTwo() {
+	let secondDnaSequence = uniformSequence(dna2Input.value);
+	let firstDnaSequence = makeComplimentaryDna(secondDnaSequence);
+	let informationalRnaSequence = makeInformationalRna(secondDnaSequence);
+	let transferRnaSequence = makeTransferRna(informationalRnaSequence);
+	let proteinSequence = makeProteinFromInformationalRna(informationalRnaSequence);
+
+	return { firstDnaSequence, secondDnaSequence, informationalRnaSequence, transferRnaSequence, proteinSequence };
+}
+
+function buildByInformationalRna() {
+	let informationalRnaSequence = uniformSequence(irnaInput.value);
+	let firstDnaSequence = makeDnaFromiRna(informationalRnaSequence);
+	let secondDnaSequence = makeComplimentaryDna(firstDnaSequence);
+	let transferRnaSequence = makeTransferRna(informationalRnaSequence);
+	let proteinSequence = makeProteinFromInformationalRna(informationalRnaSequence);
+
+	return { firstDnaSequence, secondDnaSequence, informationalRnaSequence, transferRnaSequence, proteinSequence };
+}
+
+function buildByTransferRna() {
+	let transferRnaSequence = uniformSequence(trnaInput.value);
+	let secondDnaSequence = makeDnaFromiRna(transferRnaSequence);
+	let firstDnaSequence = makeComplimentaryDna(secondDnaSequence);
+	let informationalRnaSequence = makeInformationalRna(firstDnaSequence);
+	let proteinSequence = makeProteinFromInformationalRna(informationalRnaSequence);
+
+	return { firstDnaSequence, secondDnaSequence, informationalRnaSequence, transferRnaSequence, proteinSequence };
+}
+
+// Creates protein sequence from iRNA
+function makeProteinFromInformationalRna(irna) {
+	// Helper function for splitting iRNA sequence into triplets
 	function divideIntoTriplets(irna) {
+		// Result array
 		let triplets = [];
-		let triplet = "";
+
+		let currentTriplet = "";
 		let index = 0;
 		for (let i of irna) {
-			triplet += i;
+			currentTriplet += i;
 			index++;
+
 			if (index === 3) {
-				triplets.push(triplet);
-				triplet = "";
+				triplets.push(currentTriplet);
+				currentTriplet = "";
 				index = 0;
 			}
 		}
@@ -123,69 +194,151 @@ function makeProtein(irna) {
 	return triplets.map(x => GENETIC_CODE.get(x)).join("-");
 }
 
-function makeDNA2(dna1) {
-	let dna2 = "";
-	for (let symbol of dna1) {
-		dna2 += DNA_COMPLIMENTARY.get(symbol);
+function mapString(string, mapper) {
+	let result = "";
+	for (let char of string) {
+		result += mapper(char);
 	}
-	return dna2;
+	return result;
 }
 
-function makeiRNA(dna1) {
-	let irna = "";
-	for (let symbol of dna1) {
-		irna += RNA_COMPLIMENTARY.get(symbol);
-	}
-	return irna;
+// Creates complemetary sequence from DNA
+function makeComplimentaryDna(dna) {
+	return mapString(dna, x => DNA_COMPLIMENTARY.get(x));
 }
 
-function maketRNA(irna) {
-	let trna = "";
-	for (let symbol of irna) {
-		trna += RNA_COMPLIMENTARY.get(symbol);
-	}
-	return trna;
+// Creates iRNA sequence from DNA
+function makeInformationalRna(dna1) {
+	return mapString(dna1, x => RNA_COMPLIMENTARY.get(x));
 }
 
-function uniformDNA(dna) {
-	let uniformedDNA = "";
-	for (let i of dna) {
-		uniformedDNA += uniform(i);
-	}
-	return uniformedDNA;
+function makeDnaFromiRna(irna) {
+	return mapString(irna, x => DNA_COMPLIMENTARY.get(x));
 }
 
-function uniform(nucleotideProto) {
-	nucleotideProto = nucleotideProto.toUpperCase();
-
-	if (nucleotideProto === "A") {
-		return "А";
-	}
-
-	if (nucleotideProto === "T") {
-		return "Т";
-	}
-
-	if (nucleotideProto === "G") {
-		return "Г";
-	}
-
-	if (nucleotideProto === "C") {
-		return "Ц";
-	}
-
-	if (nucleotideProto === "U") {
-		return "У";
-	}
-
-	return nucleotideProto;
+// Creates tRNA sequence from DNA
+function makeTransferRna(irna) {
+	return mapString(irna, x => RNA_COMPLIMENTARY.get(x));
 }
 
-function filterDNA(event) {
-	let char = String.fromCharCode(event.keyCode);
-	event.returnValue = isValidChar(char);
+// Uniforming of DNA
+function uniformSequence(dna) {
+	return mapString(dna.replace(/\s/g, ''), uniformNucleotide);
 }
 
-function isValidChar(char) {
+// Uniforming of nucleotide
+function uniformNucleotide(nucleotide) {
+	switch (nucleotide.toUpperCase()) {
+		case "A":
+			return "А";
+		case "T":
+			return "Т";
+		case "G":
+			return "Г";
+		case "C":
+			return "Ц";
+		case "U":
+			return "У";
+		default:
+			return nucleotide;
+	}
+}
+
+function validateInput(event, type) {
+	lastInputType = type;
+	clearError();
+
+	let { checker, inputElement } = getCheckerAndInputElement(type);
+
+	for (let i of inputElement.value) {
+		if (!checker(i)) {
+			logError(`Ошибка: неожиданный символ "${i}"`, type);
+			return;
+		}
+	}
+
+	inputElement.value = formatOutput(inputElement.value)
+
+	if (uniformSequence(inputElement.value).length % 3 !== 0) {
+		logError(`Ошибка: неполный триплет`, type);
+	}
+}
+
+
+function getCheckerAndInputElement(inputType) {
+	switch (inputType) {
+		case 1:
+			return { checker: isValidDnaChar, inputElement: document.mainForm.dnaInput };
+		case 2:
+			return { checker: isValidDnaChar, inputElement: document.mainForm.dna2Input };
+		case 3:
+			return { checker: isValidRnaChar, inputElement: document.mainForm.irnaInput };
+		case 4:
+			return { checker: isValidRnaChar, inputElement: document.mainForm.trnaInput };
+		default:
+			return { checker: isValidDnaChar, inputElement: document.mainForm.dnaInput };
+	}
+}
+
+function isValidDnaChar(char) {
 	return DNA_VALID_CHARS.includes(char);
+}
+
+function isValidRnaChar(char) {
+	return RNA_VALID_CHARS.includes(char);
+}
+
+function logError(message, inputType) {
+	let logger;
+
+	switch (inputType) {
+		case INPUT_TYPE.DNA1:
+			logger = document.getElementById("dna1err");
+			break;
+		case INPUT_TYPE.DNA2:
+			logger = document.getElementById("dna2err");
+			break;
+		case INPUT_TYPE.IRNA:
+			logger = document.getElementById("irnaerr");
+			break;
+		case INPUT_TYPE.TRNA:
+			logger = document.getElementById("trnaerr");
+			break;
+		case INPUT_TYPE.PROTEIN:
+			logger = document.getElementById("proteinerr");
+			break;
+	}
+
+	logger.innerHTML = message;
+}
+
+function clearError() {
+	document.getElementById("dna1err").innerHTML = "";
+	document.getElementById("dna2err").innerHTML = "";
+	document.getElementById("irnaerr").innerHTML = "";
+	document.getElementById("trnaerr").innerHTML = "";
+	document.getElementById("proteinerr").innerHTML = "";
+}
+
+function formatOutput(sequence) {
+	let triplets = [];
+
+	let currentTriplet = "";
+	let index = 0;
+	for (let i of uniformSequence(sequence)) {
+		currentTriplet += i;
+		index++;
+
+		if (index === 3) {
+			triplets.push(currentTriplet);
+			currentTriplet = "";
+			index = 0;
+		}
+	}
+
+	if (currentTriplet.length > 0) {
+		triplets.push(currentTriplet);
+	}
+
+	return triplets.join(" ");
 }

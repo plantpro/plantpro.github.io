@@ -1,8 +1,12 @@
+/*
+ 86 80 25 77 73 76 100 90 69 93 90 83 70 73 73 70 90 83 71 95 40 58 68 69 100 78 87 97 92 74
+*/
+
 function runApplication() {
 	let input = parseInput(document.mainForm.seqInput.value);
 	let output = document.getElementById("reportPlace");
 
-	output.innerHTML = `<div class="mdl-spinner mdl-js-spinner is-active"></div>`;
+	output.innerHTML = "";
 
 	let reportRaw = []
 
@@ -32,16 +36,38 @@ function runApplication() {
 	reportRaw.push(getFerqsTable(freqs, input.length));
 
 	output.innerHTML = reportRaw.join("<br>");
+
+	var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
 }
 
 function getFerqsTable(freqs, size) {
-	let result = `<table class='mdl-data-table mdl-js-data-table'><tr><td>Значение</td><td>Частота</td><td>Относительная частота</td></tr>`;
+	let result = `
+	<math display="block">
+		<mrow>
+			<mtable columnspacing="0.5em" columnlines="solid none none none none none none none" rowlines="solid">
+				<mtr>
+					<mtd columnalign="center"><mi>x</mi></mtd>`;
 
 	for (let i of freqs) {
-		result += `<tr><td>${i[0]}</td><td>${i[1]}</td><td>${i[1] / size}</td></tr>`;
+		result += `<mtd columnalign="center"><mi>${i[0]}</mi></mtd>`;
 	}
 
-	return result + "</table>";
+	result += `</mtr><mtr><mtd columnalign="center"><mi>f</mi></mtd>`;
+
+	for (let i of freqs) {
+		result += `<mtd columnalign="center"><mi>${i[1]}</mi></mtd>`;
+	}
+
+	result += `</mtr><mtr><mtd columnalign="center"><mi>ω</mi></mtd>`;
+
+	for (let i of freqs) {
+		result += `<mtd columnalign="center"><mi>${new String(i[1] / size).substr(0, 5)}</mi></mtd>`;
+	}
+
+	return result + "</mtr></mtable></mrow></math>";
 }
 
 function findMode(freqs) {
