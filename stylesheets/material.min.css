@@ -11,6 +11,10 @@
 	overflow-x: auto;
 }
 
+a {
+	color: #3f51b5;
+}
+
 .post-category {
 	display: inline-block;
   margin: 0.1em 0.1em;
@@ -129,8 +133,4 @@
 
 img {
 	max-height: 300px;
-}
-
-a {
-	color: #3f51b5;
 }

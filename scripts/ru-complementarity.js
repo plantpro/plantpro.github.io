@@ -119,6 +119,9 @@ function runApplication() {
 		case 4:
 			result = buildByTransferRna();
 			break;
+		case 5:
+			result = buildByProtein();
+			break;
 	}
 
 	dnaInput.value = formatOutput(result.firstDnaSequence);
@@ -141,7 +144,7 @@ function buildByDnaOne() {
 function buildByDnaTwo() {
 	let secondDnaSequence = uniformSequence(dna2Input.value);
 	let firstDnaSequence = makeComplimentaryDna(secondDnaSequence);
-	let informationalRnaSequence = makeInformationalRna(secondDnaSequence);
+	let informationalRnaSequence = makeInformationalRna(firstDnaSequence);
 	let transferRnaSequence = makeTransferRna(informationalRnaSequence);
 	let proteinSequence = makeProteinFromInformationalRna(informationalRnaSequence);
 
@@ -164,6 +167,16 @@ function buildByTransferRna() {
 	let firstDnaSequence = makeComplimentaryDna(secondDnaSequence);
 	let informationalRnaSequence = makeInformationalRna(firstDnaSequence);
 	let proteinSequence = makeProteinFromInformationalRna(informationalRnaSequence);
+
+	return { firstDnaSequence, secondDnaSequence, informationalRnaSequence, transferRnaSequence, proteinSequence };
+}
+
+function buildByProtein() {
+	let proteinSequence = document.mainForm.proteinInput.value;
+	let informationalRnaSequence = makeInformationalRnaFromProtein(proteinSequence);
+	let firstDnaSequence = makeDnaFromiRna(informationalRnaSequence);
+	let secondDnaSequence = makeComplimentaryDna(firstDnaSequence);
+	let transferRnaSequence = makeTransferRna(informationalRnaSequence);
 
 	return { firstDnaSequence, secondDnaSequence, informationalRnaSequence, transferRnaSequence, proteinSequence };
 }
@@ -192,6 +205,19 @@ function makeProteinFromInformationalRna(irna) {
 
 	let triplets = divideIntoTriplets(irna);
 	return triplets.map(x => GENETIC_CODE.get(x)).join("-");
+}
+
+function makeInformationalRnaFromProtein(protein) {
+	let result = "";
+	for(let aminoacid of protein.split("-")) {
+		for(let i of GENETIC_CODE) {
+			if(i[1] === aminoacid) {
+				result += i[0];
+				break;
+			}
+ 		}
+	}
+	return result;
 }
 
 function mapString(string, mapper) {
@@ -248,6 +274,20 @@ function validateInput(event, type) {
 	lastInputType = type;
 	clearError();
 
+	if (type === INPUT_TYPE.PROTEIN) {
+		let aminoacids = formatProteinSequence(document.mainForm.proteinInput.value.replace(/\-/g, '')).split("-");
+		for (let aminoacid of aminoacids) {
+			if (!isValidAminoacid(aminoacid)) {
+				logError(`Ошибка: неизвестная аминокислота "${aminoacid}"`, type);
+				return;
+			}
+		}
+
+		document.mainForm.proteinInput.value = formatProteinSequence(document.mainForm.proteinInput.value.replace(/\-/g, ''))
+
+		return;
+	}
+
 	let { checker, inputElement } = getCheckerAndInputElement(type);
 
 	for (let i of inputElement.value) {
@@ -278,6 +318,23 @@ function getCheckerAndInputElement(inputType) {
 		default:
 			return { checker: isValidDnaChar, inputElement: document.mainForm.dnaInput };
 	}
+}
+
+function isValidAminoacid(aminoacid) {
+	if (aminoacid.length === 0) {
+		return true;
+	}
+
+	let normalizedAminoacid = aminoacid.toUpperCase();
+	let isPart = false;
+	for (let v of GENETIC_CODE.values()) {
+		if (v.startsWith(normalizedAminoacid)) {
+			isPart = true;
+			break;
+		}
+	}
+
+	return isPart;
 }
 
 function isValidDnaChar(char) {
@@ -341,4 +398,27 @@ function formatOutput(sequence) {
 	}
 
 	return triplets.join(" ");
+}
+
+function formatProteinSequence(sequence) {
+	let triplets = [];
+
+	let currentTriplet = "";
+	let index = 0;
+	for (let i of sequence.toUpperCase()) {
+		currentTriplet += i;
+		index++;
+
+		if (index === 3) {
+			triplets.push(currentTriplet);
+			currentTriplet = "";
+			index = 0;
+		}
+	}
+
+	if (currentTriplet.length > 0) {
+		triplets.push(currentTriplet);
+	}
+
+	return triplets.join("-");
 }
