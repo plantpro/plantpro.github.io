@@ -240,7 +240,7 @@ function uniformNucleotide(nucleotide) {
 		case "U":
 			return "У";
 		default:
-			return nucleotide;
+			return nucleotide.toUpperCase();
 	}
 }
 
