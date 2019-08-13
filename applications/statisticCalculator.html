@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="../scripts/statistic-calc.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 	<style>
 		.mdl-textfield {
 			width: 100%;
@@ -57,6 +58,15 @@
 									<textarea class="mdl-textfield__input" rows="1" type="text" name="seqInput" id="seqInput"> </textarea>
 								</div>
 							</div>
+
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox1">
+									<input type="checkbox" id="checkbox1" class="mdl-checkbox__input">
+									<span class="mdl-checkbox__label" style="color: #3f51b5;font-size: 12px;">Расчёт для генеральной
+										совокупности</span>
+								</label>
+							</div>
+
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<input type="button" value="Рассчитать"
 									class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="runApplication()">

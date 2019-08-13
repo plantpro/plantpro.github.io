@@ -8,6 +8,9 @@ function runApplication() {
 
 	output.innerHTML = "";
 
+	let isPopulation = document.mainForm.checkbox1.checked;
+	let subMessage = isPopulation ? "генеральной совокупности" : "выборки";
+
 	let reportRaw = []
 
 	let n = input.length;
@@ -16,34 +19,29 @@ function runApplication() {
 
 	reportRaw.push("<ul class='mdc-list mdc-list--two-line'>");
 
-	reportRaw.push(reportElement(`Размер выборки:`, n));
-	reportRaw.push(reportElement(`Сумма выборки:`, sum));
-	reportRaw.push(reportElement(`Среднее выборки:`, mean));
+	reportRaw.push(reportElement(`Размер ${subMessage}:`, n));
+	reportRaw.push(reportElement(`Сумма ${subMessage}:`, sum));
+	reportRaw.push(reportElement(`Среднее ${subMessage}:`, mean));
 
 	let ordered = input.sort((x, y) => x > y ? 1 : (x === y) ? 0 : -1);
 	if (n % 2 === 0) {
-		reportRaw.push(reportElement(`Медиана выборки:`, (ordered[n / 2] + ordered[n / 2 + 1]) / 2));
+		reportRaw.push(reportElement(`Медиана ${subMessage}:`, (ordered[n / 2] + ordered[n / 2 + 1]) / 2));
 	} else {
-		reportRaw.push(reportElement(`Медиана выборки:`, ordered[Math.floor(n / 2)]));
+		reportRaw.push(reportElement(`Медиана ${subMessage}:`, ordered[Math.floor(n / 2)]));
 	}
 
 	let rng = ordered[n - 1] - ordered[0];
-	let variance = ordered.map(x => (x - mean) ** 2).reduce((x, y) => x + y) / (n - 1);
+	let variance = ordered.map(x => (x - mean) ** 2).reduce((x, y) => x + y) / (isPopulation ? n : n - 1);
 	let freqs = counter(ordered);
-	reportRaw.push(reportElement(`Моды выборки:`, findMode(freqs)));
-	reportRaw.push(reportElement(`Размах выборки:`, rng));
-	reportRaw.push(reportElement(`Дисперсия выборки:`, variance));
-	reportRaw.push(reportElement(`Стандартное отклонение выборки:`, Math.sqrt(variance)));
+	reportRaw.push(reportElement(`Моды ${subMessage}:`, findMode(freqs)));
+	reportRaw.push(reportElement(`Размах ${subMessage}:`, rng));
+	reportRaw.push(reportElement(`Дисперсия ${subMessage}:`, variance));
+	reportRaw.push(reportElement(`Стандартное отклонение ${subMessage}:`, Math.sqrt(variance)));
 	reportRaw.push("</ul>");
 
 	reportRaw.push(getFerqsTable(freqs, input.length));
 
 	output.innerHTML = reportRaw.join("");
-
-	var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML";
-  document.getElementsByTagName("head")[0].appendChild(script);
 }
 
 function reportElement(title, value) {
@@ -57,29 +55,28 @@ function reportElement(title, value) {
 
 function getFerqsTable(freqs, size) {
 	let result = `
-	<math display="block">
-		<mrow>
-			<mtable columnspacing="0.5em" columnlines="solid none none none none none none none" rowlines="solid">
-				<mtr>
-					<mtd columnalign="center"><mi>x</mi></mtd>`;
+	<div style="overflow: auto;">
+		<table class="mdl-data-table mdl-js-data-table">
+			<tr>
+				<td><mi>x</mi></td>`;
 
 	for (let i of freqs) {
-		result += `<mtd columnalign="center"><mi>${i[0]}</mi></mtd>`;
+		result += `<td>${i[0]}</td>`;
 	}
 
-	result += `</mtr><mtr><mtd columnalign="center"><mi>f</mi></mtd>`;
+	result += `</tr><tr><td>f</td>`;
 
 	for (let i of freqs) {
-		result += `<mtd columnalign="center"><mi>${i[1]}</mi></mtd>`;
+		result += `<td>${i[1]}</td>`;
 	}
 
-	result += `</mtr><mtr><mtd columnalign="center"><mi>ω</mi></mtd>`;
+	result += `</tr><tr><td>ω</td>`;
 
 	for (let i of freqs) {
-		result += `<mtd columnalign="center"><mi>${new String(i[1] / size).substr(0, 5)}</mi></mtd>`;
+		result += `<td>${new String(i[1] / size).substr(0, 5)}</td>`;
 	}
 
-	return result + "</mtr></mtable></mrow></math>";
+	return result + "</tr></table></div>";
 }
 
 function findMode(freqs) {
