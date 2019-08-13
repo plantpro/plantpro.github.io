@@ -409,7 +409,7 @@ function formatProteinSequence(sequence) {
 		currentTriplet += i;
 		index++;
 
-		if (index === 3) {
+		if ((index === 3 && currentTriplet !== "СТО") || (index == 4)) {
 			triplets.push(currentTriplet);
 			currentTriplet = "";
 			index = 0;
