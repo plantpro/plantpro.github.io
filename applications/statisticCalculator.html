@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="../stylesheets/material.min.css">
 	<script src="../scripts/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<script src="../scripts/statistic-calc.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 	<style>
@@ -55,7 +54,7 @@
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
 									<label class="tblbl">Введите данные:</label>
-									<textarea class="mdl-textfield__input" rows="1" type="text" name="seqInput" id="seqInput"> </textarea>
+									<textarea class="mdl-textfield__input" rows="1" type="text" id="seqInput"> </textarea>
 								</div>
 							</div>
 
@@ -68,12 +67,12 @@
 							</div>
 
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<input type="button" value="Рассчитать"
-									class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="runApplication()">
+								<input type="button" value="Рассчитать" id="runButton"
+									class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 							</div>
 
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-								<div id="reportPlace"></div>
+								<div id="reportPlace" style="overflow: auto;"></div>
 							</div>
 						</div>
 
@@ -82,6 +81,8 @@
 			</div>
 		</main>
 	</div>
+	<script src="../scripts/flexibel.js"></script>
+	<script src="../scripts/statistic-calc.js"></script>
 </body>
 
 </html>

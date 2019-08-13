@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="../stylesheets/material.min.css">
 	<script src="../scripts/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<script src="../scripts/pennet.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
@@ -50,22 +49,21 @@
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
 									<label class="tblbl">Генотип 1</label>
-									<input type="text" class="mdl-textfield__input" name="genotype1" id="dnaInput"
-										oninput="onChangeText(event)">
+									<input type="text" class="mdl-textfield__input" id="genotype1">
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
 									<label class="tblbl">Генотип 2</label>
-									<input type="text" class="mdl-textfield__input" name="genotype2" oninput="onChangeText(event)">
+									<input type="text" class="mdl-textfield__input" id="genotype2">
 								</div>
 							</div>
 							<div id="gametparams"></div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div id="errorlogs"></div>
 
-								<input type="button" value="Построить"
-									class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="runApplication()">
+								<input type="button" value="Построить" id="runButton"
+									class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div id="tableplace"></div>
@@ -76,6 +74,8 @@
 			</div>
 		</main>
 	</div>
+	<script src="../scripts/flexibel.js"></script>
+	<script src="../scripts/pennet.js"></script>
 </body>
 
 </html>
