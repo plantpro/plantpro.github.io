@@ -180,6 +180,7 @@ function onChangeText() {
 		<div class="mdl-textfield mdl-js-textfield"><label class="tblbl">Фенотип ${allel}</label> <input type='text' class='mdl-textfield__input' id='inputFor${allel}'></div></div>`;
 	}
 	document.getElementById("gametparams").innerHTML = result;
+	document.mainForm.genotype1.innerHTML =	`<sub>${document.mainForm.genotype1.value}</sub>`;
 }
 
 function getInter(allel, alleles) {

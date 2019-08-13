@@ -14,33 +14,45 @@ function runApplication() {
 	let sum = input.reduce((x, y) => x + y);
 	let mean = sum / n;
 
-	reportRaw.push(`Размер выборки: ${n}`);
-	reportRaw.push(`Сумма выборки: ${sum}`);
-	reportRaw.push(`Среднее выборки: ${mean}`);
+	reportRaw.push("<ul class='mdc-list mdc-list--two-line'>");
+
+	reportRaw.push(reportElement(`Размер выборки:`, n));
+	reportRaw.push(reportElement(`Сумма выборки:`, sum));
+	reportRaw.push(reportElement(`Среднее выборки:`, mean));
 
 	let ordered = input.sort((x, y) => x > y ? 1 : (x === y) ? 0 : -1);
 	if (n % 2 === 0) {
-		reportRaw.push(`Медиана выборки: ${(ordered[n / 2] + ordered[n / 2 + 1]) / 2}`);
+		reportRaw.push(reportElement(`Медиана выборки:`, (ordered[n / 2] + ordered[n / 2 + 1]) / 2));
 	} else {
-		reportRaw.push(`Медиана выборки: ${ordered[Math.floor(n / 2)]}`);
+		reportRaw.push(reportElement(`Медиана выборки:`, ordered[Math.floor(n / 2)]));
 	}
 
 	let rng = ordered[n - 1] - ordered[0];
 	let variance = ordered.map(x => (x - mean) ** 2).reduce((x, y) => x + y) / (n - 1);
 	let freqs = counter(ordered);
-	reportRaw.push(`Моды выборки: ${findMode(freqs)}`);
-	reportRaw.push(`Размах выборки: ${rng}`);
-	reportRaw.push(`Дисперсия выборки: ${variance}`);
-	reportRaw.push(`Стандартное отклонение выборки: ${Math.sqrt(variance)}`);
+	reportRaw.push(reportElement(`Моды выборки:`, findMode(freqs)));
+	reportRaw.push(reportElement(`Размах выборки:`, rng));
+	reportRaw.push(reportElement(`Дисперсия выборки:`, variance));
+	reportRaw.push(reportElement(`Стандартное отклонение выборки:`, Math.sqrt(variance)));
+	reportRaw.push("</ul>");
 
 	reportRaw.push(getFerqsTable(freqs, input.length));
 
-	output.innerHTML = reportRaw.join("<br>");
+	output.innerHTML = reportRaw.join("");
 
 	var script = document.createElement("script");
   script.type = "text/javascript";
   script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML";
   document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+function reportElement(title, value) {
+	return `<li class="mdc-list-item ">
+	<span class="mdc-list-item__text">
+		<span class="mdc-list-item__primary-text" style='color: #3f51b5;font-size: 12px;'>${title}</span> 
+		<span class="mdc-list-item__secondary-text" style='padding-left:10px;'>${value}</span>
+		</span>
+		</li>`;
 }
 
 function getFerqsTable(freqs, size) {

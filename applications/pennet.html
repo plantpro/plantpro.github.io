@@ -11,6 +11,7 @@
 	<script src="../scripts/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="../scripts/pennet.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -44,18 +45,19 @@
 			<div class="page-content">
 				<form name="mainForm">
 					<fieldset>
+
 						<div class="mdl-grid">
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
 									<label class="tblbl">Генотип 1</label>
 									<input type="text" class="mdl-textfield__input" name="genotype1" id="dnaInput"
-										onkeyup="onChangeText(event)">
+										oninput="onChangeText(event)">
 								</div>
 							</div>
 							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
 									<label class="tblbl">Генотип 2</label>
-									<input type="text" class="mdl-textfield__input" name="genotype2" onkeyup="onChangeText(event)">
+									<input type="text" class="mdl-textfield__input" name="genotype2" oninput="onChangeText(event)">
 								</div>
 							</div>
 							<div id="gametparams"></div>
