@@ -24,10 +24,10 @@ runApplication = () ->
 	genotype1 = valueof("genotype1").trim()
 	genotype2 = valueof("genotype2").trim()
 
-	return unless checkGenotypes(genotype1, genotype2)
+	return unless checkGenotypes genotype1, genotype2
 
-	gametesFirst = makeGametes(genotype1)
-	gametesSecond = if genotype1 == genotype2 then gametesFirst else makeGametes(genotype2)
+	gametesFirst = makeGametes genotype1
+	gametesSecond = if genotype1 == genotype2 then gametesFirst else makeGametes genotype2
 
 	htmlset "tableplace", createOutput(gametesFirst, gametesSecond)
 
@@ -63,7 +63,7 @@ createOutput = (g1, g2) ->
 				if phenotype != null then "<td>#{genotype}<br>(#{phenotype})</td>"	else "<td>#{genotype}</td>"
 		builder += "</tr>"
 	
-	subbuilder = genotypeCounter.getTable("Расщепление по генотипу")
+	subbuilder = genotypeCounter.getTable "Расщепление по генотипу"
 
 	subbuilder += "<br>" +
 		phenotypeCounter.getTable "Расщепление по фенотипу" if phenotypeCounter.getSize() > 1
@@ -131,14 +131,15 @@ checkGenotype = (genotype) ->
 
 	member = []
 
-	for i in [0...genotype.length]
-		return fail msg if genotype[i].toLowerCase() in member
-		member.push(genotype[i].toLowerCase())
+	#for i in genotype.toLowerCase()
+	#	return fail msg if i in member
+	#	member.push i
 
 	return true
 
 checkGenotypes = (genotype1, genotype2) ->
-	return false unless checkGenotype genotype1 and checkGenotype genotype2
+	return false unless checkGenotype genotype1
+	return false unless checkGenotype genotype2
 
 	msg = "Генотипы #{genotype1} и #{genotype2} некорректны"
 	return fail msg if genotype1.length != genotype2.length

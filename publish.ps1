@@ -20,6 +20,7 @@ foreach ($script in get-childitem $scriptspath -file) {
 	uglifyjs $script.fullname -o $script.fullname
 }
 
+# Publish at GitHub
 git add *
 git commit -m automessage
 git pull origin master 
