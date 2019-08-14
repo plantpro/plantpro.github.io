@@ -5,7 +5,7 @@
 
 DNA_VALID_CHARS = "ATGCatgcАТГЦатгц "
 RNA_VALID_CHARS = "AUGCaugcАУГЦаугц "
-f = (x) => x * x + 1
+
 DNA_COMPLIMENTARY = new Map [
 	["А", "Т"],
 	["Т", "А"],
