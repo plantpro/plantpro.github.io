@@ -1,9 +1,9 @@
 # 86 80 25 77 73 76 100 90 69 93 90 83 70 73 73 70 90 83 71 95 40 58 68 69 100 78 87 97 92 74
 runApplication = () ->
-	input = runParser f.valueof "seqInput"
-	isPopulation = f.checkedof "checkbox1"
+	input = runParser valueof "seqInput"
+	isPopulation = checkedof "checkbox1"
 
-	f.htmlset "reportPlace", makeReport(input, isPopulation)
+	htmlset "reportPlace", makeReport(input, isPopulation)
 
 makeReport = (data, isPopulation) ->
 	parameters = getStatisticParameters data, isPopulation
@@ -41,16 +41,16 @@ reportElement = (title, value) ->
 
 getStatisticParameters = (data, isPopulation) ->
 	size = data.length
-	sum = data.reduce f.sum
+	sum = data.reduce fsum
 	mean = sum / size
-	orderedData = data.sort f.sub
-	max = f.last orderedData
-	min = f.first orderedData
+	orderedData = data.sort sub
+	max = last orderedData
+	min = first orderedData
 	median = findMedian orderedData
 	range = max - min
 	variance = orderedData
 		.map (x) -> (x - mean) ** 2
-		.reduce(f.sum) / if isPopulation then size else size - 1
+		.reduce(fsum) / if isPopulation then size else size - 1
 	sd = Math.sqrt(variance)
 	freqs = counter(orderedData)
 	modes = findMode freqs
@@ -58,16 +58,27 @@ getStatisticParameters = (data, isPopulation) ->
 	{ size, sum, mean, median, max, min, range, variance, sd, freqs, modes }
 
 getFerqsTable = (freqs, size) ->
-	result = """<div><table class="mdl-data-table mdl-js-data-table"><tr><td><mi>x</mi></td>"""
-	result += "<td>#{i[0]}</td>" for i from freqs
-	result += "</tr><tr><td>f</td>"
-	result += "<td>#{i[1]}</td>" for i from freqs
-	result += "</tr><tr><td>ω</td>"
-	result += "<td>#{new String(i[1] / size).substr(0, 5)}</td>" for i from freqs
-	result + "</tr></table></div>"
+	"""
+	<div>
+	<table class="mdl-data-table mdl-js-data-table">
+		<tr>
+			<td>x</td>
+			#{ejoin map.makeKeyCells freqs}
+		</tr>
+		<tr>
+			<td>f</td>
+			#{ejoin map.makeValueCells freqs}
+		</tr>
+		<tr>
+			<td>ω</td>
+			#{ejoin(("<td>" + new String(i[1] / size).substr(0, 5) + "</td>") for i from freqs)}
+		</tr>
+	</table>
+</div>
+"""
 
 findMode = (freqs) ->
-	maxValue = f.map.maxValue freqs
+	maxValue = map.maxValue freqs
 	for i from freqs when i[1] == maxValue then i[0]
 
 findMedian = (data) ->
@@ -76,7 +87,7 @@ findMedian = (data) ->
 
 counter = (values) ->
 	map = new Map
-	f.map.countIt map, i for i in values
+	map.countIt map, i for i in values
 	map
 
 runParser = (input) ->
@@ -108,8 +119,11 @@ runParser = (input) ->
 	
 	parserState.result
 
-document
-	.getElementById("runButton")
-	.addEventListener("click", runApplication)
+{
+	valueof, checkedof, htmlset,
+	first, last, fsum,
+	sub, map, ejoin, element
+} = document.flexibel
 
-f = document.flexibel
+element "runButton"
+	.addEventListener("click", runApplication)

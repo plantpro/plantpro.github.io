@@ -10,13 +10,13 @@ class Counter
 
 	getTable: (tableName) ->
 		builder =
-		"""<label class="tblbl">#{tableName}: </label>
-			 <br><table class="mdl-data-table mdl-js-data-table"><tr>"""
-		builder += "<td>#{k}</td>" for k from @counter.keys()
-		builder += "</tr><tr>"
-		builder += "<td>#{v}</td>" for v from @counter.values()
-		builder + "</tr></table>"
-
+		"""
+		<label class="tblbl">#{tableName}: </label><br>
+		<table class="mdl-data-table mdl-js-data-table">
+			<tr>#{ejoin(map.makeKeyCells(@counter))}</tr>
+			<tr>#{ejoin(map.makeValueCells(@counter))}</tr>
+		</table>
+		"""
 
 runApplication = () ->
 	clearError()
@@ -31,12 +31,12 @@ runApplication = () ->
 
 	htmlset "tableplace", createOutput(gametesFirst, gametesSecond)
 
-browseError = (error) ->
+fail = (error) ->
 	htmlset "errorlogs", """<p style="color: red;">#{error}</p>"""
-	false
+	off
 
 clearError = () ->
-	browseError ""
+	fail ""
 
 createOutput = (g1, g2) ->
 	genotypeCounter = new Counter
@@ -82,13 +82,9 @@ evalPhenotype = (genotype) ->
 	return null unless phenotypeParts.size
 	map.values(phenotypeParts).join ", "
 
-combineGametes = (gamet1, gamet2) ->
-	return browseError("wrong gamet length") if gamet1.length != gamet2.length
-
-	genotype = ""
-	for i in [0...gamet1.length]
-		genotype += if gamet1[i] < gamet2[i] then gamet1[i] + gamet2[i] else gamet2[i] + gamet1[i]
-	genotype
+combineGametes = (g1, g2) ->
+	return fail("wrong gamet length") if g1.length != g2.length
+	ejoin((if g1[i] < g2[i] then g1[i] + g2[i] else g2[i] + g1[i]) for i in [0...g1.length])
 
 # Создаёт набор гамет для заданного генотипа
 makeGametes = (genotype) ->
@@ -131,32 +127,31 @@ createPhenotypeInput = (allel) ->
 
 checkGenotype = (genotype) ->
 	msg = "Введён некорректный генотип #{genotype}"
-	return browseError msg if genotype.length % 2 != 0
+	return fail msg if genotype.length % 2 != 0
 
 	member = []
 
-	for i in [0...i < genotype.length]
-		return browseError msg if genotype[i].toLowerCase() in member
+	for i in [0...genotype.length]
+		return fail msg if genotype[i].toLowerCase() in member
 		member.push(genotype[i].toLowerCase())
 
 	return true
 
 checkGenotypes = (genotype1, genotype2) ->
-	return false unless checkGenotype genotype1
-	return false unless checkGenotype genotype2
+	return false unless checkGenotype genotype1 and checkGenotype genotype2
 
 	msg = "Генотипы #{genotype1} и #{genotype2} некорректны"
-	return browseError msg if genotype1.length != genotype2.length
+	return fail msg if genotype1.length != genotype2.length
 
 	for i in [0...genotype1.length]
-		return browseError msg if genotype1[i].toLowerCase() != genotype2[i].toLowerCase()
+		return fail msg if genotype1[i].toLowerCase() != genotype2[i].toLowerCase()
 		
 	return true
 
 mergeStrings = (string1, string2) ->
 	(string1[i] + string2[i] for i in [0...string1.length]).join ""
 
-{ valueset, valueof, element, map, htmlset } = document.flexibel
+{ valueset, valueof, element, map, htmlset, ejoin } = document.flexibel
 
 element "genotype1"
 	.addEventListener("input", onChangeText)

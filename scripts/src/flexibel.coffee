@@ -46,6 +46,9 @@ document.flexibel = (->
 	htmlset = (id, html) ->
 		element(id).innerHTML = html
 
+	ejoin = (values) ->
+		values.join ""
+
 	del = (str, sym) ->
 		str.replace(new Regex(sym, "g"), "")
 
@@ -66,13 +69,17 @@ document.flexibel = (->
 				map.set it, map.get(it) + 1
 			else
 				map.set it, 1
+		makeValueCells = (map) ->
+			"<td>#{v}</td>" for v from map.values()
+		makeKeyCells = (map) ->
+			"<td>#{k}</td>" for k from map.keys()
 		
-		{ values, keys, maxKey, maxValue, countIt }
+		{ values, keys, maxKey, maxValue, countIt, makeKeyCells, makeValueCells }
 	)()
 
 	{
 		min, max, sub, sum, mul, div, htmlset
 		map, element, valueset, valueof, checkedof,
-		first, last
+		first, last, delws, del, ejoin
 	}
 )()
