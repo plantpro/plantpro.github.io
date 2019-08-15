@@ -25,7 +25,7 @@ set-location $projectPath
 
 # Apply UglifyJS
 foreach ($script in get-childitem $libPath -file | where-object { $_.extension -eq ".js" }) {
-	uglifyjs $script.fullname -o $libPath + "\\" + $script.basename + ".min.js"
+	uglifyjs $script.fullname -o ($libPath + "\\" + $script.basename + ".min.js")
 }
 
 # Publish at GitHub
