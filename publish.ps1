@@ -24,7 +24,7 @@ babel $libPath --out-dir $libPath --presets=@babel/env
 set-location $projectPath
 
 # Apply UglifyJS
-foreach ($script in get-childitem $libPath -file | where-object { $_.extension -ne ".min.js" }) {
+foreach ($script in get-childitem $libPath -file | where-object { -not $_.basename.endswith(".min" ) }) {
 	uglifyjs $script.fullname -o ($libPath + "\\" + $script.basename + ".min.js")
 }
 
