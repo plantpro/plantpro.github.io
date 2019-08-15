@@ -3,20 +3,22 @@
 	Usage: powershell -File publish.ps1
 #>
 
-$devpath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection"
-$babelpath = "C:\\Users\\ÔÍ\\AppData\\Roaming\\npm\\node_modules\\@babel"
-$scriptspath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection\scripts"
+$projectPath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection"
+$babelPath = "C:\\Users\\ÔÍ\\AppData\\Roaming\\npm\\node_modules\\@babel"
+
+$libPath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection\\scripts\\lib"
+$srcPath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection\\scripts\\src"
 
 # Apply CoffeScript compiler
-coffee -c -o scripts/ scripts/src
+coffee -c -o $libPath $srcPath
 
 # Apply Babel
-set-location $babelpath
-babel $scriptspath --out-dir $scriptspath --presets=@babel/env
-set-location $devpath
+set-location $babelPath
+babel $libPath --out-dir $libPath --presets=@babel/env
+set-location $projectPath
 
 # Apply UglifyJS
-foreach ($script in get-childitem $scriptspath -file) {
+foreach ($script in get-childitem $libPath -file) {
 	uglifyjs $script.fullname -o $script.fullname
 }
 
