@@ -536,7 +536,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       }
 
       inputElement.value = formatOutput(inputElement.value);
-      console.log(inputElement);
+      console.log(inputElement.value);
 
       if (uniformSequence(inputElement.value).length % 3 !== 0) {
         return logError("Ошибка: неполный триплет", type);
