@@ -232,8 +232,8 @@ validateInput = (type) ->
 		for i in inputElement.value
 			unless checker i
 				return logError "Ошибка: неожиданный символ '#{i}'", type
-		inputElement.value = formatOutput inputElement.value
-		
+		inputElement.value = formatOutput delws inputElement.value
+
 		logError "Ошибка: неполный триплет", type if uniformSequence(inputElement.value).length % 3 != 0
 
 
