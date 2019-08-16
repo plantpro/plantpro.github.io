@@ -1,6 +1,6 @@
 "use strict";
 
-var _flexibel = require("flexibel.coffee");
+var _flexibel = require("flexibel.js");
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 

@@ -1,4 +1,4 @@
-import { valueset, valueof, element, map, htmlset, ejoin } from "flexibel.coffee"
+import { valueset, valueof, element, map, htmlset, ejoin } from "flexibel.js"
 
 class Counter
 	constructor: ->
