@@ -1,3 +1,8 @@
+# Concatenator utile for scripts
+# Replace all strings with kind #: import file.ext to content of file file.ext
+# Usage: py concater.py [input_directory] [output_directory]
+# Autor: Tsvikevich Denis-2019
+
 import sys
 import re
 from os import listdir
@@ -7,6 +12,7 @@ from pathlib import Path
 input_directory = sys.argv[1]
 output_directory = sys.argv[2]
 
+# All files in input directory
 input_files = [f for f in listdir(input_directory) if isfile(join(input_directory, f))]
 
 for f in input_files:

@@ -53,9 +53,6 @@ htmlset = (id, html) ->
 ejoin = (values) ->
 	values.join ""
 
-del = (str, sym) ->
-	str.replace(new Regex(sym, "g"), "")
-
 delws = (str, sym) ->
 	str.replace(/\w+/, "")
 
@@ -282,7 +279,7 @@ makeTransferRna = (irna) ->
 	mapString irna, (x) -> RNA_COMPLIMENTARY.get x
 
 uniformSequence = (dna) ->
-	mapString del dna, " ", uniformNucleotide
+	mapString delws(dna), uniformNucleotide
 
 uniformNucleotide = (nucleotide) ->
 	switch nucleotide.toUpperCase()

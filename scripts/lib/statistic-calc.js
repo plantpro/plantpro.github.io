@@ -14,7 +14,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   var checkedof,
       countIt,
       counter,
-      del,
       delws,
       div,
       ejoin,
@@ -128,10 +127,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   ejoin = function ejoin(values) {
     return values.join("");
-  };
-
-  del = function del(str, sym) {
-    return str.replace(new Regex(sym, "g"), "");
   };
 
   delws = function delws(str, sym) {

@@ -48,9 +48,6 @@ htmlset = (id, html) ->
 ejoin = (values) ->
 	values.join ""
 
-del = (str, sym) ->
-	str.replace(new Regex(sym, "g"), "")
-
 delws = (str, sym) ->
 	str.replace(/\w+/, "")
 

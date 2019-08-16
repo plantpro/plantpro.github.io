@@ -204,7 +204,7 @@ makeTransferRna = (irna) ->
 	mapString irna, (x) -> RNA_COMPLIMENTARY.get x
 
 uniformSequence = (dna) ->
-	mapString del dna, " ", uniformNucleotide
+	mapString delws(dna), uniformNucleotide
 
 uniformNucleotide = (nucleotide) ->
 	switch nucleotide.toUpperCase()

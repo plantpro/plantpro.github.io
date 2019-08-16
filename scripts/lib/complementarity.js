@@ -28,7 +28,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       checkedof,
       clearError,
       countIt,
-      del,
       delws,
       div,
       ejoin,
@@ -154,10 +153,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   ejoin = function ejoin(values) {
     return values.join("");
-  };
-
-  del = function del(str, sym) {
-    return str.replace(new Regex(sym, "g"), "");
   };
 
   delws = function delws(str, sym) {
@@ -482,7 +477,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   uniformSequence = function uniformSequence(dna) {
-    return mapString(del(dna, " ", uniformNucleotide));
+    return mapString(delws(dna), uniformNucleotide);
   };
 
   uniformNucleotide = function uniformNucleotide(nucleotide) {
