@@ -533,6 +533,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         if (!checker(i)) {
           return logError("\u041E\u0448\u0438\u0431\u043A\u0430: \u043D\u0435\u043E\u0436\u0438\u0434\u0430\u043D\u043D\u044B\u0439 \u0441\u0438\u043C\u0432\u043E\u043B '".concat(i, "'"), type);
         }
+
+        console.log("IS VALID ".concat(i));
       }
 
       inputElement.value = formatOutput(inputElement.value);
