@@ -1,3 +1,5 @@
+import { valueset, valueof, element, map, htmlset, ejoin } from "flexibel.coffee"
+
 class Counter
 	constructor: ->
 		@counter = new Map()
@@ -151,8 +153,6 @@ checkGenotypes = (genotype1, genotype2) ->
 
 mergeStrings = (string1, string2) ->
 	(string1[i] + string2[i] for i in [0...string1.length]).join ""
-
-{ valueset, valueof, element, map, htmlset, ejoin } = document.flexibel
 
 element "genotype1"
 	.addEventListener("input", onChangeText)
