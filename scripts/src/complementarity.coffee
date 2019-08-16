@@ -220,22 +220,18 @@ validateInput = (type) ->
 	clearError()
 
 	if type is INPUT_TYPE.PROTEIN
-		aminoacids =
-			formatProteinSequence(valueof("proteinInput").replace(/\-/g, '')).split("-")
-		for aminoacid in aminoacids
+		formatedInput = formatProteinSequence valueof("proteinInput").replace(/\-/g, '')
+		for aminoacid in formatedInput.split "-"
 			unless isValidAminoacid aminoacid
-				logError "Ошибка: неизвестная аминокислота '#{aminoacid}'", type
-				return
+				return logError "Ошибка: неизвестная аминокислота '#{aminoacid}'", type
 
-		document.mainForm.proteinInput.value =
-			formatProteinSequence valueof("proteinInput").replace(/\-/g, '')
+		document.mainForm.proteinInput.value = formatedInput
 	else
 		{ checker, inputElement } = getCheckerAndInputElement type
 
 		for i in inputElement.value
 			unless checker i
-				logError "Ошибка: неожиданный символ '#{i}'", type
-				return
+				return logError "Ошибка: неожиданный символ '#{i}'", type
 
 		inputElement.value = formatOutput inputElement.value
 

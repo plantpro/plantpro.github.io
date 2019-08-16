@@ -164,7 +164,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   keys = function keys(map) {
-    return _toConsumableArray(map.values());
+    return _toConsumableArray(map.keys());
   };
 
   maxKey = function maxKey(map) {
@@ -503,36 +503,35 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   validateInput = function validateInput(type) {
-    var aminoacid, aminoacids, checker, i, inputElement, j, l, len, len1, ref;
+    var aminoacid, checker, formatedInput, i, inputElement, j, l, len, len1, ref, ref1;
     lastInputType = type;
     clearError();
 
     if (type === INPUT_TYPE.PROTEIN) {
-      aminoacids = formatProteinSequence(valueof("proteinInput").replace(/\-/g, '')).split("-");
+      formatedInput = formatProteinSequence(valueof("proteinInput").replace(/\-/g, ''));
+      ref = formatedInput.split("-");
 
-      for (j = 0, len = aminoacids.length; j < len; j++) {
-        aminoacid = aminoacids[j];
+      for (j = 0, len = ref.length; j < len; j++) {
+        aminoacid = ref[j];
 
         if (!isValidAminoacid(aminoacid)) {
-          logError("\u041E\u0448\u0438\u0431\u043A\u0430: \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0430\u044F \u0430\u043C\u0438\u043D\u043E\u043A\u0438\u0441\u043B\u043E\u0442\u0430 '".concat(aminoacid, "'"), type);
-          return;
+          return logError("\u041E\u0448\u0438\u0431\u043A\u0430: \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0430\u044F \u0430\u043C\u0438\u043D\u043E\u043A\u0438\u0441\u043B\u043E\u0442\u0430 '".concat(aminoacid, "'"), type);
         }
       }
 
-      return document.mainForm.proteinInput.value = formatProteinSequence(valueof("proteinInput").replace(/\-/g, ''));
+      return document.mainForm.proteinInput.value = formatedInput;
     } else {
       var _getCheckerAndInputEl = getCheckerAndInputElement(type);
 
       checker = _getCheckerAndInputEl.checker;
       inputElement = _getCheckerAndInputEl.inputElement;
-      ref = inputElement.value;
+      ref1 = inputElement.value;
 
-      for (l = 0, len1 = ref.length; l < len1; l++) {
-        i = ref[l];
+      for (l = 0, len1 = ref1.length; l < len1; l++) {
+        i = ref1[l];
 
         if (!checker(i)) {
-          logError("\u041E\u0448\u0438\u0431\u043A\u0430: \u043D\u0435\u043E\u0436\u0438\u0434\u0430\u043D\u043D\u044B\u0439 \u0441\u0438\u043C\u0432\u043E\u043B '".concat(i, "'"), type);
-          return;
+          return logError("\u041E\u0448\u0438\u0431\u043A\u0430: \u043D\u0435\u043E\u0436\u0438\u0434\u0430\u043D\u043D\u044B\u0439 \u0441\u0438\u043C\u0432\u043E\u043B '".concat(i, "'"), type);
         }
       }
 

@@ -55,7 +55,7 @@ values = (map) ->
 	[map.values()...]
 
 keys = (map) ->
-	[map.values()...]
+	[map.keys()...]
 
 maxKey = (map) ->
 	keys(map).reduce max
