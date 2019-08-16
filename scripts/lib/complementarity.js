@@ -525,7 +525,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
       checker = _getCheckerAndInputEl.checker;
       inputElement = _getCheckerAndInputEl.inputElement;
-      ref1 = inputElement.value;
+      ref1 = delws(inputElement.value);
 
       for (l = 0, len1 = ref1.length; l < len1; l++) {
         i = ref1[l];
