@@ -99,7 +99,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   delws = function delws(str, sym) {
-    return str.replace(/\s+/, "");
+    return str.replace(/\s+/g, "");
   };
 
   values = function values(map) {

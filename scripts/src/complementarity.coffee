@@ -229,7 +229,7 @@ validateInput = (type) ->
 	else
 		{ checker, inputElement } = getCheckerAndInputElement type
 
-		for i in delws inputElement.value
+		for i in inputElement.value
 			unless checker i
 				return logError "Ошибка: неожиданный символ '#{i}'", type
 		

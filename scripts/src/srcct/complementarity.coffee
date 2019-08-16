@@ -54,7 +54,7 @@ ejoin = (values) ->
 	values.join ""
 
 delws = (str, sym) ->
-	str.replace(/\s+/, "")
+	str.replace(/\s+/g, "")
 
 values = (map) ->
 	[map.values()...]
@@ -304,9 +304,10 @@ validateInput = (type) ->
 	else
 		{ checker, inputElement } = getCheckerAndInputElement type
 
-		for i in delws inputElement.value
+		for i in inputElement.value
 			unless checker i
 				return logError "Ошибка: неожиданный символ '#{i}'", type
+		
 		inputElement.value = formatOutput delws inputElement.value
 
 		logError "Ошибка: неполный триплет", type if uniformSequence(inputElement.value).length % 3 != 0
