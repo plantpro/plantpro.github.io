@@ -49,7 +49,7 @@ ejoin = (values) ->
 	values.join ""
 
 delws = (str, sym) ->
-	str.replace(/\w+/, "")
+	str.replace(/\s+/, "")
 
 values = (map) ->
 	[map.values()...]
