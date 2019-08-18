@@ -316,7 +316,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return null;
     }
 
-    return map.values(phenotypeParts).join(", ");
+    return values(phenotypeParts).join(", ");
   };
 
   combineGametes = function combineGametes(g1, g2) {

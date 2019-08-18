@@ -157,7 +157,7 @@ evalPhenotype = (genotype) ->
 		phenotypeParts.set allel, val unless phenotypeParts.has allel.toUpperCase()
 	
 	return null unless phenotypeParts.size
-	map.values(phenotypeParts).join ", "
+	values(phenotypeParts).join ", "
 
 combineGametes = (g1, g2) ->
 	return fail("wrong gamet length") if g1.length != g2.length
