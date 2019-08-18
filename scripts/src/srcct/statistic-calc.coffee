@@ -161,7 +161,7 @@ getStatisticParameters = (data, isPopulation) ->
 
 getFerqsTable = (freqs, size) ->
 	"""
-	<div>
+	<div style="overflow: auto;">
 	<table class="mdl-data-table mdl-js-data-table">
 		<tr>
 			<td>x</td>
