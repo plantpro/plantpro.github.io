@@ -43,7 +43,7 @@ reportElement = (title, value) ->
 
 getStatisticParameters = (data, isPopulation) ->
 	size = data.length
-	sum = data.reduce fsum
+	sum = data.reduce sum
 	mean = sum / size
 	orderedData = data.sort sub
 	max = last orderedData
