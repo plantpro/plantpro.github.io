@@ -329,7 +329,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   findMode = function findMode(freqs) {
     var i, results;
-    maxValue = maxValue(freqs);
+    max = maxValue(freqs);
     results = [];
     var _iteratorNormalCompletion4 = true;
     var _didIteratorError4 = false;
@@ -339,7 +339,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       for (var _iterator4 = freqs[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
         i = _step4.value;
 
-        if (i[1] === maxValue) {
+        if (i[1] === max) {
           results.push(i[0]);
         }
       }

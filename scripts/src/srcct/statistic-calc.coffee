@@ -181,8 +181,8 @@ getFerqsTable = (freqs, size) ->
 """
 
 findMode = (freqs) ->
-	maxValue = maxValue freqs
-	for i from freqs when i[1] == maxValue then i[0]
+	max = maxValue freqs
+	for i from freqs when i[1] == max then i[0]
 
 findMedian = (data) ->
 	return (data[data.length / 2] + data[data.length / 2 + 1]) / 2 if data.length % 2 is 0
