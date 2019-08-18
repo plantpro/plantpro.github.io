@@ -53,8 +53,8 @@ getStatisticParameters = (data, isPopulation) ->
 	variance = orderedData
 		.map (x) -> (x - mean) ** 2
 		.reduce(sum) / if isPopulation then size else size - 1
-	sd = Math.sqrt(variance)
-	freqs = counter(orderedData)
+	sd = Math.sqrt variance
+	freqs = counter orderedData
 	modes = findMode freqs
 
 	{ size, summa, mean, median, max, min, range, variance, sd, freqs, modes }
@@ -73,7 +73,7 @@ getFerqsTable = (freqs, size) ->
 		</tr>
 		<tr>
 			<td>ω</td>
-			#{ejoin(("<td>" + new String(i[1] / size).substr(0, 5) + "</td>") for i from freqs)}
+			#{ejoin(makeMapCells freqs, (i) -> new String(i[1] / size).substr(0, 5))}
 		</tr>
 	</table>
 </div>

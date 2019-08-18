@@ -80,6 +80,9 @@ makeValueCells = (map) ->
 makeKeyCells = (map) ->
 	"<td>#{k}</td>" for k from map.keys()
 
+makeMapCells = (values, mapper) ->
+	"<td>#{mapper k}</td>" for k from values
+
 document.flexibel = {
 	makeKeyCells,
 	makeValueCells,

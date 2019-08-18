@@ -27,6 +27,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       keys,
       last,
       makeKeyCells,
+      makeMapCells,
       makeReport,
       makeValueCells,
       max,
@@ -219,6 +220,36 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     return results;
   };
 
+  makeMapCells = function makeMapCells(values, mapper) {
+    var k, results;
+    results = [];
+    var _iteratorNormalCompletion3 = true;
+    var _didIteratorError3 = false;
+    var _iteratorError3 = undefined;
+
+    try {
+      for (var _iterator3 = values[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+        k = _step3.value;
+        results.push("<td>".concat(mapper(k), "</td>"));
+      }
+    } catch (err) {
+      _didIteratorError3 = true;
+      _iteratorError3 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+          _iterator3["return"]();
+        }
+      } finally {
+        if (_didIteratorError3) {
+          throw _iteratorError3;
+        }
+      }
+    }
+
+    return results;
+  };
+
   document.flexibel = {
     makeKeyCells: makeKeyCells,
     makeValueCells: makeValueCells,
@@ -294,36 +325,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   getFerqsTable = function getFerqsTable(freqs, size) {
-    var i;
-    return "<div style=\"overflow: auto; width: 100%;\">\n<table class=\"mdl-data-table mdl-js-data-table\">\n\t<tr>\n\t\t<td>x</td>\n\t\t".concat(ejoin(makeKeyCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>f</td>\n\t\t").concat(ejoin(makeValueCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>\u03C9</td>\n\t\t").concat(ejoin(function () {
-      var results;
-      results = [];
-      var _iteratorNormalCompletion3 = true;
-      var _didIteratorError3 = false;
-      var _iteratorError3 = undefined;
-
-      try {
-        for (var _iterator3 = freqs[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          i = _step3.value;
-          results.push("<td>" + new String(i[1] / size).substr(0, 5) + "</td>");
-        }
-      } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
-            _iterator3["return"]();
-          }
-        } finally {
-          if (_didIteratorError3) {
-            throw _iteratorError3;
-          }
-        }
-      }
-
-      return results;
-    }()), "\n\t</tr>\n</table>\n</div>");
+    return "<div style=\"overflow: auto; width: 100%;\">\n<table class=\"mdl-data-table mdl-js-data-table\">\n\t<tr>\n\t\t<td>x</td>\n\t\t".concat(ejoin(makeKeyCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>f</td>\n\t\t").concat(ejoin(makeValueCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>\u03C9</td>\n\t\t").concat(ejoin(makeMapCells(freqs, function (i) {
+      return new String(i[1] / size).substr(0, 5);
+    })), "\n\t</tr>\n</table>\n</div>");
   };
 
   findMode = function findMode(freqs) {
