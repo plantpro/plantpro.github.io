@@ -266,6 +266,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     var freqs, mean, median, modes, orderedData, range, sd, size, summa, variance;
     size = data.length;
     summa = data.reduce(sum);
+    console.log(sum);
     mean = summa / size;
     orderedData = data.sort(sub);
     max = last(orderedData);

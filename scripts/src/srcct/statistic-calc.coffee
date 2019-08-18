@@ -144,6 +144,7 @@ reportElement = (title, value) ->
 getStatisticParameters = (data, isPopulation) ->
 	size = data.length
 	summa = data.reduce sum
+	console.log sum
 	mean = summa / size
 	orderedData = data.sort sub
 	max = last orderedData
