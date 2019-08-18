@@ -114,7 +114,7 @@ makeReport = (data, isPopulation) ->
 	[
 		"<ul class='mdc-list mdc-list--two-line'>"
 		reportElement "Размер #{target}:", parameters.size
-		reportElement "Сумма #{target}:", parameters.sum
+		reportElement "Сумма #{target}:", parameters.summa
 		reportElement "Максимум #{target}:", parameters.max
 		reportElement "Минимум #{target}:", parameters.min
 		reportElement "Среднее #{target}:", parameters.mean
