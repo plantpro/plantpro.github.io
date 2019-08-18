@@ -239,10 +239,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   getStatisticParameters = function getStatisticParameters(data, isPopulation) {
-    var freqs, mean, median, modes, orderedData, range, sd, size, variance;
+    var freqs, mean, median, modes, orderedData, range, sd, size, summa, variance;
     size = data.length;
-    _sum = data.reduce(_sum);
-    mean = _sum / size;
+    summa = data.reduce(_sum);
+    mean = summa / size;
     orderedData = data.sort(sub);
     _max = last(orderedData);
     _min = first(orderedData);
@@ -250,13 +250,13 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     range = _max - _min;
     variance = orderedData.map(function (x) {
       return Math.pow(x - mean, 2);
-    }).reduce(fsum) / (isPopulation ? size : size - 1);
+    }).reduce(_sum) / (isPopulation ? size : size - 1);
     sd = Math.sqrt(variance);
     freqs = counter(orderedData);
     modes = findMode(freqs);
     return {
       size: size,
-      sum: _sum,
+      summa: summa,
       mean: mean,
       median: median,
       max: _max,

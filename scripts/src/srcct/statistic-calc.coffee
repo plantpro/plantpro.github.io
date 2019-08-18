@@ -118,8 +118,8 @@ reportElement = (title, value) ->
 
 getStatisticParameters = (data, isPopulation) ->
 	size = data.length
-	sum = data.reduce sum
-	mean = sum / size
+	summa = data.reduce sum
+	mean = summa / size
 	orderedData = data.sort sub
 	max = last orderedData
 	min = first orderedData
@@ -127,12 +127,12 @@ getStatisticParameters = (data, isPopulation) ->
 	range = max - min
 	variance = orderedData
 		.map (x) -> (x - mean) ** 2
-		.reduce(fsum) / if isPopulation then size else size - 1
+		.reduce(sum) / if isPopulation then size else size - 1
 	sd = Math.sqrt(variance)
 	freqs = counter(orderedData)
 	modes = findMode freqs
 
-	{ size, sum, mean, median, max, min, range, variance, sd, freqs, modes }
+	{ size, summa, mean, median, max, min, range, variance, sd, freqs, modes }
 
 getFerqsTable = (freqs, size) ->
 	"""
