@@ -295,7 +295,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   getFerqsTable = function getFerqsTable(freqs, size) {
     var i;
-    return "<div style=\"overflow: auto;\">\n<table class=\"mdl-data-table mdl-js-data-table\">\n\t<tr>\n\t\t<td>x</td>\n\t\t".concat(ejoin(makeKeyCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>f</td>\n\t\t").concat(ejoin(makeValueCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>\u03C9</td>\n\t\t").concat(ejoin(function () {
+    return "<div style=\"overflow: auto; width: 100%;\">\n<table class=\"mdl-data-table mdl-js-data-table\">\n\t<tr>\n\t\t<td>x</td>\n\t\t".concat(ejoin(makeKeyCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>f</td>\n\t\t").concat(ejoin(makeValueCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>\u03C9</td>\n\t\t").concat(ejoin(function () {
       var results;
       results = [];
       var _iteratorNormalCompletion3 = true;
