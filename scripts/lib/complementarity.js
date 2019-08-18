@@ -53,14 +53,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       makeTransferRna,
       makeValueCells,
       mapString,
-      _max,
+      max,
       maxKey,
       maxValue,
-      _min,
-      _mul,
+      min,
+      mul,
       runApplication,
       sub,
-      _sum,
+      sum,
       uniformNucleotide,
       uniformSequence,
       validateInput,
@@ -69,24 +69,23 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       valueset,
       indexOf = [].indexOf; // Operator function for '-'
 
-
   sub = function sub(x, y) {
     return x - y;
   }; // Operator function for '+', also allow to sum of array
 
 
-  _sum = function sum(x, y) {
+  sum = function sum(x, y) {
     if (y == null) {
-      return x.reduce(_sum);
+      return x.reduce(document.flexibel.sum);
     }
 
     return x + y;
   }; // Operator function for '*', also allow to mul of array
 
 
-  _mul = function mul(x, y) {
+  mul = function mul(x, y) {
     if (y == null) {
-      return x.reduce(_mul);
+      return x.reduce(document.flexibel.mul);
     }
 
     return x * y;
@@ -98,9 +97,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   }; // Returns the min of two elements, or min of array
 
 
-  _min = function min(x, y) {
+  min = function min(x, y) {
     if (y == null) {
-      return x.reduce(_min);
+      return x.reduce(document.flexibel.min);
     }
 
     if (x < y) {
@@ -111,9 +110,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   }; // Returns the max of two elements, or max of array
 
 
-  _max = function max(x, y) {
+  max = function max(x, y) {
     if (y == null) {
-      return x.reduce(_max);
+      return x.reduce(document.flexibel.max);
     }
 
     if (x > y) {
@@ -136,19 +135,19 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   valueset = function valueset(id, value) {
-    return element(id).value = value;
+    return document.flexibel.element(id).value = value;
   };
 
   valueof = function valueof(id) {
-    return element(id).value;
+    return document.flexibel.element(id).value;
   };
 
   checkedof = function checkedof(id) {
-    return element(id).checked;
+    return document.flexibel.element(id).checked;
   };
 
   htmlset = function htmlset(id, html) {
-    return element(id).innerHTML = html;
+    return document.flexibel.element(id).innerHTML = html;
   };
 
   ejoin = function ejoin(values) {
@@ -168,11 +167,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   maxKey = function maxKey(map) {
-    return keys(map).reduce(_max);
+    return document.flexibel.keys(map).reduce(document.flexibel.max);
   };
 
   maxValue = function maxValue(map) {
-    return values(map).reduce(_max);
+    return document.flexibel.values(map).reduce(document.flexibel.max);
   };
 
   countIt = function countIt(map, it) {
@@ -245,6 +244,30 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     return results;
   };
 
+  document.flexibel = {
+    makeKeyCells: makeKeyCells,
+    makeValueCells: makeValueCells,
+    countIt: countIt,
+    maxValue: maxValue,
+    maxKey: maxKey,
+    keys: keys,
+    values: values,
+    delws: delws,
+    ejoin: ejoin,
+    htmlset: htmlset,
+    checkedof: checkedof,
+    valueof: valueof,
+    valueset: valueset,
+    element: element,
+    first: first,
+    last: last,
+    max: max,
+    min: min,
+    sum: sum,
+    sub: sub,
+    mul: mul,
+    div: div
+  };
   DNA_VALID_CHARS = "ATGCatgcАТГЦатгц ";
   RNA_VALID_CHARS = "AUGCaugcАУГЦаугц ";
   DNA_COMPLIMENTARY = new Map([["А", "Т"], ["Т", "А"], ["Г", "Ц"], ["У", "А"], ["Ц", "Г"]]);

@@ -8,12 +8,12 @@ sub = (x, y) -> x - y
 
 # Operator function for '+', also allow to sum of array
 sum = (x, y) ->
-	return x.reduce sum unless y?
+	return x.reduce document.flexibel.sum unless y?
 	x + y
 
 # Operator function for '*', also allow to mul of array
 mul = (x, y) ->
-	return x.reduce mul unless y?
+	return x.reduce document.flexibel.mul unless y?
 	x * y
 
 # Operator function for '/'
@@ -21,12 +21,12 @@ div = (x, y) -> x / y
 
 # Returns the min of two elements, or min of array
 min = (x, y) ->
-	return x.reduce min unless y?
+	return x.reduce document.flexibel.min unless y?
 	if x < y then x else y
 
 # Returns the max of two elements, or max of array
 max = (x, y) ->
-	return x.reduce max unless y?
+	return x.reduce document.flexibel.max unless y?
 	if x > y then x else y
 
 last = (container) ->
@@ -39,16 +39,16 @@ element = (id) ->
 	document.getElementById id
 	
 valueset = (id, value) ->
-	element(id).value = value
+	document.flexibel.element(id).value = value
 
 valueof = (id) ->
-	element(id).value
+	document.flexibel.element(id).value
 
 checkedof = (id) ->
-	element(id).checked
+	document.flexibel.element(id).checked
 
 htmlset = (id, html) ->
-	element(id).innerHTML = html
+	document.flexibel.element(id).innerHTML = html
 
 ejoin = (values) ->
 	values.join ""
@@ -63,10 +63,10 @@ keys = (map) ->
 	[map.keys()...]
 
 maxKey = (map) ->
-	keys(map).reduce max
+	document.flexibel.keys(map).reduce document.flexibel.max
 
 maxValue = (map) ->
-	values(map).reduce max
+	document.flexibel.values(map).reduce document.flexibel.max
 
 countIt = (map, it) ->
 	if map.has it
@@ -79,6 +79,31 @@ makeValueCells = (map) ->
 
 makeKeyCells = (map) ->
 	"<td>#{k}</td>" for k from map.keys()
+
+document.flexibel = {
+	makeKeyCells,
+	makeValueCells,
+	countIt,
+	maxValue,
+	maxKey,
+	keys,
+	values,
+	delws,
+	ejoin,
+	htmlset,
+	checkedof,
+	valueof,
+	valueset,
+	element,
+	first,
+	last,
+	max,
+	min,
+	sum,
+	sub,
+	mul,
+	div
+}
 
 DNA_VALID_CHARS = "ATGCatgcАТГЦатгц "
 RNA_VALID_CHARS = "AUGCaugcАУГЦаугц "

@@ -29,16 +29,16 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       makeKeyCells,
       makeReport,
       makeValueCells,
-      _max,
+      max,
       maxKey,
       maxValue,
-      _min,
-      _mul,
+      min,
+      mul,
       reportElement,
       runApplication,
       runParser,
       sub,
-      _sum,
+      sum,
       valueof,
       values,
       valueset,
@@ -49,18 +49,18 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   }; // Operator function for '+', also allow to sum of array
 
 
-  _sum = function sum(x, y) {
+  sum = function sum(x, y) {
     if (y == null) {
-      return x.reduce(_sum);
+      return x.reduce(document.flexibel.sum);
     }
 
     return x + y;
   }; // Operator function for '*', also allow to mul of array
 
 
-  _mul = function mul(x, y) {
+  mul = function mul(x, y) {
     if (y == null) {
-      return x.reduce(_mul);
+      return x.reduce(document.flexibel.mul);
     }
 
     return x * y;
@@ -72,9 +72,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   }; // Returns the min of two elements, or min of array
 
 
-  _min = function min(x, y) {
+  min = function min(x, y) {
     if (y == null) {
-      return x.reduce(_min);
+      return x.reduce(document.flexibel.min);
     }
 
     if (x < y) {
@@ -85,9 +85,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   }; // Returns the max of two elements, or max of array
 
 
-  _max = function max(x, y) {
+  max = function max(x, y) {
     if (y == null) {
-      return x.reduce(_max);
+      return x.reduce(document.flexibel.max);
     }
 
     if (x > y) {
@@ -110,19 +110,19 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   valueset = function valueset(id, value) {
-    return element(id).value = value;
+    return document.flexibel.element(id).value = value;
   };
 
   valueof = function valueof(id) {
-    return element(id).value;
+    return document.flexibel.element(id).value;
   };
 
   checkedof = function checkedof(id) {
-    return element(id).checked;
+    return document.flexibel.element(id).checked;
   };
 
   htmlset = function htmlset(id, html) {
-    return element(id).innerHTML = html;
+    return document.flexibel.element(id).innerHTML = html;
   };
 
   ejoin = function ejoin(values) {
@@ -142,11 +142,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   maxKey = function maxKey(map) {
-    return keys(map).reduce(_max);
+    return document.flexibel.keys(map).reduce(document.flexibel.max);
   };
 
   maxValue = function maxValue(map) {
-    return values(map).reduce(_max);
+    return document.flexibel.values(map).reduce(document.flexibel.max);
   };
 
   countIt = function countIt(map, it) {
@@ -217,8 +217,32 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     }
 
     return results;
-  }; // 86 80 25 77 73 76 100 90 69 93 90 83 70 73 73 70 90 83 71 95 40 58 68 69 100 78 87 97 92 74
+  };
 
+  document.flexibel = {
+    makeKeyCells: makeKeyCells,
+    makeValueCells: makeValueCells,
+    countIt: countIt,
+    maxValue: maxValue,
+    maxKey: maxKey,
+    keys: keys,
+    values: values,
+    delws: delws,
+    ejoin: ejoin,
+    htmlset: htmlset,
+    checkedof: checkedof,
+    valueof: valueof,
+    valueset: valueset,
+    element: element,
+    first: first,
+    last: last,
+    max: max,
+    min: min,
+    sum: sum,
+    sub: sub,
+    mul: mul,
+    div: div
+  }; // 86 80 25 77 73 76 100 90 69 93 90 83 70 73 73 70 90 83 71 95 40 58 68 69 100 78 87 97 92 74
 
   runApplication = function runApplication() {
     var input, isPopulation;
@@ -241,16 +265,16 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   getStatisticParameters = function getStatisticParameters(data, isPopulation) {
     var freqs, mean, median, modes, orderedData, range, sd, size, summa, variance;
     size = data.length;
-    summa = data.reduce(_sum);
+    summa = data.reduce(sum);
     mean = summa / size;
     orderedData = data.sort(sub);
-    _max = last(orderedData);
-    _min = first(orderedData);
+    max = last(orderedData);
+    min = first(orderedData);
     median = findMedian(orderedData);
-    range = _max - _min;
+    range = max - min;
     variance = orderedData.map(function (x) {
       return Math.pow(x - mean, 2);
-    }).reduce(_sum) / (isPopulation ? size : size - 1);
+    }).reduce(sum) / (isPopulation ? size : size - 1);
     sd = Math.sqrt(variance);
     freqs = counter(orderedData);
     modes = findMode(freqs);
@@ -259,8 +283,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       summa: summa,
       mean: mean,
       median: median,
-      max: _max,
-      min: _min,
+      max: max,
+      min: min,
       range: range,
       variance: variance,
       sd: sd,
