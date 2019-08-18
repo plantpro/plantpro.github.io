@@ -65,11 +65,11 @@ getFerqsTable = (freqs, size) ->
 	<table class="mdl-data-table mdl-js-data-table">
 		<tr>
 			<td>x</td>
-			#{ejoin map.makeKeyCells freqs}
+			#{ejoin makeKeyCells freqs}
 		</tr>
 		<tr>
 			<td>f</td>
-			#{ejoin map.makeValueCells freqs}
+			#{ejoin makeValueCells freqs}
 		</tr>
 		<tr>
 			<td>ω</td>
@@ -80,7 +80,7 @@ getFerqsTable = (freqs, size) ->
 """
 
 findMode = (freqs) ->
-	maxValue = map.maxValue freqs
+	maxValue = maxValue freqs
 	for i from freqs when i[1] == maxValue then i[0]
 
 findMedian = (data) ->
@@ -89,7 +89,7 @@ findMedian = (data) ->
 
 counter = (values) ->
 	map = new Map
-	map.countIt map, i for i in values
+	countIt map, i for i in values
 	map
 
 runParser = (input) ->

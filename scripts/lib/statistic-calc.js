@@ -271,7 +271,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   getFerqsTable = function getFerqsTable(freqs, size) {
     var i;
-    return "<div>\n<table class=\"mdl-data-table mdl-js-data-table\">\n\t<tr>\n\t\t<td>x</td>\n\t\t".concat(ejoin(map.makeKeyCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>f</td>\n\t\t").concat(ejoin(map.makeValueCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>\u03C9</td>\n\t\t").concat(ejoin(function () {
+    return "<div>\n<table class=\"mdl-data-table mdl-js-data-table\">\n\t<tr>\n\t\t<td>x</td>\n\t\t".concat(ejoin(makeKeyCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>f</td>\n\t\t").concat(ejoin(makeValueCells(freqs)), "\n\t</tr>\n\t<tr>\n\t\t<td>\u03C9</td>\n\t\t").concat(ejoin(function () {
       var results;
       results = [];
       var _iteratorNormalCompletion3 = true;
@@ -304,7 +304,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   findMode = function findMode(freqs) {
     var i, results;
-    maxValue = map.maxValue(freqs);
+    maxValue = maxValue(freqs);
     results = [];
     var _iteratorNormalCompletion4 = true;
     var _didIteratorError4 = false;
@@ -350,7 +350,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
     for (j = 0, len = values.length; j < len; j++) {
       i = values[j];
-      map.countIt(map, i);
+      countIt(map, i);
     }
 
     return map;
