@@ -265,8 +265,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   getStatisticParameters = function getStatisticParameters(data, isPopulation) {
     var freqs, mean, median, modes, orderedData, range, sd, size, summa, variance;
     size = data.length;
-    summa = data.reduce(sum);
-    console.log(sum);
+    summa = sum(data);
     mean = summa / size;
     orderedData = data.sort(sub);
     max = last(orderedData);
