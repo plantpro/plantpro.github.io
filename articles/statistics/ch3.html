@@ -5,30 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Что такое pH и как его считать?">
-	<title>Статистика. Часть 2. Меры центральной тенденции</title>
+	<title>Статистика. Часть 3. Меры центральной тенденции</title>
 
 	<link rel="stylesheet" href="../../stylesheets/material.min.css">
 	<script src="../../scripts/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML" async></script>
-
-	<style>
-	.definition {
-			padding: 15px 10px;
-			background-color: #dfe2fa;
-			line-height: 25px;
-		}
-
-		.definition-header {
-			padding: 5px 5px;
-			background-color: #3f51b5;
-			line-height: 25px;
-			color: white;
-			text-align: center;
-			text-transform: uppercase;
-			box-shadow: 5px #0000;
-		}
-	</style>
 
 </head>
 
@@ -64,47 +45,115 @@
 			<div class="page-content">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-						<h3>Статистика. Часть 2. Меры центральной тенденции</h3>
-						Вспомним пример из прошлой части: 30 студентов набрали на школьном тесте следующее количество
-						баллов:<br><br>
-						<table class="mdl-data-table mdl-js-data-table">
-							<tr>
-								<td>86</td>
-								<td>80</td>
-								<td>25</td>
-								<td>77</td>
-								<td>73</td>
-								<td>76</td>
-								<td>100</td>
-								<td>90</td>
-								<td>69</td>
-								<td>93</td>
-							</tr>
-							<tr>
-								<td>90</td>
-								<td>83</td>
-								<td>70</td>
-								<td>73</td>
-								<td>73</td>
-								<td>70</td>
-								<td>90</td>
-								<td>83</td>
-								<td>71</td>
-								<td>95</td>
-							</tr>
-							<tr>
-								<td>40</td>
-								<td>58</td>
-								<td>68</td>
-								<td>69</td>
-								<td>100</td>
-								<td>78</td>
-								<td>87</td>
-								<td>97</td>
-								<td>92</td>
-								<td>74</td>
-							</tr>
-						</table><br>
+						<h3>Статистика. Часть 3. Меры центральной тенденции</h3>
+						Вспомним пример из прошлой части:
+						<br>
+						<br>
+						<div class="definition-header">Пример</div>
+						<div class="definition">
+							30 студентов СПбГАУ набрали на интернет-тестировании следующее количество баллов:
+							<div style="text-align: center">
+								<table display="block">
+									<tr>
+										<td columnalign="right">
+											`86`
+										</td>
+										<td columnalign="right">
+											`80`
+										</td>
+										<td columnalign="right">
+											`25`
+										</td>
+										<td columnalign="right">
+											`77`
+										</td>
+										<td columnalign="right">
+											`73`
+										</td>
+										<td columnalign="right">
+											`76`
+										</td>
+										<td columnalign="right">
+											`100`
+										</td>
+										<td columnalign="right">
+											`90`
+										</td>
+										<td columnalign="right">
+											`69`
+										</td>
+										<td columnalign="right">
+											`93`
+										</td>
+									</tr>
+									<tr columnalign="right">
+										<td columnalign="right">
+											`90`
+										</td>
+										<td columnalign="right">
+											`83`
+										</td>
+										<td columnalign="right">
+											`70`
+										</td>
+										<td columnalign="right">
+											`73`
+										</td>
+										<td columnalign="right">
+											`73`
+										</td>
+										<td columnalign="right">
+											`70`
+										</td>
+										<td columnalign="right">
+											`90`
+										</td>
+										<td columnalign="right">
+											`83`
+										</td>
+										<td columnalign="right">
+											`71`
+										</td>
+										<td columnalign="right">
+											`95`
+										</td>
+									</tr>
+									<tr columnalign="right">
+										<td columnalign="right">
+											`40`
+										</td>
+										<td columnalign="right">
+											`58`
+										</td>
+										<td columnalign="right">
+											`68`
+										</td>
+										<td columnalign="right">
+											`69`
+										</td>
+										<td columnalign="right">
+											`100`
+										</td>
+										<td columnalign="right">
+											`78`
+										</td>
+										<td columnalign="right">
+											`87`
+										</td>
+										<td columnalign="right">
+											`97`
+										</td>
+										<td columnalign="right">
+											`92`
+										</td>
+										<td columnalign="right">
+											`74`
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<br>
 						Как мы можем описать эти данные? Один из вариантов мы рассмотрели - изобразить графически, однако, этот
 						способ
 						не может дать нам много информации. Другой вариант - рассчитать <b>меры центральной тенденции (measures of
@@ -113,37 +162,37 @@
 						<h4> 1. Среднее </h4><br>Среднее - это мера центральной тенденции, хорошо знакомая всем.<br><br>
 						<div class="definition-header">Определение</div>
 						<div class="definition">
-								<b> Среднее выборки (sample mean) </b> - это число, определяемое по формуле:<br>
-								<div style="text-align: center">
-									` bar x = (sum_(i=1)^n x_i)/n `
-								</div>
-								Где:<br>
-								`n` - размер выборки <br>
-								`sum_(i=1)^n x_i` - сумма всех наблюдений выборки
+							<b> Среднее выборки (sample mean) </b> - это число, определяемое по формуле:<br>
+							<div style="text-align: center">
+								`bar x = (sum_(i=1)^n x_i)/n`
+							</div>
+							Где:<br>
+							`n` - размер выборки <br>
+							`sum_(i=1)^n x_i` - сумма всех наблюдений выборки
 						</div>
 						<br>
 						<div class="definition-header">Определение</div>
 						<div class="definition">
-								<b>Среднее генеральной совокупности (population mean)</b> - это число, определяемое по формуле:<br>
-								<div style="text-align: center">
-									` mu = (sum_(i=1)^N x_i)/N `
-								</div>
-								Где:<br>
-								`N` - размер генеральной совокупности<br>
-								`sum_(i=1)^N x_i` - сумма всех наблюдений генеральной совокупности<br>
+							<b>Среднее генеральной совокупности (population mean)</b> - это число, определяемое по формуле:<br>
+							<div style="text-align: center">
+								` mu = (sum_(i=1)^N x_i)/N `
 							</div>
+							Где:<br>
+							`N` - размер генеральной совокупности<br>
+							`sum_(i=1)^N x_i` - сумма всех наблюдений генеральной совокупности<br>
+						</div>
 						<br>
 						Например:<br><br>
 						<div class="definition-header">Пример</div>
 						<div class="definition">
-								`x = { 2, -1, 0, 2 }`<br>`bar x = (sum_(i=1)^4 x_i)/4 = (2 + (-1) + 0 + 2)/4 = 3/4 = 0.75`<br>
-							</div>
+							`x = { 2, -1, 0, 2 }`<br>`bar x = (sum_(i=1)^4 x_i)/4 = (2 + (-1) + 0 + 2)/4 = 3/4 = 0.75`<br>
+						</div>
 						<br>
 						Для нашего примера мы таже можем рассчитать среднее:<br><br>
 						<div class="definition-header">Пример</div>
 						<div class="definition">
-								`bar x = (sum_(i=1)^30 x_i)/4 = 2330/30 = 77.6`<br>
-							</div>
+							`bar x = (sum_(i=1)^30 x_i)/4 = 2330/30 = 77.6`<br>
+						</div>
 
 						<h5>Найти среднее по шагам:</h5>
 						<ul class="mdl-list">
@@ -157,50 +206,56 @@
 						выборки:<br><br>
 						<div class="definition-header">Пример</div>
 						<div class="definition">
-								`x = { 24.8, 22.8, 24.6, 192.5, 25.2, 18.5, 23.7 }` <br>`bar x = 47.4`<br>
+							`x = { 24.8, 22.8, 24.6, 192.5, 25.2, 18.5, 23.7 }` <br>`bar x = 47.4`<br>
 						</div><br>Очевидно, что для этой выборки среднее слишком велико из-за того, что там имеется одно значение
 						(`192.5`), которое резко отличается от всех остальных. Такие значения называются
 						<b>выбросами</b>.<br><br>
 						<div class="definition-header">Определение</div>
 						<div class="definition">
-								<b>Выброс (outlier)</b> - это значение, которое сильно отличается от основного набора данных и которое
-								может исказить результаты исследования. <br>
-							</div>
+							<b>Выброс (outlier)</b> - это значение, которое сильно отличается от основного набора данных и которое
+							может исказить результаты исследования. <br>
+						</div>
 						<br>
 						В таком случае более подходящей мерой центральной тенденции будет <b>медиана</b>.<br><br>
 
 						<div class="definition-header">Определение</div>
 						<div class="definition">
-								<b> Медиана выборки (sample median) </b> - это значение, которое лежит ровно в центре упорядоченной выборки 
-								и обозначаемое как `tilde x`
-							</div>
+							<b> Медиана выборки (sample median) </b> - это значение, которое лежит ровно в центре упорядоченной
+							выборки
+							и обозначаемое как `tilde x`
+						</div>
 						<br>
-						Обратите внимание на слово "упорядоченной" - перед поиском медианы вы должны расположить ваши значения в 
+						Обратите внимание на слово "упорядоченной" - перед поиском медианы вы должны расположить ваши значения в
 						порядке возрастания. Найдём медиану примера выше:<br><br>
 
 						<div class="definition-header">Пример</div>
 						<div class="definition">
-								`x = { 24.8, 22.8, 24.6, 192.5, 25.2, 18.5, 23.7 }` <br>
-								Отсортируем выборку:<br>
-								`x = { 18.5, 22.8, 23.7, 24.6, 24.8, 25.2, 192.5 }`<br>
-								`tilde x = 24.6`<br>
+							`x = { 24.8, 22.8, 24.6, 192.5, 25.2, 18.5, 23.7 }` <br>
+							Отсортируем выборку:<br>
+							`x = { 18.5, 22.8, 23.7, 24.6, 24.8, 25.2, 192.5 }`<br>
+							`tilde x = 24.6`<br>
 						</div><br>
 
-						Итак, медиана в этом случае равна `24.6`, так как это число лежит ровно в середине и разделяет нашу выборку пополам. 
-						Но как нам найти медиану в примере с тестом? Ведь там 30 элементов и нет такого числа которое бы делило данные пополам!
-						В таком случае медиану находят, складывая два средних числа и деля их пополам (конечно, выборка перед этим должна быть отсортирована).
+						Итак, медиана в этом случае равна `24.6`, так как это число лежит ровно в середине и разделяет нашу выборку
+						пополам.
+						Но как нам найти медиану в примере с тестом? Ведь там 30 элементов и нет такого числа которое бы делило
+						данные пополам!
+						В таком случае медиану находят, складывая два средних числа и деля их пополам (конечно, выборка перед этим
+						должна быть отсортирована).
 
 						<h5>Найти медиану по шагам:</h5>
 						<ul class="mdl-list">
 							<li class="mdl-list__item-text-body">1. Расположите элементы вашей выборки в порядке возрастания</li>
 							<li class="mdl-list__item-text-body">2. Если размер выборки нечетный - медиана это элемент в середине</li>
-							<li class="mdl-list__item-text-body">3. Если размер выборки четный - сложите 2 элемента посередине и разделите на 2</li>
+							<li class="mdl-list__item-text-body">3. Если размер выборки четный - сложите 2 элемента посередине и
+								разделите на 2</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</main>
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML" async></script>
 </body>
 
 </html>
