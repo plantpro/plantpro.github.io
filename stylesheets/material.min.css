@@ -8020,17 +8020,23 @@ a {
 
 .post-category-plant-phisiology {
   background: #5aba59;
-  color: #fff;
+	color: #fff;
+	background-image: url('../resources/images/tr4.jpg');
+	background-position: 30% 30%;
 }
 
 .post-category-biochemistry {
   background: #4d85d1;
-  color: #fff;
+	color: #fff;
+	background-image: url('../resources/images/tr5.jpg');
+	background-position: 30% 30%;
 }
 
 .post-category-microbiology {
   background: #8156a7;
-  color: #fff;
+	color: #fff;
+	background-image: url('../resources/images/tr4.jpg');
+	background-position: 60% 60%;
 }
 
 .post-category-phiscolloid-chemistry {
@@ -8059,8 +8065,10 @@ a {
 }
 
 .post-category-statistics {
-  background: #df2d4f;
-  color: #fff;
+  background-color: #df2d4f;
+	color: #fff;
+	background-image: url('../resources/images/tr3.jpg');
+	background-position: 30% 30%;
 }
 
 .article-card {
