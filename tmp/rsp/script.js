@@ -175,7 +175,18 @@ RNG.prototype.choice = function(array) {
 
 let names = ["Максим", "Шахноза", "Женя", "Вика", "Даша", "Андрей", "Нура", "Настя", "Саша"]
 
+let previousRnd;
+var rng = new RNG(new Date().getDay() + 1);
+function uniquePoop() {
+	var rndval = rng.nextRange(0, 9);
+	while(rndval == previousRnd) {
+		rndval = rng.nextRange(0, 9);
+	}
+	return rndval;
+}
+
 function getPoopOfTheDay() {
-	var rng = new RNG(new Date().getDay() + 1);
- 	return names[rng.nextRange(0, 9)];
+	var prev = new RNG(new Date().getDay());
+	previousRnd = prev.nextRange(0, 9);
+ 	return names[uniquePoop()];
 }
