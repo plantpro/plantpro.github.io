@@ -82,10 +82,71 @@
 								</div>
 							</div>
 						</p>
-          </div>
+					</div>
+					
+					<div class="definition-header">Пример</div>
+						<div class="definition">
+							Рассмотрим следующие наборы данных:<br>
+							Набор 1: `40 &nbsp; 40 &nbsp; 38 &nbsp; 40 &nbsp; 42 &nbsp; 40 &nbsp; 39 &nbsp; 39 &nbsp; 43 &nbsp; 39` <br>
+							Набор 1: `46 &nbsp; 37 &nbsp; 40 &nbsp; 33 &nbsp; 42 &nbsp; 36 &nbsp; 40 &nbsp; 47 &nbsp; 34 &nbsp; 25` <br>
+							Рассчитаем среднее и медиану для каждого набора<br>
+							Для набора 1: <br>
+							`bar x = 40`<br>
+							`tilde x = 40`<br>
+							Для набора 2: <br>
+							`bar x = 40`<br>
+							`tilde x = 40`
+						</div><br>
+
+						Как мы видим из этого примера, для двух наборов данных мы получили абсолютно одинаковые меры. Однако, если мы построим 
+						гистограммы частот для первого и второго наборов, то мы увидим что они значительно отличаются:
+						<div id="plot1"> </div><br>
+						<div id="plot2"> </div>
+						
+						Очевидно, что данные в первом наборе менее разбросаны, чем во втором. 
 				</div>
 			</div>
 		</main>
- 	</div>
+	 </div>
+	 
+	 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	 <script>
+		 (function onLoad() {
+			 // Load the Visualization API and the corechart package.
+			 google.charts.load('current', { 'packages': ['corechart'] });
+ 
+			 // Set a callback to run when the Google Visualization API is loaded.
+			 google.charts.setOnLoadCallback(() => drawPlot());
+ 
+			 function drawPlot() {
+				 let plot1 = new google.visualization.ColumnChart(document.getElementById("plot1"));
+				 let data1 = [
+					 ["Значение", "Частота"],
+					 ["38", 1],
+					 ["39", 3],
+					 ["40", 4],
+					 ["42", 1],
+					 ["43", 1],
+				 ];
+				 plot1.draw(google.visualization.arrayToDataTable(data1), { legend: { position: 'none' } });
+ 
+				 let plot2 = new google.visualization.ColumnChart(document.getElementById("plot2"));
+				 let data2 = [
+					 ["Значение", "Частота"],
+					 ["25", 1],
+					 ["33", 1],
+					 ["34", 1],
+					 ["36", 1],
+					 ["37", 1],
+					 ["40", 2],
+					 ["42", 1],
+					 ["46", 1],
+					 ["47", 1]
+				 ];
+				 plot2.draw(google.visualization.arrayToDataTable(data2), { legend: { position: 'none' } });
+			 }
+ 
+		 })();
+	 </script>
 </body>
 </html>

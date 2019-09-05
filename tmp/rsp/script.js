@@ -62,7 +62,6 @@ var topPairs = [
 	[
 		pairWindow,
 		new Pair("Учительство [л]", "1108"),
-		new Pair("ТХиСПР", "1428"),
 		new Pair("Физра", "спортзал"),
 		new Pair("ТХиСПР", "1428")
 	],
