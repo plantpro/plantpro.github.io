@@ -16,7 +16,7 @@ var bottomPairs = [
 		pairWindow,
 		new Pair("Агрохимия [л]", "1a239"),
 		new Pair("Машины", "корпус 4"),
-		new Pair("Агрохимия", "1a239"),
+		new Pair("Агрохимия", "1a219"),
 	],
 	[ // sat
 		pairWindow,
@@ -45,12 +45,12 @@ var topPairs = [
 		new Pair("Физра [л]", "1539"),
 		new Pair("Агрохимия [л]", "1a239"),
 		new Pair("Машины", "корпус 4"),
-		new Pair("Агрохимия", "1a239"),
+		new Pair("Агрохимия", "1a21ы9"),
 	],
 	[
 		new Pair("Растения [л]", "1507"),
 		new Pair("Земледелие", "1523"),
-		new Pair("Физра", "спортзал"),
+		new Pair("Машины", "корпус 4"),
 		new Pair("Растения", "1505")
 	],
 	[
@@ -67,44 +67,54 @@ var topPairs = [
 	],
 	[] // sub
 ];
+
 function write(text) {
 	document.write(text);
 }
+
 function getDayOfWeekName(dayOfWeek) {
 	return days[dayOfWeek];
 }
+
 function getMonthName(monthNumber) {
 	return months[monthNumber];
 }
+
 function makeTodayBlock() {
 	var nowDate = new Date();
 	return "Сегодня " + nowDate.getDate() +
 		" " + getMonthName(nowDate.getMonth()) +
 		",  " + getDayOfWeekName(nowDate.getDay()) + "<br>";
 }
+
 function normalize(data) {
 	return data == 0 ? 7 : data;
 }
+
 function getDateWithOffset(offset) {
 	var result = new Date();
 	result.setDate(result.getDate() + offset);
 	return result;
 }
+
 function getNextDay() {
 	return getDateWithOffset(1);
 }
+
 function isTop(offset) {
 	var day = getDateWithOffset(offset);
 	var dayOfWeek = normalize(day.getDay());
 	day.setDate(day.getDate() - dayOfWeek + 1);
 	return day.getDate() % 2 != 0;
 }
+
 function getCurrentWeek() {
 	if (!isTop(0)) {
 		return "Эта неделя по верху";
 	}
 	return "Эта неделя по низу";
 }
+
 function getNextWeek() {
 	var day = getDateWithOffset(0);
 	var dayOfWeek = normalize(day.getDay());
@@ -114,12 +124,14 @@ function getNextWeek() {
 	}
 	return "Следующая неделя по низу";
 }
+
 function getSource() {
 	if (!isTop(0)) {
 		return topPairs;
 	}
 	return bottomPairs;
 }
+
 function getOnToday() {
 	var source = getSource();
 	var xsource = source[getDateWithOffset(0).getDay()];
@@ -172,20 +184,21 @@ RNG.prototype.choice = function(array) {
   return array[this.nextRange(0, array.length)];
 }
 
-let names = ["Максим", "Шахноза", "Женя", "Вика", "Даша", "Андрей", "Нура", "Настя", "Саша"]
+let names = ["Максим", "Шахноза", "Женя", "Вика", "Даша", "Андрей", "Нура", "Настя", "Саша", "Денис", "Денис_2.0"]
 
 let previousRnd;
 var rng = new RNG(new Date().getDay() + 1);
 function uniquePoop() {
-	var rndval = rng.nextRange(0, 9);
+	var rndval = rng.nextRange(0, 11);
 	while(rndval == previousRnd) {
-		rndval = rng.nextRange(0, 9);
+		rndval = rng.nextRange(0, 11);
 	}
 	return rndval;
 }
 
 function getPoopOfTheDay() {
 	var prev = new RNG(new Date().getDay());
-	previousRnd = prev.nextRange(0, 9);
+	previousRnd = prev.nextRange(0, 11);
+	previousRnd = prev.nextRange(0, 11);
  	return names[uniquePoop()];
 }
