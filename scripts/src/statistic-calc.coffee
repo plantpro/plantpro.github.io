@@ -23,6 +23,8 @@ makeReport = (data, isPopulation) ->
 		reportElement "Размах #{target}:", parameters.range
 		reportElement "Дисперсия #{target}:", parameters.variance
 		reportElement "Стандартное отклонение #{target}:", parameters.sd
+		reportElement "Ошибка среднего:", parameters.se
+		reportElement "Коэффициент вариации (%): ", parameters.kvariance
 		"</ul>"
 		getFerqsTable(parameters.freqs, parameters.size)
 	].join ""
@@ -54,10 +56,12 @@ getStatisticParameters = (data, isPopulation) ->
 		.map (x) -> (x - mean) ** 2
 		.reduce(sum) / if isPopulation then size else size - 1
 	sd = Math.sqrt variance
+	se = sd / Math.sqrt size
+	kvariance = sd / mean * 100
 	freqs = counter orderedData
 	modes = findMode freqs
 
-	{ size, summa, mean, median, maximum, minimum, range, variance, sd, freqs, modes }
+	{ size, summa, mean, median, maximum, minimum, range, variance, sd, freqs, modes, se, kvariance }
 
 getFerqsTable = (freqs, size) ->
 	"""
@@ -114,7 +118,7 @@ runParser = (input) ->
 		state.result.push parseFloat(buffer)
 
 	while parserState.currentPosition < input.length
-		if (getCurrent parserState) in "0123456789"
+		if (getCurrent parserState) in "0123456789-"
 			parseNumber parserState
 		else
 			next parserState
