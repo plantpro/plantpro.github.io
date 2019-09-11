@@ -286,7 +286,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     var parameters, target;
     parameters = getStatisticParameters(data, isPopulation);
     target = isPopulation ? "генеральной совокупности" : "выборки";
-    return ["<ul class='mdc-list mdc-list--two-line'>", reportElement("\u0420\u0430\u0437\u043C\u0435\u0440 ".concat(target, ":"), parameters.size), reportElement("\u0421\u0443\u043C\u043C\u0430 ".concat(target, ":"), parameters.summa), reportElement("\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C ".concat(target, ":"), parameters.max), reportElement("\u041C\u0438\u043D\u0438\u043C\u0443\u043C ".concat(target, ":"), parameters.min), reportElement("\u0421\u0440\u0435\u0434\u043D\u0435\u0435 ".concat(target, ":"), parameters.mean), reportElement("\u041C\u0435\u0434\u0438\u0430\u043D\u0430 ".concat(target, ":"), parameters.median), reportElement("\u041C\u043E\u0434\u044B ".concat(target, ":"), parameters.modes.join(", ")), reportElement("\u0420\u0430\u0437\u043C\u0430\u0445 ".concat(target, ":"), parameters.range), reportElement("\u0414\u0438\u0441\u043F\u0435\u0440\u0441\u0438\u044F ".concat(target, ":"), parameters.variance), reportElement("\u0421\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 ".concat(target, ":"), parameters.sd), "</ul>", getFerqsTable(parameters.freqs, parameters.size)].join("");
+    return ["<ul class='mdc-list mdc-list--two-line'>", reportElement("\u0420\u0430\u0437\u043C\u0435\u0440 ".concat(target, ":"), parameters.size), reportElement("\u0421\u0443\u043C\u043C\u0430 ".concat(target, ":"), parameters.summa), reportElement("\u041C\u0430\u043A\u0441\u0438\u043C\u0443\u043C ".concat(target, ":"), parameters.maximum), reportElement("\u041C\u0438\u043D\u0438\u043C\u0443\u043C ".concat(target, ":"), parameters.minimum), reportElement("\u0421\u0440\u0435\u0434\u043D\u0435\u0435 ".concat(target, ":"), parameters.mean), reportElement("\u041C\u0435\u0434\u0438\u0430\u043D\u0430 ".concat(target, ":"), parameters.median), reportElement("\u041C\u043E\u0434\u044B ".concat(target, ":"), parameters.modes.join(", ")), reportElement("\u0420\u0430\u0437\u043C\u0430\u0445 ".concat(target, ":"), parameters.range), reportElement("\u0414\u0438\u0441\u043F\u0435\u0440\u0441\u0438\u044F ".concat(target, ":"), parameters.variance), reportElement("\u0421\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 ".concat(target, ":"), parameters.sd), "</ul>", getFerqsTable(parameters.freqs, parameters.size)].join("");
   };
 
   reportElement = function reportElement(title, value) {
@@ -294,15 +294,15 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   getStatisticParameters = function getStatisticParameters(data, isPopulation) {
-    var freqs, mean, median, modes, orderedData, range, sd, size, summa, variance;
+    var freqs, maximum, mean, median, minimum, modes, orderedData, range, sd, size, summa, variance;
     size = data.length;
     summa = sum(data);
     mean = summa / size;
     orderedData = data.sort(sub);
-    max = document.flexibel.max(orderedData);
-    min = document.flexibel.min(orderedData);
+    maximum = document.flexibel.max(orderedData);
+    minimum = document.flexibel.min(orderedData);
     median = findMedian(orderedData);
-    range = max - min;
+    range = maximum - minimum;
     variance = orderedData.map(function (x) {
       return Math.pow(x - mean, 2);
     }).reduce(sum) / (isPopulation ? size : size - 1);
@@ -314,8 +314,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       summa: summa,
       mean: mean,
       median: median,
-      max: max,
-      min: min,
+      maximum: maximum,
+      minimum: minimum,
       range: range,
       variance: variance,
       sd: sd,

@@ -15,8 +15,8 @@ makeReport = (data, isPopulation) ->
 		"<ul class='mdc-list mdc-list--two-line'>"
 		reportElement "Размер #{target}:", parameters.size
 		reportElement "Сумма #{target}:", parameters.summa
-		reportElement "Максимум #{target}:", parameters.max
-		reportElement "Минимум #{target}:", parameters.min
+		reportElement "Максимум #{target}:", parameters.maximum
+		reportElement "Минимум #{target}:", parameters.minimum
 		reportElement "Среднее #{target}:", parameters.mean
 		reportElement "Медиана #{target}:", parameters.median
 		reportElement "Моды #{target}:", parameters.modes.join ", "
@@ -46,10 +46,10 @@ getStatisticParameters = (data, isPopulation) ->
 	summa = sum data
 	mean = summa / size
 	orderedData = data.sort sub
-	max = document.flexibel.max orderedData
-	min = document.flexibel.min orderedData
+	maximum = document.flexibel.max orderedData
+	minimum = document.flexibel.min orderedData
 	median = findMedian orderedData
-	range = max - min
+	range = maximum - minimum
 	variance = orderedData
 		.map (x) -> (x - mean) ** 2
 		.reduce(sum) / if isPopulation then size else size - 1
@@ -57,7 +57,7 @@ getStatisticParameters = (data, isPopulation) ->
 	freqs = counter orderedData
 	modes = findMode freqs
 
-	{ size, summa, mean, median, max, min, range, variance, sd, freqs, modes }
+	{ size, summa, mean, median, maximum, minimum, range, variance, sd, freqs, modes }
 
 getFerqsTable = (freqs, size) ->
 	"""
