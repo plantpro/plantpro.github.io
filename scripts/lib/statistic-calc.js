@@ -299,20 +299,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     summa = sum(data);
     mean = summa / size;
     orderedData = data.sort(sub);
-    max = orderedData.reduce(function (x, y) {
-      if (x > y) {
-        return x;
-      } else {
-        return y;
-      }
-    });
-    min = orderedData.reduce(function (x, y) {
-      if (x < y) {
-        return x;
-      } else {
-        return y;
-      }
-    });
+    max = document.flexibel.max(orderedData);
+    min = document.flexibel.min(orderedData);
     median = findMedian(orderedData);
     range = max - min;
     variance = orderedData.map(function (x) {
