@@ -8111,6 +8111,4 @@ a {
 img {
 	max-height: 300px;
 	max-width: 100%;
-	display: block;
-	overflow-x: auto;
 }
