@@ -8109,5 +8109,7 @@ a {
 }
 
 img {
-  max-width: 100%;
+	max-width: 100%;
+	display: block;
+	overflow-x: auto;
 }
