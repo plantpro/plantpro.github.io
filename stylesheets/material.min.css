@@ -3079,7 +3079,8 @@ input.mdl-button[type="submit"] {
 
 .mdl-button--fab .mdl-button__ripple-container {
   border-radius: 50%;
-  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000)
+	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+	mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-button--fab:active {
@@ -3150,7 +3151,8 @@ input.mdl-button[type="submit"] {
 
 .mdl-button--icon .mdl-button__ripple-container {
   border-radius: 50%;
-  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000)
+	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+	mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-button__ripple-container {
@@ -3472,7 +3474,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__label,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000)
+	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+	mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-checkbox__ripple-container .mdl-ripple {
@@ -4185,7 +4188,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000)
+	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+	mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-icon-toggle__ripple-container .mdl-ripple {
@@ -5190,7 +5194,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
 }
 
 .mdl-layout__content {
-  -ms-flex: 0 1 auto;
+	-ms-flex: 0 1 auto;
+	flex: 0 1 auto;
   position: relative;
   display: inline-block;
   overflow-y: auto;
@@ -5542,7 +5547,8 @@ fieldset[disabled] .mdl-radio .mdl-radio__label,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000)
+	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+	mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-radio__ripple-container .mdl-ripple {
@@ -6578,7 +6584,8 @@ _:-ms-input-placeholder,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+	mask-image: -webkit-radial-gradient(circle, #fff, #000);
   transition-duration: .4s;
   transition-timing-function: step-end;
   transition-property: left
