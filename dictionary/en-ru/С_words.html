@@ -1,6 +1,4 @@
-import sys
 
-TEMPLATE_PART_ONE = """
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -46,22 +44,7 @@ TEMPLATE_PART_ONE = """
 			<div class="page-content">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-"""
-TEMPLATE_PART_TWO = """
-					</div>
-				</div>
-			</div>
-		</main>
-	</div>
-</body>
-</html>
-"""
-
-def normalizePair(pair):
-	return (pair[0][0].upper() + pair[0][1:], pair[1][0].upper() + pair[1][1:])
-
-def generateTable(pairs):
-	result = """
+<h3>С</h3>
 	<table class="mdl-data-table">
 	<thead>
 		<tr>
@@ -69,35 +52,12 @@ def generateTable(pairs):
 			<td class="mdl-data-table__cell--non-numeric">Перевод</td>
 		</tr>
 	</thead>
-	"""
-	for word, translated_word in pairs:
-		result += "<tr><td class='mdl-data-table__cell--non-numeric'>" + word + "</td><td class='mdl-data-table__cell--non-numeric'>" + translated_word + "</td></tr>"
-	
-	result += "</table>"
-
-	return result
-
-def buildPage(pairs):
-	generated_title = "<h3>" + pairs[0][0][0] + "</h3>"
-	generated_table = generateTable(pairs)
-	return TEMPLATE_PART_ONE + generated_title + generated_table + TEMPLATE_PART_TWO
-
-input_directory = sys.argv[1]
-output_directory = sys.argv[2]
-
-groupped = dict()
-with open(input_directory, "r", encoding="utf-8") as file:
-	line = file.readline()
-	while line:
-		pair = normalizePair(line.split("|"))
-		first_letter = pair[0][0]
-		if first_letter in groupped:
-			groupped[first_letter].append(pair)
-		else:
-			groupped[first_letter] = [pair]
-		line = file.readline()
-
-#print(groupped)
-for name in groupped:
-	with open(output_directory + "\\" + name + "_words.html", "w+", encoding="utf-8") as file:
-		file.write(buildPage(groupped[name]))
+	<tr><td class='mdl-data-table__cell--non-numeric'>Саnе</td><td class='mdl-data-table__cell--non-numeric'>Лоза, стебли кустарников, сахарный тростник
+</td></tr></table>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>
