@@ -33,7 +33,7 @@ foreach ($script in get-childitem $libPath -file | where-object { -not $_.basena
 	uglifyjs $script.fullname -o ($libPath + "\\" + $script.basename + ".min.js")
 }
 
-py .\dictionary\generator\make_dict.py .\dictionary\generator\src.txt .\dictionary\en-ru
+py .\dictionary\generator\make_dict.py .\dictionary\generator\src.txt .\dictionary\
 
 # Publish at GitHub
 git add *
