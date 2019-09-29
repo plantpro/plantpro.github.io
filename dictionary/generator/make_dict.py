@@ -44,14 +44,18 @@ class WordCounter:
 				self.dict[i.get_letter()] = [i]
 	
 	def saveTo(self, dir):
-		for name in self.dict:
-			res = defaultdict(list)
-			for i in self.dict[name]: res[i.word].append(i.meaning)
-			print(res) 
-		
-		for name in self.dict:
+		def groupIt(self):
+			result = defaultdict(list)
+			for i in self.dict:
+				res = defaultdict(list)
+				for j in self.dict[i]:
+					res[j.word].append(j.meaning)
+				result[i] = [Translation(w, ", ".join(m)) for w, m in res.items()]
+			return result
+
+		for name, tr in groupIt(self).items():
 			with open(dir + "\\" + name + "_words.html", "w+", encoding="utf-8") as file:
-				file.write(self._buildPage(self.dict[name], name))
+				file.write(self._buildPage(tr, name))
 	
 	def _generateTable(self, translations):
 		return f"""
