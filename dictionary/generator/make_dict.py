@@ -4,6 +4,8 @@
 
 import sys
 
+from collections import defaultdict
+
 # Delimiter between two translations
 LANG_DELIM = "|"
 # Delimiter between synonyms
@@ -42,6 +44,11 @@ class WordCounter:
 				self.dict[i.get_letter()] = [i]
 	
 	def saveTo(self, dir):
+		for name in self.dict:
+			res = defaultdict(list)
+			for i in self.dict[name]: res[i.word].append(i.meaning)
+			print(res) 
+		
 		for name in self.dict:
 			with open(dir + "\\" + name + "_words.html", "w+", encoding="utf-8") as file:
 				file.write(self._buildPage(self.dict[name], name))
