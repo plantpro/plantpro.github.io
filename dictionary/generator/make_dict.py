@@ -17,8 +17,7 @@ EN_PART_INDEX = 0
 RU_PART_INDEX = 1
 
 SEARCH_FORM = """
-	<form action="#">
-		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="float: right;">
 			<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
 				<i class="material-icons">search</i>
 			</label>
@@ -27,7 +26,6 @@ SEARCH_FORM = """
 				<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
 			</div>
 		</div>
-	</form>
 """
 
 SEARCH_SCRIPT = "../../scripts/lib/search_engine.js"
@@ -134,9 +132,13 @@ class WordCounter:
 						<main class="mdl-layout__content">
 							<div class="page-content">
 								<div class="mdl-grid">
-									<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
 										<h3>{title}</h3>
+									</div>
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
 										{SEARCH_FORM}
+									</div>
+									<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 										{self._generateTable(sorted(pairs, key=lambda x: x.word))}
 									</div>
 								</div>
