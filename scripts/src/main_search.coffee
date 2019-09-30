@@ -1,7 +1,7 @@
 #: import flexibel.coffee
 
-startSearch = () ->
-	input = new RegExp((valueof "text-to-find"), "i")
+startSearch = (name) ->
+	input = new RegExp(name, "i")
 	for entry in element("search-container").children
 		entry.hidden = no
 		entry.hidden = yes unless matchContent entry, input
@@ -20,7 +20,10 @@ searchTag = (name) ->
 	history.pushState({ foo: "bar" }, "page 2", "index.html")
 
 element "text-to-find"
-	.addEventListener("input", startSearch)
+	.addEventListener("input", () -> startSearch(valueof "text-to-find"))
+
+element "text-to-find2"
+	.addEventListener("input", () -> startSearch(valueof "text-to-find2"))
 
 for child in element("search-container").children
 	for elem in child.getElementsByClassName("post-category")

@@ -273,9 +273,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     any: any
   };
 
-  startSearch = function startSearch() {
+  startSearch = function startSearch(name) {
     var entry, input, j, len, ref, results;
-    input = new RegExp(valueof("text-to-find"), "i");
+    input = new RegExp(name, "i");
     ref = element("search-container").children;
     results = [];
 
@@ -324,7 +324,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     }, "page 2", "index.html");
   };
 
-  element("text-to-find").addEventListener("input", startSearch);
+  element("text-to-find").addEventListener("input", function () {
+    return startSearch(valueof("text-to-find"));
+  });
+  element("text-to-find2").addEventListener("input", function () {
+    return startSearch(valueof("text-to-find2"));
+  });
   ref = element("search-container").children;
 
   for (j = 0, len = ref.length; j < len; j++) {
