@@ -17,7 +17,7 @@ EN_PART_INDEX = 0
 RU_PART_INDEX = 1
 
 SEARCH_FORM = """
-		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="float: right;">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="float: right;margin-top: 12px;">
 			<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
 				<i class="material-icons">search</i>
 			</label>
