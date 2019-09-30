@@ -43,7 +43,8 @@
 				<a class="mdl-navigation__link" href="genetic-tasks/index.html">
 					<svg style="width:24px;height:24px" viewBox="0 0 24 24">
 						<path fill="#757575" d="M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" />
-				</svg>Сборник задач по генетике</a>
+					</svg>
+					Сборник задач по генетике</a>
 			</nav>
 		</div>
 
@@ -246,5 +247,12 @@
 </body>
 
 <script src="scripts/lib/main_search.min.js"></script>
-
+<script>
+	window.addEventListener("load", () => {
+		var header = document.getElementsByClassName("mdl-layout__header")[0];
+		var container = header.children[0].children[0];
+		container.innerText = "";
+		container.innerHTML = "<svg style='width:24px;height:24px' viewBox='0 0 24 24'><path fill='#ffffff' d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' /></svg>";
+	})
+</script>
 </html>
