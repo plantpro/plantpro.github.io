@@ -327,7 +327,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   element("text-to-find").addEventListener("input", function () {
     return startSearch(valueof("text-to-find"));
   });
-  element("text-to-find2").addEventListener("input", function () {
+  element("text-to-find2").addEventListener("change", function () {
     return startSearch(valueof("text-to-find2"));
   });
   ref = element("search-container").children;
