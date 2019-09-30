@@ -137,9 +137,6 @@ searchTag = (name) ->
 element "text-to-find"
 	.addEventListener("input", () -> startSearch(valueof "text-to-find"))
 
-element "text-to-find2"
-	.addEventListener("change", () -> startSearch(valueof "text-to-find2"))
-
 for child in element("search-container").children
 	for elem in child.getElementsByClassName("post-category")
 		elem.addEventListener("click", searchTag)
