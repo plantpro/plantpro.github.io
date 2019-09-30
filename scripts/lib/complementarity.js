@@ -20,6 +20,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       INPUT_TYPE,
       RNA_COMPLIMENTARY,
       RNA_VALID_CHARS,
+      all,
+      any,
       buildByDnaOne,
       buildByDnaTwo,
       buildByInformationalRna,
@@ -149,6 +151,34 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   htmlset = function htmlset(id, html) {
     return document.flexibel.element(id).innerHTML = html;
+  };
+
+  any = function any(values, f) {
+    var i, j, len;
+
+    for (j = 0, len = values.length; j < len; j++) {
+      i = values[j];
+
+      if (f(i)) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  all = function all(values, f) {
+    var i, j, len;
+
+    for (j = 0, len = values.length; j < len; j++) {
+      i = values[j];
+
+      if (!f(i)) {
+        return false;
+      }
+    }
+
+    return true;
   };
 
   ejoin = function ejoin(values) {
@@ -297,7 +327,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     sum: sum,
     sub: sub,
     mul: mul,
-    div: div
+    div: div,
+    all: all,
+    any: any
   };
   DNA_VALID_CHARS = "ATGCatgcАТГЦатгц ";
   RNA_VALID_CHARS = "AUGCaugcАУГЦаугц ";

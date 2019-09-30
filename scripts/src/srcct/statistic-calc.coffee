@@ -45,6 +45,16 @@ checkedof = (id) ->
 htmlset = (id, html) ->
 	document.flexibel.element(id).innerHTML = html
 
+any = (values, f) ->
+	for i in values
+		return true	if f i
+	return false
+
+all = (values, f) ->
+	for i in values
+		return false	unless f i
+	return true
+
 ejoin = (values) ->
 	values.join ""
 
@@ -100,7 +110,9 @@ document.flexibel = {
 	sum,
 	sub,
 	mul,
-	div
+	div,
+	all,
+	any
 }
 
 # 86 80 25 77 73 76 100 90 69 93 90 83 70 73 73 70 90 83 71 95 40 58 68 69 100 78 87 97 92 74

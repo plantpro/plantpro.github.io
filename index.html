@@ -19,6 +19,15 @@
 				<span class="mdl-layout-title">PLANT PROTECTION</span>
 				<div class="mdl-layout-spacer"></div>
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<div class="mdl-navigation__link mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="float: right;">
+								<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
+									<i class="material-icons">search</i>
+								</label>
+								<div class="mdl-textfield__expandable-holder">
+									<input class="mdl-textfield__input" type="text" id="text-to-find">
+								<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+							</div>
+						</div>
 					<a class="mdl-navigation__link" href="about.html">О сайте</a>
 				</nav>
 			</div>
@@ -42,7 +51,7 @@
 
 		<main class="mdl-layout__content">
 			<div class="page-content">
-				<div class="mdl-grid">
+				<div class="mdl-grid" id="search-container">
 						<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
 								<div class="article-card mdl-card mdl-shadow--2dp">
 									<div class="mdl-card__title mdl-card--expand post-category-plant-growning">
@@ -54,7 +63,7 @@
 									</div>
 		
 									<div class="mdl-card__actions">
-										<a class="post-category post-category-plant-growning" href="">Растениеводство</a>
+										<a class="post-category post-category-plant-growning">Растениеводство</a>
 									</div>
 		
 									<div class="mdl-card__actions mdl-card--border">
@@ -75,7 +84,7 @@
 							</div>
 
 							<div class="mdl-card__actions">
-								<a class="post-category post-category-statistics" href="articles/statistics/index.html">Статистика</a>
+								<a class="post-category post-category-statistics">Статистика</a>
 							</div>
 
 							<div class="mdl-card__actions mdl-card--border">
@@ -96,7 +105,7 @@
 							</div>
 
 							<div class="mdl-card__actions">
-								<a class="post-category post-category-statistics" href="articles/statistics/index.html">Статистика</a>
+								<a class="post-category post-category-statistics">Статистика</a>
 							</div>
 
 							<div class="mdl-card__actions mdl-card--border">
@@ -117,7 +126,7 @@
 							</div>
 
 							<div class="mdl-card__actions">
-								<a class="post-category post-category-statistics" href="articles/statistics/index.html">Статистика</a>
+								<a class="post-category post-category-statistics">Статистика</a>
 							</div>
 
 							<div class="mdl-card__actions mdl-card--border">
@@ -237,5 +246,7 @@
 		</main>
 	</div>
 </body>
+
+<script src="scripts/lib/main_search.min.js"></script>
 
 </html>
