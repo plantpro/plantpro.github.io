@@ -7,6 +7,7 @@
 
 	<title>Защита растений</title>
 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="stylesheets/material.min.css">
 	<script src="scripts/material.min.js"></script>
 </head>
@@ -20,7 +21,7 @@
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
 						<div class="mdl-navigation__link mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="float: right;">
 								<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
-									<img src="resources/images/icons/magnify.png"/>
+									<i class="material-icons">&#xe8b6;</i>
 								</label>
 								<div class="mdl-textfield__expandable-holder">
 									<input class="mdl-textfield__input" type="text" id="text-to-find">
@@ -35,16 +36,14 @@
 		<div class="mdl-layout__drawer">
 			<span class="mdl-layout-title">Разделы</span>
 			<nav class="mdl-navigation">
-				<a class="mdl-navigation__link" href="index.html">
-						<img src="resources/images/icons/text-subject.png"/>Статьи</a>
-				<a class="mdl-navigation__link" href="library/index.html">
-					<img src="resources/images/icons/book.png"/>Библиотека</a>
-				<a class="mdl-navigation__link" href="applications/index.html">
-					<img src="resources/images/icons/widgets.png"/>Приложения</a>
-				<a class="mdl-navigation__link" href="dictionary/index.html">
-					<img src="resources/images/icons/translate.png"/>Словарь</a>
+				<a class="mdl-navigation__link" href="index.html"><i class="material-icons">&#xe8d2;</i>Статьи</a>
+				<a class="mdl-navigation__link" href="library/index.html"><i class="material-icons">&#xe865;</i>Библиотека</a>
+				<a class="mdl-navigation__link" href="applications/index.html"><i class="material-icons">&#xe1bd;</i>Приложения</a>
+				<a class="mdl-navigation__link" href="dictionary/index.html"><i class="material-icons">&#xe8e2;</i>Словарь</a>
 				<a class="mdl-navigation__link" href="genetic-tasks/index.html">
-					<img src="resources/images/icons/format-list-bulleted-square.png"/>Сборник задач по генетике</a>
+					<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+						<path fill="#757575" d="M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" />
+				</svg>Сборник задач по генетике</a>
 			</nav>
 		</div>
 
@@ -247,12 +246,5 @@
 </body>
 
 <script src="scripts/lib/main_search.min.js"></script>
-<script>
-	window.addEventListener("load", () => {
-		var header = document.getElementsByClassName("mdl-layout__header")[0];
-		var iconContainer = header.children[0].children[0];
-		iconContainer.innerText = "";
-		iconContainer.innerHTML = "<img src='resources/images/icons/menu.png'/>";
-	})
-</script>
+
 </html>
