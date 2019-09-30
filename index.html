@@ -7,7 +7,6 @@
 
 	<title>Защита растений</title>
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="stylesheets/material.min.css">
 	<script src="scripts/material.min.js"></script>
 </head>
@@ -21,7 +20,6 @@
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
 						<div class="mdl-navigation__link mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="float: right;">
 								<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
-									<!--i class="material-icons">&#xe8b6;</!i-->
 									<img src="resources/images/icons/magnify.png"/>
 								</label>
 								<div class="mdl-textfield__expandable-holder">
@@ -249,5 +247,12 @@
 </body>
 
 <script src="scripts/lib/main_search.min.js"></script>
-
+<script>
+	window.addEventListener("load", () => {
+		var header = document.getElementsByClassName("mdl-layout__header")[0];
+		var iconContainer = header.children[0].children[0];
+		iconContainer.innerText = "";
+		iconContainer.innerHTML = "<img src='resources/images/icons/menu.png'/>";
+	})
+</script>
 </html>
