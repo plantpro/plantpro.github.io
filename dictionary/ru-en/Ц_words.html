@@ -46,6 +46,19 @@
 									<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 										<h3>Ц</h3>
 										
+	<form action="#">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+			<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
+				<i class="material-icons">search</i>
+			</label>
+			<div class="mdl-textfield__expandable-holder">
+				<input class="mdl-textfield__input" type="text" id="text-to-find">
+				<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+			</div>
+		</div>
+	</form>
+
+										
 		<table class="mdl-data-table">
 		<thead>
 			<tr>
@@ -53,7 +66,9 @@
 				<td class="mdl-data-table__cell--non-numeric">Перевод</td>
 			</tr>
 		</thead>
+		<tbody id="dict-entries">
 		<tr><td class='mdl-data-table__cell--non-numeric'>цвести</td><td class='mdl-data-table__cell--non-numeric'>blossom</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>цвет</td><td class='mdl-data-table__cell--non-numeric'>blossom</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>цветущий</td><td class='mdl-data-table__cell--non-numeric'>abloom</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>целебный</td><td class='mdl-data-table__cell--non-numeric'>wholesome</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>целый</td><td class='mdl-data-table__cell--non-numeric'>total</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>цельнозѐрная кукуруза</td><td class='mdl-data-table__cell--non-numeric'>whole kernel corn</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>цельный</td><td class='mdl-data-table__cell--non-numeric'>whole</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>цена</td><td class='mdl-data-table__cell--non-numeric'>value</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>ценить</td><td class='mdl-data-table__cell--non-numeric'>rank</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>ценность</td><td class='mdl-data-table__cell--non-numeric'>value, importance</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>ценный</td><td class='mdl-data-table__cell--non-numeric'>valuable, useful</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>цикл</td><td class='mdl-data-table__cell--non-numeric'>cycle</td></tr>
+		</tbody>
 		</table>
 		
 									</div>
@@ -62,4 +77,5 @@
 						</main>
 					</div>
 				</body>
+				<script src="../../scripts/lib/search_engine.js"></script>
 			</html>

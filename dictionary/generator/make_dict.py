@@ -16,6 +16,22 @@ EN_PART_INDEX = 0
 # Russian is rigth of LANG_DELIM
 RU_PART_INDEX = 1
 
+SEARCH_FORM = """
+	<form action="#">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+			<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
+				<i class="material-icons">search</i>
+			</label>
+			<div class="mdl-textfield__expandable-holder">
+				<input class="mdl-textfield__input" type="text" id="text-to-find">
+				<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+			</div>
+		</div>
+	</form>
+"""
+
+SEARCH_SCRIPT = "../../scripts/lib/search_engine.js"
+
 class Translation:
 	def __init__(self, word, meaning):
 		self.word = word
@@ -66,7 +82,9 @@ class WordCounter:
 				<td class="mdl-data-table__cell--non-numeric">Перевод</td>
 			</tr>
 		</thead>
+		<tbody id="dict-entries">
 		{"".join([f"<tr><td class='mdl-data-table__cell--non-numeric'>{tr.word}</td><td class='mdl-data-table__cell--non-numeric'>{tr.meaning}</td></tr>" for tr in translations])}
+		</tbody>
 		</table>
 		"""
 
@@ -118,6 +136,7 @@ class WordCounter:
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 										<h3>{title}</h3>
+										{SEARCH_FORM}
 										{self._generateTable(sorted(pairs, key=lambda x: x.word))}
 									</div>
 								</div>
@@ -125,6 +144,7 @@ class WordCounter:
 						</main>
 					</div>
 				</body>
+				<script src="{SEARCH_SCRIPT}"></script>
 			</html>"""
 
 # Parse line of input file

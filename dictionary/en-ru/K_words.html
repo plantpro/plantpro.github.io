@@ -46,6 +46,19 @@
 									<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 										<h3>K</h3>
 										
+	<form action="#">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+			<label class="mdl-button mdl-js-button mdl-button--icon" for="text-to-find">
+				<i class="material-icons">search</i>
+			</label>
+			<div class="mdl-textfield__expandable-holder">
+				<input class="mdl-textfield__input" type="text" id="text-to-find">
+				<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+			</div>
+		</div>
+	</form>
+
+										
 		<table class="mdl-data-table">
 		<thead>
 			<tr>
@@ -53,7 +66,9 @@
 				<td class="mdl-data-table__cell--non-numeric">Перевод</td>
 			</tr>
 		</thead>
-		<tr><td class='mdl-data-table__cell--non-numeric'>keep</td><td class='mdl-data-table__cell--non-numeric'>пастбище, подножный корм, запас кормов</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>keep (kept – kept)</td><td class='mdl-data-table__cell--non-numeric'>держать, содержать (животных), хранить, сохранять,</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>keep down</td><td class='mdl-data-table__cell--non-numeric'>уничтожать (сорняки)</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>keep up the fertility</td><td class='mdl-data-table__cell--non-numeric'>поддерживать плодородие почвы</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel milk line</td><td class='mdl-data-table__cell--non-numeric'>молочная спелость зерна (в основном про кукурузу</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel percentage</td><td class='mdl-data-table__cell--non-numeric'>озернѐнность колоса в %</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel size</td><td class='mdl-data-table__cell--non-numeric'>величина зерна</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel smut</td><td class='mdl-data-table__cell--non-numeric'>головня зерен</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kidney</td><td class='mdl-data-table__cell--non-numeric'>почка</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kill</td><td class='mdl-data-table__cell--non-numeric'>уничтожать (сорняки, вредителей), ослаблять</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>killer</td><td class='mdl-data-table__cell--non-numeric'>препарат для уничтожения (сорняков, вредителей)</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>killing frosts</td><td class='mdl-data-table__cell--non-numeric'>летнее похолодание, заморозки</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kind</td><td class='mdl-data-table__cell--non-numeric'>вид, сорт, отличительный признак</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>knead</td><td class='mdl-data-table__cell--non-numeric'>смешивать до получения однородной массы</td></tr>
+		<tbody id="dict-entries">
+		<tr><td class='mdl-data-table__cell--non-numeric'>keep</td><td class='mdl-data-table__cell--non-numeric'>пастбище, подножный корм, запас кормов</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>keep (kept – kept)</td><td class='mdl-data-table__cell--non-numeric'>держать, содержать (животных), хранить, сохранять,</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>keep down</td><td class='mdl-data-table__cell--non-numeric'>уничтожать (сорняки)</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>keep up the fertility</td><td class='mdl-data-table__cell--non-numeric'>поддерживать плодородие почвы</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel milk line</td><td class='mdl-data-table__cell--non-numeric'>молочная спелость зерна (в основном про кукурузу</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel percentage</td><td class='mdl-data-table__cell--non-numeric'>озернѐнность колоса в %</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel size</td><td class='mdl-data-table__cell--non-numeric'>величина зерна</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kernel smut</td><td class='mdl-data-table__cell--non-numeric'>головня зерен</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kidney</td><td class='mdl-data-table__cell--non-numeric'>почка</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kill</td><td class='mdl-data-table__cell--non-numeric'>уничтожать (сорняки,вредителей), ослаблять</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>killer</td><td class='mdl-data-table__cell--non-numeric'>препарат для уничтожения (сорняков,вредителей)</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>killing frosts</td><td class='mdl-data-table__cell--non-numeric'>летнее похолодание, заморозки</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>kind</td><td class='mdl-data-table__cell--non-numeric'>вид, сорт, отличительный признак</td></tr><tr><td class='mdl-data-table__cell--non-numeric'>knead</td><td class='mdl-data-table__cell--non-numeric'>смешивать до получения однородной массы</td></tr>
+		</tbody>
 		</table>
 		
 									</div>
@@ -62,4 +77,5 @@
 						</main>
 					</div>
 				</body>
+				<script src="../../scripts/lib/search_engine.js"></script>
 			</html>
