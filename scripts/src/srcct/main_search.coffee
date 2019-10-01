@@ -52,7 +52,7 @@ any = (values, f) ->
 
 all = (values, f) ->
 	for i in values
-		return false	unless f i
+		return false unless f i
 	return true
 
 ejoin = (values) ->

@@ -199,6 +199,5 @@ function uniquePoop() {
 function getPoopOfTheDay() {
 	var prev = new RNG(new Date().getDay());
 	previousRnd = prev.nextRange(0, 11);
-	previousRnd = prev.nextRange(0, 11);
  	return names[uniquePoop()];
 }
