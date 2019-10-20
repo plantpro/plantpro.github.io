@@ -4,6 +4,7 @@
  * @license Apache-2.0
  * @copyright 2015 Google, Inc.
  * @link https://github.com/google/material-design-lite
+ * 3f51b5 -Ю #3f51b5
  */
 @charset "UTF-8";
 
@@ -2705,11 +2706,11 @@ ol {
 }
 
 .mdl-color-text--grey-900 {
-  color: #212121 !important
+  color: #3f51b5 !important
 }
 
 .mdl-color--grey-900 {
-  background-color: #212121 !important
+  background-color: #3f51b5 !important
 }
 
 .mdl-color-text--blue-grey {
