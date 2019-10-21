@@ -7,15 +7,15 @@
 #>
 
 # Path to project
-$projectPath = "C:\\Users\\ï¿½ï¿½\\Desktop\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\plantprotection"
+$projectPath = "C:\\Users\\ïê\\Desktop\\ÑÏáÃÀÓ\\plantprotection"
 # Path to Babel (installed globally)
-$babelPath = "C:\\Users\\ï¿½ï¿½\\AppData\\Roaming\\npm\\node_modules\\@babel"
+$babelPath = "C:\\Users\\ïê\\AppData\\Roaming\\npm\\node_modules\\@babel"
 # Output path
-$libPath = "C:\\Users\\ï¿½ï¿½\\Desktop\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\plantprotection\\scripts\\lib"
+$libPath = "C:\\Users\\ïê\\Desktop\\ÑÏáÃÀÓ\\plantprotection\\scripts\\lib"
 # Input path
-$srcPath = "C:\\Users\\ï¿½ï¿½\\Desktop\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\plantprotection\\scripts\\src"
+$srcPath = "C:\\Users\\ïê\\Desktop\\ÑÏáÃÀÓ\\plantprotection\\scripts\\src"
 # Temporary directory with concatenated files
-$srcctPath = "C:\\Users\\ï¿½ï¿½\\Desktop\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\plantprotection\\scripts\\src\\srcct"
+$srcctPath = "C:\\Users\\ïê\\Desktop\\ÑÏáÃÀÓ\\plantprotection\\scripts\\src\\srcct"
 
 # Concat files
 py concater.py $srcPath $srcctPath

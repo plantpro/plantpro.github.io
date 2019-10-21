@@ -169,4 +169,5 @@ output_file = sys.argv[1]
 
 itemsString = makeItems(LIBRARY_SRC)
 
-print(buildPage(itemsString), file=output_file, encoding="utf-8")
+with open(output_file, "w+", encoding="utf-8") as file:
+	file.write(buildPage(itemsString))
