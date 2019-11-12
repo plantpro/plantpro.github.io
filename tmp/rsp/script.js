@@ -126,7 +126,7 @@ function getNextWeek() {
 }
 
 function getSource() {
-	if (!isTop(0)) {
+	if (isTop(0)) {
 		return topPairs;
 	}
 	return bottomPairs;
