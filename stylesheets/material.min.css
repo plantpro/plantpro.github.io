@@ -4915,7 +4915,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
 
 .mdl-layout__header .mdl-layout__drawer-button {
   position: absolute;
-  color: #fff;
+  color: #000;
   background-color: inherit
 }
 
@@ -4968,9 +4968,9 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
   min-height: 64px;
   max-height: 1000px;
   z-index: 3;
-  background-color: #3f51b5;
-  color: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  background-color: #ffffff;
+	color: #000000;
+	border-bottom: #e8eaed solid 1px;
   transition-duration: .2s;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-property: max-height, box-shadow
