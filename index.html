@@ -9,13 +9,31 @@
 
 	<link rel="stylesheet" href="stylesheets/material.min.css">
 	<script src="scripts/material.min.js"></script>
+
+	<style>
+		.pp-division {
+			color: black;
+			display: block;
+			width: 100%;
+			font-size: large;
+			text-align: center;
+			padding: 15px 0px 15px 0px;
+			background-color: rgb(250, 250, 250);
+			text-decoration: none;
+		}
+
+		.pp-division:hover {
+			background-color: rgb(221, 220, 220);
+		}
+	</style>
 </head>
 
 <body>
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title"><span style="color: red;">P</span>LANT <span style="color: red;">P</span>ROTECTION</span>
+				<span class="mdl-layout-title"><span style="color: red;">P</span>LANT <span
+						style="color: red;">P</span>ROTECTION</span>
 				<div class="mdl-layout-spacer"></div>
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
 					<div class="mdl-navigation__link mdl-textfield mdl-js-textfield mdl-textfield--expandable"
@@ -44,7 +62,7 @@
 						<path fill="#757575" d="M4,5H20V7H4V5M4,9H20V11H4V9M4,13H20V15H4V13M4,17H14V19H4V17Z" />
 					</svg>
 					Статьи</a>
-					<a class="mdl-navigation__link" href="systematics/index.html">Систематика</a>
+				<a class="mdl-navigation__link" href="systematics/index.html">Систематика</a>
 				<a class="mdl-navigation__link" href="library/index.html">
 					<svg style="width:24px;height:24px" viewbox="0 0 24 24">
 						<path fill="#757575"
@@ -74,206 +92,19 @@
 
 		<main class="mdl-layout__content">
 			<div class="page-content">
-				<div style="text-align: center;padding-top: 30px;padding-bottom: 30px;height: 35rem;">
-					<img src="resources/images/main-plant.jpg">
-					<h4 style="text-transform: uppercase;">информационный портал по защите растений</h4>
-				</div>
+				<div style="text-align: center;"><h4>Разделы</h4></div>
 
-				<div class="mdl-grid" id="search-container">
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-plant-growning">
-								<h2 class="mdl-card__title-text">Хлеба I и II группы</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								Различия хлебов I и II групп<br><br>
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-plant-growning">Растениеводство</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/plant-growning/breads.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-statistics">
-								<h2 class="mdl-card__title-text">Статистика. Часть 1. Введение в статистику</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								Рассмотрим базовые понятия статистики и способы отображения данных<br>
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-statistics">Статистика</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/statistics/ch1.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-statistics">
-								<h2 class="mdl-card__title-text">Статистика. Часть 2. Введение в визуализацию данных</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								Построение диаграмм и гистограмм, относительные частоты<br>
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-statistics">Статистика</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/statistics/ch2.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="demo3-card-square article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-statistics">
-								<h2 class="mdl-card__title-text">Статистика. Часть 3. Меры центральной тенденции</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								Разбираем среднее, медиану, моду и прочее<br>
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-statistics">Статистика</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/statistics/ch3.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-geology">
-								<h2 class="mdl-card__title-text">Минералы</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								Минералы и их физические свойства<br><br>
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-geology">Почвоведение</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/soil_science/minerals.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-biochemistry">
-								<h2 class="mdl-card__title-text">Биоэнергетика. Часть 1: Фосфагены</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								В этой лекции об основах биоэнергетики мы рассмортим фосфагены
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-biochemistry">Биохимия</a>
-								<a class="post-category post-category-microbiology">Микробиология</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/biochemistry/bioenergetics1.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-plant-phisiology">
-								<h2 class="mdl-card__title-text">Аквапорины</h2>
-							</div>
-							<div class="mdl-card__supporting-text">
-								Что такое аквапорины и в чём их суть<br><br>
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-plant-phisiology">Физиология растений</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/biochemistry/acquaporines.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-
-							<div class="mdl-card__title mdl-card--expand post-category-microbiology">
-								<h2 class="mdl-card__title-text">Дыхание микроорганизмов</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								Дыхание микроорганизмов<br><br>
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-microbiology">Микробиология</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/microbiology/micro-art2.html">Читать</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div class="article-card mdl-card mdl-shadow--2dp">
-							<div class="mdl-card__title mdl-card--expand post-category-common-chemistry">
-								<h2 class="mdl-card__title-text">Что такое pH и как его считать</h2>
-							</div>
-
-							<div class="mdl-card__supporting-text">
-								Люди откровенно не понимают что такое показатель кислотности. Сейчас мы это исправим!
-							</div>
-
-							<div class="mdl-card__actions">
-								<a class="post-category post-category-common-chemistry">Общая химия</a>
-							</div>
-
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-									href="articles/pcc-ph-basics.html">Читать</a>
-							</div>
-						</div>
-					</div>
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--12-col"><a class="pp-division" href="divisions/stat/index.html">Статистика</a></div>
+					<div class="mdl-cell mdl-cell--12-col"><a class="pp-division">Общая химия</a></div>
+					<div class="mdl-cell mdl-cell--12-col"><a class="pp-division">Земледелие</a></div>
+					<div class="mdl-cell mdl-cell--12-col"><a class="pp-division" href="divisions/plantsc/index.html">Растениеводство</a></div>
+					<div class="mdl-cell mdl-cell--12-col"><a class="pp-division">Микология и альгология</a></div>
+					<div class="mdl-cell mdl-cell--12-col"><a class="pp-division">Фитопатология</a></div>
 				</div>
 			</div>
 		</main>
 	</div>
 </body>
 
-<script src="scripts/lib/main_search.min.js"></script>
 </html>
