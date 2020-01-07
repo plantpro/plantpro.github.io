@@ -7,10 +7,14 @@ const colors = [
 
 function srcProviderShowSrcs() {
 	var provider = document.getElementById("src-provider");
-	var sources = provider.childNodes.forEach((i, k) => {
-		i.style = "background-color: " + colors[k - 1]
-		return [i.innerText, colors[k - 1]]
-	});
+	var sources = [];
+	var k = 0;
+	for (const i of provider.children) {
+		i.style = "background-color: " + colors[k]
+		console.log(i)
+		sources.push([i.innerText, colors[k]])
+		k++;
+	}
 	var title = document.createElement("h5");
 	title.innerText = "Источники";
 	provider.prepend(title);
