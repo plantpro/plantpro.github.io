@@ -8130,3 +8130,14 @@ figcaption {
 	color: #fff;
 	padding: 5px;
 }
+
+.paddinget {
+	padding: 16px;
+}
+
+#hint-warn {
+	padding: 15px;
+  border-radius: 4px;
+	color: #3c763d;
+  background-color: #dff0d8;
+}
