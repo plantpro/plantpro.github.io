@@ -9,63 +9,29 @@
 	<link rel="stylesheet" href="../../stylesheets/material.min.css">
 	<script src="../../scripts/material.min.js"></script>
 
-	<style>
-		.sys-list {
-			list-style: none;
-			/*font-weight: bold;*/
-		}
-
-		.kingdom {
-			color: red;
-		}
-
-		.phylum {
-			color: orangered;
-		}
-
-		.class {
-			color: orange;
-		}
-
-		.order {
-			color: green;
-		}
-
-		.family {
-			color: steelblue;
-		}
-
-		.genus {
-			color: blue;
-		}
-
-		.species {
-			color: blueviolet;
-		}
-
-
-		a {
-			text-decoration: none;
-			color: inherit;
-		}
-	</style>
+	<link rel="stylesheet" href="../systematic-style.css">
 </head>
 
 <body>
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
-				<div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">
+				<div class="mdl-layout__drawer-button">
 					<a href="../index.html">
 						<i class="material-icons">
-							<svg style="width:24px;height:24px" viewBox="0 0 24 24">
-								<path fill="#000000" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+							<svg style="width:24px;height:24px" viewbox="0 0 24 24">
+								<path fill="rgb(0, 129, 32)"
+									d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
 							</svg>
 						</i>
 					</a>
 				</div>
-				<span class="mdl-layout-title"><span style="color: red;">P</span>LANT <span
-						style="color: red;">P</span>ROTECTION</span>
+
+				<span class="mdl-layout-title">
+					<span style="color: rgb(0, 129, 32);">P</span>LANT
+					<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
+				</span>
+
 				<div class="mdl-layout-spacer"></div>
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
 				</nav>
@@ -74,21 +40,19 @@
 
 		<main class="mdl-layout__content">
 			<div class="page-content">
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-						<h3>Царство Protozoa</h3>
+				<div class="paddinget">
+					<h3>Царство Protozoa</h3>
 
-						<h5>Систематика</h5>
-						<ul class="sys-list">
-							<li class="kingdom"><a href="">Царство Protozoa</a></li>
-						</ul>
+					<h5>Систематика</h5>
+					<ul class="sys-list">
+						<li class="kingdom"><a href="">Царство Protozoa</a></li>
+					</ul>
 
-						<h5>Классификация</h5>
-						<ul class="sys-list">
-							<li class="phylum"><a href="Myxomycota/index.html">Отдел Myxomycota</a></li>
-							<li class="phylum"><a href="Plasmodiophoromycota/index.html">Отдел Plasmodiophoromycota</a></li>
-						</ul>
-					</div>
+					<h5>Классификация</h5>
+					<ul class="sys-list">
+						<li class="phylum"><a href="Myxomycota/index.html">Отдел Myxomycota</a></li>
+						<li class="phylum"><a href="Plasmodiophoromycota/index.html">Отдел Plasmodiophoromycota</a></li>
+					</ul>
 				</div>
 			</div>
 		</main>
