@@ -8123,12 +8123,14 @@ img {
 
 figure {
 	display: inline-block;
+	text-align: center;
 }
 
 figcaption {
 	background: #000;
 	color: #fff;
 	padding: 5px;
+	width: auto;
 }
 
 .paddinget {
