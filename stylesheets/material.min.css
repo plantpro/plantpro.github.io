@@ -8143,3 +8143,13 @@ figcaption {
 	color: #3c763d;
   background-color: #dff0d8;
 }
+
+.filetype-tag {
+	color:white;
+	padding: 2px;
+	border-radius: 3px;
+	font-size: smaller;
+	position: relative;
+  white-space: nowrap;
+	left: 10px;
+}
