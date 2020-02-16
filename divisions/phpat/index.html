@@ -9,6 +9,28 @@
 
 	<link rel="stylesheet" href="../../stylesheets/material.min.css">
 	<script src="../../scripts/material.min.js"></script>
+	<style>
+		details summary {
+			display: block;
+			/* у summary по умолчанию свойство display в значении list-item, потому поддерживается свойство list-style */
+			width: 10em;
+			width: -webkit-fit-content;
+			width: -moz-fit-content;
+			width: fit-content;
+			/* блок раскрывается при щелчке по кнопке, а не по всей строке */
+
+			outline-style: none;
+			/* удалить обводку при фокусе */
+			cursor: pointer;
+			color: rgb(0, 129, 32);
+			font-size: smaller;
+		}
+
+		details summary::-webkit-details-marker {
+			/* нестандартный псевдоэлемент Google Chrome */
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -55,9 +77,21 @@
 
 					<h4>Книги</h4>
 					<h6>
-						<a href="https://drive.google.com/file/d/1DQhoDG1pEzeCrO_MAtgrQPcpo92Qtvo8/view?usp=sharing">Пересыпкин.
+						<a href="https://drive.google.com/file/d/1DQhoDG1pEzeCrO_MAtgrQPcpo92Qtvo8/view?usp=sharing">В. Ф.
+							Пересыпкин.
 							Сельскохозяйственная фитопатология</a>
-							<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">.djvu</span>
+						<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">.djvu</span><br>
+						Приведены сведения по распространённости, диагностическим признакам, биологии патогенов и вредоносности
+						основных болезней зерновых, бобовых, технических,
+						масличных, овощных, плодово-ягодных культур, винограда и древесных пород полезащитных насаждений. Даны
+						системы защитных мероприятий, применяемых при интенсивных
+						технологиях возделывания.
+						<br>
+						<details>
+							<summary>Цитировать &gt;</summary>
+							Пересыпкин, В. Ф. Сельскохозяйственная фитопатология. - 4-е изд., перераб. и доп. - М.: Агропромиздат,
+							1989. - 420 с.
+						</details>
 					</h6>
 					<h6>
 						<a href="https://drive.google.com/open?id=15pXQP-nH3TNjn-FYgVPVjRb5U4UIHe1Q">Семёнкова.
@@ -71,8 +105,14 @@
 					</h6>
 					<h6>
 						<a href="https://drive.google.com/open?id=1g50w7HgWdxvOqMguda3COQJvvFzy7CEe">
-							Аникина, И. Н., Сейтжанова, Д. Д. Фитовирусология: учебное пособие / И. Н. Аникина, Д. Д. Сейтжанова. - Павлодар: Кереку, 2015. - 104 с.</a>
+							И. Н. Аникина. Фитовирусология</a>
 						<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">.pdf</span>
+						<br>
+						<details>
+							<summary>Цитировать &gt;</summary>
+							Аникина, И. Н., Сейтжанова, Д. Д. Фитовирусология: учебное пособие / И. Н. Аникина, Д. Д. Сейтжанова. -
+							Павлодар: Кереку, 2015. - 104 с.
+						</details>
 					</h6>
 
 					<h4>Для студентов СПбГАУ</h4>
