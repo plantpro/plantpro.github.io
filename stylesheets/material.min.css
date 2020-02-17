@@ -3080,8 +3080,8 @@ input.mdl-button[type="submit"] {
 
 .mdl-button--fab .mdl-button__ripple-container {
   border-radius: 50%;
-	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
-	mask-image: -webkit-radial-gradient(circle, #fff, #000)
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-button--fab:active {
@@ -3152,8 +3152,8 @@ input.mdl-button[type="submit"] {
 
 .mdl-button--icon .mdl-button__ripple-container {
   border-radius: 50%;
-	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
-	mask-image: -webkit-radial-gradient(circle, #fff, #000)
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-button__ripple-container {
@@ -3475,8 +3475,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__label,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
-	mask-image: -webkit-radial-gradient(circle, #fff, #000)
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-checkbox__ripple-container .mdl-ripple {
@@ -3567,9 +3567,9 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
   position: relative;
   /*border: 1px solid rgba(0, 0, 0, .12);*/
   border-collapse: collapse;
-	/*white-space: nowrap;*/
-	display: block;
-	overflow: auto;
+  /*white-space: nowrap;*/
+  display: block;
+  overflow: auto;
   font-size: 13px;
   background-color: #fff
 }
@@ -4189,8 +4189,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
-	mask-image: -webkit-radial-gradient(circle, #fff, #000)
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-icon-toggle__ripple-container .mdl-ripple {
@@ -4904,7 +4904,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
   text-align: center;
   cursor: pointer;
   font-size: 26px;
-  line-height:  40px;
+  line-height: 40px;
   font-family: Helvetica, Arial, sans-serif;
   margin: 8px 12px;
   top: 0;
@@ -4969,8 +4969,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
   max-height: 1000px;
   z-index: 3;
   background-color: #ffffff;
-	color: #000000;
-	border-bottom: #e8eaed solid 1px;
+  color: #000000;
+  border-bottom: #e8eaed solid 1px;
   transition-duration: .2s;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-property: max-height, box-shadow
@@ -5195,8 +5195,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
 }
 
 .mdl-layout__content {
-	-ms-flex: 0 1 auto;
-	flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
   position: relative;
   display: inline-block;
   overflow-y: auto;
@@ -5548,8 +5548,8 @@ fieldset[disabled] .mdl-radio .mdl-radio__label,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
-	mask-image: -webkit-radial-gradient(circle, #fff, #000)
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
 
 .mdl-radio__ripple-container .mdl-ripple {
@@ -6585,8 +6585,8 @@ _:-ms-input-placeholder,
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-	-webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
-	mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: -webkit-radial-gradient(circle, #fff, #000);
   transition-duration: .4s;
   transition-timing-function: step-end;
   transition-property: left
@@ -6633,8 +6633,10 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple,
   align-items: flex-start;
   height: 48px;
   padding: 0;
-  margin: 0;
-  /*border-bottom: 1px solid #e0e0e0*/
+	margin: 0;
+	border-bottom: 1px solid #e1e4e6;
+	/*border-bottom: 1px solid #e0e0e0*/
+	margin-bottom: 30px;
 }
 
 .mdl-tabs__tab {
@@ -6643,7 +6645,7 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple,
   padding: 0 24px;
   float: left;
   position: relative;
-  display: block;
+	display: block;
   text-decoration: none;
   height: 48px;
   line-height: 48px;
@@ -6652,11 +6654,20 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple,
   font-size: 14px;
   text-transform: uppercase;
   color: rgba(0, 0, 0, .54);
-  overflow: hidden
+	overflow: hidden
+	
 }
 
 .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
-  color: rgba(0, 0, 0, .87)
+	border: 1px solid #e1e4e6;
+	border-bottom-color: #fff;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	font-weight: bold;
+	color: #323232;
+	color: rgba(0, 0, 0, .87);
+	display: inline-block;
+    margin-bottom: -1px;
 }
 
 .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
@@ -6666,8 +6677,8 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple,
   content: " ";
   bottom: 0;
   left: 0;
-  position: absolute;
-  background: #ff0000;
+	position: absolute;
+	
   -webkit-animation: border-expand .2s cubic-bezier(.4, 0, .4, 1).01s alternate forwards;
   animation: border-expand .2s cubic-bezier(.4, 0, .4, 1).01s alternate forwards;
   transition: all 1s cubic-bezier(.4, 0, 1, 1)
@@ -8035,23 +8046,23 @@ a {
 
 .post-category-plant-phisiology {
   background: #5aba59;
-	color: #fff;
-	background-image: url('../resources/images/tr4.jpg');
-	background-position: 30% 30%;
+  color: #fff;
+  background-image: url('../resources/images/tr4.jpg');
+  background-position: 30% 30%;
 }
 
 .post-category-biochemistry {
   background: #4d85d1;
-	color: #fff;
-	background-image: url('../resources/images/tr5.jpg');
-	background-position: 30% 30%;
+  color: #fff;
+  background-image: url('../resources/images/tr5.jpg');
+  background-position: 30% 30%;
 }
 
 .post-category-microbiology {
   background: #8156a7;
-	color: #fff;
-	background-image: url('../resources/images/tr4.jpg');
-	background-position: 60% 60%;
+  color: #fff;
+  background-image: url('../resources/images/tr4.jpg');
+  background-position: 60% 60%;
 }
 
 .post-category-phiscolloid-chemistry {
@@ -8081,9 +8092,9 @@ a {
 
 .post-category-statistics {
   background-color: #df2d4f;
-	color: #fff;
-	background-image: url('../resources/images/tr3.jpg');
-	background-position: 30% 30%;
+  color: #fff;
+  background-image: url('../resources/images/tr3.jpg');
+  background-position: 30% 30%;
 }
 
 .article-card {
@@ -8117,39 +8128,66 @@ a {
 }
 
 img {
-	max-height: 300px;
-	max-width: 100%;
+  max-height: 300px;
+  max-width: 100%;
 }
 
 figure {
-	display: inline-block;
-	text-align: center;
+  display: inline-block;
+  text-align: center;
 }
 
 figcaption {
-	background: #000;
-	color: #fff;
-	padding: 5px;
-	width: auto;
+  background: #000;
+  color: #fff;
+  padding: 5px;
+  width: auto;
 }
 
 .paddinget {
-	padding: 16px;
+  padding: 16px;
 }
 
 #hint-warn {
-	padding: 15px;
+  padding: 15px;
   border-radius: 4px;
-	color: #3c763d;
+  color: #3c763d;
   background-color: #dff0d8;
 }
 
 .filetype-tag {
-	color:white;
-	padding: 2px;
-	border-radius: 3px;
-	font-size: smaller;
-	position: relative;
+  color: white;
+  padding: 2px;
+  border-radius: 3px;
+  font-size: smaller;
+  position: relative;
   white-space: nowrap;
-	left: 10px;
+  left: 10px;
 }
+
+.pp-cite {
+	font-size: 14px;
+	letter-spacing: 0;
+}
+
+.pp-cite summary {
+  display: block;
+  /* у summary по умолчанию свойство display в значении list-item, потому поддерживается свойство list-style */
+  width: 10em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  /* блок раскрывается при щелчке по кнопке, а не по всей строке */
+
+  outline-style: none;
+  /* удалить обводку при фокусе */
+  cursor: pointer;
+  color: #3f51b5;
+  font-size: smaller;
+}
+
+.pp-cite summary::-webkit-details-marker {
+  /* нестандартный псевдоэлемент Google Chrome */
+  display: none;
+}
+
