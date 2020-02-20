@@ -25,6 +25,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       first,
       getFerqsTable,
       getStatisticParameters,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
       htmlget,
       htmlset,
       keys,
@@ -39,6 +45,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       min,
       mul,
       neue,
+      neueText,
       reportElement,
       runApplication,
       runParser,
@@ -119,6 +126,52 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     }
 
     return elem;
+  };
+
+  neueText = function neueText(name, inner) {
+    var elem;
+    elem = document.createElement(name);
+
+    if (inner == null) {
+      elem.innerText = inner;
+    }
+
+    return elem;
+  };
+
+  div = function div(inner) {
+    var elem;
+    elem = document.createElement("div");
+
+    if (inner == null) {
+      elem.innerHTML = inner;
+    }
+
+    return elem;
+  };
+
+  h1 = function h1(text) {
+    return neueText("h1", text);
+  };
+
+  h2 = function h2(text) {
+    return neueText("h2", text);
+  };
+
+  h3 = function h3(text) {
+    return neueText("h3", text);
+  };
+
+  h4 = function h4(text) {
+    return neueText("h4", text);
+  };
+
+  h5 = function h5(text) {
+    return neueText("h5", text);
+  };
+
+  h6 = function h6(text) {
+    return neueText("h6", text);
   };
 
   element = function element(id) {

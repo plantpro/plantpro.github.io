@@ -40,6 +40,34 @@ neue = (name, inner) ->
 	elem.innerHTML = inner unless inner?
 	elem
 
+neueText = (name, inner) ->
+	elem = document.createElement name
+	elem.innerText = inner unless inner?
+	elem
+
+div = (inner) ->
+	elem = document.createElement "div"
+	elem.innerHTML = inner unless inner?
+	elem
+
+h1 = (text) ->
+	neueText "h1", text
+
+h2 = (text) ->
+	neueText "h2", text
+
+h3 = (text) ->
+	neueText "h3", text
+
+h4 = (text) ->
+	neueText "h4", text
+
+h5 = (text) ->
+	neueText "h5", text
+
+h6 = (text) ->
+	neueText "h6", text
+
 element = (id) ->
 	document.getElementById id
 	
