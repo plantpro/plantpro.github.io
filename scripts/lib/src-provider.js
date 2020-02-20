@@ -135,6 +135,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   element = function element(id) {
+    if (id.startsWith(".")) {
+      return document.getElementsByClassName(id.substring(1));
+    }
+
     return document.getElementById(id);
   };
 
@@ -354,12 +358,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     provider.prepend(h5("Источники"));
     provider.style.display = "block";
     button.style.display = "none";
-    ref1 = document.getElementsByClassName("src-provider-info");
+    ref1 = element(".src-provider-info");
     results = [];
 
     for (l = 0, len1 = ref1.length; l < len1; l++) {
       element = ref1[l];
-      results.push(element.innerHTML = element.innerHTML + " [" + element.getAttribute("src-no") + "]");
+      results.push(element.innerHTML += " [" + element.getAttribute("src-no") + "]");
     }
 
     return results;

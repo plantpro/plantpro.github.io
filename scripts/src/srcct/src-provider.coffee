@@ -69,6 +69,8 @@ h6 = (text) ->
 	neueText "h6", text
 
 element = (id) ->
+	if id.startsWith "."
+		return document.getElementsByClassName (id.substring 1)
 	document.getElementById id
 	
 valueset = (id, value) ->
@@ -171,8 +173,8 @@ showSources = () ->
 	provider.style.display = "block"
 	button.style.display = "none"
 
-	for element in document.getElementsByClassName "src-provider-info"
-		element.innerHTML = element.innerHTML + " [" + (element.getAttribute "src-no") + "]"
+	for element in element ".src-provider-info"
+		element.innerHTML += " [" + (element.getAttribute "src-no") + "]"
 
 button.id = "src-provider-button"
 button.onclick = showSources

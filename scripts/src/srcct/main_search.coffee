@@ -64,6 +64,8 @@ h6 = (text) ->
 	neueText "h6", text
 
 element = (id) ->
+	if id.startsWith "."
+		return document.getElementsByClassName (id.substring 1)
 	document.getElementById id
 	
 valueset = (id, value) ->

@@ -8,7 +8,7 @@ const colors = [
 function srcProviderShowSrcs() {
 	var provider = document.getElementById("src-provider");
 	var title = document.createElement("h5");
-	provider.after()
+
 	var sources = [];
 	var k = 0;
 	for (const i of provider.children) {

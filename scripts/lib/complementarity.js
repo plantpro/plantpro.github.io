@@ -200,6 +200,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   element = function element(id) {
+    if (id.startsWith(".")) {
+      return document.getElementsByClassName(id.substring(1));
+    }
+
     return document.getElementById(id);
   };
 

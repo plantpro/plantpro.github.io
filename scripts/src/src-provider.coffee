@@ -20,7 +20,7 @@ showSources = () ->
 	provider.style.display = "block"
 	button.style.display = "none"
 
-	for element in document.getElementsByClassName "src-provider-info"
+	for element in element ".src-provider-info"
 		element.innerHTML += " [" + (element.getAttribute "src-no") + "]"
 
 button.id = "src-provider-button"
