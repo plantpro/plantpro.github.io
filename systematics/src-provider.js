@@ -7,6 +7,7 @@ const colors = [
 
 function srcProviderShowSrcs() {
 	var provider = document.getElementById("src-provider");
+	provider.after()
 	var sources = [];
 	var k = 0;
 	for (const i of provider.children) {

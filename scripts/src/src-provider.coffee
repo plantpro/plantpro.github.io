@@ -28,4 +28,7 @@ srcProviderShowSrcs = () ->
 		num = Number.parseInt (element.getAttribute "src-no")
 		element.innerHTML = element.innerHTML + " [" + num + "]"
 
+provider = element "src-provider"
+provider.after """<div id="src-provider-button" onclick="srcProviderShowSrcs()">Показать источники</div>"""
+
 document.srcProviderShowSrcs = srcProviderShowSrcs
