@@ -5,7 +5,7 @@
 
 #: import flexibel.coffee
 
-button = document.createElement "div"
+button = neue "div"
 
 provider = element "src-provider"
 provider.after button
@@ -15,8 +15,7 @@ showSources = () ->
 	for i in provider.children
 		i.innerText = "[" + (k + 1) + "] " + i.innerText
 		k += 1
-	title = document.createElement "h5"
-	title.innerText = "Источники"
+	title = neue "h5", "Источники"
 	provider.prepend title
 	provider.style.display = "block"
 

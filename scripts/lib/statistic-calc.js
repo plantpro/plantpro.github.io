@@ -38,6 +38,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       maxValue,
       min,
       mul,
+      neue,
       reportElement,
       runApplication,
       runParser,
@@ -107,6 +108,17 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   first = function first(container) {
     return container[0];
+  };
+
+  neue = function neue(name, inner) {
+    var elem;
+    elem = document.createElement(name);
+
+    if (inner == null) {
+      elem.innerHTML = inner;
+    }
+
+    return elem;
   };
 
   element = function element(id) {

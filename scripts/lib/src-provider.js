@@ -14,7 +14,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   	Source provider
   	Autor: Tsvikevich Denis 2020
   */
-  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, provider, showSources, sub, sum, valueof, values, valueset; // Operator function for '-'
+  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, neue, provider, showSources, sub, sum, valueof, values, valueset; // Operator function for '-'
 
   sub = function sub(x, y) {
     return x - y;
@@ -75,6 +75,17 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   first = function first(container) {
     return container[0];
+  };
+
+  neue = function neue(name, inner) {
+    var elem;
+    elem = document.createElement(name);
+
+    if (inner == null) {
+      elem.innerHTML = inner;
+    }
+
+    return elem;
   };
 
   element = function element(id) {
@@ -279,7 +290,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     all: all,
     any: any
   };
-  button = document.createElement("div");
+  button = neue("div");
   provider = element("src-provider");
   provider.after(button);
 
@@ -294,8 +305,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       k += 1;
     }
 
-    title = document.createElement("h5");
-    title.innerText = "Источники";
+    title = neue("h5", "Источники");
     provider.prepend(title);
     provider.style.display = "block";
     button.style.display = "none";
