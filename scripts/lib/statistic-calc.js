@@ -25,6 +25,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       first,
       getFerqsTable,
       getStatisticParameters,
+      htmlget,
       htmlset,
       keys,
       last,
@@ -126,6 +127,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   htmlset = function htmlset(id, html) {
     return document.flexibel.element(id).innerHTML = html;
+  };
+
+  htmlget = function htmlget(id) {
+    return document.flexibel.element(id).innerHTML;
   };
 
   any = function any(values, f) {

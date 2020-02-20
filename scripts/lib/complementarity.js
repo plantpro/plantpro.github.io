@@ -12,7 +12,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 (function () {
   /*
   	Complementarity application
-  	Autor: Tsvikevich Denis
+  	Autor: Tsvikevich Denis 2019
   */
   var DNA_COMPLIMENTARY,
       DNA_VALID_CHARS,
@@ -38,6 +38,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       formatOutput,
       formatProteinSequence,
       getCheckerAndInputElement,
+      htmlget,
       htmlset,
       isValidAminoacid,
       isValidDnaChar,
@@ -151,6 +152,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   htmlset = function htmlset(id, html) {
     return document.flexibel.element(id).innerHTML = html;
+  };
+
+  htmlget = function htmlget(id) {
+    return document.flexibel.element(id).innerHTML;
   };
 
   any = function any(values, f) {

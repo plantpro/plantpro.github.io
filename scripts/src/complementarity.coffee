@@ -1,6 +1,6 @@
 ###
 	Complementarity application
-	Autor: Tsvikevich Denis
+	Autor: Tsvikevich Denis 2019
 ###
 
 #: import flexibel.coffee

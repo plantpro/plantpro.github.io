@@ -45,6 +45,9 @@ checkedof = (id) ->
 htmlset = (id, html) ->
 	document.flexibel.element(id).innerHTML = html
 
+htmlget = (id) ->
+	document.flexibel.element(id).innerHTML
+
 any = (values, f) ->
 	for i in values
 		return true	if f i

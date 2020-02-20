@@ -1,3 +1,8 @@
+###
+	Source provider
+	Autor: Tsvikevich Denis 2020
+###
+
 # Operator function for '-'
 sub = (x, y) -> x - y
 
@@ -118,15 +123,26 @@ document.flexibel = {
 	any
 }
 
-startSearch = () ->
-	input = new RegExp((valueof "text-to-find"), "i")
-	entries = element "dict-entries"
-	for entry in entries.children
-		firstTest = input.test entry.children[0].innerText
-		secondTest = input.test entry.children[1].innerText
-		entry.hidden = no
-		entry.hidden = yes unless firstTest or secondTest
+srcProviderShowSrcs = () ->
+	provider = element "src-provider"
+	sources = []
+	k = 0
+	for i of provider.children
+		text = i.innerHTML
+		i.innerHTML = "[" + k + "] " + text
+		console.log i
+		sources.push [i.innerText, k]
+		k += 1
+	title = document.createElement "h5"
+	title.innerText = "Источники"
+	provider.prepend title
+	provider.style.display = "block"
 
+	providerButton = document.getElementById "src-provider-button"
+	providerButton.style.display = "none"
 
-element "text-to-find"
-	.addEventListener("input", startSearch)
+	kinders = document.getElementsByClassName "src-provider-info"
+
+	for element of kinders
+		num = Number.parseInt (element.getAttribute "src-no")
+		element.innerHTML = element.innerHTML + "[" + num + "]"
