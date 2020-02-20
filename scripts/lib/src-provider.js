@@ -310,4 +310,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
     return results;
   };
+
+  document.srcProviderShowSrcs = srcProviderShowSrcs;
 }).call(void 0);

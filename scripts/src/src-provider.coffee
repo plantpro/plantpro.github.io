@@ -28,3 +28,5 @@ srcProviderShowSrcs = () ->
 	for element of kinders
 		num = Number.parseInt (element.getAttribute "src-no")
 		element.innerHTML = element.innerHTML + "[" + num + "]"
+
+document.srcProviderShowSrcs = srcProviderShowSrcs
