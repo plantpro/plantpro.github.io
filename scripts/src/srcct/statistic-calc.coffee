@@ -32,17 +32,17 @@ first = (container) ->
 
 neue = (name, inner) ->
 	elem = document.createElement name
-	elem.innerHTML = inner unless inner?
+	elem.innerHTML = inner if inner?
 	elem
 
 neueText = (name, inner) ->
 	elem = document.createElement name
-	elem.innerText = inner unless inner?
+	elem.innerText = inner if inner?
 	elem
 
 div = (inner) ->
 	elem = document.createElement "div"
-	elem.innerHTML = inner unless inner?
+	elem.innerHTML = inner if inner?
 	elem
 
 h1 = (text) ->

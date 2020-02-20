@@ -78,7 +78,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     var elem;
     elem = document.createElement(name);
 
-    if (inner == null) {
+    if (inner != null) {
       elem.innerHTML = inner;
     }
 
@@ -89,7 +89,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     var elem;
     elem = document.createElement(name);
 
-    if (inner == null) {
+    if (inner != null) {
       elem.innerText = inner;
     }
 
@@ -100,7 +100,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     var elem;
     elem = document.createElement("div");
 
-    if (inner == null) {
+    if (inner != null) {
       elem.innerHTML = inner;
     }
 
