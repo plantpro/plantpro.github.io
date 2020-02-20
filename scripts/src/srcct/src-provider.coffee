@@ -173,7 +173,7 @@ showSources = () ->
 	provider.style.display = "block"
 	button.style.display = "none"
 
-	element.style.display = "block" for element in element ".src-provider-info"
+	element.style.display = "initial" for element in element ".src-provider-info"
 
 button.id = "src-provider-button"
 button.onclick = showSources
