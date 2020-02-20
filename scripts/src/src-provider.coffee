@@ -30,9 +30,7 @@ srcProviderShowSrcs = () ->
 
 button = document.createElement "div"
 button.id = "src-provider-button"
-button.onclick = "srcProviderShowSrcs()"
+button.onclick = srcProviderShowSrcs
 button.innerText = "Показать источники"
 provider = element "src-provider"
 provider.after button
-
-document.srcProviderShowSrcs = srcProviderShowSrcs

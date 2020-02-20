@@ -315,9 +315,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   button = document.createElement("div");
   button.id = "src-provider-button";
-  button.onclick = "srcProviderShowSrcs()";
+  button.onclick = srcProviderShowSrcs;
   button.innerText = "Показать источники";
   provider = element("src-provider");
   provider.after(button);
-  document.srcProviderShowSrcs = srcProviderShowSrcs;
 }).call(void 0);
