@@ -281,14 +281,13 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   srcProviderShowSrcs = function srcProviderShowSrcs() {
-    var i, k, kinders, num, provider, providerButton, results, sources, text, title;
+    var i, k, kinders, num, provider, providerButton, results, sources, title;
     provider = element("src-provider");
     sources = [];
     k = 0;
 
     for (i in provider.children) {
-      text = i.innerHTML;
-      i.innerHTML = "[" + k + "] " + text;
+      i.innerText = "[" + k + "] " + i.innerText;
       console.log(i);
       sources.push([i.innerText, k]);
       k += 1;

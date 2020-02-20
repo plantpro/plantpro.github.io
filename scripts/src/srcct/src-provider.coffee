@@ -128,8 +128,7 @@ srcProviderShowSrcs = () ->
 	sources = []
 	k = 0
 	for i of provider.children
-		text = i.innerHTML
-		i.innerHTML = "[" + k + "] " + text
+		i.innerText = "[" + k + "] " + i.innerText
 		console.log i
 		sources.push [i.innerText, k]
 		k += 1
