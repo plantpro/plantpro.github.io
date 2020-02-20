@@ -279,19 +279,21 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     all: all,
     any: any
   };
+  button = document.createElement("div");
+  button.id = "src-provider-button";
+  button.onclick = showSources;
+  button.innerText = "Показать источники";
+  element("src-provider").after(button);
 
   showSources = function showSources() {
-    var i, j, k, kinders, l, len, len1, num, provider, providerButton, ref, results, sources, title;
+    var i, j, k, kinders, l, len, len1, num, provider, ref, results, title;
     provider = element("src-provider");
-    sources = [];
     k = 0;
     ref = provider.children;
 
     for (j = 0, len = ref.length; j < len; j++) {
       i = ref[j];
       i.innerText = "[" + (k + 1) + "] " + i.innerText;
-      console.log(i);
-      sources.push([i.innerText, k]);
       k += 1;
     }
 
@@ -299,8 +301,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     title.innerText = "Источники";
     provider.prepend(title);
     provider.style.display = "block";
-    providerButton = document.getElementById("src-provider-button");
-    providerButton.style.display = "none";
+    button.style.display = "none";
     kinders = document.getElementsByClassName("src-provider-info");
     results = [];
 
@@ -312,10 +313,4 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
     return results;
   };
-
-  button = document.createElement("div");
-  button.id = "src-provider-button";
-  button.onclick = showSources;
-  button.innerText = "Показать источники";
-  element("src-provider").after(button);
 }).call(void 0);
