@@ -8191,3 +8191,6 @@ figcaption {
   display: none;
 }
 
+.src-provider-info {
+	display: none;
+}

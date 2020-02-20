@@ -363,7 +363,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
     for (l = 0, len1 = ref1.length; l < len1; l++) {
       element = ref1[l];
-      results.push(element.innerHTML += " [" + element.getAttribute("src-no") + "]");
+      results.push(element.style.display = "block");
     }
 
     return results;
