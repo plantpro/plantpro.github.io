@@ -281,8 +281,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
   button = document.createElement("div");
   button.id = "src-provider-button";
-  button.onclick = showSources;
-  button.innerText = "Показать источники";
   element("src-provider").after(button);
 
   showSources = function showSources() {
@@ -313,4 +311,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
     return results;
   };
+
+  button.onclick = showSources;
+  button.innerText = "Показать источники";
 }).call(void 0);

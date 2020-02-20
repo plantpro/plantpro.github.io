@@ -7,8 +7,6 @@
 
 button = document.createElement "div"
 button.id = "src-provider-button"
-button.onclick = showSources
-button.innerText = "Показать источники"
 
 element "src-provider"
 	.after button
@@ -31,3 +29,6 @@ showSources = () ->
 	for element in kinders
 		num = Number.parseInt (element.getAttribute "src-no")
 		element.innerHTML = element.innerHTML + " [" + num + "]"
+
+button.onclick = showSources
+button.innerText = "Показать источники"
