@@ -6,13 +6,11 @@
 #: import flexibel.coffee
 
 button = document.createElement "div"
-button.id = "src-provider-button"
 
-element "src-provider"
-	.after button
+provider = element "src-provider"
+provider.after button
 
 showSources = () ->
-	provider = element "src-provider"
 	k = 0
 	for i in provider.children
 		i.innerText = "[" + (k + 1) + "] " + i.innerText
@@ -30,5 +28,6 @@ showSources = () ->
 		num = Number.parseInt (element.getAttribute "src-no")
 		element.innerHTML = element.innerHTML + " [" + num + "]"
 
+button.id = "src-provider-button"
 button.onclick = showSources
 button.innerText = "Показать источники"

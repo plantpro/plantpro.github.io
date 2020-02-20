@@ -14,7 +14,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   	Source provider
   	Autor: Tsvikevich Denis 2020
   */
-  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, showSources, sub, sum, valueof, values, valueset; // Operator function for '-'
+  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, provider, showSources, sub, sum, valueof, values, valueset; // Operator function for '-'
 
   sub = function sub(x, y) {
     return x - y;
@@ -280,12 +280,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     any: any
   };
   button = document.createElement("div");
-  button.id = "src-provider-button";
-  element("src-provider").after(button);
+  provider = element("src-provider");
+  provider.after(button);
 
   showSources = function showSources() {
-    var i, j, k, kinders, l, len, len1, num, provider, ref, results, title;
-    provider = element("src-provider");
+    var i, j, k, kinders, l, len, len1, num, ref, results, title;
     k = 0;
     ref = provider.children;
 
@@ -312,6 +311,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     return results;
   };
 
+  button.id = "src-provider-button";
   button.onclick = showSources;
   button.innerText = "Показать источники";
 }).call(void 0);
