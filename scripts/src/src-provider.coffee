@@ -5,7 +5,7 @@
 
 #: import flexibel.coffee
 
-srcProviderShowSrcs = () ->
+showSources = () ->
 	provider = element "src-provider"
 	sources = []
 	k = 0
@@ -30,7 +30,8 @@ srcProviderShowSrcs = () ->
 
 button = document.createElement "div"
 button.id = "src-provider-button"
-button.onclick = srcProviderShowSrcs
+button.onclick = showSources
 button.innerText = "Показать источники"
-provider = element "src-provider"
-provider.after button
+
+element "src-provider"
+	.after button
