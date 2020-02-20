@@ -341,7 +341,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   provider.after(button);
 
   showSources = function showSources() {
-    var i, j, k, kinders, l, len, len1, num, ref, results, title;
+    var i, j, k, l, len, len1, ref, ref1, results;
     k = 0;
     ref = provider.children;
 
@@ -351,17 +351,15 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       k += 1;
     }
 
-    title = h5("Источники");
-    provider.prepend(title);
+    provider.prepend(h5("Источники"));
     provider.style.display = "block";
     button.style.display = "none";
-    kinders = document.getElementsByClassName("src-provider-info");
+    ref1 = document.getElementsByClassName("src-provider-info");
     results = [];
 
-    for (l = 0, len1 = kinders.length; l < len1; l++) {
-      element = kinders[l];
-      num = Number.parseInt(element.getAttribute("src-no"));
-      results.push(element.innerHTML = element.innerHTML + " [" + num + "]");
+    for (l = 0, len1 = ref1.length; l < len1; l++) {
+      element = ref1[l];
+      results.push(element.innerHTML = element.innerHTML + " [" + element.getAttribute("src-no") + "]");
     }
 
     return results;

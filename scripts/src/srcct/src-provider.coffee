@@ -166,16 +166,13 @@ showSources = () ->
 	for i in provider.children
 		i.innerText = "[" + (k + 1) + "] " + i.innerText
 		k += 1
-	title = h5 "Источники"
-	provider.prepend title
+	
+	provider.prepend h5 "Источники"
 	provider.style.display = "block"
 	button.style.display = "none"
 
-	kinders = document.getElementsByClassName "src-provider-info"
-
-	for element in kinders
-		num = Number.parseInt (element.getAttribute "src-no")
-		element.innerHTML = element.innerHTML + " [" + num + "]"
+	for element in document.getElementsByClassName "src-provider-info"
+		element.innerHTML = element.innerHTML + " [" + (element.getAttribute "src-no") + "]"
 
 button.id = "src-provider-button"
 button.onclick = showSources
