@@ -289,7 +289,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
     for (j = 0, len = ref.length; j < len; j++) {
       i = ref[j];
-      i.innerText = "[" + k + "] " + i.innerText;
+      i.innerText = "[" + (k + 1) + "] " + i.innerText;
       console.log(i);
       sources.push([i.innerText, k]);
       k += 1;
@@ -307,7 +307,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     for (l = 0, len1 = kinders.length; l < len1; l++) {
       element = kinders[l];
       num = Number.parseInt(element.getAttribute("src-no"));
-      results.push(element.innerHTML = element.innerHTML + "[" + num + "]");
+      results.push(element.innerHTML = element.innerHTML + " [" + num + "]");
     }
 
     return results;
