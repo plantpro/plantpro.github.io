@@ -14,7 +14,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   	Source provider
   	Autor: Tsvikevich Denis 2020
   */
-  var all, any, checkedof, countIt, delws, div, ejoin, element, first, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, provider, srcProviderShowSrcs, sub, sum, valueof, values, valueset; // Operator function for '-'
+  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, provider, srcProviderShowSrcs, sub, sum, valueof, values, valueset; // Operator function for '-'
 
   sub = function sub(x, y) {
     return x - y;
@@ -313,7 +313,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     return results;
   };
 
+  button = document.createElement("div");
+  button.id = "src-provider-button";
+  button.onclick = "srcProviderShowSrcs()";
+  button.innerText = "Показать источники";
   provider = element("src-provider");
-  provider.after("<div id=\"src-provider-button\" onclick=\"srcProviderShowSrcs()\">Показать источники</div>");
+  provider.after(button);
   document.srcProviderShowSrcs = srcProviderShowSrcs;
 }).call(void 0);
