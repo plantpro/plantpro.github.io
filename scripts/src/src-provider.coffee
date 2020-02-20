@@ -9,7 +9,7 @@ srcProviderShowSrcs = () ->
 	provider = element "src-provider"
 	sources = []
 	k = 0
-	for i of provider.children
+	for i in provider.children
 		i.innerText = "[" + k + "] " + i.innerText
 		console.log i
 		sources.push [i.innerText, k]
@@ -24,7 +24,7 @@ srcProviderShowSrcs = () ->
 
 	kinders = document.getElementsByClassName "src-provider-info"
 
-	for element of kinders
+	for element in kinders
 		num = Number.parseInt (element.getAttribute "src-no")
 		element.innerHTML = element.innerHTML + "[" + num + "]"
 

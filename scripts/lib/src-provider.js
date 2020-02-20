@@ -281,12 +281,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   srcProviderShowSrcs = function srcProviderShowSrcs() {
-    var i, k, kinders, num, provider, providerButton, results, sources, title;
+    var i, j, k, kinders, l, len, len1, num, provider, providerButton, ref, results, sources, title;
     provider = element("src-provider");
     sources = [];
     k = 0;
+    ref = provider.children;
 
-    for (i in provider.children) {
+    for (j = 0, len = ref.length; j < len; j++) {
+      i = ref[j];
       i.innerText = "[" + k + "] " + i.innerText;
       console.log(i);
       sources.push([i.innerText, k]);
@@ -302,7 +304,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     kinders = document.getElementsByClassName("src-provider-info");
     results = [];
 
-    for (element in kinders) {
+    for (l = 0, len1 = kinders.length; l < len1; l++) {
+      element = kinders[l];
       num = Number.parseInt(element.getAttribute("src-no"));
       results.push(element.innerHTML = element.innerHTML + "[" + num + "]");
     }
