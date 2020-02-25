@@ -14,7 +14,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   	Source provider
   	Autor: Tsvikevich Denis 2020
   */
-  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, h1, h2, h3, h4, h5, h6, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, neue, neueText, provider, showSources, sub, sum, valueof, values, valueset; // Operator function for '-'
+  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, h1, h2, h3, h4, h5, h6, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, neue, neueText, provider, showSources, sub, sum, unique, valueof, values, valueset; // Operator function for '-'
 
   sub = function sub(x, y) {
     return x - y;
@@ -212,6 +212,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   maxValue = function maxValue(map) {
     return document.flexibel.values(map).reduce(document.flexibel.max);
+  };
+
+  unique = function unique(values) {
+    return _toConsumableArray(new Set(values));
   };
 
   countIt = function countIt(map, it) {

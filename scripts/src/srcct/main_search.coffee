@@ -111,6 +111,9 @@ maxKey = (map) ->
 maxValue = (map) ->
 	document.flexibel.values(map).reduce document.flexibel.max
 
+unique = (values) ->
+	[new Set(values)...]
+
 countIt = (map, it) ->
 	if map.has it
 		map.set it, map.get(it) + 1

@@ -1,3 +1,8 @@
+###
+	Pennet application
+	Autor: Tsvikevich Denis 2019
+###
+
 #: import flexibel.coffee
 
 class Counter
@@ -91,11 +96,12 @@ combineGametes = (g1, g2) ->
 # Создаёт набор гамет для заданного генотипа
 makeGametes = (genotype) ->
 	helper = (genotype, position) ->
-		return if position >= genotype.length
+		return if position >= genotype.length	# если аллелей не осталось - undefined
 
 		gams = helper(genotype, position + 2)
 
-		return [new Set([genotype[position], genotype[position + 1]])...] if gams == undefined
+    # если перебрали всё - удаляем повторяющиеся элементы
+		return unique([genotype[position], genotype[position + 1]]) if gams == undefined
 	
 		return if (genotype[position] == genotype[position + 1])
 			gams.map((i) -> genotype[position] + i)
@@ -129,24 +135,16 @@ createPhenotypeInput = (allel) ->
 
 checkGenotype = (genotype) ->
 	msg = "Введён некорректный генотип #{genotype}"
-	return fail msg if genotype.length % 2 != 0
-
-	member = []
-
-	#for i in genotype.toLowerCase()
-	#	return fail msg if i in member
-	#	member.push i
-
+	return fail msg if genotype.length % 2 != 0 # поддерживаются только аллели кратные двум
 	return true
 
 checkGenotypes = (genotype1, genotype2) ->
-	return false unless checkGenotype genotype1
-	return false unless checkGenotype genotype2
+	return false unless checkGenotype genotype1 or checkGenotype genotype2
 
 	msg = "Генотипы #{genotype1} и #{genotype2} некорректны"
-	return fail msg if genotype1.length != genotype2.length
+	return fail msg if genotype1.length != genotype2.length # число аллелей должно быть одинаковым
 
-	for i in [0...genotype1.length]
+	for i in [0...genotype1.length] # порядок аллелей должен быть одинаковым
 		return fail msg if genotype1[i].toLowerCase() != genotype2[i].toLowerCase()
 		
 	return true

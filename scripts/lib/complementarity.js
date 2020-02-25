@@ -75,6 +75,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       sum,
       uniformNucleotide,
       uniformSequence,
+      unique,
       validateInput,
       valueof,
       values,
@@ -277,6 +278,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   maxValue = function maxValue(map) {
     return document.flexibel.values(map).reduce(document.flexibel.max);
+  };
+
+  unique = function unique(values) {
+    return _toConsumableArray(new Set(values));
   };
 
   countIt = function countIt(map, it) {

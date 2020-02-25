@@ -51,6 +51,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       runParser,
       sub,
       sum,
+      unique,
       valueof,
       values,
       valueset,
@@ -252,6 +253,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   maxValue = function maxValue(map) {
     return document.flexibel.values(map).reduce(document.flexibel.max);
+  };
+
+  unique = function unique(values) {
+    return _toConsumableArray(new Set(values));
   };
 
   countIt = function countIt(map, it) {
