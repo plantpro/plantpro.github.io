@@ -16,46 +16,14 @@
 			max-height: 100%;
 		}
 
-		#reader-window {
+		.page-content {
 			text-align: center;
 		}
 
-		#current-page {
+		#plpro-reader-page-tb {
 			max-width: 30px;
 		}
 	</style>
-
-	<script>
-		var i = 1;
-		var path = "1/page_";
-		var ext = ".svg";
-
-		function next() {
-			i++;
-			var reader = document.getElementById("reader-window");
-			reader.innerHTML = `<img src="${path + i + ext}"/>`;
-			var cptb = document.getElementById("current-page");
-			cptb.value = i;
-		}
-
-		function prev() {
-			i--;
-			var reader = document.getElementById("reader-window");
-			reader.innerHTML = `<img src="${path + i + ext}"/>`;
-
-			var cptb = document.getElementById("current-page");
-			cptb.value = i;
-		}
-
-		function checkforenter(e) {
-			if (e.keyCode === 13) {
-				var cptb = document.getElementById("current-page");
-				i = Number.parseInt(cptb.value);
-				var reader = document.getElementById("reader-window");
-				reader.innerHTML = `<img src="${path + i + ext}"/>`;
-			}
-		}
-	</script>
 
 	<!-- Yandex.Metrika counter -->
 	<script
@@ -69,15 +37,79 @@
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<main class="mdl-layout__content">
 			<div class="page-content">
-				<button class="mdl-button" onclick="prev()">Prev</button>
-				<input onkeydown="checkforenter(event)" id="current-page" type="text"> / 231
-				<button class="mdl-button" onclick="next()">Next</button>
-				<div id="reader-window">
+				<button id="plpro-reader-prev-btn" class="mdl-button mdl-button--disabled">&larr;</button>
+				<input id="plpro-reader-page-tb" value="1" type="text"> / 231
+				<button id="plpro-reader-next-btn" class="mdl-button">&rarr;</button>
+				<div id="plpro-reader-window">
 					<img src="1/page_1.svg" />
 				</div>
 			</div>
 		</main>
 	</div>
+
+	<script>
+		const PAGE_COUNT = 231;
+		const READER_WINDOW = document.getElementById("plpro-reader-window");
+		const CURRENT_PAGE_TB = document.getElementById("plpro-reader-page-tb");
+
+		var currentPageNumber = 1;
+
+		function getPagePath(pageNumber) {
+			return "1/page_" + pageNumber + ".svg";
+		}
+
+		function isValidPage(pageNumber) {
+			return pageNumber >= 1 && pageNumber <= PAGE_COUNT;
+		}
+
+		function showPage(pageNumber) {
+			if (isValidPage(pageNumber)) {
+				if (pageNumber === 1) {
+					document.getElementById("plpro-reader-prev-btn").classList.add("mdl-button--disabled");
+				} else {
+					document.getElementById("plpro-reader-prev-btn").classList.remove("mdl-button--disabled");
+				}
+
+				if (pageNumber === PAGE_COUNT) {
+					document.getElementById("plpro-reader-next-btn").classList.add("mdl-button--disabled");
+				} else {
+					document.getElementById("plpro-reader-next-btn").classList.remove("mdl-button--disabled");
+				}
+
+				READER_WINDOW.innerHTML = `<img src="${getPagePath(pageNumber)}"/>`;
+				CURRENT_PAGE_TB.value = pageNumber;
+			}
+		}
+
+		function next() {
+			if (isValidPage(currentPageNumber + 1)) {
+				currentPageNumber++;
+				showPage(currentPageNumber)
+			}
+		}
+
+		function prev() {
+			if (isValidPage(currentPageNumber - 1)) {
+				currentPageNumber--;
+				showPage(currentPageNumber)
+			}
+		}
+
+		function checkforenter(e) {
+			if (e.keyCode === 13) {
+				var requiredPageNumber = Number.parseInt(CURRENT_PAGE_TB.value);
+				if (isValidPage(requiredPageNumber)) {
+					currentPageNumber = requiredPageNumber;
+					showPage(currentPageNumber)
+				}
+			}
+		}
+
+		document.getElementById("plpro-reader-prev-btn").addEventListener("click", prev)
+		document.getElementById("plpro-reader-next-btn").addEventListener("click", next)
+		CURRENT_PAGE_TB.addEventListener("keydown", checkforenter)
+	</script>
+
 </body>
 
 </html>
