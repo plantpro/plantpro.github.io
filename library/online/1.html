@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Общая фитопатология</title>
+
+	<link rel="stylesheet" href="../../stylesheets/material.min.css">
+	<script src="../../scripts/material.min.js"></script>
+
+	<style>
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		#reader-window {
+			text-align: center;
+		}
+
+		#current-page {
+			max-width: 30px;
+		}
+	</style>
+
+	<script>
+		var i = 1;
+		var path = "1/page_";
+		var ext = ".svg";
+
+		function next() {
+			i++;
+			var reader = document.getElementById("reader-window");
+			reader.innerHTML = `<img src="${path + i + ext}"/>`;
+			var cptb = document.getElementById("current-page");
+			cptb.value = i;
+		}
+
+		function prev() {
+			i--;
+			var reader = document.getElementById("reader-window");
+			reader.innerHTML = `<img src="${path + i + ext}"/>`;
+
+			var cptb = document.getElementById("current-page");
+			cptb.value = i;
+		}
+
+		function checkforenter(e) {
+			if (e.keyCode === 13) {
+				var cptb = document.getElementById("current-page");
+				i = Number.parseInt(cptb.value);
+				var reader = document.getElementById("reader-window");
+				reader.innerHTML = `<img src="${path + i + ext}"/>`;
+			}
+		}
+	</script>
+
+	<!-- Yandex.Metrika counter -->
+	<script
+		type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(57619945, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }); </script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/57619945" style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript> <!-- /Yandex.Metrika counter -->
+</head>
+
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<main class="mdl-layout__content">
+			<div class="page-content">
+				<button class="mdl-button" onclick="prev()">Prev</button>
+				<input onkeydown="checkforenter(event)" id="current-page" type="text"> / 231
+				<button class="mdl-button" onclick="next()">Next</button>
+				<div id="reader-window">
+					<img src="1/page_1.svg" />
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

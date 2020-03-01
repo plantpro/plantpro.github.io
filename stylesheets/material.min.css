@@ -6499,7 +6499,7 @@ _:-ms-input-placeholder,
 }
 
 .mdl-switch.is-checked .mdl-switch__track {
-  background: rgba(63, 81, 181, .5)
+  background: rgba(0, 129, 32, .5);
 }
 
 .mdl-switch__track fieldset[disabled] .mdl-switch,
