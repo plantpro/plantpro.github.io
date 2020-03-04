@@ -808,7 +808,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           return element("trnaerr");
 
         case INPUT_TYPE.PROTEIN:
-          return element("PROteinerr");
+          return element("proteinerr");
       }
     }();
 

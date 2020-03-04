@@ -423,7 +423,7 @@ logError = (message, inputType) ->
 		when INPUT_TYPE.DNA2 then element "dna2err"
 		when INPUT_TYPE.IRNA then element "irnaerr"
 		when INPUT_TYPE.TRNA then element "trnaerr"
-		when INPUT_TYPE.PROTEIN then element "PROteinerr"
+		when INPUT_TYPE.PROTEIN then element "proteinerr"
 
 	logger.innerHTML = message
 
