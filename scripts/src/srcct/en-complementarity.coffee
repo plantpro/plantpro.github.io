@@ -262,7 +262,7 @@ runApplication = () ->
 		when 2 then buildByDnaTwo()
 		when 3 then buildByInformationalRna()
 		when 4 then buildByTransferRna()
-		when 5 then buildByPROtein()
+		when 5 then buildByProtein()
 
 	valueset "dnaInput",     formatOutput result.firstDna
 	valueset "dna2Input",    formatOutput result.secondDna

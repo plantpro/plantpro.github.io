@@ -442,7 +442,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           return buildByTransferRna();
 
         case 5:
-          return buildByPROtein();
+          return buildByProtein();
       }
     }();
 
