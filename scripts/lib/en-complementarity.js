@@ -414,7 +414,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   RNA_VALID_CHARS = "AUGCaugcАUGCаUGC ";
   DNA_COMPLIMENTARY = new Map([["A", "T"], ["T", "A"], ["G", "C"], ["U", "A"], ["C", "G"]]);
   RNA_COMPLIMENTARY = new Map([["A", "U"], ["T", "A"], ["U", "A"], ["G", "C"], ["C", "G"]]);
-  GENETIC_CODE = new Map([["UUU", "Phe"], ["UUC", "Phe"], ["UUA", "Leu"], ["UCU", "Ser"], ["UCC", "Ser"], ["UCА", "Ser"], ["UCG", "Ser"], ["UАU", "Tyr"], ["UАC", "Tyr"], ["UАА", "Stop"], ["UАG", "Stop"], ["UGU", "Cys"], ["UGC", "Cys"], ["UGА", "Stop"], ["UGG", "Trp"], ["CUU", "Leu"], ["CUC", "Leu"], ["CUА", "Leu"], ["CUG", "Leu"], ["CCU", "Pro"], ["CCC", "Pro"], ["CCА", "Pro"], ["CCG", "Pro"], ["CАU", "His"], ["CАC", "His"], ["CАА", "Glu"], ["CАG", "Glu"], ["CGU", "Arg"], ["CGC", "Arg"], ["CGА", "Arg"], ["CGG", "Arg"], ["АUU", "Ile"], ["АUC", "Ile"], ["АUА", "Ile"], ["АUG", "Met"], ["GUU", "Val"], ["GUC", "Val"], ["GUА", "Val"], ["GUG", "Val"], ["АCU", "Thr"], ["АCC", "Thr"], ["АCА", "Thr"], ["АCG", "Thr"], ["GCU", "Ala"], ["GCC", "Ala"], ["GCА", "Ala"], ["GCG", "Ala"], ["ААU", "Asn"], ["ААC", "Asn"], ["ААА", "Lys"], ["ААG", "Lys"], ["GАU", "Asp"], ["GАC", "Asp"], ["GАА", "Glu"], ["GАG", "Glu"], ["АGU", "Ser"], ["АGC", "Ser"], ["АGА", "Arg"], ["АGG", "Arg"], ["GGU", "Gly"], ["GGC", "Gly"], ["GGА", "Gly"], ["GGG", "Gly"]]);
+  GENETIC_CODE = new Map([["UUU", "PHE"], ["UUC", "PHE"], ["UUA", "LEU"], ["UCU", "SER"], ["UCC", "SER"], ["UCА", "SER"], ["UCG", "SER"], ["UАU", "TYR"], ["UАC", "TYR"], ["UАА", "STOP"], ["UАG", "STOP"], ["UGU", "CYS"], ["UGC", "CYS"], ["UGА", "STOP"], ["UGG", "TRP"], ["CUU", "LEU"], ["CUC", "LEU"], ["CUА", "LEU"], ["CUG", "LEU"], ["CCU", "PRO"], ["CCC", "PRO"], ["CCА", "PRO"], ["CCG", "PRO"], ["CАU", "HIS"], ["CАC", "HIS"], ["CАА", "GLU"], ["CАG", "GLU"], ["CGU", "ARG"], ["CGC", "ARG"], ["CGА", "ARG"], ["CGG", "ARG"], ["АUU", "ILE"], ["АUC", "ILE"], ["АUА", "ILE"], ["АUG", "MET"], ["GUU", "VAL"], ["GUC", "VAL"], ["GUА", "VAL"], ["GUG", "VAL"], ["АCU", "THR"], ["АCC", "THR"], ["АCА", "THR"], ["АCG", "THR"], ["GCU", "ALA"], ["GCC", "ALA"], ["GCА", "ALA"], ["GCG", "ALA"], ["ААU", "ASN"], ["ААC", "ASN"], ["ААА", "LYS"], ["ААG", "LYS"], ["GАU", "ASP"], ["GАC", "ASP"], ["GАА", "GLU"], ["GАG", "GLU"], ["АGU", "SER"], ["АGC", "SER"], ["АGА", "ARG"], ["АGG", "ARG"], ["GGU", "GLY"], ["GGC", "GLY"], ["GGА", "GLY"], ["GGG", "GLY"]]);
   INPUT_TYPE = {
     DNA1: 1,
     DNA2: 2,
@@ -442,7 +442,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           return buildByTransferRna();
 
         case 5:
-          return buildByProtein();
+          return buildByPROtein();
       }
     }();
 
@@ -808,7 +808,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
           return element("trnaerr");
 
         case INPUT_TYPE.PROTEIN:
-          return element("proteinerr");
+          return element("PROteinerr");
       }
     }();
 
