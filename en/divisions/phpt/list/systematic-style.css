@@ -1,0 +1,54 @@
+.sys-list {
+	list-style: none;
+	padding-left: 30px;
+}
+
+.kingdom {
+	color: red;
+}
+
+.phylum {
+	color: orangered;
+}
+
+.class {
+	color: orange;
+}
+
+.order {
+	color: green;
+}
+
+.family {
+	color: steelblue;
+}
+
+.genus {
+	color: blue;
+}
+
+.species {
+	color: blueviolet;
+}
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#src-provider {
+	display: none;
+}
+
+#src-provider-button {
+	color: darkgray;
+  font-size: smaller;
+  float: right;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+.syn {
+	padding-left: 20px;
+}
