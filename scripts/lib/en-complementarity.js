@@ -410,11 +410,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     all: all,
     any: any
   };
-  DNA_VALID_CHARS = "ATGCatgcАTGCаTGC ";
-  RNA_VALID_CHARS = "AUGCaugcАUGCаUGC ";
+  DNA_VALID_CHARS = "ATGCatgcATGCATGC ";
+  RNA_VALID_CHARS = "AUGCaugcAUGCAUGC ";
   DNA_COMPLIMENTARY = new Map([["A", "T"], ["T", "A"], ["G", "C"], ["U", "A"], ["C", "G"]]);
   RNA_COMPLIMENTARY = new Map([["A", "U"], ["T", "A"], ["U", "A"], ["G", "C"], ["C", "G"]]);
-  GENETIC_CODE = new Map([["UUU", "PHE"], ["UUC", "PHE"], ["UUA", "LEU"], ["UCU", "SER"], ["UCC", "SER"], ["UCА", "SER"], ["UCG", "SER"], ["UАU", "TYR"], ["UАC", "TYR"], ["UАА", "STOP"], ["UАG", "STOP"], ["UGU", "CYS"], ["UGC", "CYS"], ["UGА", "STOP"], ["UGG", "TRP"], ["CUU", "LEU"], ["CUC", "LEU"], ["CUА", "LEU"], ["CUG", "LEU"], ["CCU", "PRO"], ["CCC", "PRO"], ["CCА", "PRO"], ["CCG", "PRO"], ["CАU", "HIS"], ["CАC", "HIS"], ["CАА", "GLU"], ["CАG", "GLU"], ["CGU", "ARG"], ["CGC", "ARG"], ["CGА", "ARG"], ["CGG", "ARG"], ["АUU", "ILE"], ["АUC", "ILE"], ["АUА", "ILE"], ["АUG", "MET"], ["GUU", "VAL"], ["GUC", "VAL"], ["GUА", "VAL"], ["GUG", "VAL"], ["АCU", "THR"], ["АCC", "THR"], ["АCА", "THR"], ["АCG", "THR"], ["GCU", "ALA"], ["GCC", "ALA"], ["GCА", "ALA"], ["GCG", "ALA"], ["ААU", "ASN"], ["ААC", "ASN"], ["ААА", "LYS"], ["ААG", "LYS"], ["GАU", "ASP"], ["GАC", "ASP"], ["GАА", "GLU"], ["GАG", "GLU"], ["АGU", "SER"], ["АGC", "SER"], ["АGА", "ARG"], ["АGG", "ARG"], ["GGU", "GLY"], ["GGC", "GLY"], ["GGА", "GLY"], ["GGG", "GLY"]]);
+  GENETIC_CODE = new Map([["UUU", "PHE"], ["UUC", "PHE"], ["UUA", "LEU"], ["UCU", "SER"], ["UCC", "SER"], ["UCA", "SER"], ["UCG", "SER"], ["UAU", "TYR"], ["UAC", "TYR"], ["UAA", "STOP"], ["UAG", "STOP"], ["UGU", "CYS"], ["UGC", "CYS"], ["UGA", "STOP"], ["UGG", "TRP"], ["CUU", "LEU"], ["CUC", "LEU"], ["CUA", "LEU"], ["CUG", "LEU"], ["CCU", "PRO"], ["CCC", "PRO"], ["CCA", "PRO"], ["CCG", "PRO"], ["CAU", "HIS"], ["CAC", "HIS"], ["CAA", "GLU"], ["CAG", "GLU"], ["CGU", "ARG"], ["CGC", "ARG"], ["CGA", "ARG"], ["CGG", "ARG"], ["AUU", "ILE"], ["AUC", "ILE"], ["AUA", "ILE"], ["AUG", "MET"], ["GUU", "VAL"], ["GUC", "VAL"], ["GUA", "VAL"], ["GUG", "VAL"], ["ACU", "THR"], ["ACC", "THR"], ["ACA", "THR"], ["ACG", "THR"], ["GCU", "ALA"], ["GCC", "ALA"], ["GCA", "ALA"], ["GCG", "ALA"], ["AAU", "ASN"], ["AAC", "ASN"], ["AAA", "LYS"], ["AAG", "LYS"], ["GAU", "ASP"], ["GAC", "ASP"], ["GAA", "GLU"], ["GAG", "GLU"], ["AGU", "SER"], ["AGC", "SER"], ["AGA", "ARG"], ["AGG", "ARG"], ["GGU", "GLY"], ["GGC", "GLY"], ["GGA", "GLY"], ["GGG", "GLY"]]);
   INPUT_TYPE = {
     DNA1: 1,
     DNA2: 2,
@@ -647,8 +647,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   uniformNucleotide = function uniformNucleotide(nucleotide) {
     switch (nucleotide.toUpperCase()) {
-      case "А":
-        return "А";
+      case "A":
+        return "A";
 
       case "Т":
         return "T";
