@@ -208,11 +208,11 @@ uniformSequence = (dna) ->
 
 uniformNucleotide = (nucleotide) ->
 	switch nucleotide.toUpperCase()
-		when "A" then "А"
-		when "T" then "T"
-		when "G" then "G"
-		when "C" then "C"
-		when "U" then "U"
+		when "А" then "А"
+		when "Т" then "T"
+		when "Г" then "G"
+		when "Ц" then "C"
+		when "У" then "U"
 		else nucleotide.toUpperCase()
 
 validateInput = (type) ->
@@ -301,7 +301,7 @@ formatProteinSequence = (sequence) ->
 		currentTriplet += i
 		index++
 
-		if (index == 3 and currentTriplet != "STO") or (index == 4)
+		if (index == 3 and currentTriplet != "Sto") or (index == 4)
 			triplets.push currentTriplet
 			currentTriplet = ""
 			index = 0

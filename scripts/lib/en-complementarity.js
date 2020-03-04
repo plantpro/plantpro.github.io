@@ -647,19 +647,19 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   uniformNucleotide = function uniformNucleotide(nucleotide) {
     switch (nucleotide.toUpperCase()) {
-      case "A":
+      case "А":
         return "А";
 
-      case "T":
+      case "Т":
         return "T";
 
-      case "G":
+      case "Г":
         return "G";
 
-      case "C":
+      case "Ц":
         return "C";
 
-      case "U":
+      case "У":
         return "U";
 
       default:
@@ -864,7 +864,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       currentTriplet += i;
       index++;
 
-      if (index === 3 && currentTriplet !== "STO" || index === 4) {
+      if (index === 3 && currentTriplet !== "Sto" || index === 4) {
         triplets.push(currentTriplet);
         currentTriplet = "";
         index = 0;
