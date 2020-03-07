@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Патологический гербарий</title>
+
+	<link rel="stylesheet" href="../../stylesheets/material.min.css">
+	<script src="../../scripts/material.min.js"></script>
+
+	<style>
+		#image {
+			max-height: 100%;
+			max-width: unset;
+			height: auto;
+			width: 100%;
+			transition: 1s;
+		}
+
+		#viewer {
+			text-align: center;
+		}
+	</style>
+
+	<!-- Yandex.Metrika counter -->
+	<script
+		type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(57619945, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }); </script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/57619945" style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+</head>
+
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<div class="mdl-layout__drawer-button">
+					<a href="../../index.html">
+						<i class="material-icons">
+							<svg style="width:24px;height:24px" viewbox="0 0 24 24">
+								<path fill="rgb(0, 129, 32)"
+									d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+							</svg>
+						</i>
+					</a>
+				</div>
+
+				<span class="mdl-layout-title">
+					<span style="color: rgb(0, 129, 32);">P</span>LANT
+					<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
+				</span>
+
+				<div class="mdl-layout-spacer"></div>
+				<nav class="mdl-navigation mdl-layout--large-screen-only">
+				</nav>
+			</div>
+		</header>
+
+		<main class="mdl-layout__content">
+			<div class="page-content paddinget">
+				<h3>Патологический гербарий</h3>
+
+				<div class="mdl-grid mdl-grid--no-spacing">
+					<div class="mdl-cell mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<h6>Вирусы и вироиды</h6>
+						<ul class="mdl-list" id="content-list">
+							<li no="1">M-вирус картофеля (PVM)</li>
+							<li no="10">M-вирус картофеля (PVM)</li>
+							<li no="11">M-вирус картофеля (PVM)</li>
+							<li no="12">M-вирус картофеля (PVM)</li>
+							<li no="2">Y-вирус картофеля (PVY)</li>
+							<li no="3">Y-вирус картофеля, штамм C (PVY)</li>
+							<li no="15">Y-вирус картофеля (PVY)</li>
+							<li no="17">Y-вирус картофеля (PVY)</li>
+							<li no="9">Y-вирус картофеля (PVY)</li>
+							<li no="19">Y-вирус на табаке</li>
+							<li no="7">ВВКК (PSTV)</li>
+							<li no="4">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+							<li no="13">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+							<li no="14">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+							<li no="16">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+							<li no="8">ВТМ на томатах (TMV)</li>
+							<li no="18">ВТМ (TMV)</li>
+							<li no="20">Вирус огуречной мозаики</li>
+							<li no="5">Столбур томата</li>
+							<li no="6">Столбур томата</li>
+							<li no="21">Вирус скручивания листьев картофеля</li>
+							<li no="22">Вирус закукливания овса (OPH)</li>
+							<li no="23">Белая пестрота табака</li>
+							<li no="24">Кольцевая пятнистость табака</li>
+							<li no="25">Короткоузлие винограда</li>
+						</ul>
+					</div>
+
+					<div class="mdl-cell mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+						<div id="viewer">
+							<figure>
+								<img id="image">
+								<figcaption id="caption">
+
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+<script>
+	const VIEWER = document.getElementById("viewer");
+	const IMAGE = document.getElementById("image");
+	const CAPTION = document.getElementById("caption");
+
+	var previousSelected = document.getElementById("content-list").children[0];
+
+	function show(x) {
+		previousSelected.style.color = "black";
+		var no = x.target.attributes["no"].value;
+		x.target.style.color = "red";
+		IMAGE.src = "../../resources/images/herb/" + no + ".jpg"
+		CAPTION.innerText = x.target.innerText;
+		previousSelected = x.target;
+	}
+
+	show({ target: document.getElementById("content-list").children[0] });
+
+	for (var i of document.getElementById("content-list").children) {
+		i.addEventListener("click", show);
+	}
+</script>
+
+</html>
