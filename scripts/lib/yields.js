@@ -427,7 +427,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   runApplication = function runApplication() {
-    clearError();
     return evalPotentialYield();
   };
 

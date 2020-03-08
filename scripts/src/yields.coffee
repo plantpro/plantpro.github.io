@@ -6,8 +6,6 @@
 #: import flexibel.coffee
 
 runApplication = () ->
-	clearError()
-
 	evalPotentialYield()
 
 fail = (error) ->

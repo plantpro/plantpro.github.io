@@ -191,8 +191,6 @@ runParser = (input) ->
 	parserState.result
 
 runApplication = () ->
-	clearError()
-
 	evalPotentialYield()
 
 fail = (error) ->
