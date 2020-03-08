@@ -20,7 +20,56 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   	Pennet application
   	Autor: Tsvikevich Denis 2019
   */
-  var Counter, all, any, checkGenotype, checkGenotypes, checkedof, clearError, combineGametes, countIt, createOutput, createPhenotypeInput, delws, div, ejoin, element, evalPhenotype, fail, first, h1, h2, h3, h4, h5, h6, htmlget, htmlset, keys, last, makeGametes, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, mergeStrings, min, mul, neue, neueText, onChangeText, runApplication, sub, sum, unique, valueof, values, valueset; // Operator function for '-'
+  var Counter,
+      all,
+      any,
+      checkGenotype,
+      checkGenotypes,
+      checkedof,
+      clearError,
+      combineGametes,
+      countIt,
+      createOutput,
+      createPhenotypeInput,
+      delws,
+      div,
+      ejoin,
+      element,
+      evalPhenotype,
+      fail,
+      first,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      htmlget,
+      htmlset,
+      keys,
+      last,
+      makeGametes,
+      makeKeyCells,
+      makeMapCells,
+      makeValueCells,
+      max,
+      maxKey,
+      maxValue,
+      mergeStrings,
+      min,
+      mul,
+      neue,
+      neueText,
+      onChangeText,
+      runApplication,
+      runParser,
+      sub,
+      sum,
+      unique,
+      valueof,
+      values,
+      valueset,
+      indexOf = [].indexOf; // Operator function for '-'
 
   sub = function sub(x, y) {
     return x - y;
@@ -349,6 +398,47 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     div: div,
     all: all,
     any: any
+  };
+
+  runParser = function runParser(input) {
+    var getCurrent, next, parseNumber, parserState, ref;
+    parserState = {
+      result: [],
+      currentPosition: 0,
+      input: input
+    };
+
+    getCurrent = function getCurrent(state) {
+      return state.input[state.currentPosition];
+    };
+
+    next = function next(state) {
+      var current;
+      current = getCurrent(state);
+      state.currentPosition++;
+      return current;
+    };
+
+    parseNumber = function parseNumber(state) {
+      var buffer, current, ref;
+      buffer = next(state);
+
+      while (ref = current = next(state), indexOf.call("0123456789.", ref) >= 0) {
+        buffer += current;
+      }
+
+      return state.result.push(parseFloat(buffer));
+    };
+
+    while (parserState.currentPosition < input.length) {
+      if (ref = getCurrent(parserState), indexOf.call("0123456789-", ref) >= 0) {
+        parseNumber(parserState);
+      } else {
+        next(parserState);
+      }
+    }
+
+    return parserState.result;
   };
 
   Counter =

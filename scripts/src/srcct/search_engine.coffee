@@ -156,6 +156,35 @@ document.flexibel = {
 	any
 }
 
+runParser = (input) ->
+	parserState = {
+		result: []
+		currentPosition: 0
+		input: input
+	}
+
+	getCurrent = (state) ->
+		state.input[state.currentPosition]
+	
+	next = (state) ->
+		current = getCurrent state
+		state.currentPosition++
+		current
+
+	parseNumber = (state) ->
+		buffer = next state
+		while (current = next state) in "0123456789."
+			buffer += current
+		state.result.push parseFloat(buffer)
+
+	while parserState.currentPosition < input.length
+		if (getCurrent parserState) in "0123456789-"
+			parseNumber parserState
+		else
+			next parserState
+	
+	parserState.result
+
 startSearch = () ->
 	input = new RegExp((valueof "text-to-find"), "i")
 	entries = element "dict-entries"

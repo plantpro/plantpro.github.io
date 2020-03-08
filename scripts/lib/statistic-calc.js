@@ -384,7 +384,49 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     div: div,
     all: all,
     any: any
+  };
+
+  runParser = function runParser(input) {
+    var getCurrent, next, parseNumber, parserState, ref;
+    parserState = {
+      result: [],
+      currentPosition: 0,
+      input: input
+    };
+
+    getCurrent = function getCurrent(state) {
+      return state.input[state.currentPosition];
+    };
+
+    next = function next(state) {
+      var current;
+      current = getCurrent(state);
+      state.currentPosition++;
+      return current;
+    };
+
+    parseNumber = function parseNumber(state) {
+      var buffer, current, ref;
+      buffer = next(state);
+
+      while (ref = current = next(state), indexOf.call("0123456789.", ref) >= 0) {
+        buffer += current;
+      }
+
+      return state.result.push(parseFloat(buffer));
+    };
+
+    while (parserState.currentPosition < input.length) {
+      if (ref = getCurrent(parserState), indexOf.call("0123456789-", ref) >= 0) {
+        parseNumber(parserState);
+      } else {
+        next(parserState);
+      }
+    }
+
+    return parserState.result;
   }; // 86 80 25 77 73 76 100 90 69 93 90 83 70 73 73 70 90 83 71 95 40 58 68 69 100 78 87 97 92 74
+
 
   runApplication = function runApplication() {
     var input, isPopulation;

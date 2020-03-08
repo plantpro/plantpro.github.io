@@ -14,7 +14,46 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   	Source provider
   	Autor: Tsvikevich Denis 2020
   */
-  var all, any, button, checkedof, countIt, delws, div, ejoin, element, first, h1, h2, h3, h4, h5, h6, htmlget, htmlset, keys, last, makeKeyCells, makeMapCells, makeValueCells, max, maxKey, maxValue, min, mul, neue, neueText, provider, showSources, sub, sum, unique, valueof, values, valueset; // Operator function for '-'
+  var all,
+      any,
+      button,
+      checkedof,
+      countIt,
+      delws,
+      div,
+      ejoin,
+      element,
+      first,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      htmlget,
+      htmlset,
+      keys,
+      last,
+      makeKeyCells,
+      makeMapCells,
+      makeValueCells,
+      max,
+      maxKey,
+      maxValue,
+      min,
+      mul,
+      neue,
+      neueText,
+      provider,
+      runParser,
+      showSources,
+      sub,
+      sum,
+      unique,
+      valueof,
+      values,
+      valueset,
+      indexOf = [].indexOf; // Operator function for '-'
 
   sub = function sub(x, y) {
     return x - y;
@@ -344,6 +383,48 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     all: all,
     any: any
   };
+
+  runParser = function runParser(input) {
+    var getCurrent, next, parseNumber, parserState, ref;
+    parserState = {
+      result: [],
+      currentPosition: 0,
+      input: input
+    };
+
+    getCurrent = function getCurrent(state) {
+      return state.input[state.currentPosition];
+    };
+
+    next = function next(state) {
+      var current;
+      current = getCurrent(state);
+      state.currentPosition++;
+      return current;
+    };
+
+    parseNumber = function parseNumber(state) {
+      var buffer, current, ref;
+      buffer = next(state);
+
+      while (ref = current = next(state), indexOf.call("0123456789.", ref) >= 0) {
+        buffer += current;
+      }
+
+      return state.result.push(parseFloat(buffer));
+    };
+
+    while (parserState.currentPosition < input.length) {
+      if (ref = getCurrent(parserState), indexOf.call("0123456789-", ref) >= 0) {
+        parseNumber(parserState);
+      } else {
+        next(parserState);
+      }
+    }
+
+    return parserState.result;
+  };
+
   button = div("Показать источники");
   provider = element("src-provider");
   provider.after(button);

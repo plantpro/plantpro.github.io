@@ -71,6 +71,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       neue,
       neueText,
       runApplication,
+      runParser,
       sub,
       sum,
       uniformNucleotide,
@@ -410,6 +411,48 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     all: all,
     any: any
   };
+
+  runParser = function runParser(input) {
+    var getCurrent, next, parseNumber, parserState, ref;
+    parserState = {
+      result: [],
+      currentPosition: 0,
+      input: input
+    };
+
+    getCurrent = function getCurrent(state) {
+      return state.input[state.currentPosition];
+    };
+
+    next = function next(state) {
+      var current;
+      current = getCurrent(state);
+      state.currentPosition++;
+      return current;
+    };
+
+    parseNumber = function parseNumber(state) {
+      var buffer, current, ref;
+      buffer = next(state);
+
+      while (ref = current = next(state), indexOf.call("0123456789.", ref) >= 0) {
+        buffer += current;
+      }
+
+      return state.result.push(parseFloat(buffer));
+    };
+
+    while (parserState.currentPosition < input.length) {
+      if (ref = getCurrent(parserState), indexOf.call("0123456789-", ref) >= 0) {
+        parseNumber(parserState);
+      } else {
+        next(parserState);
+      }
+    }
+
+    return parserState.result;
+  };
+
   DNA_VALID_CHARS = "ATGCatgcATGCATGC ";
   RNA_VALID_CHARS = "AUGCaugcAUGCAUGC ";
   DNA_COMPLIMENTARY = new Map([["A", "T"], ["T", "A"], ["G", "C"], ["U", "A"], ["C", "G"]]);
