@@ -21,12 +21,9 @@ evalPotentialYield = () ->
 	cval = runParser valueof "cval"
 	wetbase = runParser valueof "wetbase"
 	partadd = runParser valueof "partadd"
-
-
 	py = (par * coeffpar) / (1000 * cval)
 	pybase = (py * 100) / ((100 - wetbase) * (1 + partadd))
 	pyadd = pybase * partadd
-
 	htmlset "result", "ПУ = #{py}<br>ПУ<sub>осн</sub> = #{pybase}<br>ПУ<sub>поб</sub> = #{pyadd}"
 
 element "runButton"
