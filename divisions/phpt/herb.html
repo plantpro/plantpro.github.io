@@ -91,12 +91,18 @@
 							<li no="20">Вирус огуречной мозаики</li>
 							<li no="5">Столбур томата</li>
 							<li no="6">Столбур томата</li>
+							<li no="34">Столбур томата</li>
 							<li no="28">Стрик томата</li>
 							<li no="21">Вирус скручивания листьев картофеля</li>
 							<li no="22">Вирус закукливания овса (OPH)</li>
 							<li no="23">Белая пестрота табака</li>
 							<li no="24">Кольцевая пятнистость табака</li>
 							<li no="25">Короткоузлие винограда</li>
+						</ul>
+
+						<h6>Бактерии</h6>
+						<ul class="mdl-list">
+							<li no="33">Пустульный бактериоз Xanthomonas phaseoli var. sojense Hedges</li>
 						</ul>
 					</div>
 
@@ -135,8 +141,10 @@
 
 	show({ target: document.getElementById("content-list").children[0] });
 
-	for (var i of document.getElementById("content-list").children) {
-		i.addEventListener("click", show);
+	for (var list of document.getElementsByClassName("mdl-list")) {
+		for (var i of list.children) {
+			i.addEventListener("click", show);
+		}
 	}
 </script>
 

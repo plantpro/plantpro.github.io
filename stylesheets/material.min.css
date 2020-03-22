@@ -8172,6 +8172,10 @@ figcaption {
   background-color: mediumslateblue;
 }
 
+.youtube-tag {
+	background-color: rgb(231, 47, 47);
+}
+
 .filetype-tag {
   color: white;
   padding: 2px;
@@ -10300,28 +10304,84 @@ figcaption {
   cursor: pointer;
 }
 
-.thumb-wrap {
+.plpro-table {
   position: relative;
-  padding-bottom: 56.25%;
-  /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
-  height: 0;
-  overflow: hidden;
+  /*border: 1px solid rgba(0, 0, 0, .12);*/
+  border-collapse: collapse;
+  /*white-space: nowrap;*/
+  display: block;
+  overflow: auto;
+  font-size: 13px;
+  background-color: #fff
 }
 
-.thumb-wrap iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-width: 0;
-  outline-width: 0;
-  max-width: 448px;
-  max-height: 252px;
+.plpro-table thead {
+	padding-bottom: 3px;
 }
 
-@media (min-width: 500px) {
-  .thumb-wrap {
-		padding-bottom: 253px;
-	}
+.plpro-table thead td {
+	text-align: left;
+}
+
+.plpro-table tbody tr {
+  position: relative;
+  height: 48px;
+  transition-duration: .28s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-property: background-color
+}
+
+.plpro-table tbody tr.is-selected {
+  background-color: #e0e0e0
+}
+
+.plpro-table tbody tr:hover {
+  background-color: #eee
+}
+
+.plpro-table td {
+  text-align: left
+}
+
+.plpro-table th {
+  padding: 0 18px 12px 18px;
+  text-align: center
+}
+
+.plpro-table td:first-of-type,
+.plpro-table th:first-of-type {
+  padding-left: 24px
+}
+
+.plpro-table td:last-of-type,
+.plpro-table th:last-of-type {
+  padding-right: 24px
+}
+
+.plpro-table td {
+  position: relative;
+  height: 48px;
+  border-top: 1px solid rgba(0, 0, 0, .12);
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  padding: 12px 18px;
+  box-sizing: border-box
+}
+
+.plpro-table td,
+.plpro-table td .mdl-data-table__select {
+  vertical-align: middle
+}
+
+.mdl-data-table th {
+  position: relative;
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0;
+  height: 48px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, .54);
+  padding-bottom: 8px;
+  box-sizing: border-box
 }
