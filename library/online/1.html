@@ -8,22 +8,8 @@
 	<title>Общая фитопатология</title>
 
 	<link rel="stylesheet" href="../../stylesheets/material.min.css">
+	<link rel="stylesheet" href="../../stylesheets/image-reader.css">
 	<script src="../../scripts/material.min.js"></script>
-
-	<style>
-		img {
-			max-width: 100%;
-			max-height: 100%;
-		}
-
-		.page-content {
-			text-align: center;
-		}
-
-		#plpro-reader-page-tb {
-			max-width: 30px;
-		}
-	</style>
 
 	<!-- Yandex.Metrika counter -->
 	<script
@@ -38,76 +24,23 @@
 		<main class="mdl-layout__content">
 			<div class="page-content">
 				<button id="plpro-reader-prev-btn" class="mdl-button mdl-button--disabled">&larr;</button>
-				<input id="plpro-reader-page-tb" value="1" type="text"> / 231
+				<input id="plpro-reader-page-tb" value="1" type="text"> / <span id="plpro-reader-pages-count"> </span>
 				<button id="plpro-reader-next-btn" class="mdl-button">&rarr;</button>
 				<div id="plpro-reader-window">
-					<img src="1/page_1.svg" />
+					
 				</div>
 			</div>
 		</main>
 	</div>
 
+	<script src="../../scripts/lib/image-reader.min.js"></script>
 	<script>
-		const PAGE_COUNT = 231;
-		const READER_WINDOW = document.getElementById("plpro-reader-window");
-		const CURRENT_PAGE_TB = document.getElementById("plpro-reader-page-tb");
-
-		var currentPageNumber = 1;
-
 		function getPagePath(pageNumber) {
 			return "1/page_" + pageNumber + ".svg";
 		}
-
-		function isValidPage(pageNumber) {
-			return pageNumber >= 1 && pageNumber <= PAGE_COUNT;
-		}
-
-		function showPage(pageNumber) {
-			if (isValidPage(pageNumber)) {
-				if (pageNumber === 1) {
-					document.getElementById("plpro-reader-prev-btn").classList.add("mdl-button--disabled");
-				} else {
-					document.getElementById("plpro-reader-prev-btn").classList.remove("mdl-button--disabled");
-				}
-
-				if (pageNumber === PAGE_COUNT) {
-					document.getElementById("plpro-reader-next-btn").classList.add("mdl-button--disabled");
-				} else {
-					document.getElementById("plpro-reader-next-btn").classList.remove("mdl-button--disabled");
-				}
-
-				READER_WINDOW.innerHTML = `<img src="${getPagePath(pageNumber)}"/>`;
-				CURRENT_PAGE_TB.value = pageNumber;
-			}
-		}
-
-		function next() {
-			if (isValidPage(currentPageNumber + 1)) {
-				currentPageNumber++;
-				showPage(currentPageNumber)
-			}
-		}
-
-		function prev() {
-			if (isValidPage(currentPageNumber - 1)) {
-				currentPageNumber--;
-				showPage(currentPageNumber)
-			}
-		}
-
-		function checkforenter(e) {
-			if (e.keyCode === 13) {
-				var requiredPageNumber = Number.parseInt(CURRENT_PAGE_TB.value);
-				if (isValidPage(requiredPageNumber)) {
-					currentPageNumber = requiredPageNumber;
-					showPage(currentPageNumber)
-				}
-			}
-		}
-
-		document.getElementById("plpro-reader-prev-btn").addEventListener("click", prev)
-		document.getElementById("plpro-reader-next-btn").addEventListener("click", next)
-		CURRENT_PAGE_TB.addEventListener("keydown", checkforenter)
+		
+		var reader = initializeReader(231, getPagePath)
+		reader.showPage(1)
 	</script>
 
 </body>
