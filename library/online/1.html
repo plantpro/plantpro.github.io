@@ -35,11 +35,8 @@
 
 	<script src="../../scripts/lib/image-reader.min.js"></script>
 	<script>
-		function getPagePath(pageNumber) {
-			return "1/page_" + pageNumber + ".svg";
-		}
-
-		var reader = document.plpro.reader.initializeReader(231, getPagePath)
+		var reader = document.plpro.reader.initializeReader(231, 
+			document.plpro.reader.tracing.incrementalSvgPrefix("1", "page_"))
 		reader.showPage(1)
 	</script>
 

@@ -55,6 +55,13 @@ initializeReader = (pageCount, getPage) ->
 
 document.plpro = {
 	reader: {
-		initializeReader
+		initializeReader,
+		tracing: {
+			incrementalSvg: (dir) -> (pageNumber) -> "#{dir}/#{pageNumber}.svg",
+			incrementalSvgPrefix: (dir, prefix) -> (pageNumber) -> "#{dir}/#{prefix}#{pageNumber}.svg",
+
+			incrementalJpg: (dir) -> (pageNumber) -> "#{dir}/#{pageNumber}.jpg",
+			incrementalJpgPrefix: (dir, prefix) -> (pageNumber) -> "#{dir}/#{prefix}#{pageNumber}.jpg",
+		}
 	}
 }

@@ -76,7 +76,29 @@
 
   document.plpro = {
     reader: {
-      initializeReader: initializeReader
+      initializeReader: initializeReader,
+      tracing: {
+        incrementalSvg: function incrementalSvg(dir) {
+          return function (pageNumber) {
+            return "".concat(dir, "/").concat(pageNumber, ".svg");
+          };
+        },
+        incrementalSvgPrefix: function incrementalSvgPrefix(dir, prefix) {
+          return function (pageNumber) {
+            return "".concat(dir, "/").concat(prefix).concat(pageNumber, ".svg");
+          };
+        },
+        incrementalJpg: function incrementalJpg(dir) {
+          return function (pageNumber) {
+            return "".concat(dir, "/").concat(pageNumber, ".jpg");
+          };
+        },
+        incrementalJpgPrefix: function incrementalJpgPrefix(dir, prefix) {
+          return function (pageNumber) {
+            return "".concat(dir, "/").concat(prefix).concat(pageNumber, ".jpg");
+          };
+        }
+      }
     }
   };
 }).call(void 0);
