@@ -5,7 +5,9 @@
   var initializeReader;
 
   initializeReader = function initializeReader(pageCount, getPage) {
-    var CURRENT_PAGE_TB, READER_WINDOW, checkforenter, currentPageNumber, isValidPage, next, prev, showPage;
+    var CURRENT_PAGE_TB, PAGE_CONTENT, READER_WINDOW, checkforenter, currentPageNumber, isValidPage, next, prev, showPage;
+    PAGE_CONTENT = document.getElementById("plpro-reader");
+    PAGE_CONTENT.innerHTML = "<button id=\"plpro-reader-prev-btn\" class=\"mdl-button mdl-button--disabled\">&larr;</button>\n<input id=\"plpro-reader-page-tb\" value=\"1\" type=\"text\"> /\n<span id=\"plpro-reader-pages-count\"></span>\n<button id=\"plpro-reader-next-btn\" class=\"mdl-button\">&rarr;</button>\n<div id=\"plpro-reader-window\"></div>";
     READER_WINDOW = document.getElementById("plpro-reader-window");
     CURRENT_PAGE_TB = document.getElementById("plpro-reader-page-tb");
     currentPageNumber = 1;

@@ -1,4 +1,12 @@
 initializeReader = (pageCount, getPage) ->
+		PAGE_CONTENT = document.getElementById("plpro-reader")
+		PAGE_CONTENT.innerHTML = """
+				<button id="plpro-reader-prev-btn" class="mdl-button mdl-button--disabled">&larr;</button>
+				<input id="plpro-reader-page-tb" value="1" type="text"> /
+				<span id="plpro-reader-pages-count"></span>
+				<button id="plpro-reader-next-btn" class="mdl-button">&rarr;</button>
+				<div id="plpro-reader-window"></div>
+		"""
 		READER_WINDOW = document.getElementById("plpro-reader-window")
 		CURRENT_PAGE_TB = document.getElementById("plpro-reader-page-tb")
 
