@@ -73,4 +73,10 @@
       prev: prev
     };
   };
+
+  document.plpro = {
+    reader: {
+      initializeReader: initializeReader
+    }
+  };
 }).call(void 0);

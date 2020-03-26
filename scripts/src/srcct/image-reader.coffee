@@ -52,3 +52,9 @@ initializeReader = (pageCount, getPage) ->
 			next,
 			prev
 		}
+
+document.plpro = {
+	reader: {
+		initializeReader
+	}
+}
