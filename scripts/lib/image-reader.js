@@ -11,7 +11,7 @@
     currentPageNumber = 1;
 
     isValidPage = function isValidPage(pageNumber) {
-      return pageNumber >= 1 && pageNumber <= PAGE_COUNT;
+      return pageNumber >= 1 && pageNumber <= pageCount;
     };
 
     showPage = function showPage(pageNumber) {
@@ -22,7 +22,7 @@
           document.getElementById("plpro-reader-prev-btn").classList.remove("mdl-button--disabled");
         }
 
-        if (pageNumber === PAGE_COUNT) {
+        if (pageNumber === pageCount) {
           document.getElementById("plpro-reader-next-btn").classList.add("mdl-button--disabled");
         } else {
           document.getElementById("plpro-reader-next-btn").classList.remove("mdl-button--disabled");
