@@ -481,9 +481,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   onselec = function onselec(e) {
     var fromUnit, fromValue, fromu, toUnit, tou;
     fromUnit = element("from-unit");
-    fromu = findInGroup(fromUnit.selected.value, weightGroup);
+    fromu = findInGroup(fromUnit.selectedOptions[0].value, weightGroup);
     toUnit = element("to-unit");
-    tou = findInGroup(fromUnit.selected.value, weightGroup);
+    tou = findInGroup(fromUnit.selectedOptions[0].value, weightGroup);
     fromValue = Number.parse(valueof("from-unit-value"));
     return valueset("to-unit-value", tou.fromBase(fromu.toBase(fromValue)));
   };

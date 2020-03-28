@@ -26,9 +26,9 @@ findInGroup = (name, group) ->
 
 onselec = (e) ->
 	fromUnit = element "from-unit"
-	fromu = findInGroup fromUnit.selected.value, weightGroup
+	fromu = findInGroup fromUnit.selectedOptions[0].value, weightGroup
 	toUnit = element "to-unit"
-	tou = findInGroup fromUnit.selected.value, weightGroup
+	tou = findInGroup fromUnit.selectedOptions[0].value, weightGroup
 
 	fromValue = Number.parse(valueof "from-unit-value")
 	valueset "to-unit-value", (tou.fromBase (fromu.toBase fromValue))
