@@ -12,10 +12,10 @@ fromUnitsList = element "from-units"
 toUnitsList = element "to-units"
 
 weightGroup = [
-	converter "мкг", ((x) -> x * 10 ** 6), (x) -> x / (10 ** 6)
-	converter "мг", ((x) -> x * 10 ** 3), (x) -> x / (10 ** 3)
-	converter "г", ((x) -> x), (x) -> x
-	converter "кг", ((x) -> x * 1000), (x) -> x / 1000
+	converter("мкг", ((x) -> x * 10 ** 6), (x) -> x / (10 ** 6)),
+	converter("мг", ((x) -> x * 10 ** 3), (x) -> x / (10 ** 3)),
+	converter("г", ((x) -> x), (x) -> x),
+	converter("кг", ((x) -> x * 1000), (x) -> x / 1000)
 ]
 
 fromUnitsList.innerHTML = makeSelect "from-unit", weightGroup
