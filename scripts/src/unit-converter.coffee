@@ -26,9 +26,9 @@ findInGroup = (name, group) ->
 
 onselec = (e) ->
 	fromUnit = element "from-unit"
-	fromu = findInGroup fromUnit.selectedOptions[0].value, weightGroup
+	fromu = findInGroup fromUnit.options[fromUnit.selectedIndex].value, weightGroup
 	toUnit = element "to-unit"
-	tou = findInGroup fromUnit.selectedOptions[0].value, weightGroup
+	tou = findInGroup toUnit.options[toUnit.selectedIndex].value, weightGroup
 
 	fromValue = runParser(valueof "from-unit-value")
 	valueset "to-unit-value", (tou.fromBase (fromu.toBase fromValue))
@@ -39,6 +39,6 @@ toUnitsList.innerHTML = makeSelect "to-unit", weightGroup
 element "from-unit-value"
 	.addEventListener("change", onselec)
 element "from-unit"
-	.addEventListener("select", onselec)
+	.addEventListener("change", onselec)
 element "to-unit"
-	.addEventListener("select", onselec)
+	.addEventListener("change", onselec)
