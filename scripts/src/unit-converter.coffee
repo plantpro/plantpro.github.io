@@ -5,7 +5,7 @@ converter = (name, toBase, fromBase) ->
 
 
 makeSelect = (id, items) ->
-	result = "<select onselect='onselect(event)' id=#{id}>"
+	result = "<select onselec='onselect(event)' id=#{id}>"
 	result += """<option value="#{i.name}">#{i.name}</option>""" for i in items
 	result + "</select>"
 
@@ -24,7 +24,7 @@ findInGroup = (name, group) ->
 		if i.name == name
 			return i
 
-onselect = (e) ->
+onselec = (e) ->
 	fromUnit = element "from-unit"
 	fromu = findInGroup fromUnit.selected.value, weightGroup
 	toUnit = element "to-unit"
@@ -35,3 +35,4 @@ onselect = (e) ->
 
 fromUnitsList.innerHTML = makeSelect "from-unit", weightGroup
 toUnitsList.innerHTML = makeSelect "to-unit", weightGroup
+

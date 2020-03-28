@@ -44,7 +44,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       mul,
       neue,
       neueText,
-      onselect,
+      onselec,
       runParser,
       sub,
       sum,
@@ -436,7 +436,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   makeSelect = function makeSelect(id, items) {
     var i, j, len, result;
-    result = "<select onselect='onselect(event)' id=".concat(id, ">");
+    result = "<select onselec='onselect(event)' id=".concat(id, ">");
 
     for (j = 0, len = items.length; j < len; j++) {
       i = items[j];
@@ -478,7 +478,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     }
   };
 
-  onselect = function onselect(e) {
+  onselec = function onselec(e) {
     var fromUnit, fromValue, fromu, toUnit, tou;
     fromUnit = element("from-unit");
     fromu = findInGroup(fromUnit.selected.value, weightGroup);
