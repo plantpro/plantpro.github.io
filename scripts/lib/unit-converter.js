@@ -436,7 +436,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   makeSelect = function makeSelect(id, items) {
     var i, j, len, result;
-    result = "<select onselec='onselect(event)' id=".concat(id, ">");
+    result = "<select id=".concat(id, ">");
 
     for (j = 0, len = items.length; j < len; j++) {
       i = items[j];
@@ -490,4 +490,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   fromUnitsList.innerHTML = makeSelect("from-unit", weightGroup);
   toUnitsList.innerHTML = makeSelect("to-unit", weightGroup);
+  element("from-unit-value").addEventListener("change", onselec);
+  element("from-unit").addEventListener("select", onselec);
+  element("to-unit").addEventListener("select", onselec);
 }).call(void 0);

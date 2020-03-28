@@ -5,7 +5,7 @@ converter = (name, toBase, fromBase) ->
 
 
 makeSelect = (id, items) ->
-	result = "<select onselec='onselect(event)' id=#{id}>"
+	result = "<select id=#{id}>"
 	result += """<option value="#{i.name}">#{i.name}</option>""" for i in items
 	result + "</select>"
 
@@ -36,3 +36,9 @@ onselec = (e) ->
 fromUnitsList.innerHTML = makeSelect "from-unit", weightGroup
 toUnitsList.innerHTML = makeSelect "to-unit", weightGroup
 
+element "from-unit-value"
+	.addEventListener("change", onselec)
+element "from-unit"
+	.addEventListener("select", onselec)
+element "to-unit"
+	.addEventListener("select", onselec)
