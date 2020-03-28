@@ -20,6 +20,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       div,
       ejoin,
       element,
+      findInGroup,
       first,
       fromUnitsList,
       h1,
@@ -43,6 +44,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       mul,
       neue,
       neueText,
+      onselect,
       runParser,
       sub,
       sum,
@@ -434,7 +436,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   makeSelect = function makeSelect(id, items) {
     var i, j, len, result;
-    result = "<select id=".concat(id, ">");
+    result = "<select onselect='onselect(event)' id=".concat(id, ">");
 
     for (j = 0, len = items.length; j < len; j++) {
       i = items[j];
@@ -463,6 +465,29 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   }, function (x) {
     return x / 1000;
   })];
+
+  findInGroup = function findInGroup(name, group) {
+    var i, j, len;
+
+    for (j = 0, len = group.length; j < len; j++) {
+      i = group[j];
+
+      if (i.name === name) {
+        return i;
+      }
+    }
+  };
+
+  onselect = function onselect(e) {
+    var fromUnit, fromValue, fromu, toUnit, tou;
+    fromUnit = element("from-unit");
+    fromu = findInGroup(fromUnit.selected.value, weightGroup);
+    toUnit = element("to-unit");
+    tou = findInGroup(fromUnit.selected.value, weightGroup);
+    fromValue = Number.parse(valueof("from-unit-value"));
+    return valueset("to-unit-value", tou.fromBase(fromu.toBase(fromValue)));
+  };
+
   fromUnitsList.innerHTML = makeSelect("from-unit", weightGroup);
   toUnitsList.innerHTML = makeSelect("to-unit", weightGroup);
 }).call(void 0);

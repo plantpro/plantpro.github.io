@@ -3,8 +3,9 @@
 converter = (name, toBase, fromBase) ->
 	{ name, toBase, fromBase }
 
+
 makeSelect = (id, items) ->
-	result = "<select id=#{id}>"
+	result = "<select onselect='onselect(event)' id=#{id}>"
 	result += """<option value="#{i.name}">#{i.name}</option>""" for i in items
 	result + "</select>"
 
@@ -17,6 +18,20 @@ weightGroup = [
 	converter("г", ((x) -> x), (x) -> x),
 	converter("кг", ((x) -> x * 1000), (x) -> x / 1000)
 ]
+
+findInGroup = (name, group) ->
+	for i in group
+		if i.name == name
+			return i
+
+onselect = (e) ->
+	fromUnit = element "from-unit"
+	fromu = findInGroup fromUnit.selected.value, weightGroup
+	toUnit = element "to-unit"
+	tou = findInGroup fromUnit.selected.value, weightGroup
+
+	fromValue = Number.parse(valueof "from-unit-value")
+	valueset "to-unit-value", (tou.fromBase (fromu.toBase fromValue))
 
 fromUnitsList.innerHTML = makeSelect "from-unit", weightGroup
 toUnitsList.innerHTML = makeSelect "to-unit", weightGroup
