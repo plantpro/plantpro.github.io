@@ -215,7 +215,7 @@ onselec = (e) ->
 	toUnit = element "to-unit"
 	tou = findInGroup fromUnit.selectedOptions[0].value, weightGroup
 
-	fromValue = runparser(valueof "from-unit-value")
+	fromValue = runParser(valueof "from-unit-value")
 	valueset "to-unit-value", (tou.fromBase (fromu.toBase fromValue))
 
 fromUnitsList.innerHTML = makeSelect "from-unit", weightGroup
