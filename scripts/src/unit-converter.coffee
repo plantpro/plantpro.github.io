@@ -5,7 +5,7 @@ converter = (name, toBase, fromBase) ->
 
 makeSelect = (id, items) ->
 	result = "<select id=#{id}>"
-	result += """<option value="#{i.name}">#{i.name}</option>""" for i of items
+	result += """<option value="#{i.name}">#{i.name}</option>""" for i in items
 	result + "</select>"
 
 fromUnitsList = element "from-units"

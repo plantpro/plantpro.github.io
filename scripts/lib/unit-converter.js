@@ -433,10 +433,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   makeSelect = function makeSelect(id, items) {
-    var i, result;
+    var i, j, len, result;
     result = "<select id=".concat(id, ">");
 
-    for (i in items) {
+    for (j = 0, len = items.length; j < len; j++) {
+      i = items[j];
       result += "<option value=\"".concat(i.name, "\">").concat(i.name, "</option>");
     }
 
