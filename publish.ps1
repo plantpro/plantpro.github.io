@@ -33,9 +33,6 @@ foreach ($script in get-childitem $libPath -file | where-object { -not $_.basena
 	uglifyjs $script.fullname -o ($libPath + "\\" + $script.basename + ".min.js")
 }
 
-py .\dictionary\generator\make_dict.py .\dictionary\generator\src.txt .\dictionary\
-py .\library\generator\make_lib.py .\library\index.html
-
 # Publish at GitHub
 git add *
 git commit -m automessage

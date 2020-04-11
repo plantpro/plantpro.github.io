@@ -10385,3 +10385,11 @@ figcaption {
   padding-bottom: 8px;
   box-sizing: border-box
 }
+
+select {
+	padding: 5px;
+	padding-bottom: 4px;
+  border: none;
+  border-bottom: rgba(0, 0, 0, .12) solid 1px;
+	font-family: "Helvetica", "Arial", sans-serif;
+}

@@ -27,7 +27,7 @@ initializeReader = (pageCount, getPage) ->
 				else
 					document.getElementById("plpro-reader-next-btn").classList.remove("mdl-button--disabled")
 
-				READER_WINDOW.innerHTML = """<img src="#{getPage(pageNumber)}"/>"""
+				READER_WINDOW.innerHTML = getPage pageNumber
 				CURRENT_PAGE_TB.value = pageNumber
 
 		next = () ->
@@ -65,11 +65,11 @@ document.plpro = {
 	reader: {
 		initializeReader,
 		tracing: {
-			incrementalSvg: (dir) -> (pageNumber) -> "#{dir}/#{pageNumber}.svg",
-			incrementalSvgPrefix: (dir, prefix) -> (pageNumber) -> "#{dir}/#{prefix}#{pageNumber}.svg",
+			incrementalSvg: (dir) -> (pageNumber) -> "<img src='#{dir}/#{pageNumber}.svg'/>",
+			incrementalSvgPrefix: (dir, prefix) -> (pageNumber) -> "<img src='#{dir}/#{prefix}#{pageNumber}.svg'/>",
 
-			incrementalJpg: (dir) -> (pageNumber) -> "#{dir}/#{pageNumber}.jpg",
-			incrementalJpgPrefix: (dir, prefix) -> (pageNumber) -> "#{dir}/#{prefix}#{pageNumber}.jpg",
+			incrementalJpg: (dir) -> (pageNumber) -> "<img src='#{dir}/#{pageNumber}.jpg'/>",
+			incrementalJpgPrefix: (dir, prefix) -> (pageNumber) -> "<img src='#{dir}/#{prefix}#{pageNumber}.jpg'/>",
 		}
 	}
 }

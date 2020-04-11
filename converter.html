@@ -65,32 +65,29 @@
 				<form name="mainForm">
 					<fieldset>
 						<div class="mdl-grid">
-							<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-								<div id="from-units">
-									
-								</div>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<select id="unit-group">
+									<option value="yield">Урожайность</option>
+									<option value="mass">Масса</option>
+								</select>
 							</div>
 
-							<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+							<div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
 									<label class="tblbl" id="from-unit-name"></label>
 									<input class="mdl-textfield__input" type="text" id="from-unit-value" value="0">
 									<span class="mdl-textfield__error" id="from-unit-error" style="visibility: visible"></span>
 								</div>
+								<div style="display: inline-block" id="from-units"></div>
 							</div>
 
-							<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-								<div id="to-units">
-									
-								</div>
-							</div>
-
-							<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+							<div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--4-col-phone">
 								<div class="mdl-textfield mdl-js-textfield">
 									<label class="tblbl" id="to-unit-name"></label>
 									<input class="mdl-textfield__input" type="text" id="to-unit-value">
 									<span class="mdl-textfield__error" id="to-unit-error" style="visibility: visible"></span>
 								</div>
+									<div style="display: inline-block" id="to-units"></div>
 							</div>
 						</div>
 					</fieldset>
