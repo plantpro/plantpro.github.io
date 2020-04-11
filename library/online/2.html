@@ -29,13 +29,13 @@
 
 	<script src="../../scripts/lib/image-reader.min.js"></script>
 	<script>
-		var reader = document.plpro.reader.initializeReader(231, 
+		var reader = document.plpro.reader.initializeReader(178, 
 			(index) => {
 				var firstImageIndex = (index * 6) - 5;
 				var result = "<div>"
 				
 				for(let i = firstImageIndex; i< firstImageIndex + 6; i++) {
-					result += "<img src='2/" + i + ".png'/>";
+					result += "<img style='width: 700px;' src='2/" + i + ".png'/>";
 				}
 
 				return result + "</div>";

@@ -5,7 +5,7 @@
   var initializeReader;
 
   initializeReader = function initializeReader(pageCount, getPage) {
-    var CURRENT_PAGE_TB, PAGE_CONTENT, READER_WINDOW, checkforenter, currentPageNumber, isValidPage, next, prev, showPage;
+    var CURRENT_PAGE_TB, PAGE_CONTENT, READER_WINDOW, checkforenter, currentPageNumber, initialX, initialY, isValidPage, moveTouch, next, prev, showPage, startTouch;
     PAGE_CONTENT = document.getElementById("plpro-reader");
     PAGE_CONTENT.innerHTML = "<button id=\"plpro-reader-prev-btn\" class=\"mdl-button mdl-button--disabled\">&larr;</button>\n<input id=\"plpro-reader-page-tb\" value=\"1\" type=\"text\"> /\n<span id=\"plpro-reader-pages-count\"></span>\n<button id=\"plpro-reader-next-btn\" class=\"mdl-button\">&rarr;</button>\n<div id=\"plpro-reader-window\"></div>";
     READER_WINDOW = document.getElementById("plpro-reader-window");
@@ -62,6 +62,45 @@
       }
     };
 
+    initialX = null;
+    initialY = null;
+
+    startTouch = function startTouch(e) {
+      initialX = e.touches[0].clientX;
+      return initialY = e.touches[0].clientY;
+    };
+
+    moveTouch = function moveTouch(e) {
+      var currentX, currentY, diffX, diffY;
+
+      if (initialX === null) {
+        return;
+      }
+
+      if (initialY === null) {
+        return;
+      }
+
+      currentX = e.touches[0].clientX;
+      currentY = e.touches[0].clientY;
+      diffX = initialX - currentX;
+      diffY = initialY - currentY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          prev();
+        } else {
+          next();
+        }
+
+        return e.preventDefault();
+      }
+    };
+
+    initialX = null;
+    initialY = null;
+    PAGE_CONTENT.addEventListener("touchstart", startTouch, false);
+    PAGE_CONTENT.addEventListener("touchmove", moveTouch, false);
     document.getElementById("plpro-reader-pages-count").innerText = pageCount;
     document.getElementById("plpro-reader-prev-btn").addEventListener("click", prev);
     document.getElementById("plpro-reader-next-btn").addEventListener("click", next);

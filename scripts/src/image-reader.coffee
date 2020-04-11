@@ -46,7 +46,34 @@ initializeReader = (pageCount, getPage) ->
 				if (isValidPage(requiredPageNumber))
 					currentPageNumber = requiredPageNumber
 					showPage(currentPageNumber)
-		
+
+		initialX = null
+		initialY = null
+
+		startTouch = (e) ->
+			initialX = e.touches[0].clientX
+			initialY = e.touches[0].clientY
+
+		moveTouch = (e) ->
+			if (initialX == null)
+				return
+			if (initialY == null)
+				return
+			currentX = e.touches[0].clientX
+			currentY = e.touches[0].clientY
+			diffX = initialX - currentX
+			diffY = initialY - currentY
+			if (Math.abs(diffX) > Math.abs(diffY))
+				if (diffX > 0)
+					prev()
+				else
+					next()
+				e.preventDefault()
+		initialX = null
+		initialY = null
+
+		PAGE_CONTENT.addEventListener("touchstart", startTouch, false)
+		PAGE_CONTENT.addEventListener("touchmove", moveTouch, false)
 		document.getElementById("plpro-reader-pages-count").innerText = pageCount
 		document.getElementById("plpro-reader-prev-btn").addEventListener("click", prev)
 		document.getElementById("plpro-reader-next-btn").addEventListener("click", next)
