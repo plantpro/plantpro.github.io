@@ -8147,6 +8147,14 @@ figcaption {
   padding: 16px;
 }
 
+.hint-block {
+	padding: 15px;
+	margin: 15px;
+	border: #e8eaed solid 1px;
+  border-radius: 4px;
+  color: #3c763d;
+}
+
 #hint-warn {
   padding: 15px;
   border-radius: 4px;
