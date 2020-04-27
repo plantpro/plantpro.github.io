@@ -8,7 +8,7 @@ HINTS = [
 	"""]
 ]
 
-getHint = () ->
+document.getHint = () ->
 	hintNo = Math.floor(Math.random() * HINTS.length)
 	hint = HINTS[hintNo]
 	return "<h6>" + hint[0] + "</h6>" + hint[1]

@@ -1,5 +1,6 @@
-HINTS = [[
-	"Как помочь науке?", """
+HINTS = [
+	["Как помочь науке?",
+	"""
 		Помочь научным исследованиям довольно просто! Существует проект, называемый
      <a href="https://boinc.bakerlab.org/">Rosetta@Home</a>, позволяющий
 		подключить вас к вычислениям структуры белков. Достаточно установить и запустить
@@ -7,7 +8,7 @@ HINTS = [[
 	"""]
 ]
 
-getHint = () ->
+document.getHint = () ->
 	hintNo = Math.floor(Math.random() * HINTS.length)
 	hint = HINTS[hintNo]
 	return "<h6>" + hint[0] + "</h6>" + hint[1]
