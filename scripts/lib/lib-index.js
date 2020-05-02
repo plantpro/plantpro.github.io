@@ -435,7 +435,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   clearFilter = function clearFilter(self, num) {
-    self.parentNode.parentNode.remove();
+    self.parentNode.remove();
     predicates.splice(num, 1);
     return doit();
   }; //searchBox = element "search-box"

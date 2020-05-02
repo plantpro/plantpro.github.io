@@ -34,7 +34,7 @@ updateFilter = (text) ->
 	htmlset "filter", makeChip text
 
 clearFilter = (self, num) ->
-	self.parentNode.parentNode.remove()
+	self.parentNode.remove()
 
 	predicates.splice(num, 1)
 	doit()
