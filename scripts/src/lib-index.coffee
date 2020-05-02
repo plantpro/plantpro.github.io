@@ -8,10 +8,12 @@ isAll = (record) ->
 			return false
 	return true
 
-makeChip = (text) -> "
+filterDiv = element "filter"
+
+makeChip = (text, num) -> "
 		<span class='mdl-chip mdl-chip--deletable'>
 			<span class='mdl-chip__text'>#{text}</span>
-			<button type='button' class='mdl-chip__action' onclick='document.clearFilter()'>
+			<button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, #{num})'>
 				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>
 					<path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
 				</svg>
@@ -33,13 +35,16 @@ makeChipWithColor = (text, color) -> "
 updateFilter = (text) ->
 	htmlset "filter", makeChip text
 
-clearFilter = () ->
-	htmlset "filter", ""
+clearFilter = (self, num) ->
+	htmlset "filter", filterDiv.replace(self.innerHTML)
 
-	searchBox = element "search-box"
+	predicates.splice(num, 1)
+	doit()
 
-	for i in searchBox.children
-		i.style.display = "block" if i.className == "plpro-lib-record"
+	#searchBox = element "search-box"
+
+	#	for i in searchBox.children
+	#	i.style.display = "block" if i.className == "plpro-lib-record"
 
 searchAutor = (text) ->
 	searchBox = element "search-box"
@@ -82,7 +87,8 @@ document.autorOnClick = (self) ->
 
 	doit()
 	#searchAutor self.innerText
-	updateFilter "Автор: #{self.innerText}"
+	filterDiv.innerHTML = filterDiv.innerHTML +
+		makeChip("Автор: #{self.innerText}", predicates.length - 1)
 
 document.filterByType = (self) ->
 	searchBox = element "search-box"
