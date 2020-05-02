@@ -8,7 +8,6 @@ STYLES = """
 	#record-count {
 		color: #999999;
     font-size: smaller;
-		margin-bottom: 15px;
 	}
 
 	.plpro-lib-record-name {
@@ -157,7 +156,7 @@ def writeToFile(content, recordsCount):
 
 		<main class="mdl-layout__content">
 			<div class="page-content paddinget" id="search-box">
-				<div style="text-align: center;">
+				<div style="text-align: center; margin-bottom: 15px;">
 					<h3 style="margin-bottom: 0px;">Библиотека</h3>
 					<span id="record-count">Записей в библиотеке: {recordsCount}</span>
 				</div>
