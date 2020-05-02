@@ -249,10 +249,9 @@ document.filterByType = (self) ->
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
 			i.style.display = "none"
-			for j in i.children
-				for k in j.children
-					if k.className == "filetype-tag" and k.innerText.trim() == self.innerText
-						i.style.display = "block"
+			k = (i.getElementsByClassName "filetype-tag")[0]
+			if k.className == "filetype-tag" and k.innerText == self.innerText
+				i.style.display = "block"
 
 	if self.innerText == "pdf"
 		htmlset "filter", (makeChipWithColor "Тип: .pdf", "rgb(231, 47, 47)")

@@ -520,7 +520,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.filterByType = function (self) {
-    var i, j, k, l, len, len1, len2, m, n, ref, ref1, ref2, searchBox;
+    var i, k, l, len, ref, searchBox;
     searchBox = element("search-box");
     ref = searchBox.children;
 
@@ -529,19 +529,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       if (i.className === "plpro-lib-record") {
         i.style.display = "none";
-        ref1 = i.children;
+        k = i.getElementsByClassName("filetype-tag")[0];
 
-        for (m = 0, len1 = ref1.length; m < len1; m++) {
-          j = ref1[m];
-          ref2 = j.children;
-
-          for (n = 0, len2 = ref2.length; n < len2; n++) {
-            k = ref2[n];
-
-            if (k.className === "filetype-tag" && k.innerText.trim() === self.innerText) {
-              i.style.display = "block";
-            }
-          }
+        if (k.className === "filetype-tag" && k.innerText === self.innerText) {
+          i.style.display = "block";
         }
       }
     }
