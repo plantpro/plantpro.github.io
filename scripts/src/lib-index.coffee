@@ -70,7 +70,7 @@ document.stateChanged = (self) ->
 		indexOfArticlePredicate.index = predicates.length - 1
 	else
 		predicates[indexOfArticlePredicate.index] = null
-	doit()
+	#doit()
 
 doit = () ->
 	searchBox = element "search-box"

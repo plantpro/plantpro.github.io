@@ -504,13 +504,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     if (self.control.checked) {
       predicates.push(articlePredicate);
-      indexOfArticlePredicate.index = predicates.length - 1;
+      return indexOfArticlePredicate.index = predicates.length - 1;
     } else {
-      predicates[indexOfArticlePredicate.index] = null;
+      return predicates[indexOfArticlePredicate.index] = null;
     }
+  }; //doit()
 
-    return doit();
-  };
 
   doit = function doit() {
     var i, l, len, ref, results, searchBox;
