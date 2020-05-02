@@ -438,7 +438,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   clearFilter = function clearFilter(self, num) {
-    htmlset("filter", filterDiv.replace(self.innerHTML));
+    htmlset("filter", filterDiv.replace(self.innerText));
     predicates.splice(num, 1);
     return doit();
   }; //searchBox = element "search-box"
@@ -569,7 +569,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     });
     doit(); //searchAutor self.innerText
 
-    return filterDiv.innerHTML = filterDiv.innerHTML + makeChip("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText), predicates.length - 1);
+    return filterDiv.innerText = filterDiv.innerText + makeChip("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText), predicates.length - 1);
   };
 
   document.filterByType = function (self) {

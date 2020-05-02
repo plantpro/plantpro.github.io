@@ -87,7 +87,8 @@ document.autorOnClick = (self) ->
 
 	doit()
 	#searchAutor self.innerText
-	filterDiv.innerHTML = filterDiv.innerHTML +
+
+	filterDiv.innerText = filterDiv.innerHTML +
 		makeChip("Автор: #{self.innerText}", predicates.length - 1)
 
 document.filterByType = (self) ->

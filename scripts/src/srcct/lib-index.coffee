@@ -221,7 +221,7 @@ updateFilter = (text) ->
 	htmlset "filter", makeChip text
 
 clearFilter = (self, num) ->
-	htmlset "filter", filterDiv.replace(self.innerHTML)
+	htmlset "filter", filterDiv.replace(self.innerText)
 
 	predicates.splice(num, 1)
 	doit()
@@ -272,7 +272,8 @@ document.autorOnClick = (self) ->
 
 	doit()
 	#searchAutor self.innerText
-	filterDiv.innerHTML = filterDiv.innerHTML +
+
+	filterDiv.innerText = filterDiv.innerText +
 		makeChip("Автор: #{self.innerText}", predicates.length - 1)
 
 document.filterByType = (self) ->
