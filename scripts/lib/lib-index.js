@@ -496,10 +496,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   document.stateChanged = function (self) {
     if (self.control.checked) {
-      return predicates.push(articlePredicate);
+      predicates.push(articlePredicate);
     } else {
-      return predicates[predicates.indexOf(articlePredicate)] = null;
+      predicates[predicates.indexOf(articlePredicate)] = null;
     }
+
+    return doit();
   };
 
   doit = function doit() {

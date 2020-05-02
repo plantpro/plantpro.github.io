@@ -251,6 +251,7 @@ document.stateChanged = (self) ->
 			predicates.push(articlePredicate)
 	else
 		predicates[predicates.indexOf(articlePredicate)] = null
+	doit()
 
 doit = () ->
 	searchBox = element "search-box"
