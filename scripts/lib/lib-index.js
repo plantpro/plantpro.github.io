@@ -538,7 +538,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           for (n = 0, len2 = ref2.length; n < len2; n++) {
             k = ref2[n];
 
-            if (k.className === "filetype-tag" && k.innerText === self.innerText) {
+            if (k.className === "filetype-tag" && k.innerText === "pdf") {
               i.style.display = "block";
             }
           }

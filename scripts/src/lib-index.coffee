@@ -66,7 +66,7 @@ document.filterByType = (self) ->
 			i.style.display = "none"
 			for j in i.children
 				for k in j.children
-					if k.className == "filetype-tag" and k.innerText == self.innerText
+					if k.className == "filetype-tag" and k.innerText == "pdf"
 						i.style.display = "block"
 
 	if self.innerText == "pdf"
