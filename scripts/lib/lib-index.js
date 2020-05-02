@@ -496,10 +496,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   indexOfArticlePredicate = {
-    index: -1
+    index: -1,
+    processIt: true
   };
 
   document.stateChanged = function (self) {
+    if (!indexOfArticlePredicate.processIt) {
+      indexOfArticlePredicate.processIt = true;
+      return;
+    }
+
+    indexOfArticlePredicate.processIt = false;
     console.log(self);
 
     if (self.control.checked) {

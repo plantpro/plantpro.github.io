@@ -61,9 +61,13 @@ articlePredicate = (record) ->
 	span = record.getElementsByClassName "plpro-lib-record-article"
 	return span.length > 0
 
-indexOfArticlePredicate = { index: -1 }
+indexOfArticlePredicate = { index: -1, processIt: true }
 
 document.stateChanged = (self) ->
+	if not indexOfArticlePredicate.processIt
+		indexOfArticlePredicate.processIt = true
+		return
+	indexOfArticlePredicate.processIt = false
 	console.log self
 	if self.control.checked
 		predicates.push(articlePredicate)
