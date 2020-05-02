@@ -501,6 +501,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       predicates[predicates.indexOf(articlePredicate)] = null;
     }
 
+    console.log(predicates);
     return doit();
   };
 
