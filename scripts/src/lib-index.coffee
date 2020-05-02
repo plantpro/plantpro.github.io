@@ -67,7 +67,6 @@ document.stateChanged = (self) ->
 	else
 		predicates[predicates.indexOf(articlePredicate)] = null
 	console.log predicates
-	console.log predicates.indexOf(articlePredicate)
 	doit()
 
 doit = () ->
