@@ -3,10 +3,15 @@
 predicates = []
 
 isAll = (record) ->
+	nullCount = 0
 	for predicate in predicates
 		if predicate != null
 			if not predicate record
 				return false
+		else
+			nullCount = nullCount + 1
+	if nullCount == predicates.length
+		predicates.clear()
 	return true
 
 makeChip = (text, num) -> "

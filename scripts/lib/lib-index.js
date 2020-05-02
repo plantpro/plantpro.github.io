@@ -409,7 +409,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   predicates = [];
 
   isAll = function isAll(record) {
-    var l, len, predicate;
+    var l, len, nullCount, predicate;
+    nullCount = 0;
 
     for (l = 0, len = predicates.length; l < len; l++) {
       predicate = predicates[l];
@@ -418,7 +419,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         if (!predicate(record)) {
           return false;
         }
+      } else {
+        nullCount = nullCount + 1;
       }
+    }
+
+    if (nullCount === predicates.length) {
+      predicates.clear();
     }
 
     return true;
