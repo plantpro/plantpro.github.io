@@ -7,10 +7,9 @@ isAll = (record) ->
 
 	for predicate in predicates
 		if predicate != null
-			if not predicate record
-				return false
+			return false if not predicate record
 		else
-			nullCount = nullCount + 1
+			nullCount += 1
 
 	if nullCount == predicates.length
 		predicates.pop() while predicates.length > 0
@@ -39,14 +38,10 @@ makeChipWithColor = (text, color, num) -> "
 		</span>
 	"
 
-updateFilter = (text) ->
-	htmlset "filter", makeChip text
-
 clearFilter = (self, num) ->
 	self.parentNode.remove()
 	predicates[num] = null
-
-	doit()
+	applyPredicates()
 
 articlePredicate = (record) ->
 	span = record.getElementsByClassName "plpro-lib-record-article"
@@ -65,15 +60,14 @@ document.stateChanged = (self) ->
 		indexOfArticlePredicate.index = predicates.length - 1
 	else
 		predicates[indexOfArticlePredicate.index] = null
-	doit()
+	applyPredicates()
 
-doit = () ->
+applyPredicate = () ->
 	searchBox = element "search-box"
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
 			i.style.display = "none"
-			if isAll i
-				i.style.display = "block"
+			i.style.display = "block" if isAll i
 
 document.autorOnClick = (self) ->
 	text = self.innerText
@@ -84,7 +78,7 @@ document.autorOnClick = (self) ->
 			return false
 	)
 
-	doit()
+	applyPredicates()
 	filterDiv = element "filter"
 	filterDiv.innerHTML += " " +
 		makeChip("Автор: #{self.innerText}", predicates.length - 1)
@@ -97,7 +91,7 @@ document.filterByType = (self) ->
 			return false
 	)
 
-	doit()
+	applyPredicates()
 
 	filterDiv = element "filter"
 
