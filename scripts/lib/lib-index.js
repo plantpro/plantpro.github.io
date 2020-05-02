@@ -500,7 +500,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.stateChanged = function (self) {
-    console.log(self.control.checked);
+    console.log(self);
 
     if (self.control.checked) {
       predicates.push(articlePredicate);

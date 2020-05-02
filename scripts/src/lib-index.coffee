@@ -64,7 +64,7 @@ articlePredicate = (record) ->
 indexOfArticlePredicate = { index: -1 }
 
 document.stateChanged = (self) ->
-	console.log self.control.checked
+	console.log self
 	if self.control.checked
 		predicates.push(articlePredicate)
 		indexOfArticlePredicate.index = predicates.length - 1
