@@ -65,7 +65,7 @@ document.filterByType = (self) ->
 		if i.className == "plpro-lib-record"
 			i.style.display = "none"
 			k = (i.getElementsByClassName "filetype-tag")[0]
-			if k.className == "filetype-tag" and k.innerText == self.innerText
+			if k.innerText.trim() == self.innerText.trim()
 				console.log k.innerText
 				console.log self.innerText
 				i.style.display = "block"
