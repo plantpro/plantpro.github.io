@@ -495,10 +495,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.stateChanged = function (self) {
+    var indexof;
+
     if (self.control.checked) {
       predicates.push(articlePredicate);
     } else {
-      predicates[predicates.indexOf(articlePredicate)] = null;
+      indexof = predicates.indexOf(articlePredicate);
+
+      if (indexof !== -1) {
+        predicates[indexof] = null;
+      }
     }
 
     console.log(predicates);

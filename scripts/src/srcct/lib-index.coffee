@@ -250,7 +250,8 @@ document.stateChanged = (self) ->
 	if self.control.checked
 			predicates.push(articlePredicate)
 	else
-		predicates[predicates.indexOf(articlePredicate)] = null
+		indexof = predicates.indexOf(articlePredicate)
+		predicates[indexof] = null if indexof != -1
 	console.log predicates
 	doit()
 
