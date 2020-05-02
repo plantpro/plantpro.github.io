@@ -189,15 +189,17 @@ predicates = []
 
 isAll = (record) ->
 	nullCount = 0
+
 	for predicate in predicates
 		if predicate != null
 			if not predicate record
 				return false
 		else
 			nullCount = nullCount + 1
+
 	if nullCount == predicates.length
-		while predicates.length > 0
-			predicates.pop()
+		predicates.pop() while predicates.length > 0
+	
 	return true
 
 makeChip = (text, num) -> "
@@ -227,16 +229,9 @@ updateFilter = (text) ->
 
 clearFilter = (self, num) ->
 	self.parentNode.remove()
-
-	#predicates.splice(num, 1)
 	predicates[num] = null
+
 	doit()
-	console.log(predicates)
-
-	#searchBox = element "search-box"
-
-	#	for i in searchBox.children
-	#	i.style.display = "block" if i.className == "plpro-lib-record"
 
 searchAutor = (text) ->
 	searchBox = element "search-box"
@@ -280,7 +275,7 @@ document.autorOnClick = (self) ->
 	doit()
 	#searchAutor self.innerText
 	filterDiv = element "filter"
-	filterDiv.innerHTML = filterDiv.innerHTML +
+	filterDiv.innerHTML = filterDiv.innerHTML + " " +
 		makeChip("Автор: #{self.innerText}", predicates.length - 1)
 
 document.filterByType = (self) ->

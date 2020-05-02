@@ -446,15 +446,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   clearFilter = function clearFilter(self, num) {
-    self.parentNode.remove(); //predicates.splice(num, 1)
-
+    self.parentNode.remove();
     predicates[num] = null;
-    doit();
-    return console.log(predicates);
-  }; //searchBox = element "search-box"
-  //	for i in searchBox.children
-  //	i.style.display = "block" if i.className == "plpro-lib-record"
-
+    return doit();
+  };
 
   searchAutor = function searchAutor(text) {
     var i, j, l, len, ref, results, searchBox;
@@ -580,7 +575,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     doit(); //searchAutor self.innerText
 
     filterDiv = element("filter");
-    return filterDiv.innerHTML = filterDiv.innerHTML + makeChip("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText), predicates.length - 1);
+    return filterDiv.innerHTML = filterDiv.innerHTML + " " + makeChip("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText), predicates.length - 1);
   };
 
   document.filterByType = function (self) {
