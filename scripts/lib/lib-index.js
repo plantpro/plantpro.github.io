@@ -511,12 +511,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     if (self.control.checked) {
       predicates.push(articlePredicate);
-      return indexOfArticlePredicate.index = predicates.length - 1;
+      indexOfArticlePredicate.index = predicates.length - 1;
     } else {
-      return predicates[indexOfArticlePredicate.index] = null;
+      predicates[indexOfArticlePredicate.index] = null;
     }
-  }; //doit()
 
+    return doit();
+  };
 
   doit = function doit() {
     var i, l, len, ref, results, searchBox;
