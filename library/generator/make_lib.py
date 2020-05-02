@@ -8,6 +8,7 @@ STYLES = """
 	#record-count {
 		color: #999999;
     font-size: smaller;
+		margin-bottom: 15px;
 	}
 
 	.plpro-lib-record-name {
