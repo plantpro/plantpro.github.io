@@ -559,6 +559,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.autorOnClick = function (self) {
+    var text;
+    text = self.innerText;
     predicates.push(function (record) {
       var j, l, len, ref;
       ref = record.children;

@@ -72,6 +72,7 @@ doit = () ->
 				i.style.display = "block"
 
 document.autorOnClick = (self) ->
+	text = self.innerText
 	predicates.push(
 		(record) ->
 			for j in record.children
