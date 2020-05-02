@@ -500,11 +500,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.stateChanged = function (self) {
+    var checked;
+    checked = false;
+
     if (self.control.checked) {
+      checked = true;
       predicates.push(articlePredicate);
       indexOfArticlePredicate.index = predicates.length - 1;
     } else {
-      predicates[indexOfArticlePredicate.index] = null;
+      if (!checked) {
+        predicates[indexOfArticlePredicate.index] = null;
+      }
     }
 
     console.log(predicates);

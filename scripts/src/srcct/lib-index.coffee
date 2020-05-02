@@ -249,11 +249,13 @@ articlePredicate = (record) ->
 indexOfArticlePredicate = { index: -1 }
 
 document.stateChanged = (self) ->
+	checked = false
 	if self.control.checked
+		checked = true
 		predicates.push(articlePredicate)
 		indexOfArticlePredicate.index = predicates.length - 1
 	else
-		predicates[indexOfArticlePredicate.index] = null
+		predicates[indexOfArticlePredicate.index] = null if not checked
 	console.log predicates
 	doit()
 
