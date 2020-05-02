@@ -256,7 +256,7 @@ document.filterByType = (self) ->
 		htmlset "filter", (makeChipWithColor "Тип: .pdf", "rgb(231, 47, 47)")
 	if self.innerText == "djvu"
 		htmlset "filter", (makeChipWithColor "Тип: .djvu", "rgb(160, 0, 160)")
-	if self.innerText == "pdf"
+	if self.innerText == "online"
 		htmlset "filter", (makeChipWithColor "Тип: online", "rgb(112, 112, 112)")
 
 document.clearFilter = clearFilter

@@ -548,7 +548,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       htmlset("filter", makeChipWithColor("Тип: .djvu", "rgb(160, 0, 160)"));
     }
 
-    if (self.innerText === "pdf") {
+    if (self.innerText === "online") {
       return htmlset("filter", makeChipWithColor("Тип: online", "rgb(112, 112, 112)"));
     }
   };
