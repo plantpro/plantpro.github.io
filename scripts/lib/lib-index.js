@@ -55,7 +55,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       neueText,
       predicates,
       runParser,
-      searchAutor,
       sub,
       sum,
       unique,
@@ -439,8 +438,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return "<span class='mdl-chip mdl-chip--deletable'> <span class='mdl-chip__text'>".concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, ").concat(num, ")'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
   };
 
-  makeChipWithColor = function makeChipWithColor(text, color) {
-    return "<span class='mdl-chip mdl-chip--deletable' style='background-color: ".concat(color, "'> <span class='mdl-chip__text'>").concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter()'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
+  makeChipWithColor = function makeChipWithColor(text, color, num) {
+    return "<span class='mdl-chip mdl-chip--deletable' style='background-color: ".concat(color, "'> <span class='mdl-chip__text'>").concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, ").concat(num, ")'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
   };
 
   updateFilter = function updateFilter(text) {
@@ -451,42 +450,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     self.parentNode.remove();
     predicates[num] = null;
     return doit();
-  };
-
-  searchAutor = function searchAutor(text) {
-    var i, j, l, len, ref, results, searchBox;
-    searchBox = element("search-box");
-    ref = searchBox.children;
-    results = [];
-
-    for (l = 0, len = ref.length; l < len; l++) {
-      i = ref[l];
-
-      if (i.className === "plpro-lib-record") {
-        i.style.display = "none";
-        results.push(function () {
-          var len1, m, ref1, results1;
-          ref1 = i.children;
-          results1 = [];
-
-          for (m = 0, len1 = ref1.length; m < len1; m++) {
-            j = ref1[m];
-
-            if (j.className === "plpro-lib-record-autor" && j.innerText === text) {
-              results1.push(i.style.display = "block");
-            } else {
-              results1.push(void 0);
-            }
-          }
-
-          return results1;
-        }());
-      } else {
-        results.push(void 0);
-      }
-    }
-
-    return results;
   };
 
   articlePredicate = function articlePredicate(record) {
@@ -561,40 +524,36 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       return false;
     });
-    doit(); //searchAutor self.innerText
-
+    doit();
     filterDiv = element("filter");
     return filterDiv.innerHTML += " " + makeChip("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText), predicates.length - 1);
   };
 
   document.filterByType = function (self) {
-    var i, k, l, len, ref, searchBox;
-    searchBox = element("search-box");
-    ref = searchBox.children;
+    var filterDiv;
+    predicates.push(function (record) {
+      var k;
+      k = i.getElementsByClassName("filetype-tag")[0];
 
-    for (l = 0, len = ref.length; l < len; l++) {
-      i = ref[l];
-
-      if (i.className === "plpro-lib-record") {
-        i.style.display = "none";
-        k = i.getElementsByClassName("filetype-tag")[0];
-
-        if (k.innerText.trim() === self.innerText.trim()) {
-          i.style.display = "block";
-        }
+      if (k.innerText.trim() === self.innerText.trim()) {
+        return true;
       }
-    }
+
+      return false;
+    });
+    doit();
+    filterDiv = element("filter");
 
     if (self.innerText === "pdf") {
-      htmlset("filter", makeChipWithColor("Тип: .pdf", "rgb(231, 47, 47)"));
+      filterDiv.innerHTML += " " + makeChipWithColor("Тип: .pdf", "rgb(231, 47, 47)", predicates.length - 1);
     }
 
     if (self.innerText === "djvu") {
-      htmlset("filter", makeChipWithColor("Тип: .djvu", "rgb(160, 0, 160)"));
+      filterDiv.innerHTML += " " + makeChipWithColor("Тип: .djvu", "rgb(160, 0, 160)", predicates.length - 1);
     }
 
     if (self.innerText === "online") {
-      return htmlset("filter", makeChipWithColor("Тип: online", "rgb(112, 112, 112)"));
+      return filterDiv.innerHTML += " " + makeChipWithColor("Тип: online", "rgb(112, 112, 112)", predicates.length - 1);
     }
   };
 
