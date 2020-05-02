@@ -246,7 +246,7 @@ articlePredicate = (record) ->
 	span = record.getElementsByClassName "plpro-lib-record-article"
 	return span.length > 0
 
-indexOfArticlePredicate = { index: -1, processIt: true }
+indexOfArticlePredicate = { index: -1, processIt: false }
 
 document.stateChanged = (self) ->
 	if not indexOfArticlePredicate.processIt

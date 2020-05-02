@@ -497,7 +497,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   indexOfArticlePredicate = {
     index: -1,
-    processIt: true
+    processIt: false
   };
 
   document.stateChanged = function (self) {
