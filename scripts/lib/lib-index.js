@@ -490,7 +490,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   articlePredicate = function articlePredicate(record) {
     var span;
-    span = i.getElementsByClassName("plpro-lib-record-article");
+    span = record.getElementsByClassName("plpro-lib-record-article");
     return span.length > 0;
   };
 

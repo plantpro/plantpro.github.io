@@ -243,7 +243,7 @@ searchAutor = (text) ->
 					i.style.display = "block"
 
 articlePredicate = (record) ->
-	span = i.getElementsByClassName "plpro-lib-record-article"
+	span = record.getElementsByClassName "plpro-lib-record-article"
 	return span.length > 0
 
 document.stateChanged = (self) ->
