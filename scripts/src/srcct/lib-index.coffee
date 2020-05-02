@@ -189,8 +189,9 @@ predicates = []
 
 isAll = (record) ->
 	for predicate in predicates
-		if not predicate record
-			return false
+		if predicate != null
+			if not predicate record
+				return false
 	return true
 
 makeChip = (text, num) -> "
@@ -221,7 +222,8 @@ updateFilter = (text) ->
 clearFilter = (self, num) ->
 	self.parentNode.remove()
 
-	predicates.splice(num, 1)
+	#predicates.splice(num, 1)
+	predicates[num] = null
 	doit()
 	console.log(predicates)
 

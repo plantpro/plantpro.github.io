@@ -414,8 +414,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     for (l = 0, len = predicates.length; l < len; l++) {
       predicate = predicates[l];
 
-      if (!predicate(record)) {
-        return false;
+      if (predicate !== null) {
+        if (!predicate(record)) {
+          return false;
+        }
       }
     }
 
@@ -435,8 +437,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   clearFilter = function clearFilter(self, num) {
-    self.parentNode.remove();
-    predicates.splice(num, 1);
+    self.parentNode.remove(); //predicates.splice(num, 1)
+
+    predicates[num] = null;
     doit();
     return console.log(predicates);
   }; //searchBox = element "search-box"
