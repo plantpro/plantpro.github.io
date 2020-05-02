@@ -37,6 +37,7 @@ document.stateChanged = (self) ->
 		for i in searchBox.children
 			if i.className == "plpro-lib-record"
 				span = i.getElementsByClassName "plpro-lib-record-article"
+				console.log(span.length)
 				if span.length == 0
 					i.style.display = "none"
 	else

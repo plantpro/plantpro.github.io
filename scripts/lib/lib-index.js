@@ -479,6 +479,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
         if (i.className === "plpro-lib-record") {
           span = i.getElementsByClassName("plpro-lib-record-article");
+          console.log(span.length);
 
           if (span.length === 0) {
             results.push(i.style.display = "none");
