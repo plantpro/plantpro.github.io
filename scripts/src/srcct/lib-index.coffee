@@ -216,7 +216,7 @@ searchAutor = (text) ->
 				if j.className == "plpro-lib-record-autor" and j.innerText == text
 					i.style.display = "block"
 
-stateChanged = (self) ->
+document.stateChanged = (self) ->
 	if self.checked
 		for i in searchBox.children
 			if i.className == "plpro-lib-record"

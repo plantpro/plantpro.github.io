@@ -83,7 +83,7 @@ def writeToFile(content, recordsCount):
 								<span id="record-count">Записей в библиотеке: {recordsCount}</span>
 							</div>
 
-							<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" onchange="stateChanged(this);">
+							<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" onchange="document.stateChanged(this);">
 								<input type="checkbox" id="switch-1" class="mdl-switch__input">
 								<span class="mdl-switch__label">Только статьи</span>
 							</label>

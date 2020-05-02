@@ -50,7 +50,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       neueText,
       runParser,
       searchAutor,
-      stateChanged,
       sub,
       sum,
       unique,
@@ -467,7 +466,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return results;
   };
 
-  stateChanged = function stateChanged(self) {
+  document.stateChanged = function (self) {
     var i, l, len, len1, m, ref, ref1, results, results1, span;
 
     if (self.checked) {
