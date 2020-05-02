@@ -532,6 +532,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         k = i.getElementsByClassName("filetype-tag")[0];
 
         if (k.className === "filetype-tag" && k.innerText === self.innerText) {
+          console.log(k.innerText);
+          console.log(self.innerText);
           i.style.display = "block";
         }
       }

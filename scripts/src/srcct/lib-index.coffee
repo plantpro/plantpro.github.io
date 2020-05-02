@@ -251,6 +251,8 @@ document.filterByType = (self) ->
 			i.style.display = "none"
 			k = (i.getElementsByClassName "filetype-tag")[0]
 			if k.className == "filetype-tag" and k.innerText == self.innerText
+				console.log k.innerText
+				console.log self.innerText
 				i.style.display = "block"
 
 	if self.innerText == "pdf"
