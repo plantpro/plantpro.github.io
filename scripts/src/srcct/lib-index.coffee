@@ -220,7 +220,7 @@ updateFilter = (text) ->
 
 clearFilter = (self, num) ->
 	filterDiv = element "filter"
-	htmlset "filter", filterDiv.innerHTML.replace(self.parentNode.innerHTML)
+	htmlset "filter", filterDiv.innerHTML.replace(self.parentNode.parentNode.innerHTML)
 
 	predicates.splice(num, 1)
 	doit()
