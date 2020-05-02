@@ -38,6 +38,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       keys,
       last,
       makeChip,
+      makeChipWithColor,
       makeKeyCells,
       makeMapCells,
       makeValueCells,
@@ -406,6 +407,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return "<span class='mdl-chip mdl-chip--deletable'> <span class='mdl-chip__text'>".concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter()'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
   };
 
+  makeChipWithColor = function makeChipWithColor(text, color) {
+    return "<span class='mdl-chip mdl-chip--deletable' style='background-color: ".concat(color, "'> <span class='mdl-chip__text'>").concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter()'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
+  };
+
   updateFilter = function updateFilter(text) {
     return htmlset("filter", makeChip(text));
   };
@@ -512,6 +517,40 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   document.autorOnClick = function (self) {
     searchAutor(self.innerText);
     return updateFilter("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText));
+  };
+
+  document.filterByType = function (self) {
+    var i, j, l, len, len1, m, ref, ref1, searchBox;
+    searchBox = element("search-box");
+    ref = searchBox.children;
+
+    for (l = 0, len = ref.length; l < len; l++) {
+      i = ref[l];
+
+      if (i.className === "plpro-lib-record") {
+        ref1 = i.children;
+
+        for (m = 0, len1 = ref1.length; m < len1; m++) {
+          j = ref1[m];
+
+          if (j.className === "filetype-tag" && j.innerText === self.innerText) {
+            i.style.display = "block";
+          }
+        }
+      }
+    }
+
+    if (self.innerText === "pdf") {
+      htmlset("filter", makeChipWithColor("Тип: .pdf", "rgb(231, 47, 47)"));
+    }
+
+    if (self.innerText === "djvu") {
+      htmlset("filter", makeChipWithColor("Тип: .djvu", "rgb(160, 0, 160)"));
+    }
+
+    if (self.innerText === "pdf") {
+      return htmlset("filter", makeChipWithColor("Тип: online", "rgb(112, 112, 112)"));
+    }
   };
 
   document.clearFilter = clearFilter;

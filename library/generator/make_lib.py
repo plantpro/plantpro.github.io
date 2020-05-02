@@ -24,7 +24,7 @@ def record_to_html(record):
 	<div class="plpro-lib-record">
 		<h6 class="plpro-lib-record-title">
 			<a href="{record["Ссылка"]}">{record["Название на языке оригинала"]}</a>
-			<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};">
+			<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};" onclick="document.filterByType(this);">
 				{record["Тип файла"]}
 			</span>
 		</h6>
