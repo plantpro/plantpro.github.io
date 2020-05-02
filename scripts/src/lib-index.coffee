@@ -34,7 +34,7 @@ searchAutor = (text) ->
 document.stateChanged = (self) ->
 	searchBox = element "search-box"
 	console.log(self)
-	if self.checked
+	if self.control.checked
 		for i in searchBox.children
 			if i.className == "plpro-lib-record"
 				span = i.getElementsByClassName "plpro-lib-record-article"

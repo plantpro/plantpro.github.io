@@ -471,7 +471,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     searchBox = element("search-box");
     console.log(self);
 
-    if (self.checked) {
+    if (self.control.checked) {
       ref = searchBox.children;
       results = [];
 
