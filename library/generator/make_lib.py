@@ -17,7 +17,7 @@ def get_records():
 	return records
 
 def autor_format(autor):
-	return f"""<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">{autor}</span>"""
+	return f"""<span class="plpro-lib-record-autor" onclick="document.autorOnClick(this);">{autor}</span>"""
 
 def record_to_html(record):
 	return f"""

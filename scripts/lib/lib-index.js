@@ -19,7 +19,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   // Operator function for '-'
   var all,
       any,
-      autorOnClick,
       checkedof,
       clearFilter,
       countIt,
@@ -467,7 +466,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return results;
   };
 
-  autorOnClick = function autorOnClick(self) {
+  document.autorOnClick = function (self) {
     searchAutor(self.innerText);
     return updateFilter("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText));
   };

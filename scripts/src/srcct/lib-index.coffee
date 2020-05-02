@@ -216,6 +216,6 @@ searchAutor = (text) ->
 				if j.className == "plpro-lib-record-autor" and j.innerText == text
 					i.style.display = "block"
 
-autorOnClick = (self) ->
+document.autorOnClick = (self) ->
 	searchAutor self.innerText
 	updateFilter "Автор: #{self.innerText}"
