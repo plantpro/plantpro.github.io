@@ -1,452 +1,608 @@
 
-<!doctype html>
-<html lang="ru">
+		<!doctype html>
+		<html lang="ru">
+			<head>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Библиотека</title>
 
-	<title>Библиотека</title>
+				<link rel="stylesheet" href="../stylesheets/material.min.css">
+				<script src="../scripts/material.min.js"></script>
 
-	<link rel="stylesheet" href="../stylesheets/material.min.css">
-	<script src="../scripts/material.min.js"></script>
+				<link rel="stylesheet" href="../stylesheets/library.css">
+				<script src="../scripts/lib/lib-index.min.js"></script>
+			</head>
 
-	<style>
-		
-	#record-count {
-		color: #999999;
-    font-size: smaller;
-	}
+			<body>
+				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+					<header class="mdl-layout__header">
+						<div class="mdl-layout__header-row">
+							<div class="mdl-layout__drawer-button">
+								<i class="material-icons">
+									<svg style="width:24px;height:24px" viewbox="0 0 24 24">
+										<path fill="rgb(0, 129, 32)"
+											d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
+									</svg>
+								</i>
+							</div>
 
-	.plpro-lib-record-name {
-		margin-bottom: 0px;
-	}
+							<span class="mdl-layout-title">
+								<span style="color: rgb(0, 129, 32);">P</span>LANT
+								<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
+							</span>
 
-	.plpro-lib-record-year, .plpro-lib-record-autor {
-		color: #999999;
-    font-size: smaller;
-	}
+							<div class="mdl-layout-spacer"></div>
+							<nav class="mdl-navigation mdl-layout--large-screen-only">
+							</nav>
+						</div>
+					</header>
 
-	.plpro-lib-record-autor {
-		text-decoration: underline;
-    cursor: pointer;
-	}
+					<main class="mdl-layout__content">
+						<div class="page-content paddinget" id="search-box">
+							<div style="text-align: center; margin-bottom: 15px;">
+								<h3 style="margin-bottom: 0px;">Библиотека</h3>
+								<span id="record-count">Записей в библиотеке: 46</span>
+							</div>
 
-	.mdl-chip {
-		color: #fff;
-		background-color: rgb(0, 129, 32);
-	}
+							<div id="filter"></div>
 
-	.mdl-chip__text {
-		font-size: small;
-    vertical-align: middle;
-    display: inline-block;
-	}
-
-	.mdl-chip__action {
-		opacity: 1;
-	}
-
-	</style>
-
-	<script>
-		function updateFiltre(text) {
-			var filters = document.getElementById("filters");
-			filters.innerHTML = "<span class='mdl-chip mdl-chip--deletable'><span class='mdl-chip__text'>" + text + "</span>" +
-    	"<button type='button' class='mdl-chip__action' onclick='clearFiltres()'><svg style='width:18px;height:18px' viewBox='0 0 24 24'><path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /></svg></button></span>"
-		}
-
-		function clearFiltres() {
-			var filtres = document.getElementById("filters");
-			filtres.innerText = "";
-
-			for(var i of document.getElementById("search-box").children) {
-				if (i.className == "plpro-lib-record") {
-					i.style.display = "block";
-				}
-			}
-		}
-
-		function searchAutor(text) {
-			for(var i of document.getElementById("search-box").children) {
-				if (i.className == "plpro-lib-record") {
-					i.style.display = "none";
-					for(var j of i.children) {
-						if (j.className == "plpro-lib-record-autor" && j.innerText == text) {
-							i.style.display = "block";
-						}
-					}
-				}
-			}
-		}
-
-		function onAutorClick(self) {
-			searchAutor(self.innerText);
-			updateFiltre("Автор: " + self.innerText);
-		}
-	</script>
-</head>
-
-<body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<header class="mdl-layout__header">
-			<div class="mdl-layout__header-row">
-				<div class="mdl-layout__drawer-button">
-					<i class="material-icons">
-						<svg style="width:24px;height:24px" viewbox="0 0 24 24">
-							<path fill="rgb(0, 129, 32)"
-								d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
-						</svg>
-					</i>
-				</div>
-
-				<span class="mdl-layout-title">
-					<span style="color: rgb(0, 129, 32);">P</span>LANT
-					<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
-				</span>
-
-				<div class="mdl-layout-spacer"></div>
-				<nav class="mdl-navigation mdl-layout--large-screen-only">
-				</nav>
-			</div>
-		</header>
-
-		<main class="mdl-layout__content">
-			<div class="page-content paddinget" id="search-box">
-				<div style="text-align: center; margin-bottom: 15px;">
-					<h3 style="margin-bottom: 0px;">Библиотека</h3>
-					<span id="record-count">Записей в библиотеке: 46</span>
-				</div>
-
-				<div id="filters"></div>
-
-				
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/1TFuXEHKQKnuusicduuuM808Vfu8UFwgt/view?usp=sharing">Земледелие с основами почвоведения и агрохимии</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2009</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Баздырёв Г. И.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Сафонов А. Ф.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1z7RhuF4S6rkFakoNb0tVxtfqHldI15yf">Ботаника в 4 томах. Т. 1. Водоросли и грибы</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2006</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Белякова Г. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тарасов К. Л.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=17Fyf74up63MuXMhqSN2EAeB--6Xrwxta">Ботаника в 4 томах. Т. 2. Водоросли и грибы</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2006</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Белякова Г. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тарасов К. Л.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=18QJeMheJsyg3tvxrtkn5OMzKXjK2W9NZ">Ботаника в 4 томах. Т. 4. Систематика высших растений в 2 книгах. Кн. 1</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2009</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тимонин А. К.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Филин В. Р.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1vPLd4WDlT711wVZJocnZbo34BzaE8qaW">Ботаника в 4 томах. Т. 4. Систематика высших растений в 2 книгах. Кн. 2</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2009</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тимонин А. К.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Соколов Д. Д.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шипунов А. Б.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1WLdxlcsgILQKePkW_kM0GvStO9q_bbBT">Ботаника в 4 томах. Т. 1. Клеточная биология. Анатомия. Морфология</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2007</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тимонин А. К.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Чуб В. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=10iZqsJVSr-aEXGiyk1UbsgegSwqW7oFP">Ботаника в 4 томах. Т. 2. Физиология растений</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2008</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Чуб В. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1ATj17Fowxa8t1VYURl7ItuzewuYZoY1H">Ботаника в 4 томах. Т. 3. Эволюция и систематика</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2007</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тимонин А. К.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Сидорова И. И.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1TG-1ie0yiIZZHImjOs78HmDb6JPvhko_">Ботаника в 4 томах. Т. 4. Экология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2007</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Еленевский А. Г.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Павлов В. Н.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/1ZTdZeE_Hry0Gx_jVyEt3v74UqnK2Dim1/view">Общая энтомология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">1980</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Бей-Биенко Г. Я.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1GjXT7AIRh8YUFbW9ZX8xuE3GjTvlSAa8">Физиология насекомых</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">1953</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шовен Р.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1bxem6IEYqk1431nUhJXWtrVkgxFN6zis">Растениеводство</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2007</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Посыпанов Г. С.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Долгодворов В. Е.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Жеруков Б. Х.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Гатаулина Г. Г.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Горбачёв И. В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Архангельский Н. С.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Бугаев П. Д.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Корниенко А. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1dATOe1an09uYjalkqMQ4kgxXh5aRdVyb">Растениеводство</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2007</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Коломейченко В. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/1wj_ofEwjjIlgnH2iFwTW23NgeTOn7hwS/view">Сельскохозяйственные машины</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2004</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Халанский В. М.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Горбачёв И. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/1Ol5KfSPfFUJvUb0csiNGH87iviRfITGJ/view">Зернобобовые культуры</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2000</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шпаар Д.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Эллмер Ф.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Постников А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Таранухо Г.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дрегер Д.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Захаренко А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Крацш Г.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Крахт В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Маковски Н.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шуманн П.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Щербаков В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Ястер К.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/14ExULMVCKw6WC-R3zt4BHDhX_EumOK8I/view">Инсектицидный эффект против доминантных вредителей в люпиновом посеве</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2015</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Пимохова Л.И.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Слесарева Т.Н.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Царапнёва Ж.В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1B-7QDZ0zBR8RPAgb2q-7brpiCc0z9OoI">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 1</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2006</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Пиневич А. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1XFiyZQqwL_nKwCtzoVDSNiEpXKfOdyEZ">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 2</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2007</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Пиневич А. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=17UQNZceT4Wvcj7S-GRZsDq9_gmup_O4p">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 3</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2009</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Пиневич А. В.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/1VQwqYJ_n4df_bIESAtrknQMA9Xkm3I86/view">Микробиология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2003</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Гусев М. В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Минеева Л. А.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1kKmTpB8sTzDtZ-yiWeotW2gOXpQWjvop">Микробиология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">1987</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Мишустин Е. Н.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Емцев В. Т.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=16syzS8v6O1jGV-wzMBXln5vN5MyDfr_q">Микробиология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2006</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Нетрусов А. И.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1E7JOA67H07szlvnI6GCDM61H_pUcPL0R">Общая микробиология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">1987</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шлегель Г.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1ks22IXlhArR1KyZi8FRbQiX9pHNi4_Rh">Введение в альгологию и микологию</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2000</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/1EkJiV9KFXRYDKAFbmRYm4wzLYAxu7PFD/view">Введение в альгологию и микологию</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2000</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1vhyMjheVF8I4NoEyy6x7pvgmFoFu8gT2">Ботаника. Курс альгологии и микологии</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2007</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1dGA7zL4aVZvXogUSlpPDsKhtMKEfgZXA">Малый практикум по ботанике. Водоросли и грибы</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2005</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Барсукова Т. Н.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Белякова Г. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Прохоров В. П.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тарасов К. Л.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1uBMHh6FPZl6BmfhHZxnIItQAgQXHOUdY">Систематика грибов</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2005</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Черепанова Н. П.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1e5hawflCKPO4K285H3NW0TUdvT3w5d0U">Микология: грибы и грибоподобные организмы</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2012</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Переведенцева Л. Г.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1PtoCTEsdDYH_6s9BAEW5Y0mk3Igskdhh">Фитопатогенные грибы (морфология и систематика)</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2014</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Сокирко В. П.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Горьковенко В. С.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Зазимко М. И.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1pd5d3GIegUTcNfXM9gZJMbxjNswwTnM_">Dictionary of Fungi (9th ed.)</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2001</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Kirk P. M.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Cannon P. F.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>David J. C.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Stalpers J. A.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1pjoEewdgM7KiYgVJXAKQ_1-MEjI3HVUX">Molecular Identiﬁcation of Fungi</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2010</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Gherbawy Y.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Voigt K.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/file/d/1DQhoDG1pEzeCrO_MAtgrQPcpo92Qtvo8/view?usp=sharing">Сельскохозяйственная фитопатология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">1989</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Пересыпкин В. Ф.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=15pXQP-nH3TNjn-FYgVPVjRb5U4UIHe1Q">Фитопатология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2003</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Семёнкова И. Г.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Соколов Э. С.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://plantpro.github.io/library/online/1.html">Общая фитопатология</a>
-				<span class="filetype-tag" style="background-color: rgb(112, 112, 112);">online</span>
-			</h6>
-			<span class="plpro-lib-record-year">2019</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Еланский С. Н.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://plantpro.github.io/library/online/2.html">Фитоиммунитет</a>
-				<span class="filetype-tag" style="background-color: rgb(112, 112, 112);">online</span>
-			</h6>
-			<span class="plpro-lib-record-year">2018</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1PXJLRLAthw6aJ0ZhejkN80CRPF_xahZA">Фундаментальная фитопатология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2012</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Дьяков Ю. Т.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Багирова С. Ф.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Джавахия В. Г.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Озерцовская О. Л.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Проворов Н. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Тихонович И. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Щербакова Л. А.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=10I7K1vvThRUeT28GTjY3X4E45HDl5WCP">Биологические основы эпифитотиологии</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">1991</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Чулкина В. А.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1m7b09ju2cVmql4lRFswAaSmMeA87Hqu7">Общая фитопатология</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2005</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Попкова К. В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шкаликов В. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Стройков Ю. М.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Лекомцева С. Н.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Скворцова И. Н.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1lRBa_dt_T6qumgFMUgxMsrIm1r_2NXES">Общая фитопатология (часть 1)</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2001</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Чикин Ю. А.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=13RRZ8vWV9m9rySRAaBM8gb8L0T5orfw6">Иллюстрированный атлас по защите сельскохозяйственных культур от болезней и вредителей</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2009</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шёбер-Бутин Б.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Гарбе Ф.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Бартельс Г.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1g50w7HgWdxvOqMguda3COQJvvFzy7CEe">Фитовирусология</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2015</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Аникина И. Н.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Сейтжанова Д. Д.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=15Gd3HxAaIEPbv7viao6D5jSBrB-aUsP3">Вирусология и биотехнология</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2016</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Волков М. Ю.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Скребнева Е. Н.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1o4N-_hhyMpeYT76pf58q0cboZjKVVn9t">Вриусы растений</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">1973</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Мэтьюз Р.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=1H99yN1yjyqObhiySmnfAkCGg1lAJjNKK">Защита растений от болезней</a>
-				<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">pdf</span>
-			</h6>
-			<span class="plpro-lib-record-year">2010</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шкаликов В. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Белошапкина О. О.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Букреев Д. Д.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Горбачёв И. В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Джалилов Ф. С.-У.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Корсак И. В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Минаев В. Ю.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Стройков Ю. М.</span> </div>
-		<div class="plpro-lib-record">
-			<h6 class="plpro-lib-record-name">
-				<a href="https://drive.google.com/open?id=105PeRG34IiU203FGx19mHEkjwE6An_s6">Защита растений от болезней</a>
-				<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">djvu</span>
-			</h6>
-			<span class="plpro-lib-record-year">2003</span>
-	<span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Шкаликов В. А.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Белошапкина О. О.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Букреев Д. Д.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Горбачёв И. В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Джалилов Ф. С.-У.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Корсак И. В.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Минаев В. Ю.</span> <span class='plpro-lib-record-autor' onclick='onAutorClick(this);'>Стройков Ю. М.</span> </div>
-			</div>
-		</main>
+							
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/1TFuXEHKQKnuusicduuuM808Vfu8UFwgt/view?usp=sharing">Земледелие с основами почвоведения и агрохимии</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2009</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Баздырёв Г. И.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Сафонов А. Ф.</span>
+		<span class="plpro-lib-record-size">28 Мб</span>
 	</div>
-	</body>
-
-	</html>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1z7RhuF4S6rkFakoNb0tVxtfqHldI15yf">Ботаника в 4 томах. Т. 1. Водоросли и грибы</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2006</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Белякова Г. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тарасов К. Л.</span>
+		<span class="plpro-lib-record-size">12 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=17Fyf74up63MuXMhqSN2EAeB--6Xrwxta">Ботаника в 4 томах. Т. 2. Водоросли и грибы</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2006</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Белякова Г. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тарасов К. Л.</span>
+		<span class="plpro-lib-record-size">13 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=18QJeMheJsyg3tvxrtkn5OMzKXjK2W9NZ">Ботаника в 4 томах. Т. 4. Систематика высших растений в 2 книгах. Кн. 1</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2009</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тимонин А. К.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Филин В. Р.</span>
+		<span class="plpro-lib-record-size">39 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1vPLd4WDlT711wVZJocnZbo34BzaE8qaW">Ботаника в 4 томах. Т. 4. Систематика высших растений в 2 книгах. Кн. 2</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2009</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тимонин А. К.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Соколов Д. Д.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шипунов А. Б.</span>
+		<span class="plpro-lib-record-size">55 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1WLdxlcsgILQKePkW_kM0GvStO9q_bbBT">Ботаника в 4 томах. Т. 1. Клеточная биология. Анатомия. Морфология</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2007</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тимонин А. К.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Чуб В. В.</span>
+		<span class="plpro-lib-record-size">43 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=10iZqsJVSr-aEXGiyk1UbsgegSwqW7oFP">Ботаника в 4 томах. Т. 2. Физиология растений</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2008</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Чуб В. В.</span>
+		<span class="plpro-lib-record-size">37 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1ATj17Fowxa8t1VYURl7ItuzewuYZoY1H">Ботаника в 4 томах. Т. 3. Эволюция и систематика</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2007</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тимонин А. К.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Сидорова И. И.</span>
+		<span class="plpro-lib-record-size">19 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1TG-1ie0yiIZZHImjOs78HmDb6JPvhko_">Ботаника в 4 томах. Т. 4. Экология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2007</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Еленевский А. Г.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Павлов В. Н.</span>
+		<span class="plpro-lib-record-size">9 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/1ZTdZeE_Hry0Gx_jVyEt3v74UqnK2Dim1/view">Общая энтомология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">1980</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Бей-Биенко Г. Я.</span>
+		<span class="plpro-lib-record-size">7 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1GjXT7AIRh8YUFbW9ZX8xuE3GjTvlSAa8">Физиология насекомых</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">1953</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шовен Р.</span>
+		<span class="plpro-lib-record-size">16 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1bxem6IEYqk1431nUhJXWtrVkgxFN6zis">Растениеводство</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2007</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Посыпанов Г. С.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Долгодворов В. Е.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Жеруков Б. Х.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Гатаулина Г. Г.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Горбачёв И. В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Архангельский Н. С.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Бугаев П. Д.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Корниенко А. В.</span>
+		<span class="plpro-lib-record-size">37 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1dATOe1an09uYjalkqMQ4kgxXh5aRdVyb">Растениеводство</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2007</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Коломейченко В. В.</span>
+		<span class="plpro-lib-record-size">46 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/1wj_ofEwjjIlgnH2iFwTW23NgeTOn7hwS/view">Сельскохозяйственные машины</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2004</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Халанский В. М.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Горбачёв И. В.</span>
+		<span class="plpro-lib-record-size">12 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/1Ol5KfSPfFUJvUb0csiNGH87iviRfITGJ/view">Зернобобовые культуры</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2000</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шпаар Д.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Эллмер Ф.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Постников А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Таранухо Г.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дрегер Д.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Захаренко А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Крацш Г.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Крахт В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Маковски Н.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шуманн П.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Щербаков В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Ястер К.</span>
+		<span class="plpro-lib-record-size">10 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/14ExULMVCKw6WC-R3zt4BHDhX_EumOK8I/view">Инсектицидный эффект против доминантных вредителей в люпиновом посеве</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2015</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Пимохова Л.И.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Слесарева Т.Н.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Царапнёва Ж.В.</span>
+		<span class="plpro-lib-record-size">762 Кб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1B-7QDZ0zBR8RPAgb2q-7brpiCc0z9OoI">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 1</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2006</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Пиневич А. В.</span>
+		<span class="plpro-lib-record-size">25 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1XFiyZQqwL_nKwCtzoVDSNiEpXKfOdyEZ">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 2</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2007</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Пиневич А. В.</span>
+		<span class="plpro-lib-record-size">21 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=17UQNZceT4Wvcj7S-GRZsDq9_gmup_O4p">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 3</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2009</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Пиневич А. В.</span>
+		<span class="plpro-lib-record-size">33 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/1VQwqYJ_n4df_bIESAtrknQMA9Xkm3I86/view">Микробиология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2003</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Гусев М. В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Минеева Л. А.</span>
+		<span class="plpro-lib-record-size">7 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1kKmTpB8sTzDtZ-yiWeotW2gOXpQWjvop">Микробиология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">1987</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Мишустин Е. Н.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Емцев В. Т.</span>
+		<span class="plpro-lib-record-size">12 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=16syzS8v6O1jGV-wzMBXln5vN5MyDfr_q">Микробиология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2006</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Нетрусов А. И.</span>
+		<span class="plpro-lib-record-size">3 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1E7JOA67H07szlvnI6GCDM61H_pUcPL0R">Общая микробиология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">1987</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шлегель Г.</span>
+		<span class="plpro-lib-record-size">8 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1ks22IXlhArR1KyZi8FRbQiX9pHNi4_Rh">Введение в альгологию и микологию</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2000</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span>
+		<span class="plpro-lib-record-size">3 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/1EkJiV9KFXRYDKAFbmRYm4wzLYAxu7PFD/view">Введение в альгологию и микологию</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2000</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span>
+		<span class="plpro-lib-record-size">8 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1vhyMjheVF8I4NoEyy6x7pvgmFoFu8gT2">Ботаника. Курс альгологии и микологии</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2007</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span>
+		<span class="plpro-lib-record-size">63 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1dGA7zL4aVZvXogUSlpPDsKhtMKEfgZXA">Малый практикум по ботанике. Водоросли и грибы</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2005</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Барсукова Т. Н.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Белякова Г. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Прохоров В. П.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тарасов К. Л.</span>
+		<span class="plpro-lib-record-size">25 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1uBMHh6FPZl6BmfhHZxnIItQAgQXHOUdY">Систематика грибов</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2005</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Черепанова Н. П.</span>
+		<span class="plpro-lib-record-size">77 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1e5hawflCKPO4K285H3NW0TUdvT3w5d0U">Микология: грибы и грибоподобные организмы</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2012</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Переведенцева Л. Г.</span>
+		<span class="plpro-lib-record-size">22 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1PtoCTEsdDYH_6s9BAEW5Y0mk3Igskdhh">Фитопатогенные грибы (морфология и систематика)</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2014</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Сокирко В. П.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Горьковенко В. С.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Зазимко М. И.</span>
+		<span class="plpro-lib-record-size">27 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1pd5d3GIegUTcNfXM9gZJMbxjNswwTnM_">Dictionary of Fungi (9th ed.)</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2001</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Kirk P. M.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Cannon P. F.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">David J. C.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Stalpers J. A.</span>
+		<span class="plpro-lib-record-size">1 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1pjoEewdgM7KiYgVJXAKQ_1-MEjI3HVUX">Molecular Identiﬁcation of Fungi</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2010</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Gherbawy Y.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Voigt K.</span>
+		<span class="plpro-lib-record-size">4 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/file/d/1DQhoDG1pEzeCrO_MAtgrQPcpo92Qtvo8/view?usp=sharing">Сельскохозяйственная фитопатология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">1989</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Пересыпкин В. Ф.</span>
+		<span class="plpro-lib-record-size">6 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=15pXQP-nH3TNjn-FYgVPVjRb5U4UIHe1Q">Фитопатология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2003</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Семёнкова И. Г.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Соколов Э. С.</span>
+		<span class="plpro-lib-record-size">32 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://plantpro.github.io/library/online/1.html">Общая фитопатология</a>
+			<span class="filetype-tag" style="background-color: rgb(112, 112, 112);">
+				online
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2019</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Еланский С. Н.</span>
+		<span class="plpro-lib-record-size"></span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://plantpro.github.io/library/online/2.html">Фитоиммунитет</a>
+			<span class="filetype-tag" style="background-color: rgb(112, 112, 112);">
+				online
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2018</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span>
+		<span class="plpro-lib-record-size"></span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1PXJLRLAthw6aJ0ZhejkN80CRPF_xahZA">Фундаментальная фитопатология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2012</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Дьяков Ю. Т.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Багирова С. Ф.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Джавахия В. Г.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Озерцовская О. Л.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Проворов Н. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Тихонович И. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Щербакова Л. А.</span>
+		<span class="plpro-lib-record-size">5 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=10I7K1vvThRUeT28GTjY3X4E45HDl5WCP">Биологические основы эпифитотиологии</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">1991</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Чулкина В. А.</span>
+		<span class="plpro-lib-record-size">54 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1m7b09ju2cVmql4lRFswAaSmMeA87Hqu7">Общая фитопатология</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2005</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Попкова К. В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шкаликов В. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Стройков Ю. М.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Лекомцева С. Н.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Скворцова И. Н.</span>
+		<span class="plpro-lib-record-size">13 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1lRBa_dt_T6qumgFMUgxMsrIm1r_2NXES">Общая фитопатология (часть 1)</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2001</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Чикин Ю. А.</span>
+		<span class="plpro-lib-record-size">2 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=13RRZ8vWV9m9rySRAaBM8gb8L0T5orfw6">Иллюстрированный атлас по защите сельскохозяйственных культур от болезней и вредителей</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2009</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шёбер-Бутин Б.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Гарбе Ф.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Бартельс Г.</span>
+		<span class="plpro-lib-record-size">13 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1g50w7HgWdxvOqMguda3COQJvvFzy7CEe">Фитовирусология</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2015</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Аникина И. Н.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Сейтжанова Д. Д.</span>
+		<span class="plpro-lib-record-size">6 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=15Gd3HxAaIEPbv7viao6D5jSBrB-aUsP3">Вирусология и биотехнология</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2016</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Волков М. Ю.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Скребнева Е. Н.</span>
+		<span class="plpro-lib-record-size">47 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1o4N-_hhyMpeYT76pf58q0cboZjKVVn9t">Вриусы растений</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">1973</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Мэтьюз Р.</span>
+		<span class="plpro-lib-record-size">31 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=1H99yN1yjyqObhiySmnfAkCGg1lAJjNKK">Защита растений от болезней</a>
+			<span class="filetype-tag" style="background-color: rgb(231, 47, 47);">
+				pdf
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2010</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шкаликов В. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Белошапкина О. О.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Букреев Д. Д.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Горбачёв И. В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Джалилов Ф. С.-У.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Корсак И. В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Минаев В. Ю.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Стройков Ю. М.</span>
+		<span class="plpro-lib-record-size">26 Мб</span>
+	</div>
+	
+	<div class="plpro-lib-record">
+		<h6 class="plpro-lib-record-title">
+			<a href="https://drive.google.com/open?id=105PeRG34IiU203FGx19mHEkjwE6An_s6">Защита растений от болезней</a>
+			<span class="filetype-tag" style="background-color: rgb(160, 0, 160);">
+				djvu
+			</span>
+		</h6>
+		<span class="plpro-lib-record-year">2003</span>
+		<span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Шкаликов В. А.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Белошапкина О. О.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Букреев Д. Д.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Горбачёв И. В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Джалилов Ф. С.-У.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Корсак И. В.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Минаев В. Ю.</span> <span class="plpro-lib-record-autor" onclick="autorOnClick(this);">Стройков Ю. М.</span>
+		<span class="plpro-lib-record-size">9 Мб</span>
+	</div>
+	
+						</div>
+					</main>
+				</div>
+				</body>
+			</html>
 	
