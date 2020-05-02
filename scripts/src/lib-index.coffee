@@ -31,6 +31,18 @@ searchAutor = (text) ->
 				if j.className == "plpro-lib-record-autor" and j.innerText == text
 					i.style.display = "block"
 
+stateChanged = (self) ->
+	if self.checked
+		for i in searchBox.children
+			if i.className == "plpro-lib-record"
+				span = i.getElementsByClassName "plpro-lib-record-article"
+				if span.length == 0
+					i.style.display = "none"
+	else
+		for i in searchBox.children
+			if i.className == "plpro-lib-record"
+				i.style.display = "block"
+
 document.autorOnClick = (self) ->
 	searchAutor self.innerText
 	updateFilter "Автор: #{self.innerText}"

@@ -31,6 +31,7 @@ def record_to_html(record):
 		<span class="plpro-lib-record-year">{record["Год издания"]}</span>
 		{" ".join(map(autor_format, record["Авторы"].split(", ")))}
 		<span class="plpro-lib-record-size">{record["Размер"]}</span>
+		{"<span class='plpro-lib-record-article'>статья</span>" if record["Тип"] == "article" else ""}
 	</div>
 	"""
 
@@ -81,6 +82,11 @@ def writeToFile(content, recordsCount):
 								<h3 style="margin-bottom: 0px;">Библиотека</h3>
 								<span id="record-count">Записей в библиотеке: {recordsCount}</span>
 							</div>
+
+							<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" onchange="stateChanged(this);">
+								<input type="checkbox" id="switch-1" class="mdl-switch__input">
+								<span class="mdl-switch__label">Только статьи</span>
+							</label>
 
 							<div id="filter"></div>
 

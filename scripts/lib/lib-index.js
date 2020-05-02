@@ -50,6 +50,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       neueText,
       runParser,
       searchAutor,
+      stateChanged,
       sub,
       sum,
       unique,
@@ -464,6 +465,48 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
 
     return results;
+  };
+
+  stateChanged = function stateChanged(self) {
+    var i, l, len, len1, m, ref, ref1, results, results1, span;
+
+    if (self.checked) {
+      ref = searchBox.children;
+      results = [];
+
+      for (l = 0, len = ref.length; l < len; l++) {
+        i = ref[l];
+
+        if (i.className === "plpro-lib-record") {
+          span = i.getElementsByClassName("plpro-lib-record-article");
+
+          if (span.length === 0) {
+            results.push(i.style.display = "none");
+          } else {
+            results.push(void 0);
+          }
+        } else {
+          results.push(void 0);
+        }
+      }
+
+      return results;
+    } else {
+      ref1 = searchBox.children;
+      results1 = [];
+
+      for (m = 0, len1 = ref1.length; m < len1; m++) {
+        i = ref1[m];
+
+        if (i.className === "plpro-lib-record") {
+          results1.push(i.style.display = "block");
+        } else {
+          results1.push(void 0);
+        }
+      }
+
+      return results1;
+    }
   };
 
   document.autorOnClick = function (self) {
