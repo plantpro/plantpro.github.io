@@ -57,18 +57,15 @@ searchAutor = (text) ->
 				if j.className == "plpro-lib-record-autor" and j.innerText == text
 					i.style.display = "block"
 
+articlePredicate = (record) ->
+	span = i.getElementsByClassName "plpro-lib-record-article"
+	return span.length > 0
+
 document.stateChanged = (self) ->
-	searchBox = element "search-box"
 	if self.control.checked
-		for i in searchBox.children
-			if i.className == "plpro-lib-record"
-				span = i.getElementsByClassName "plpro-lib-record-article"
-				if span.length == 0
-					i.style.display = "none"
+			predicates.push(articlePredicate)
 	else
-		for i in searchBox.children
-			if i.className == "plpro-lib-record"
-				i.style.display = "block"
+		predicates[predicates.indexOf(articlePredicate)] = null
 
 doit = () ->
 	searchBox = element "search-box"
