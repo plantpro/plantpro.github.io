@@ -504,9 +504,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       predicates.push(articlePredicate);
       indexOfArticlePredicate.index = predicates.length - 1;
     } else {
-      if (indexof !== -1) {
-        predicates[indexOfArticlePredicate.index] = null;
-      }
+      predicates[indexOfArticlePredicate.index] = null;
     }
 
     console.log(predicates);

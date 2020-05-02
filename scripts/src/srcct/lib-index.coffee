@@ -253,7 +253,7 @@ document.stateChanged = (self) ->
 			predicates.push(articlePredicate)
 			indexOfArticlePredicate.index = predicates.length - 1
 	else
-		predicates[indexOfArticlePredicate.index] = null if indexof != -1
+		predicates[indexOfArticlePredicate.index] = null
 	console.log predicates
 	doit()
 
