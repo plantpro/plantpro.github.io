@@ -533,7 +533,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var filterDiv;
     predicates.push(function (record) {
       var k;
-      k = i.getElementsByClassName("filetype-tag")[0];
+      k = record.getElementsByClassName("filetype-tag")[0];
 
       if (k.innerText.trim() === self.innerText.trim()) {
         return true;

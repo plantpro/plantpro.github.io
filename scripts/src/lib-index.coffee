@@ -92,7 +92,7 @@ document.autorOnClick = (self) ->
 document.filterByType = (self) ->
 	predicates.push(
 		(record) ->
-			k = (i.getElementsByClassName "filetype-tag")[0]
+			k = (record.getElementsByClassName "filetype-tag")[0]
 			return true if k.innerText.trim() == self.innerText.trim()
 			return false
 	)
