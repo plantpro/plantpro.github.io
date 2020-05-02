@@ -8,8 +8,6 @@ isAll = (record) ->
 			return false
 	return true
 
-filterDiv = element "filter"
-
 makeChip = (text, num) -> "
 		<span class='mdl-chip mdl-chip--deletable'>
 			<span class='mdl-chip__text'>#{text}</span>
@@ -36,6 +34,7 @@ updateFilter = (text) ->
 	htmlset "filter", makeChip text
 
 clearFilter = (self, num) ->
+	filterDiv = element "filter"
 	htmlset "filter", filterDiv.replace(self.innerHTML)
 
 	predicates.splice(num, 1)
@@ -87,8 +86,8 @@ document.autorOnClick = (self) ->
 
 	doit()
 	#searchAutor self.innerText
-
-	filterDiv.innerText = filterDiv.innerHTML +
+	filterDiv = element "filter"
+	filterDiv.innerHTML = filterDiv.innerHTML +
 		makeChip("Автор: #{self.innerText}", predicates.length - 1)
 
 document.filterByType = (self) ->

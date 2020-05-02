@@ -27,7 +27,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       doit,
       ejoin,
       element,
-      filterDiv,
       first,
       h1,
       h2,
@@ -423,8 +422,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return true;
   };
 
-  filterDiv = element("filter");
-
   makeChip = function makeChip(text, num) {
     return "<span class='mdl-chip mdl-chip--deletable'> <span class='mdl-chip__text'>".concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, ").concat(num, ")'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
   };
@@ -438,7 +435,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   clearFilter = function clearFilter(self, num) {
-    htmlset("filter", filterDiv.replace(self.innerText));
+    var filterDiv;
+    filterDiv = element("filter");
+    htmlset("filter", filterDiv.replace(self.innerHTML));
     predicates.splice(num, 1);
     return doit();
   }; //searchBox = element "search-box"
@@ -551,7 +550,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.autorOnClick = function (self) {
-    var text;
+    var filterDiv, text;
     text = self.innerText;
     predicates.push(function (record) {
       var j, l, len, ref;
@@ -569,7 +568,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     });
     doit(); //searchAutor self.innerText
 
-    return filterDiv.innerText = filterDiv.innerText + makeChip("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText), predicates.length - 1);
+    filterDiv = element("filter");
+    return filterDiv.innerHTML = filterDiv.innerHTML + makeChip("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText), predicates.length - 1);
   };
 
   document.filterByType = function (self) {
