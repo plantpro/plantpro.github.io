@@ -11,7 +11,8 @@ isAll = (record) ->
 		else
 			nullCount = nullCount + 1
 	if nullCount == predicates.length
-		predicates.clear()
+		while predicates.length > 0
+			predicates.pop()
 	return true
 
 makeChip = (text, num) -> "

@@ -425,7 +425,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
 
     if (nullCount === predicates.length) {
-      predicates.clear();
+      while (predicates.length > 0) {
+        predicates.pop();
+      }
     }
 
     return true;
