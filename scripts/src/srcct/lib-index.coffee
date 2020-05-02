@@ -248,6 +248,7 @@ document.filterByType = (self) ->
 	searchBox = element "search-box"
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
+			i.style.display = "none"
 			for j in i.children
 				if j.className == "filetype-tag" and j.innerText == self.innerText
 					i.style.display = "block"

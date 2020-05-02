@@ -528,6 +528,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       i = ref[l];
 
       if (i.className === "plpro-lib-record") {
+        i.style.display = "none";
         ref1 = i.children;
 
         for (m = 0, len1 = ref1.length; m < len1; m++) {
