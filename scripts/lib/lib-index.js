@@ -437,7 +437,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   clearFilter = function clearFilter(self, num) {
     var filterDiv;
     filterDiv = element("filter");
-    htmlset("filter", filterDiv.innerHTML.replace(self.innerHTML));
+    htmlset("filter", filterDiv.innerHTML.replace(self.parent.innerHTML));
     predicates.splice(num, 1);
     return doit();
   }; //searchBox = element "search-box"
