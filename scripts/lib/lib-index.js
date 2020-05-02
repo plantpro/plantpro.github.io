@@ -24,6 +24,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       countIt,
       delws,
       div,
+      doit,
       ejoin,
       element,
       first,
@@ -35,6 +36,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       h6,
       htmlget,
       htmlset,
+      isAll,
       keys,
       last,
       makeChip,
@@ -49,6 +51,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       mul,
       neue,
       neueText,
+      predicates,
       runParser,
       searchAutor,
       sub,
@@ -403,6 +406,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return parserState.result;
   };
 
+  predicates = [];
+
+  isAll = function isAll(record) {
+    var l, len, predicate;
+
+    for (l = 0, len = predicates.length; l < len; l++) {
+      predicate = predicates[l];
+
+      if (!predicate(record)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
   makeChip = function makeChip(text) {
     return "<span class='mdl-chip mdl-chip--deletable'> <span class='mdl-chip__text'>".concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter()'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
   };
@@ -514,8 +533,43 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   };
 
+  doit = function doit() {
+    var i, l, len, ref, results, searchBox;
+    searchBox = element("search-box");
+    ref = searchBox.children;
+    results = [];
+
+    for (l = 0, len = ref.length; l < len; l++) {
+      i = ref[l];
+      i.style.display = "none";
+
+      if (isAll(i)) {
+        results.push(i.style.display = "block");
+      } else {
+        results.push(void 0);
+      }
+    }
+
+    return results;
+  };
+
   document.autorOnClick = function (self) {
-    searchAutor(self.innerText);
+    predicates.push(function (record) {
+      var j, l, len, ref;
+      ref = record.children;
+
+      for (l = 0, len = ref.length; l < len; l++) {
+        j = ref[l];
+
+        if (j.className === "plpro-lib-record-autor" && j.innerText === text) {
+          return true;
+        }
+      }
+
+      return false;
+    });
+    doit(); //searchAutor self.innerText
+
     return updateFilter("\u0410\u0432\u0442\u043E\u0440: ".concat(self.innerText));
   };
 

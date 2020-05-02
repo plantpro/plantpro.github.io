@@ -185,6 +185,14 @@ runParser = (input) ->
 	
 	parserState.result
 
+predicates = []
+
+isAll = (record) ->
+	for predicate in predicates
+		if not predicate record
+			return false
+	return true
+
 makeChip = (text) -> "
 		<span class='mdl-chip mdl-chip--deletable'>
 			<span class='mdl-chip__text'>#{text}</span>
@@ -240,8 +248,23 @@ document.stateChanged = (self) ->
 			if i.className == "plpro-lib-record"
 				i.style.display = "block"
 
+doit = () ->
+	searchBox = element "search-box"
+	for i in searchBox.children
+		i.style.display = "none"
+		if isAll i
+			i.style.display = "block"
+
 document.autorOnClick = (self) ->
-	searchAutor self.innerText
+	predicates.push(
+		(record) ->
+			for j in record.children
+				return true if j.className == "plpro-lib-record-autor" and j.innerText == text
+			return false
+	)
+
+	doit()
+	#searchAutor self.innerText
 	updateFilter "Автор: #{self.innerText}"
 
 document.filterByType = (self) ->
