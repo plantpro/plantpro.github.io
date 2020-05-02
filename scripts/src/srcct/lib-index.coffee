@@ -223,6 +223,7 @@ clearFilter = (self, num) ->
 
 	predicates.splice(num, 1)
 	doit()
+	console.log(predicates)
 
 	#searchBox = element "search-box"
 

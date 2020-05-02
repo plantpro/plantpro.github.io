@@ -437,7 +437,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   clearFilter = function clearFilter(self, num) {
     self.parentNode.remove();
     predicates.splice(num, 1);
-    return doit();
+    doit();
+    return console.log(predicates);
   }; //searchBox = element "search-box"
   //	for i in searchBox.children
   //	i.style.display = "block" if i.className == "plpro-lib-record"
