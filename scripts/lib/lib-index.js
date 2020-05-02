@@ -467,7 +467,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.stateChanged = function (self) {
-    var i, l, len, len1, m, ref, ref1, results, results1, span;
+    var i, l, len, len1, m, ref, ref1, results, results1, searchBox, span;
+    searchBox = element("search-box");
 
     if (self.checked) {
       ref = searchBox.children;

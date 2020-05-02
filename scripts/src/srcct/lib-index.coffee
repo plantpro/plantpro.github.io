@@ -217,6 +217,7 @@ searchAutor = (text) ->
 					i.style.display = "block"
 
 document.stateChanged = (self) ->
+	searchBox = element "search-box"
 	if self.checked
 		for i in searchBox.children
 			if i.className == "plpro-lib-record"
