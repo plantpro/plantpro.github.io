@@ -541,10 +541,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     for (l = 0, len = ref.length; l < len; l++) {
       i = ref[l];
-      i.style.display = "none";
 
-      if (isAll(i)) {
-        results.push(i.style.display = "block");
+      if (i.className === "plpro-lib-record") {
+        i.style.display = "none";
+
+        if (isAll(i)) {
+          results.push(i.style.display = "block");
+        } else {
+          results.push(void 0);
+        }
       } else {
         results.push(void 0);
       }

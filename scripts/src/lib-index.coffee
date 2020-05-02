@@ -66,9 +66,10 @@ document.stateChanged = (self) ->
 doit = () ->
 	searchBox = element "search-box"
 	for i in searchBox.children
-		i.style.display = "none"
-		if isAll i
-			i.style.display = "block"
+		if i.className == "plpro-lib-record"
+			i.style.display = "none"
+			if isAll i
+				i.style.display = "block"
 
 document.autorOnClick = (self) ->
 	predicates.push(
