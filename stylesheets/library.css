@@ -17,6 +17,10 @@
 	font-size: smaller;
 }
 
+.filetype-tag {
+	cursor: pointer;
+}
+
 .plpro-lib-record-autor {
 	text-decoration: underline;
 	cursor: pointer;
