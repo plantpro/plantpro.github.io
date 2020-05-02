@@ -37,6 +37,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       h6,
       htmlget,
       htmlset,
+      indexOfArticlePredicate,
       isAll,
       keys,
       last,
@@ -494,16 +495,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return span.length > 0;
   };
 
-  document.stateChanged = function (self) {
-    var indexof;
+  indexOfArticlePredicate = {
+    index: -1
+  };
 
+  document.stateChanged = function (self) {
     if (self.control.checked) {
       predicates.push(articlePredicate);
+      indexOfArticlePredicate.index = predicates.length - 1;
     } else {
-      indexof = predicates.indexOf(articlePredicate);
-
       if (indexof !== -1) {
-        predicates[indexof] = null;
+        predicates[indexOfArticlePredicate.index] = null;
       }
     }
 

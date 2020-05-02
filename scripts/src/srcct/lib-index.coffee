@@ -246,12 +246,14 @@ articlePredicate = (record) ->
 	span = record.getElementsByClassName "plpro-lib-record-article"
 	return span.length > 0
 
+indexOfArticlePredicate = { index: -1 }
+
 document.stateChanged = (self) ->
 	if self.control.checked
 			predicates.push(articlePredicate)
+			indexOfArticlePredicate.index = predicates.length - 1
 	else
-		indexof = predicates.indexOf(articlePredicate)
-		predicates[indexof] = null if indexof != -1
+		predicates[indexOfArticlePredicate.index] = null if indexof != -1
 	console.log predicates
 	doit()
 
