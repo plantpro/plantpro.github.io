@@ -469,6 +469,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   document.stateChanged = function (self) {
     var i, l, len, len1, m, ref, ref1, results, results1, searchBox, span;
     searchBox = element("search-box");
+    console.log(self);
 
     if (self.checked) {
       ref = searchBox.children;
@@ -479,7 +480,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
         if (i.className === "plpro-lib-record") {
           span = i.getElementsByClassName("plpro-lib-record-article");
-          console.log(span.length);
 
           if (span.length === 0) {
             results.push(i.style.display = "none");
