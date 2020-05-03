@@ -247,7 +247,7 @@ document.stateChanged = (self) ->
 		predicates[indexOfArticlePredicate.index] = null
 	applyPredicates()
 
-applyPredicate = () ->
+applyPredicates = () ->
 	searchBox = element "search-box"
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"

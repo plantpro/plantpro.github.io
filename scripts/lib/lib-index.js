@@ -19,7 +19,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   // Operator function for '-'
   var all,
       any,
-      applyPredicate,
+      applyPredicates,
       articlePredicate,
       checkedof,
       clearFilter,
@@ -477,7 +477,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return applyPredicates();
   };
 
-  applyPredicate = function applyPredicate() {
+  applyPredicates = function applyPredicates() {
     var i, l, len, ref, results, searchBox;
     searchBox = element("search-box");
     ref = searchBox.children;
