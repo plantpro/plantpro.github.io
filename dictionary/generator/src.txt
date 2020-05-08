@@ -1103,7 +1103,7 @@ sustainable|устойчивый, жизнеспособный
 sward|травостой
 sweet|сладкий
 sweetened|подслащивать, делать сладким
-take (took, taken) in oxygen|поглощать кислород
+take in oxygen|поглощать кислород
 tank-truck loading operation|налив автоцистерны
 taste|вкус 
 sour to the taste|кислый на вкус
@@ -1116,7 +1116,7 @@ tender|нежный, мягкий (плод)
 tenderness|нежность, мягкость
 test|проба, испытание, исследование, опыт, анализ, пробовать, испытывать
 texture|механический состав (почвы), текстура, строение ткани, степень плотности ткани, структура
-thaw|таять, оттаивать, размораживать(ся)
+thaw|таять, оттаивать, размораживать
 thicken|уплотнение, загущение, загущать, увеличивать мощность (почвы)
 thin|прореживать (посевы), прорывать, букетировать (корнеплодные культуры), топкий, редкий, не густой
 thinner|прореживатель, букетировщик
@@ -1280,3 +1280,52 @@ yield per acre harvested|урожай в расчете на акр убранн
 zoning|районирование
 zootechnician|зоотехник
 zyme|фермент
+stem parasite|стеблевой паразит
+root parasite|корневой паразит
+hemiparasite|полупаразит
+holoparasite|паразит (в смысле "не полупаразит")
+mistletoe|омела
+dodder|повилика
+phytoncide|фитонцид
+oak|дуб
+onion|лук
+garlic|чеснок
+genus|род
+shallot|лук-шалот
+leek|лук-порей
+chives|шнитт-лук, лук скорода, лук-резанец
+storage organ|запасной орган, орган запасания
+taproot|стержневой корень
+taproot system|стержневая корневая система
+fibrous root system|мочковатая корневая система
+corm|клубнелуковица
+rhizome|корневище
+caudex|стеблекорень, каудекс
+saponins|сапонины
+flavonoids|флавоноиды
+terpens|терпены
+terpenoids|терпеноиды
+phytoalexins|фитоалексины
+alkaloids|алкалоиды
+glycosteroids|гликопротеиды
+jasmonic acid|жасмоновая кислота
+ethylene|этилен
+abscisic acid|абсцизовая кислота, АБК
+salicylic acid|салициловая кислота
+systemic acquired resistance, SAR|системная приобретённая устойчивость
+disease vector|переносчик болезни
+polyphenols|полифенолы
+isoflavonoids|изофлавоноид
+plant disease resistance|устойчивость растений к болезням, иммунитет растений, фитоиммунитет
+cuticle, cuticula|кутикула
+enzyme inhibitors|ингибиторы ферментов
+cellulose|целлюлоза
+lignin|лигнин
+suberin|суберин
+defensins|дефензины
+hypersensitive response, HR|реакция сверхчувствительственности
+pathogen-associated molecular pattern, PRRs|молекулярные паттерны,ассоциированные с патогеном
+microbe-associated molecular pattern, PRRs|молекулярные паттерны,ассоциированные с микроорганизмом
+toll-like receptors, TLR, TLRs|толл-подобные рецепторы
+pattern recognition receptors, PRRs|паттерн-распознающие рецепторы
+interferons, IFNs|интерфероны
