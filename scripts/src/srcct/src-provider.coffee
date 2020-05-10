@@ -198,7 +198,7 @@ provider.after button
 showSources = () ->
 	k = 0
 	for i in provider.children
-		i.innerText = "[" + (k + 1) + "] " + i.innerText
+		i.innerHTML = "[" + (k + 1) + "] " + i.innerHTML
 		k += 1
 	
 	provider.prepend h5 "Источники"

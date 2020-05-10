@@ -415,7 +415,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     for (j = 0, len = ref.length; j < len; j++) {
       i = ref[j];
-      i.innerText = "[" + (k + 1) + "] " + i.innerText;
+      i.innerHTML = "[" + (k + 1) + "] " + i.innerHTML;
       k += 1;
     }
 

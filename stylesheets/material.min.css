@@ -8155,6 +8155,19 @@ figcaption {
   color: #3c763d;
 }
 
+
+#src-provider {
+	display: none;
+}
+
+#src-provider-button {
+	color: darkgray;
+  font-size: smaller;
+  float: right;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
 #hint-warn {
   padding: 15px;
   border-radius: 4px;
@@ -10400,4 +10413,22 @@ select {
   border: none;
   border-bottom: rgba(0, 0, 0, .12) solid 1px;
 	font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.plpro-lib-record-article {
+	color: #cc2727;
+	font-size: smaller;
+}
+
+.plpro-lib-record-title {
+	margin-bottom: 0px;
+}
+
+.plpro-lib-record-year, .plpro-lib-record-size, .plpro-lib-record-autor {
+	color: #999999;
+	font-size: smaller;
+}
+
+.plpro-lib-record-autor {
+	text-decoration: underline;
 }
