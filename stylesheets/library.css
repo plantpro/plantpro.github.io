@@ -19,6 +19,7 @@
 
 .filetype-tag {
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .plpro-lib-record-autor {

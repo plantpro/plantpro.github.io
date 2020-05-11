@@ -8204,7 +8204,8 @@ figcaption {
   font-size: smaller;
   position: relative;
   white-space: nowrap;
-  left: 10px;
+	left: 10px;
+	text-decoration: none;
 }
 
 .pp-cite {
