@@ -3,6 +3,10 @@
 	font-size: smaller;
 }
 
+.plpro-lib-record {
+	margin: 10px 0px;
+}
+
 .plpro-lib-record-article {
 	color: #cc2727;
 	font-size: smaller;
@@ -34,10 +38,90 @@
 
 .mdl-chip__text {
 	font-size: small;
-	vertical-align: middle;
 	display: inline-block;
 }
 
 .mdl-chip__action {
 	opacity: 1;
+}
+
+.mdl-chip {
+  height: 32px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 16px;
+  background-color: #2C3E50;
+  display: inline-block;
+  color: #ffffff;
+  margin: 2px 0;
+  font-size: 0;
+  white-space: nowrap
+}
+
+.mdl-chip__action {
+  height: 24px;
+  width: 24px;
+  background: 0 0;
+  opacity: .54;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0 0 4px;
+  font-size: 13px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, .87);
+  border: none;
+  outline: none
+}
+
+.mdl-chip:focus {
+  outline: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
+}
+
+.mdl-chip:active {
+  background-color: #d6d6d6
+}
+
+.mdl-chip--deletable {
+  padding-right: 4px
+}
+
+.mdl-chip--contact {
+  padding-left: 0
+}
+
+
+.tag {
+  color: white;
+  padding: 2px;
+  border-radius: 3px;
+  font-size: smaller;
+  position: relative;
+  white-space: nowrap;
+  left: 10px;
+}
+
+.lang-tag {
+  background-color: #01579b;
+}
+
+.year-tag {
+  background-color: mediumslateblue;
+}
+
+.youtube-tag {
+	background-color: rgb(231, 47, 47);
+}
+
+.filetype-tag {
+  color: white;
+  padding: 2px;
+  border-radius: 3px;
+  font-size: smaller;
+  position: relative;
+  white-space: nowrap;
+	left: 10px;
+	text-decoration: none;
 }

@@ -1,151 +1,181 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Защита растений</title>
 
-	<title>Патологический гербарий</title>
+		<link rel="stylesheet" href="../../stylesheets/light.min.css" />
+		<style>
+			#image {
+				width: 100%;
+			}
+		</style>
+  </head>
 
-	<link rel="stylesheet" href="../../stylesheets/material.min.css">
-	<script src="../../scripts/material.min.js"></script>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <svg
+        style="width: 24px; height: 24px; margin-right: 5px;"
+        viewbox="0 0 24 24"
+      >
+        <path
+          class="svg-primary"
+          d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"
+        />
+      </svg>
+      <a class="navbar-brand">
+        PLANT PROTECTION
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-	<style>
-		#image {
-			max-height: 100%;
-			max-width: unset;
-			height: auto;
-			width: 100%;
-			transition: 1s;
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Домашняя <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Статьи</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Библиотека</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dictionary/index.html">Словарь</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">О сайте</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="flag-icon flag-icon-ru"></span>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="en/index.html"
+                ><span class="flag-icon flag-icon-gb"></span> English</a
+              >
+              <a class="dropdown-item" href="de/index.htm"
+                ><span class="flag-icon flag-icon-de"></span> Deutsch</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <h3>Патологический гербарий</h3>
+      <div class="row" style="margin-top: 1em;">
+        <div class="col-lg-4">
+          <h6>Вирусы и вироиды</h6>
+          <ul class="list-group" id="content-list">
+            <li class="list-group-item" no="1">M-вирус картофеля (PVM)</li>
+            <li class="list-group-item" no="10">M-вирус картофеля (PVM)</li>
+            <li class="list-group-item" no="11">M-вирус картофеля (PVM)</li>
+            <li class="list-group-item" no="12">M-вирус картофеля (PVM)</li>
+            <li class="list-group-item" no="2">Y-вирус картофеля (PVY)</li>
+            <li class="list-group-item" no="3">Y-вирус картофеля, штамм C (PVY)</li>
+            <li class="list-group-item" no="15">Y-вирус картофеля (PVY)</li>
+            <li class="list-group-item" no="17">Y-вирус картофеля (PVY)</li>
+            <li class="list-group-item" no="9">Y-вирус картофеля (PVY)</li>
+            <li class="list-group-item" no="19">Y-вирус на табаке</li>
+            <li class="list-group-item" no="32">Y-вирус на табаке</li>
+            <li class="list-group-item" no="7">ВВКК (PSTV)</li>
+            <li class="list-group-item" no="4">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+            <li class="list-group-item" no="13">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+            <li class="list-group-item" no="14">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+            <li class="list-group-item" no="16">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
+            <li class="list-group-item" no="8">ВТМ на томатах (TMV)</li>
+            <li class="list-group-item" no="26">ВТМ на томатах (TMV)</li>
+            <li class="list-group-item" no="29">ВТМ на томатах (TMV)</li>
+            <li class="list-group-item" no="27">ВТМ на перце (TMV)</li>
+            <li class="list-group-item" no="18">ВТМ (TMV)</li>
+            <li class="list-group-item" no="20">Вирус огуречной мозаики</li>
+            <li class="list-group-item" no="5">Столбур томата</li>
+            <li class="list-group-item" no="6">Столбур томата</li>
+            <li class="list-group-item" no="34">Столбур томата</li>
+            <li class="list-group-item" no="28">Стрик томата</li>
+            <li class="list-group-item" no="21">Вирус скручивания листьев картофеля</li>
+            <li class="list-group-item" no="22">Вирус закукливания овса (OPH)</li>
+            <li class="list-group-item" no="23">Белая пестрота табака</li>
+            <li class="list-group-item" no="24">Кольцевая пятнистость табака</li>
+            <li class="list-group-item" no="25">Короткоузлие винограда</li>
+          </ul>
+
+          <h6>Бактерии</h6>
+          <ul class="list-group">
+            <li class="list-group-item" no="33">
+              Пустульный бактериоз Xanthomonas phaseoli var. sojense Hedges
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div id="viewer">
+            <figure>
+              <img id="image" />
+              <figcaption id="caption"></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const VIEWER = document.getElementById("viewer");
+    const IMAGE = document.getElementById("image");
+    const CAPTION = document.getElementById("caption");
+
+    var previousSelected = document.getElementById("content-list").children[0];
+
+		async function load(x) {
+			previousSelected.style.color = "black";
+      var no = x.target.attributes["no"].value;
+      x.target.style.color = "red";
+      IMAGE.src = "../../resources/images/herb/" + no + ".jpg";
+      CAPTION.innerText = x.target.innerText;
+      previousSelected = x.target;
 		}
 
-		#viewer {
-			text-align: center;
-		}
-	</style>
+    async function show(x) {
+      await load(x)
+    }
 
-	<!-- Yandex.Metrika counter -->
-	<script
-		type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(57619945, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }); </script>
-	<noscript>
-		<div><img src="https://mc.yandex.ru/watch/57619945" style="position:absolute; left:-9999px;" alt="" /></div>
-	</noscript>
-	<!-- /Yandex.Metrika counter -->
-</head>
+    show({ target: document.getElementById("content-list").children[0] });
 
-<body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<header class="mdl-layout__header">
-			<div class="mdl-layout__header-row">
-				<div class="mdl-layout__drawer-button">
-					<a href="../../index.html">
-						<i class="material-icons">
-							<svg style="width:24px;height:24px" viewbox="0 0 24 24">
-								<path fill="rgb(0, 129, 32)"
-									d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
-							</svg>
-						</i>
-					</a>
-				</div>
-
-				<span class="mdl-layout-title">
-					<span style="color: rgb(0, 129, 32);">P</span>LANT
-					<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
-				</span>
-
-				<div class="mdl-layout-spacer"></div>
-				<nav class="mdl-navigation mdl-layout--large-screen-only">
-				</nav>
-			</div>
-		</header>
-
-		<main class="mdl-layout__content">
-			<div class="page-content paddinget">
-				<h3>Патологический гербарий</h3>
-
-				<div class="mdl-grid mdl-grid--no-spacing">
-					<div class="mdl-cell mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<h6>Вирусы и вироиды</h6>
-						<ul class="mdl-list" id="content-list">
-							<li no="1">M-вирус картофеля (PVM)</li>
-							<li no="10">M-вирус картофеля (PVM)</li>
-							<li no="11">M-вирус картофеля (PVM)</li>
-							<li no="12">M-вирус картофеля (PVM)</li>
-							<li no="2">Y-вирус картофеля (PVY)</li>
-							<li no="3">Y-вирус картофеля, штамм C (PVY)</li>
-							<li no="15">Y-вирус картофеля (PVY)</li>
-							<li no="17">Y-вирус картофеля (PVY)</li>
-							<li no="9">Y-вирус картофеля (PVY)</li>
-							<li no="19">Y-вирус на табаке</li>
-							<li no="32">Y-вирус на табаке</li>
-							<li no="7">ВВКК (PSTV)</li>
-							<li no="4">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
-							<li no="13">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
-							<li no="14">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
-							<li no="16">ВВКК+Y-вирус картофеля (PSTV+PVY)</li>
-							<li no="8">ВТМ на томатах (TMV)</li>
-							<li no="26">ВТМ на томатах (TMV)</li>
-							<li no="29">ВТМ на томатах (TMV)</li>
-							<li no="27">ВТМ на перце (TMV)</li>
-							<li no="18">ВТМ (TMV)</li>
-							<li no="20">Вирус огуречной мозаики</li>
-							<li no="5">Столбур томата</li>
-							<li no="6">Столбур томата</li>
-							<li no="34">Столбур томата</li>
-							<li no="28">Стрик томата</li>
-							<li no="21">Вирус скручивания листьев картофеля</li>
-							<li no="22">Вирус закукливания овса (OPH)</li>
-							<li no="23">Белая пестрота табака</li>
-							<li no="24">Кольцевая пятнистость табака</li>
-							<li no="25">Короткоузлие винограда</li>
-						</ul>
-
-						<h6>Бактерии</h6>
-						<ul class="mdl-list">
-							<li no="33">Пустульный бактериоз Xanthomonas phaseoli var. sojense Hedges</li>
-						</ul>
-					</div>
-
-					<div class="mdl-cell mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-						<div id="viewer">
-							<figure>
-								<img id="image">
-								<figcaption id="caption">
-
-								</figcaption>
-							</figure>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</main>
-	</div>
-</body>
-
-<script>
-	const VIEWER = document.getElementById("viewer");
-	const IMAGE = document.getElementById("image");
-	const CAPTION = document.getElementById("caption");
-
-	var previousSelected = document.getElementById("content-list").children[0];
-
-	function show(x) {
-		previousSelected.style.color = "black";
-		var no = x.target.attributes["no"].value;
-		x.target.style.color = "red";
-		IMAGE.src = "../../resources/images/herb/" + no + ".jpg"
-		CAPTION.innerText = x.target.innerText;
-		previousSelected = x.target;
-	}
-
-	show({ target: document.getElementById("content-list").children[0] });
-
-	for (var list of document.getElementsByClassName("mdl-list")) {
-		for (var i of list.children) {
-			i.addEventListener("click", show);
-		}
-	}
-</script>
-
+    for (var list of document.getElementsByClassName("list-group")) {
+      for (var i of list.children) {
+        i.addEventListener("click", show);
+      }
+    }
+  </script>
 </html>

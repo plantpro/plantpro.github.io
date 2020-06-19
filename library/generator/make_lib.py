@@ -35,64 +35,112 @@ def record_to_html(record):
 	</div>
 	"""
 
-def writeToFile(content, recordsCount):
+def write_to_file(content, recordsCount):
 	result = f"""
-		<!doctype html>
-		<html lang="ru">
-			<head>
-				<meta charset="utf-8">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-				<title>Библиотека</title>
+    <title>Защита растений</title>
 
-				<link rel="stylesheet" href="../stylesheets/material.min.css">
-				<script src="../scripts/material.min.js"></script>
+    <link rel="stylesheet" href="../stylesheets/light.min.css" />
+		 <link rel="stylesheet" href="../stylesheets/library.css" />
+		<script src="../scripts/lib/lib-index.min.js"></script>
+  </head>
 
-				<link rel="stylesheet" href="../stylesheets/library.css">
-				<script src="../scripts/lib/lib-index.min.js"></script>
-			</head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <svg
+        style="width: 24px; height: 24px; margin-right: 5px;"
+        viewbox="0 0 24 24"
+      >
+        <path
+          class="svg-primary"
+          d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"
+        />
+      </svg>
+      <a class="navbar-brand">
+        PLANT PROTECTION
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-			<body>
-				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-					<header class="mdl-layout__header">
-						<div class="mdl-layout__header-row">
-							<div class="mdl-layout__drawer-button">
-								<i class="material-icons">
-									<svg style="width:24px;height:24px" viewbox="0 0 24 24">
-										<path fill="rgb(0, 129, 32)"
-											d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
-									</svg>
-								</i>
-							</div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html"
+              >Домашняя</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Статьи</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Библиотека</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../dictionary/index.html">Словарь</a>
+          </li>
+        </ul>
 
-							<span class="mdl-layout-title">
-								<span style="color: rgb(0, 129, 32);">P</span>LANT
-								<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
-							</span>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">О сайте</a>
+          </li>
 
-							<div class="mdl-layout-spacer"></div>
-							<nav class="mdl-navigation mdl-layout--large-screen-only">
-							</nav>
-						</div>
-					</header>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="flag-icon flag-icon-ru"></span>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="en/index.html"
+                ><span class="flag-icon flag-icon-gb"></span> English</a
+              >
+              <a class="dropdown-item" href="de/index.htm"
+                ><span class="flag-icon flag-icon-de"></span> Deutsch</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-					<main class="mdl-layout__content">
-						<div class="page-content paddinget" id="search-box">
-							<div style="text-align: center; margin-bottom: 15px;">
+    <div class="container-fluid" id="search-box">
+							<div style="text-align: center; margin: 15px 0px;">
 								<h3 style="margin-bottom: 0px;">Библиотека</h3>
 								<span id="record-count">Записей в библиотеке: {recordsCount}</span>
 							</div>
 
-							<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" style="margin-bottom: 15px;" for="switch-1" onclick="document.stateChanged(this);">
-								<input type="checkbox" id="switch-1" class="mdl-switch__input">
-								<span class="mdl-switch__label">Только статьи</span>
-							</label>
-
+							<div class="custom-control custom-switch">
+								<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;" onclick="document.stateChanged(this);">
+								<label class="custom-control-label" for="switch-1">Только статьи</label>
+							</div>
+							
 							<div id="filter"></div>
 
 							{content}
-						</div>
-					</main>
 				</div>
 				</body>
 			</html>
@@ -102,6 +150,6 @@ def writeToFile(content, recordsCount):
 def main():
 	records = get_records()
 	content = "".join(map(record_to_html, records))
-	writeToFile(content, len(records))
+	write_to_file(content, len(records))
 
 main()

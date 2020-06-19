@@ -1,4 +1,4 @@
-# Concatenator utile for scripts
+# Concater utile for scripts
 # Replace all strings with kind #: import file.ext to content of file file.ext
 # Usage: py concater.py [input_directory] [output_directory]
 # Autor: Tsvikevich Denis-2019

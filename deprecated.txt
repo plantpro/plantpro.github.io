@@ -1,0 +1,470 @@
+					<blockquote  class="blockquote">
+						<ol>
+							<li>
+								Определите, что является выборкой, а что - генеральной совокупностью
+								<ol>
+									<li>Средние оценки всех студентов колледжа</li>
+									<li>Средние оценки случайной группы студентов колледжа</li>
+									<li>Пол каждого второго посетителя театра</li>
+								</ol>
+							</li>
+							<li>
+								Определите, какие измерения являются качественными, а какие - количественными
+								<ol>
+									<li>Баллы ЕГЭ 40 школьников</li>
+									<li>Группы крови 120 учителей</li>
+									<li>Пол учеников 9-ого класса</li>
+									<li>Цвет волос 20 случайно выбранных моделей</li>
+									<li>Возраста 20 случайно выбранных моделей</li>
+								</ol>
+							</li>
+							<li>
+								Исследователь решил выяснить средний вес новорождённых в Южной Америке за последние 5 лет.
+								Он взял случайную выборку из 235 новорождённых и обнаружил что средний вес 3.27 килограмм
+								<ol>
+									<li>Что является генеральной совокупностью?</li>
+									<li>Что является параметром?</li>
+									<li>Основываясь на выборке знаем ли мы средний вес новорождённых в Южной Америке?</li>
+								</ol>
+							</li>
+							<li>
+								Преобразуйте список к таблице частот:
+								<math display="block">
+									<mrow>
+										<mrow>
+											<mo>{</mo>
+											<mrow>
+												<mn> 1, 5, 2, 3, 5, 1, 4, 4, 4, 3, 2, 5, 1, 3, 2, 1, 1, 1, 2 </mn>
+											</mrow>
+											<mo>}</mo>
+										</mrow>
+									</mrow>
+								</math>
+							</li>
+
+							<li>
+								Преобразуйте таблицу частот к списку:
+								<math display="block">
+									<mrow>
+										<mtable columnspacing="0.5em" columnlines="solid none none none none none none none"
+											rowlines="solid">
+											<mtr>
+												<mtd columnalign="center">
+													<mi>x</mi>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>97</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>98</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>99</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>100</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>101</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>102</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>103</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>105</mn>
+												</mtd>
+											</mtr>
+											<mtr>
+												<mtd columnalign="center">
+													<mi>f</mi>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>7</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>5</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>3</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>4</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>2</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>2</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>1</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>1</mn>
+												</mtd>
+											</mtr>
+										</mtable>
+									</mrow>
+								</math>
+							</li>
+						</ol>
+					</blockquote>
+					
+					<blockquote  class="blockquote">
+						<ol>
+							<li>
+								Определите, что является выборкой, а что - генеральной совокупностью
+								<ol>
+									<li>Генеральная совокупность</li>
+									<li>Выборка</li>
+									<li>Выборка</li>
+								</ol>
+							</li>
+							<li>
+								Определите, какие измерения являются качественными, а какие - количественными
+								<ol>
+									<li>Количественные</li>
+									<li>Качественные</li>
+									<li>Качественные</li>
+									<li>Качественные</li>
+									<li>Количественные</li>
+								</ol>
+							</li>
+							<li>
+								Исследователь решил выяснить средний вес новорождённых в Южной Америке за последние 5 лет.
+								Он взял случайную выборку из 235 новорождённых и обнаружил что средний вес 3.27 килограмм
+								<ol>
+									<li>Все новорождённые Южной Америки за последние 5 лет</li>
+									<li>Средний вес всех новорождённых Южной Америки за последние 5 лет</li>
+									<li>Нет, мы знаем лишь приблизительное среднее веса</li>
+								</ol>
+							</li>
+							<li>
+								Преобразуйте список к таблице частот:
+								<math display="block">
+									<mrow>
+										<mtable columnspacing="0.5em" columnlines="solid none none none none none none none"
+											rowlines="solid">
+											<mtr>
+												<mtd columnalign="center">
+													<mi>x</mi>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>1</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>2</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>3</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>4</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>5</mn>
+												</mtd>
+											</mtr>
+											<mtr>
+												<mtd columnalign="center">
+													<mi>f</mi>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>6</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>4</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>3</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>3</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>3</mn>
+												</mtd>
+											</mtr>
+										</mtable>
+									</mrow>
+								</math>
+							</li>
+
+							<li>
+								Преобразуйте таблицу частот к списку:
+								<math display="block">
+									<mrow>
+										<mrow>
+											<mo>{</mo>
+											<mrow>
+												<mn> 97, 97, 97, 97, 97, 97, 97, 98, 98, 98, 98, 98, 99, 99, 99, 100, 100, 100, 100, 101, 101,
+													102, 102, 103, 105 </mn>
+											</mrow>
+											<mo>}</mo>
+										</mrow>
+									</mrow>
+								</math>
+							</li>
+						</ol>
+					</blockquote>
+
+						<div class="definition-header">Упражнения</div>
+					<div class="definition">
+						<ol>
+							<li>
+								Постройте гистограмму частот и гистограмму относительных частот для следующих данных:
+								<math display="block">
+									<mrow>
+										<mtable columnspacing="0.5em">
+											<mtr columnalign="right">
+												<mtd columnalign="right">
+													<mrow>
+														<mn>4</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>3</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>5</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>6</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>1</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>3</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>2</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>2</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>9</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>12</mn>
+													</mrow>
+												</mtd>
+											</mtr>
+											<mtr columnalign="right">
+												<mtd columnalign="right">
+													<mrow>
+														<mn>32</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>34</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>54</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>56</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>23</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>27</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>29</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>27</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>34</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>45</mn>
+													</mrow>
+												</mtd>
+											</mtr>
+											<mtr columnalign="right">
+												<mtd columnalign="right">
+													<mrow>
+														<mn>40</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>70</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>21</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>34</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>49</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>48</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>44</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>59</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>52</mn>
+													</mrow>
+												</mtd>
+												<mtd columnalign="right">
+													<mrow>
+														<mn>54</mn>
+													</mrow>
+												</mtd>
+											</mtr>
+										</mtable>
+									</mrow>
+								</math>
+							</li>
+							<li>
+								Постройте гистограмму частот и гистограмму относительных частот для следующей таблицы частот:
+								<math display="block">
+									<mrow>
+										<mtable columnspacing="0.5em" columnlines="solid none none none none none none none"
+											rowlines="solid">
+											<mtr>
+												<mtd columnalign="center">
+													<mi>x</mi>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>97</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>98</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>99</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>100</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>101</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>102</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>103</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>105</mn>
+												</mtd>
+											</mtr>
+											<mtr>
+												<mtd columnalign="center">
+													<mi>f</mi>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>7</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>5</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>3</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>4</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>2</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>2</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>1</mn>
+												</mtd>
+												<mtd columnalign="center">
+													<mn>1</mn>
+												</mtd>
+											</mtr>
+										</mtable>
+									</mrow>
+								</math>
+							</li>
+						</ol>
+					</div>
+					<br>
+					<div class="definition-header">Ответы</div>
+					<div class="definition">
+						<ol>
+							<li>
+								При группировке по десяткам:
+								<div id="plot3"> </div>
+								<div id="plot5"> </div>
+								При прочих группировках может быть другой результат.
+							</li>
+							<li>
+								Гистограммы без группироки:
+								<div id="plot6"> </div>
+								<div id="plot4"> </div>
+								При группировке может быть другой результат.
+							</li>
+						</ol>
+					</div>
+				</div>

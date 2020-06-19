@@ -1,174 +1,287 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Словарь</title>
+    <title>Словарь</title>
 
-	<link rel="stylesheet" href="../stylesheets/material.min.css">
-	<script src="../scripts/material.min.js"></script>
-	<style>
-		.padded {
-			margin-bottom: 5px;
-		}
-	</style>
-</head>
+    <link rel="stylesheet" href="../stylesheets/light.min.css" />
+  </head>
 
-<body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<header class="mdl-layout__header">
-			<div class="mdl-layout__header-row">
-				<div class="mdl-layout__drawer-button">
-					<a href="../index.html">
-						<i class="material-icons">
-							<svg style="width:24px;height:24px" viewbox="0 0 24 24">
-								<path fill="rgb(0, 129, 32)"
-									d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
-							</svg>
-						</i>
-					</a>
-				</div>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <svg
+        style="width: 24px; height: 24px; margin-right: 5px;"
+        viewbox="0 0 24 24"
+      >
+        <path
+          class="svg-primary"
+          d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"
+        />
+      </svg>
+      <a class="navbar-brand">
+        PLANT PROTECTION
+      </a>
+      <a
+        class="navbar-toggler"
+        type="a"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </a>
 
-				<span class="mdl-layout-title">
-					<span style="color: rgb(0, 129, 32);">P</span>LANT
-					<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
-				</span>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Домашняя</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Статьи</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Библиотека</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="dictionary/index.html"
+              >Словарь <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
 
-				<div class="mdl-layout-spacer"></div>
-				<nav class="mdl-navigation mdl-layout--large-screen-only">
-				</nav>
-			</div>
-		</header>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">О сайте</a>
+          </li>
 
-		<main class="mdl-layout__content">
-			<div class="page-content">
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-						<h3>Англо-русский словарь</h3>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="a"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="flag-icon flag-icon-ru"></span>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="en/"
+                ><span class="flag-icon flag-icon-gb"></span> English</a
+              >
+              <a class="dropdown-item" href="de/index.htm"
+                ><span class="flag-icon flag-icon-de"></span> Deutsch</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-						<h6>Количество слов в базе данных: 1354</h6>
+    <div class="container-fluid">
+      <div style="margin-top: 1em;">
+        <h3>Англо-русский словарь</h3>
 
-						<a href="en-ru/A_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">A</a>
-						<a href="en-ru/B_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">B</a>
-						<a href="en-ru/C_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">C</a>
-						<a href="en-ru/D_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">D</a>
-						<a href="en-ru/E_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">E</a>
-						<a href="en-ru/F_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">F</a>
-						<a href="en-ru/G_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">G</a>
-						<a href="en-ru/H_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">H</a>
-						<a href="en-ru/I_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">I</a>
-						<a href="en-ru/K_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">K</a>
-						<a href="en-ru/L_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">L</a>
-						<a href="en-ru/M_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">M</a>
-						<a href="en-ru/N_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">N</a>
-						<a href="en-ru/O_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">O</a>
-						<a href="en-ru/P_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">P</a>
-						<a href="en-ru/R_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">R</a>
-						<a href="en-ru/S_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">S</a>
-						<a href="en-ru/T_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">T</a>
-						<a href="en-ru/U_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">U</a>
-						<a href="en-ru/Q_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Q</a>
-						<a href="en-ru/V_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">V</a>
-						<a href="en-ru/W_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">W</a>
-						<a href="en-ru/X_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">X</a>
-						<a href="en-ru/Y_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Y</a>
-						<a href="en-ru/Z_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Z</a>
+        <h6>Количество слов в базе данных: 1354</h6>
+        <div class="letter-group">
+          <a class="letter" href="en-ru/A_words.html">
+            A
+          </a>
+          <a class="letter" href="en-ru/B_words.html">
+            B
+          </a>
+          <a class="letter" href="en-ru/C_words.html">
+            C
+          </a>
+          <a class="letter" href="en-ru/D_words.html">
+            D
+          </a>
+          <a class="letter" href="en-ru/E_words.html">
+            E
+          </a>
+          <a class="letter" href="en-ru/F_words.html">
+            F
+          </a>
+          <a class="letter" href="en-ru/G_words.html">
+            G
+          </a>
+          <a class="letter" href="en-ru/H_words.html">
+            H
+          </a>
+          <a class="letter" href="en-ru/I_words.html">
+            I
+          </a>
+          <a class="letter" href="en-ru/K_words.html">
+            K
+          </a>
+          <a class="letter" href="en-ru/L_words.html">
+            L
+          </a>
+          <a class="letter" href="en-ru/M_words.html">
+            M
+          </a>
+          <a class="letter" href="en-ru/N_words.html">
+            N
+          </a>
+          <a class="letter" href="en-ru/O_words.html">
+            O
+          </a>
+          <a class="letter" href="en-ru/P_words.html">
+            P
+          </a>
+          <a class="letter" href="en-ru/R_words.html">
+            R
+          </a>
+          <a class="letter" href="en-ru/S_words.html">
+            S
+          </a>
+          <a class="letter" href="en-ru/T_words.html">
+            T
+          </a>
+          <a class="letter" href="en-ru/U_words.html">
+            U
+          </a>
+          <a class="letter" href="en-ru/Q_words.html">
+            Q
+          </a>
+          <a class="letter" href="en-ru/V_words.html">
+            V
+          </a>
+          <a class="letter" href="en-ru/W_words.html">
+            W
+          </a>
+          <a class="letter" href="en-ru/X_words.html">
+            X
+          </a>
+          <a class="letter" href="en-ru/Y_words.html">
+            Y
+          </a>
+          <a class="letter" href="en-ru/Z_words.html">
+            Z
+          </a>
+        </div>
+      </div>
+      <div style="margin-top: 1em;">
+        <h3>Русско-английский словарь</h3>
 
-						<h3>Русско-английский словарь</h3>
+        <h6>Количество слов в базе данных: 2847</h6>
+        <div class="letter-group">
+          <a class="letter" href="ru-en/А_words.html">
+            А
+          </a>
+          <a class="letter" href="ru-en/Б_words.html">
+            Б
+          </a>
+          <a class="letter" href="ru-en/В_words.html">
+            В
+          </a>
+          <a class="letter" href="ru-en/Г_words.html">
+            Г
+          </a>
+          <a class="letter" href="ru-en/Д_words.html">
+            Д
+          </a>
+          <a class="letter" href="ru-en/Е_words.html">
+            Е
+          </a>
+          <a class="letter" href="ru-en/Ё_words.html">
+            Ё
+          </a>
+          <a class="letter" href="ru-en/Ж_words.html">
+            Ж
+          </a>
+          <a class="letter" href="ru-en/З_words.html">
+            З
+          </a>
+          <a class="letter" href="ru-en/И_words.html">
+            И
+          </a>
+          <a class="letter" href="ru-en/Й_words.html">
+            Й
+          </a>
+          <a class="letter" href="ru-en/К_words.html">
+            К
+          </a>
+          <a class="letter" href="ru-en/Л_words.html">
+            Л
+          </a>
+          <a class="letter" href="ru-en/М_words.html">
+            М
+          </a>
+          <a class="letter" href="ru-en/Н_words.html">
+            Н
+          </a>
+          <a class="letter" href="ru-en/О_words.html">
+            О
+          </a>
+          <a class="letter" href="ru-en/П_words.html">
+            П
+          </a>
+          <a class="letter" href="ru-en/Р_words.html">
+            Р
+          </a>
+          <a class="letter" href="ru-en/С_words.html">
+            С
+          </a>
+          <a class="letter" href="ru-en/Т_words.html">
+            Т
+          </a>
+          <a class="letter" href="ru-en/У_words.html">
+            У
+          </a>
+          <a class="letter" href="ru-en/Ф_words.html">
+            Ф
+          </a>
+          <a class="letter" href="ru-en/Х_words.html">
+            Х
+          </a>
+          <a class="letter" href="ru-en/Ц_words.html">
+            Ц
+          </a>
+          <a class="letter" href="ru-en/Ч_words.html">
+            Ч
+          </a>
+          <a class="letter" href="ru-en/Ш_words.html">
+            Ш
+          </a>
+          <a class="letter" href="ru-en/Щ_words.html">
+            Щ
+          </a>
+          <a class="letter" href="ru-en/Э_words.html">
+            Э
+          </a>
+          <a class="letter" href="ru-en/Ю_words.html">
+            Ю
+          </a>
+          <a class="letter" href="ru-en/Я_words.html">
+            Я
+          </a>
+        </div>
+      </div>
+    </div>
 
-						<h6>Количество слов в базе данных: 2847</h6>
-
-						<a href="ru-en/А_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">А</a>
-						<a href="ru-en/Б_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Б</a>
-						<a href="ru-en/В_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">В</a>
-						<a href="ru-en/Г_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Г</a>
-						<a href="ru-en/Д_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Д</a>
-						<a href="ru-en/Е_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Е</a>
-						<a href="ru-en/Ё_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ё</a>
-						<a href="ru-en/Ж_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ж</a>
-						<a href="ru-en/З_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">З</a>
-						<a href="ru-en/И_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">И</a>
-						<a href="ru-en/Й_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Й</a>
-						<a href="ru-en/К_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">К</a>
-						<a href="ru-en/Л_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Л</a>
-						<a href="ru-en/М_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">М</a>
-						<a href="ru-en/Н_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Н</a>
-						<a href="ru-en/О_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">О</a>
-						<a href="ru-en/П_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">П</a>
-						<a href="ru-en/Р_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Р</a>
-						<a href="ru-en/С_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">С</a>
-						<a href="ru-en/Т_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Т</a>
-						<a href="ru-en/У_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">У</a>
-						<a href="ru-en/Ф_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ф</a>
-						<a href="ru-en/Х_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Х</a>
-						<a href="ru-en/Ц_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ц</a>
-						<a href="ru-en/Ч_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ч</a>
-						<a href="ru-en/Ш_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ш</a>
-						<a href="ru-en/Щ_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Щ</a>
-						<a href="ru-en/Э_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Э</a>
-						<a href="ru-en/Ю_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ю</a>
-						<a href="ru-en/Я_words.html"
-							class="padded mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Я</a>
-					</div>
-				</div>
-			</div>
-		</main>
-	</div>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
