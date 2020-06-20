@@ -14344,3 +14344,8 @@ a.text-dark:focus {
 .arrow-next-md {
 	height: 50%;
 }
+
+.article-title {
+	word-wrap: break-word;
+	margin: 2rem auto;
+}
