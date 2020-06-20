@@ -1,106 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О сайте</title>
 
-	<title>О сайте</title>
+    <link rel="stylesheet" href="stylesheets/light.min.css" />
+  </head>
 
-	<link rel="stylesheet" href="stylesheets/material.min.css">
-	<script src="scripts/material.min.js"></script>
-	<!-- Yandex.Metrika counter -->
-	<script
-		type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(57619945, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }); </script>
-	<noscript>
-		<div>
-			<img src="https://mc.yandex.ru/watch/57619945" style="position:absolute; left:-9999px;" alt="" />
-		</div>
-	</noscript> 
-	<!-- /Yandex.Metrika counter -->
-</head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <svg
+        style="width: 24px; height: 24px; margin-right: 5px;"
+        viewbox="0 0 24 24"
+      >
+        <path
+          class="svg-primary"
+          d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"
+        />
+      </svg>
+      <a class="navbar-brand">
+        PLANT PROTECTION
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<header class="mdl-layout__header">
-			<div class="mdl-layout__header-row">
-				<div class="mdl-layout__drawer-button">
-					<a href="index.html">
-						<i class="material-icons">
-							<svg style="width:24px;height:24px" viewbox="0 0 24 24">
-								<path fill="rgb(0, 129, 32)"
-									d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
-							</svg>
-						</i>
-					</a>
-				</div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Домашняя</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="articles/index.html">Статьи</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="library/index.html">Библиотека</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dictionary/index.html">Словарь</a>
+          </li>
+        </ul>
 
-				<span class="mdl-layout-title">
-					<span style="color: rgb(0, 129, 32);">P</span>LANT
-					<span style="color: rgb(0, 129, 32);">P</span>ROTECTION
-				</span>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="about.html">О сайте</a>
+          </li>
 
-				<div class="mdl-layout-spacer"></div>
-				<nav class="mdl-navigation mdl-layout--large-screen-only">
-				</nav>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="flag-icon flag-icon-ru"></span>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="en/about.html"
+                ><span class="flag-icon flag-icon-gb"></span> English</a
+              >
+              <a class="dropdown-item" href="de/about.html"
+                ><span class="flag-icon flag-icon-de"></span> Deutsch</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-				<a class="plpro-lang-link" id="lang-menu">
-					<span class="flag-icon flag-icon-ru"></span>
-				</a>
+    <div class="container-fluid">
+      <div style="margin-top: 1em;">
+        <h3>О сайте</h3>
 
-				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-    			for="lang-menu">
-  				<li class="mdl-menu__item">
-						<a class="plpro-lang-link"  href="en/about.html"><span class="flag-icon flag-icon-gb"></span> English</a>
-					</li>
-  				<li class="mdl-menu__item">
-						<a class="plpro-lang-link"  href="de/about.html"><span class="flag-icon flag-icon-de"></span> Deutsch</a>
-					</li>
-				</ul>
-			</div>
-		</header>
+        <h4>1. Общие положения</h4>
+        1.1. Основной принцип сайта - научная информация должна быть свободной и
+        доступной.<br />
+        1.2. Данный сайт содержит различные учебные материалы, доступ к которым
+        открыт для всех желающих.<br />
+        1.3. Вся предоставленная информация найдена в сети Интернет и прочих
+        открытых источников.
 
-		<main class="mdl-layout__content">
-			<div class="page-content">
-				<div class="paddinget">
-					<h3>О сайте</h3>
+        <h4>2. Ответственность авторов</h4>
+        2.1. Авторы сайта не несут ответственности за качество материалов,
+        предоставленных на сайте.<br />
 
-					<h4>1. Общие положения</h4>
-					1.1. Основной принцип сайта - научная информация должна быть свободной и доступной.<br>
-					1.2. Данный сайт содержит различные учебные материалы, доступ к которым открыт для всех желающих.<br>
-					1.3. Вся предоставленная информация найдена в сети Интернет и прочих открытых источников.
+        <h4>3. Политика конфиденциальности</h4>
+        3.1. Данный сайт не собирает никаких данных о пользователях.
 
-					<h4>2. Ответственность авторов</h4>
-					2.1. Авторы сайта не несут ответственности за качество материалов, предоставленных на сайте.<br>
-					2.2. Авторы сайта не несут ответственности за возможное нарушение авторского права, поскольку сайт (сервер) не
-					содержит непосредственно объекта авторского права, за исключением текстового и графического контента.
+        <h4>4. Исходный код сайта</h4>
+        4.1. Исходный код данного сайта является открытым и распологается на
+        сервисе GitHub. <br />
+        4.2. Исходный код распространяется в соответствии с лицензией MIT.
 
-					<h4>3. Политика конфиденциальности</h4>
-					3.1. Данный сайт не собирает никаких данных о пользователях, за исключением данных, собираемых сервисом
-					«Яндекс.Метрика».<br>
-					3.2. Целью использования сервиса «Яндекс.Метрика» является сбор данных о посещаемости сайта и его разделов, что
-					является необходимым для оптимизации его работы.<br>
-					3.3. Сбор данных сервисом «Яндекс.Метрика» происходит в соответствии со ст. 19 Федерального закона от 27.07.2006
-					№152-ФЗ «О персональных данных».
-					
-					<h4>4. Исходный код сайта</h4>
-					4.1. Исходный код данного сайта является открытым и распологается на сервисе GitHub. <br>
-					4.2. Исходный код распространяется в соответствии с лицензией MIT. 
+        <h4>5. Обратная связь</h4>
+        5.1. Предложения, пожелания и вопросы можно отправить по электронной
+        почте plant-pro@mail.ru
 
-					<h4>5. Обратная связь</h4>
-					5.1. Предложения, пожелания и вопросы можно отправить по электронной почте plant-pro@mail.ru 
+        <h4>6. Изменения на сайте</h4>
+        6.1. Изменения на сайте фиксируются в логах, просмотреть которые можно
+        на странице <a href="roadmap.html">Лог изменений</a>
 
-					<h4>6. Изменения на сайте</h4>
-					6.1. Изменения на сайте фиксируются в логах, просмотреть которые можно на странице <a href="roadmap.html">Лог изменений</a>
-				
-					<h4>7. Локализация</h4>
-					7.1. Данный сайт является многоязычным, список поддерживаемых языков 
-					можно посмотреть на странице <a href="langlist.html">Список поддерживаемых языков</a>
-				
-				</div>
-			</div>
-		</main>
-	</div>
-</body>
+        <h4>7. Локализация</h4>
+        7.1. Данный сайт является многоязычным, список поддерживаемых языков
+        можно посмотреть на странице
+        <a href="langlist.html">Список поддерживаемых языков</a>
+      </div>
+    </div>
 
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

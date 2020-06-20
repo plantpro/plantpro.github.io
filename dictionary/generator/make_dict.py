@@ -198,7 +198,7 @@ class WordCounter:
 		<script src="../../scripts/lib/search_engine.min.js"> </script>
   </body>
 </html>
->"""
+"""
 
 # Parse line of input file
 # Returns a tuple ([Translation], [Translation])
