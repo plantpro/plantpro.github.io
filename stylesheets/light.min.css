@@ -14328,3 +14328,19 @@ a.text-dark:focus {
 	font-size: 3em;
 	text-align: center;
 }
+
+.logo {
+	width: 24px;
+	height: 24px; 
+	margin-right: 5px;
+}
+
+.arrow-next {
+	fill: #ffffff;
+	display: block;
+	margin: auto;
+}
+
+.arrow-next-md {
+	height: 50%;
+}
