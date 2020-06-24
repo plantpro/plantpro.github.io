@@ -12,8 +12,8 @@
     return document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   };
 
-  $("close-btn").click(onCloseClick);
+  $("close-btn").onClick(onCloseClick);
 
-  $("scrollTop-btn").click(onScrollTopClick);
+  $("scrollTop-btn").onClick(onScrollTopClick);
 
 }).call(this);

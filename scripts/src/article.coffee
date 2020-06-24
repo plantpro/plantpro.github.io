@@ -7,7 +7,7 @@ onScrollTopClick = () ->
 	document.documentElement.scrollTop = 0 # For Chrome, Firefox, IE and Opera
 
 $ "close-btn"
-.click onCloseClick
+.onClick onCloseClick
 
 $ "scrollTop-btn"
-.click onScrollTopClick
+.onClick onScrollTopClick
