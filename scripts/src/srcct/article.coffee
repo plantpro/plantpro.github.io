@@ -6,8 +6,8 @@ onScrollTopClick = () ->
 	document.body.scrollTop = 0 # For Safari
 	document.documentElement.scrollTop = 0 # For Chrome, Firefox, IE and Opera
 
-$ "close-btn"
-.onClick onCloseClick
+document.getElementById "close-btn"
+.addEventListener "click", onCloseClick
 
-$ "scrollTop-btn"
-.onClick onScrollTopClick
+document.getElementById "scrollTop-btn"
+.addEventListener "click", onScrollTopClick
