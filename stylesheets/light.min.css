@@ -14315,15 +14315,6 @@ a.text-dark:focus {
   background-image: url(../flags/1x1/xk.svg);
 }
 
-.article-p {
-	font-size: 1.171875rem;
-  margin-bottom: 1.5rem;
-}
-
-.article-p>.source-link {
-	display: none;
-}
-
 .letter-group {
 	font-size: 3em;
 	text-align: center;
@@ -14343,9 +14334,4 @@ a.text-dark:focus {
 
 .arrow-next-md {
 	height: 50%;
-}
-
-.article-title {
-	word-wrap: break-word;
-	margin: 2rem auto;
 }

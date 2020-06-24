@@ -7,32 +7,13 @@
     <title>Введение в визуализацию данных</title>
 
     <link rel="stylesheet" href="../../stylesheets/light.min.css" />
-
-    <script>
-      function call() {
-        window.history.go(-1);
-        return false;
-      }
-    </script>
+		<link rel="stylesheet" href="../../stylesheets/article.css" />
   </head>
 
   <body>
     <div class="container-md">
-      <div
-        onclick="call()"
-        style="
-          float: right;
-          cursor: pointer;
-          position: relative;
-          margin-top: 1rem;
-        "
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48"
-          viewbox="0 0 48 48"
-          width="48"
-        >
+      <div id="close-btn">
+        <svg viewbox="0 0 48 48">
           <g fill="none" fill-rule="evenodd">
             <path d="m0 0h48v48h-48z" />
             <g stroke="#000" stroke-linecap="round" stroke-width="2">
@@ -47,14 +28,14 @@
         Введение в визуализацию данных
       </h3>
 
-      <div class="article-p">
+      <p>
         Как правило, использование списков данных - не самый лучший способ
         представить данные в вашей работе потому что мы не можем получить много
         информации о них просто взглянув на список. Есть и более удобные способы
         и в этой статье мы рассмотрим 3 из них на примере следующей выборки:
-      </div>
+			</p>
 
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         30 студентов СПбГАУ набрали на интернет-тестировании следующее
         количество баллов:
         <math display="block">
@@ -221,15 +202,15 @@
         </math>
       </blockquote>
 
-      <h3 style="font-weight: 300;margin: 2rem auto;">Листостебельная диаграмма</h3>
+      <h3>Листостебельная диаграмма</h3>
 
-      <div class="article-p">
+      <p>
         Одним из простейших способов как-то визуализировать данные являются
         <b>листостебельные диаграммы (stem and leaf diagrams)</b>. Для нашего
         примера мы можем построить такую диаграмму:
-      </div>
+      </p>
 
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         <math display="block">
           <mrow>
             <mtable columnspacing="0.5em" columnlines="solid none none none">
@@ -381,7 +362,7 @@
         </math>
       </blockquote>
 
-      <div class="article-p">
+      <p>
         Эта диаграмма состоит из <b>стебля</b> - чисел, стоящих слева от
         вертикальной линии, которые представляют собой десятки и
         <b>листьев</b> - соответствующих чисел справа от линии, которые являются
@@ -391,19 +372,16 @@
         получить некую информацию, например, мы видим что 2 студента набрали
         максимальное количество баллов, а 3 написали тест меньше, чем на 60
         баллов.
-      </div>
+      </p>
 
-      <div class="article-p">
+      <p>
         Мы также можем построить
-        <b
-          >сортированную листостебельную диаграмму (sorted stem and leaf
-          diagram)</b
-        >
+        <b>сортированную листостебельную диаграмму (sorted stem and leaf diagram)</b>
         - она строится точно так же как и обычная, но её листья отсортированны в
         проядке возрастания. Для нашего примера:
-      </div>
+      </p>
 
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         <math display="block">
           <mrow>
             <mtable columnspacing="0.5em" columnlines="solid none none none">
@@ -555,13 +533,13 @@
         </math>
       </blockquote>
 
-      <div class="article-p">
+      <p>
         Такие диаграммы могут быть довольно гибкими: например мы можем разбить
         элементы стебля на более мелкие диапазоны. Так, разобьём значение 80 на
         два (80-84 и 85-89):
-      </div>
+      </p>
 
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         <math display="block">
           <mrow>
             <mtable columnspacing="0.5em" columnlines="solid none none none">
@@ -615,17 +593,17 @@
 				</div>
 			</div>
 
-			<h3 style="font-weight: 300;margin: 2rem auto;">Гистограмма частот</h3>
+			<h3>Гистограмма частот</h3>
 			
-      <div class="article-p">
+      <p>
         Листостебельная диаграмма непрактична для большой выборки, поэтому можно
         использовать
         <b>гистограмму частот (frequency histogram)</b>. Сначала мы выделяем
         группы каких-либо значений, например значения из примера выше мы можем
         сгруппировать так:
-			</div>
+			</p>
 			
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         <math display="block">
           <mrow>
             <mtable
@@ -714,12 +692,12 @@
         </math>
       </blockquote>
 
-      <div class="article-p">
+      <p>
         Затем подсчитываем частоту для каждой группы (то есть строим таблицу
         частот для групп):
-			</div>
+			</p>
 			
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         <math display="block">
           <mrow>
             <mtable
@@ -808,7 +786,7 @@
         </math>
       </blockquote>
 
-      <div class="article-p">
+      <p>
         И строим диаграмму частот, отмечая группы по оси
         <math>
 					<mi>x</mi> 
@@ -816,17 +794,17 @@
         <math>
 					<mi>y</mi> 
 				</math>:
-      </div>
+      </p>
 
-			<div class="article-p" style="overflow-x: auto; overflow-y: hidden;">
+			<p class="article-plot">
       	<div id="plot1"></div>
-			</div>
+			</p>
 
-      <div class="article-p">
+      <p>
         Этот способ может быть применён к любому количественному набору данных.
         Вы можете создавать группы на своё усмотрение, например, разделить
         группу 80 на две: 80 и 85.
-      </div>
+      </p>
 
 			<div class="card">
 				<div class="card-body">
@@ -851,32 +829,31 @@
 				</div>
 			</div>
 
-			<h3 style="font-weight: 300;margin: 2rem auto;">Гистограмма относительных частот</h3>
+			<h3>Гистограмма относительных частот</h3>
 			
-      <div class="article-p">
+      <p>
         До этого момента мы работали с
         <b>абсолютными частотами (absolute frequency)</b> то есть количеством
         вхождений элемента в набор данных (в случае с частотами группы -
         количеством значений, входящих в группу), но мы также можем работать и с
         относительными частотами.
-      </div>
+      </p>
 
       <blockquote class="blockquote">
-        <b
-          >Относительная частота (relative frequency),
+        <b>Относительная частота (relative frequency),
           <math>
             <mi>ω</mi>
-          </math></b
-        >
+					</math>
+				</b>
         - отношение частоты элемента к размеру выборки или генеральной
         совокупности
       </blockquote>
 
-      <div class="article-p">
+      <p>
         Мы можем построить таблицу относительных частот для нашего примера:
-      </div>
+      </p>
 
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         <math display="block">
           <mrow>
             <mtable
@@ -965,16 +942,16 @@
         </math>
       </blockquote>
 
-      <div class="article-p">
+      <p>
         И строим гистограмму, на этот раз отмечая по оси y уже относительные
         частоты:
-			</div>
+			</p>
 			
-			<div class="article-p" style="overflow-x: auto; overflow-y: hidden;">
+			<p class="article-plot">
       	<div id="plot2"></div>
-			</div>
+			</p>
 
-      <div class="article-p">
+      <p>
         Как вы можете заметить, пропорции столбиков и общий вид гистограммы не
         отличается от гистограммы абсолютных частот - изменяются лишь числа на
         оси
@@ -987,7 +964,7 @@
         гистограммы относительных частот выбор количества групп обычно зависит
         от размера выборки или генеральной совокупности. Чем больше размер, тем
         больше групп мы можем выделить.
-      </div>
+      </p>
 
 			<div class="card">
 				<div class="card-body">
@@ -1018,6 +995,14 @@
 					</p>
 				</div>
 			</div>
+
+			<div id="scrollTop-btn">
+				<svg viewbox="0 0 490.523 490.523">
+					<path fill="#000000" d="M479.859,373.266c-2.831,0.005-5.548-1.115-7.552-3.115L245.192,143.015L18.077,370.151
+						c-4.237,4.093-10.99,3.976-15.083-0.262c-3.993-4.134-3.993-10.687,0-14.821l234.667-234.667c4.165-4.164,10.917-4.164,15.083,0
+						l234.667,234.667c4.159,4.172,4.148,10.926-0.024,15.085C485.388,372.146,482.681,373.265,479.859,373.266z"/>
+				</svg>
+      </div>
 		</div>
 		
     <script
@@ -1027,7 +1012,17 @@
     <script
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
-    ></script>
+		></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+		<script type="text/javascript" src="../../scripts/lib/article.min.js"></script>
     <script>
       (function onLoad() {
         // Load the Visualization API and the corechart package.
