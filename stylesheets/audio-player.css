@@ -42,7 +42,7 @@
 
 .audioplayer-playpause:hover,
 .audioplayer-playpause:focus {
-  background-color: #222;
+  background-color: #eeeeee;
 }
 
 .audioplayer-playpause a {
@@ -299,15 +299,6 @@
 
 .audioplayer-novolume .audioplayer-volume {
   display: none;
-}
-
-.audioplayer-playpause,
-.audioplayer-volume a {
-  -webkit-filter: drop-shadow(1px 1px 0 #000);
-  -moz-filter: drop-shadow(1px 1px 0 #000);
-  -ms-filter: drop-shadow(1px 1px 0 #000);
-  -o-filter: drop-shadow(1px 1px 0 #000);
-  filter: drop-shadow(1px 1px 0 #000);
 }
 
 .audioplayer,
