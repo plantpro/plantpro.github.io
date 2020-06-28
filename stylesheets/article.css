@@ -3,9 +3,13 @@ h3 {
 	margin: 2rem auto;
 }
 
-p,ul {
+p {
 	font-size: 1.171875rem;
   margin-bottom: 1.5rem;
+}
+
+ul {
+	font-size: 1.171875rem;
 }
 
 .source-link {
