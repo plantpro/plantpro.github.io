@@ -1,7 +1,6 @@
 .audioplayer {
   height: 2.5em;
   color: #000000;
-  border: 1px solid #ffffff;
   position: relative;
   z-index: 1;
   background: #ffffff;
@@ -21,7 +20,6 @@
 .audioplayer>div {
   position: absolute;
 }
-
 
 /* play/pause button */
 
