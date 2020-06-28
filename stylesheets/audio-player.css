@@ -109,8 +109,8 @@
 }
 
 .audioplayer-time-current {
-  border-left: 1px solid #111;
-  border-left-color: rgba(0, 0, 0, .25);
+ /* border-left: 1px solid #111;
+  border-left-color: rgba(0, 0, 0, .25);*/
   left: 2.5em;
   /* 40 */
 }
