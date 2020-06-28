@@ -18,8 +18,11 @@ p {
 }
 
 .article-plot {
+	font-size: 1.171875rem;
+  margin-bottom: 1.5rem;
 	overflow-x: auto;
 	overflow-y: hidden;
+	display: block;
 }
 
 .blockquote {

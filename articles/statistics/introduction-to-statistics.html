@@ -7,48 +7,28 @@
     <title>Введение в статистику</title>
 
     <link rel="stylesheet" href="../../stylesheets/light.min.css" />
-
-    <script>
-      function call() {
-        window.history.go(-1);
-        return false;
-      }
-    </script>
+		<link rel="stylesheet" href="../../stylesheets/article.css" />
   </head>
 
   <body>
     <div class="container-md">
-		
-      <div
-        onclick="call()"
-        style="
-          float: right;
-          cursor: pointer;
-          position: relative;
-          margin-top: 1rem;
-        "
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48"
-          viewbox="0 0 48 48"
-          width="48"
-        >
-          <g fill="none" fill-rule="evenodd">
-            <path d="m0 0h48v48h-48z" />
-            <g stroke="#000" stroke-linecap="round" stroke-width="2">
-              <path d="m13 13 22 22" transform="matrix(-1 0 0 1 48 0)" />
-              <path d="m13 13 22 22" />
-            </g>
-          </g>
-        </svg>
-      </div>
+			<div id="close-btn">
+				<svg viewbox="0 0 48 48">
+					<g fill="none" fill-rule="evenodd">
+						<path d="m0 0h48v48h-48z" />
+						<g stroke="#000" stroke-linecap="round" stroke-width="2">
+							<path d="m13 13 22 22" transform="matrix(-1 0 0 1 48 0)" />
+							<path d="m13 13 22 22" />
+						</g>
+					</g>
+				</svg>
+			</div>
 
       <h3 class="display-4 article-title">
         Введение в статистику
       </h3>
 
-      <div class="article-p">
+      <p>
         Начнём с небольшого примера: в мире более 7.5 миллиардов человек, каждый
         из которых имеет какой-либо рост. Как мы можем узнать средний рост
         человека? Очевидно, измерять каждого человека - очень плохая идея.
@@ -61,7 +41,7 @@
         всех людей в генеральной совокупности, то такие значения будут
         называться параметрами, а измерив рост людей в выборке, получим
         статистики.
-      </div>
+      </p>
 
       <blockquote class="blockquote">
         <b>Генеральная совокупность (population)</b> - любая интересующая нас
@@ -106,35 +86,35 @@
         выборки
       </blockquote>
 
-      <div class="article-p">
+      <p>
         Продолжая наш пример, если средний рост людей в нашей выборке составит
         168см, то мы можем предположить что это средний рост всех людей в целом.
         То есть мы делаем предположение о генеральной совокупности на основании
         нашей выборки. Взаимосвязь всех этих понятий видна на следующей
         картинке:
-      </div>
+      </p>
 
-      <div class="article-p text-center">
+      <p class="text-center">
         <img
           style="max-width: 100%;"
           src="../../resources/article-res/images/statistics/grand_picture.jpg"
         />
-      </div>
+      </p>
 
-      <div class="article-p">
+      <p>
         У нас есть генеральная совокупность, мы создаём из неё выборку, затем
         проводим измерения нашей выборки и получаем данные, после чего,
         анализируя данные, мы получаем некие статистики, характерные для нашей
         выборки и обобщаем результаты исследования получая параметры для всей
         генеральной совокупности.
-			</div>
+			</p>
 			
-      <div class="article-p">
+      <p>
         Обобщая, можно сказать что статистика это наука о данных и делится на
         две основные ветви: описательную статистику, целью которой является
         описание свойств данных и индуктивную статистику, целью которой является
         обобщение данных, полученных из выборки на всю генеральную совокупность.
-      </div>
+      </p>
 
       <blockquote class="blockquote">
         <b>Статистика (statistics)</b> - как наука - совокупность методов сбора,
@@ -153,13 +133,13 @@
         выборки на всю генеральную совокупность.
       </blockquote>
 
-      <div class="article-p">
+      <p>
         Стоит сказать что измерения, полученные в ходе ислледования не
         обязательно должны быть числовыми. Например, мы можем учитывать пол
         человека: мужской и женский. Очевидно что его не нужно описывать
         какими-то числами (хотя сделать это мы можем). Слледовательно, данные мы
         можем разделить на 2 больших типа: количественные и качественные.
-      </div>
+      </p>
 
       <blockquote class="blockquote">
         <b>Качественные данные (qualitative data)</b> - это измерения, для
@@ -174,17 +154,17 @@
         выборки (такие как среднее).
       </blockquote>
 
-			<h5>Популярные способы представления данных</h5>
+			<h3>Популярные способы представления данных</h3>
 			
-      <div class="article-p">
+      <p>
         Итак, вы измерили какую-то характеристику вашей выборки и теперь вам
         нужно как-то представить ваши данные для последующего анализа. В этих
         статьях мы будем пользоваться двумя способами. Первый - это так
         называемый <b>список данных (data list)</b>. Список данных - это простое
         перечисление всех измерений для выборки:
-			</div>
+			</p>
 			
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         Возраст 21 случайных студентов СПбГАУ может быть представлен так:
         <math xml:id="fwk-shafer-ch01-m0005" display="block">
           <mrow>
@@ -280,7 +260,7 @@
         </math>
       </blockquote>
 
-      <div class="article-p">
+      <p>
         Набор данных также может быть представлен
         <b>таблицей частот (data frequency table)</b> - это таблица, где указан
         <math>
@@ -291,9 +271,9 @@
           <mi>f</mi>
         </math>
         (то есть количество этого значения в нашем наборе).
-      </div>
+      </p>
 
-      <blockquote class="blockquote" style="overflow: auto;">
+      <blockquote class="blockquote">
         Перепишем представленные выше данные в виде таблицы частот:
         <math display="block">
           <mrow>
@@ -358,7 +338,15 @@
           </mrow>
         </math>
         Соответственно, у нас 2 раза встречается 17, 8 раз - 18 и так далее.
-      </blockquote>
+			</blockquote>
+			
+			<div id="scrollTop-btn">
+				<svg viewbox="0 0 490.523 490.523">
+					<path fill="#000000" d="M479.859,373.266c-2.831,0.005-5.548-1.115-7.552-3.115L245.192,143.015L18.077,370.151
+							c-4.237,4.093-10.99,3.976-15.083-0.262c-3.993-4.134-3.993-10.687,0-14.821l234.667-234.667c4.165-4.164,10.917-4.164,15.083,0
+							l234.667,234.667c4.159,4.172,4.148,10.926-0.024,15.085C485.388,372.146,482.681,373.265,479.859,373.266z" />
+				</svg>
+			</div>
     </div>
 
     <script
@@ -379,6 +367,7 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
-    ></script>
+		></script>
+		<script type="text/javascript" src="../../scripts/lib/article.min.js"></script>
   </body>
 </html>
