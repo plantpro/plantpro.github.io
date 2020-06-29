@@ -203,8 +203,8 @@ class Counter
 	getTable: (tableName) ->
 		builder =
 		"""
-		<label class="tblbl">#{tableName}: </label><br>
-		<table class="mdl-data-table mdl-js-data-table">
+		<label class="small">#{tableName}: </label><br>
+		<table class="table table-bordered">
 			<tr>#{ejoin(makeKeyCells(@counter))}</tr>
 			<tr>#{ejoin(makeValueCells(@counter))}</tr>
 		</table>

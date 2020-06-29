@@ -14347,3 +14347,11 @@ a.text-dark:focus {
 .arrow-next-md {
 	height: 50%;
 }
+
+.tblbl {
+  color: rgb(0, 129, 32);
+  font-size: 12px;
+  top: 4px;
+  bottom: 0;
+  display: block;
+}

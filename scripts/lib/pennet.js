@@ -441,7 +441,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       key: "getTable",
       value: function getTable(tableName) {
         var builder;
-        return builder = "<label class=\"tblbl\">".concat(tableName, ": </label><br>\n<table class=\"mdl-data-table mdl-js-data-table\">\n\t<tr>").concat(ejoin(makeKeyCells(this.counter)), "</tr>\n\t<tr>").concat(ejoin(makeValueCells(this.counter)), "</tr>\n</table>");
+        return builder = "<label class=\"small\">".concat(tableName, ": </label><br>\n<table class=\"table table-bordered\">\n\t<tr>").concat(ejoin(makeKeyCells(this.counter)), "</tr>\n\t<tr>").concat(ejoin(makeValueCells(this.counter)), "</tr>\n</table>");
       }
     }]);
 
