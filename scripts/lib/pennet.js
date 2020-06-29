@@ -476,7 +476,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var builder, genotype, genotypeCounter, i, j, l, len, len1, len2, m, n, phenotype, phenotypeCounter, subbuilder;
     genotypeCounter = new Counter();
     phenotypeCounter = new Counter();
-    builder = "<br><label class=\"tblbl\">\u0420\u0435\u0448\u0451\u0442\u043A\u0430 \u041F\u0435\u043D\u043D\u0435\u0442\u0430: </label><br>\n<table class='mdl-data-table mdl-js-data-table'><tr><td></td>";
+    builder = "<br><label class=\"small\">\u0420\u0435\u0448\u0451\u0442\u043A\u0430 \u041F\u0435\u043D\u043D\u0435\u0442\u0430: </label><br>\n<table class=\"table table-bordered\"><tr><td></td>";
 
     for (l = 0, len = g2.length; l < len; l++) {
       i = g2[l];
@@ -627,7 +627,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   createPhenotypeInput = function createPhenotypeInput(allel) {
-    return "<div class=\"mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone\">\n\t<div class=\"mdl-textfield mdl-js-textfield\">\n\t\t<label class=\"tblbl\">\u0424\u0435\u043D\u043E\u0442\u0438\u043F ".concat(allel, "</label>\n\t\t<input type=\"text\" class=\"mdl-textfield__input\" id=\"inputFor").concat(allel, "\">\n\t</div>\n</div>");
+    return "<div class=\"form-group\">\n\t<div class=\"mdl-textfield mdl-js-textfield\">\n\t\t<label for=\"inputFor".concat(allel, "\" class=\"small\">\u0424\u0435\u043D\u043E\u0442\u0438\u043F ").concat(allel, "</label>\n\t\t<input type=\"text\" class=\"form-control\" id=\"inputFor").concat(allel, "\">\n\t</div>\n</div>");
   };
 
   checkGenotype = function checkGenotype(genotype) {

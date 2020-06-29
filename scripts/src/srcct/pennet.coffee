@@ -235,8 +235,8 @@ createOutput = (g1, g2) ->
 	phenotypeCounter = new Counter
 
 	builder =
-	"""<br><label class="tblbl">Решётка Пеннета: </label><br>
-		 <table class='mdl-data-table mdl-js-data-table'><tr><td></td>"""
+	"""<br><label class="small">Решётка Пеннета: </label><br>
+		 <table class="table table-bordered"><tr><td></td>"""
 
 	builder += "<td>#{i}</td>" for i in g2
 	builder += "</tr>"
@@ -310,10 +310,10 @@ onChangeText = () ->
 
 createPhenotypeInput = (allel) ->
 	"""
-		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+		<div class="form-group">
 			<div class="mdl-textfield mdl-js-textfield">
-				<label class="tblbl">Фенотип #{allel}</label>
-				<input type="text" class="mdl-textfield__input" id="inputFor#{allel}">
+				<label for="inputFor#{allel}" class="small">Фенотип #{allel}</label>
+				<input type="text" class="form-control" id="inputFor#{allel}">
 			</div>
 		</div>
 	"""
