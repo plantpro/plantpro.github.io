@@ -66,23 +66,27 @@
 			<div class="col-lg-12">
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
-						<div class="card h-100">
+						<div class="card h-100 shadow-sm">
 							<img src="../resources/images/Безымянный.png" class="card-img-top" />
 							<div class="card-body">
 								<h5 class="card-title">
 									Неинфекционные болезни растений
 								</h5>
+
+								<a>#infographics</a>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-lg-4 col-md-6">
-						<div class="card h-100">
+						<div class="card h-100 shadow-sm mt-3 mt-md-0">
 							<img src="../resources/images/magnesium-defic.png" class="card-img-top" />
 							<div class="card-body">
 								<h5 class="card-title">
 									Недостаток магния
 								</h5>
+
+								<a>#phytopathology</a>
 							</div>
 						</div>
 					</div>
@@ -106,8 +110,8 @@
 	<script>
 		function showModal(event) {
 			console.log(event)
-			let res = event.target.parentNode.children[0].src;
-			let title = event.target.parentNode.getElementsByClassName("card-title")[0].innerText;
+			let res = event.target.closest(".card").getElementsByClassName("card-img-top")[0].src;
+			let title = event.target.closest(".card").getElementsByClassName("card-title")[0].innerText;
 			document.getElementById("my-modal").innerHTML = `
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
 				<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
