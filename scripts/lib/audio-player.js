@@ -110,10 +110,6 @@
           theRealEvent = isTouch ? e.originalEvent.touches[0] : e;
           theAudio.currentTime = Math.round(theAudio.duration * (theRealEvent.pageX - theBar.offset().left) / theBar.width());
         },
-            adjustVolume = function adjustVolume(e) {
-          theRealEvent = isTouch ? e.originalEvent.touches[0] : e;
-          theAudio.volume = Math.abs((theRealEvent.pageY - (volumeAdjuster.offset().top + volumeAdjuster.height())) / volumeAdjuster.height());
-        },
             updateLoadBar = function updateLoadBar() {
           var interval = setInterval(function () {
             if (theAudio.buffered.length < 1) return true;
