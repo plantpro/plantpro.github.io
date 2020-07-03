@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "Gotham-Bold";
+  src: url("../resources/Gotham Bold.otf") format("otf");
+}
+
+@keyframes show {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    margin-bottom: translateY(0vh);
+  }
+}
+
+body {
+  font-family: "Gotham-Bold", "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: 3.5em;
+}
+
+.navbar {
+  font-weight: bold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+	font-size: 14px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 992px) {
+  .nav-link:hover {
+    border-bottom: 3px white solid;
+    transition: 0.2s;
+  }
+
+  .no-underscore:hover {
+    border-bottom: none;
+  }
+}
+
+.main-screen {
+  min-height: 100vh;
+
+  background: #03001e;
+  background: -webkit-linear-gradient(to left, #ec38bc, #7303c0 );
+  background: linear-gradient(to left, #ec38bc, #7303c0);
+}
+
+/* for > md */
+@media (min-width: 992px) {
+	.main-screen {
+		background: -webkit-linear-gradient(to left, #fdeff9, #ec38bc, #7303c0, #03001e);
+		background: linear-gradient(to left, #fdeff9, #ec38bc, #7303c0, #03001e);
+	}
+}
+
+.main-screen-content {
+  color: white;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+	flex-direction: column;
+	position: relative;
+  /* for <= sm */
+	margin-left: 0px;
+	text-align: center;
+}
+
+.main-screen-heading {
+	animation: show 1s ease;
+	z-index: 1;
+}
+
+.main-screen-image {
+	position: static;
+	z-index: 0;
+}
+
+.main-screen-image>img {
+	position: absolute;
+  bottom: 0px;
+	right: 0px;
+  width: 40vw;
+}
+
+/* for >= md */
+@media (min-width: 576px) {
+  .main-screen-content {
+    text-align: left;
+    margin-left: 5em;
+	}
+}
+
+.social-icon {
+  height: 24px;
+}
