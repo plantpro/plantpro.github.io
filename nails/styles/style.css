@@ -55,7 +55,7 @@ h1 {
 }
 
 /* for > md */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
 	.main-screen {
 		background: -webkit-linear-gradient(to left, #fdeff9, #ec38bc, #7303c0, #03001e);
 		background: linear-gradient(to left, #fdeff9, #ec38bc, #7303c0, #03001e);
@@ -101,7 +101,7 @@ h1 {
 }
 
 /* for >= md */
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .main-screen-content {
     text-align: left;
 		margin-left: 5em;
