@@ -92,11 +92,12 @@ h1 {
 }
 
 .main-screen-image-sm {
-  position: static;
+	margin-top: 5em;
+	position: static;
 }
 
 .main-screen-image-sm>img {
-  width: 100%;
+	width: 100%;
 }
 
 /* for >= md */
