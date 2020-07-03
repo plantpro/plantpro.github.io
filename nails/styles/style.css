@@ -64,12 +64,12 @@ h1 {
 
 .main-screen-content {
   color: white;
-  min-height: 90vh;
   display: flex;
   justify-content: center;
 	flex-direction: column;
 	position: relative;
-  /* for <= sm */
+	/* for <= sm */
+	min-height: 40vh;
 	margin-left: 0px;
 	text-align: center;
 }
@@ -91,11 +91,20 @@ h1 {
   width: 40vw;
 }
 
+.main-screen-image-sm {
+  position: static;
+}
+
+.main-screen-image-sm>img {
+  width: 100%;
+}
+
 /* for >= md */
 @media (min-width: 576px) {
   .main-screen-content {
     text-align: left;
-    margin-left: 5em;
+		margin-left: 5em;
+		min-height: 90vh;
 	}
 }
 
