@@ -101,7 +101,6 @@ h1 {
 
 .main-screen-image-sm>img {
 	width: 100%;
-	min-height: 60vh;
 }
 
 /* for >= md */
@@ -139,6 +138,7 @@ h1 {
 
 .carousel-item>img {
 	width: 100%;
+	min-height: 60vh;
 }
 
 .social-icon {
