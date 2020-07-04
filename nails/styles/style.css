@@ -52,7 +52,9 @@ h1 {
 
   background: #03001e;
   background: -webkit-linear-gradient(to left, #ec38bc, #7303c0);
-  background: linear-gradient(to left, #ec38bc, #7303c0);
+	background: linear-gradient(to left, #ec38bc, #7303c0);
+	
+	box-shadow: 0 0 20px black;
 }
 
 /* for > md */
@@ -98,7 +100,8 @@ h1 {
 }
 
 .main-screen-image-sm>img {
-  width: 100%;
+	width: 100%;
+	min-height: 60vh;
 }
 
 /* for >= md */
