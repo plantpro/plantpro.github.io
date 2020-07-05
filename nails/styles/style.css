@@ -5,11 +5,13 @@
 
 @keyframes show {
   from {
-    transform: translateY(55vh);
+		transform: translateY(55vh);
+		opacity: 0;
   }
 
   to {
-    margin-bottom: translateY(0vh);
+		margin-bottom: translateY(0vh);
+		opacity: 1;
   }
 }
 
@@ -78,7 +80,7 @@ h1 {
 }
 
 .main-screen-heading {
-  animation: show 1s ease;
+  animation: show 1.5s ease;
   z-index: 1;
 }
 
@@ -144,4 +146,21 @@ h1 {
 
 .social-icon {
   height: 24px;
+}
+
+.sign-up-button {
+	color: #000000;
+	background-color: #fbff13;
+	padding: 10px 15px;
+	border-radius: 5px;
+	border: none;
+	display: inline-block;
+	width: fit-content;
+}
+
+.sign-up-button:hover {
+	color: #000000;
+	text-decoration: none;
+	background-color: #fdeff9;
+	transition: 0.3s;
 }
