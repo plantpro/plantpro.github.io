@@ -88,13 +88,41 @@ h1 {
 	padding: 3em;
 }
 
+.division-header {
+	color: #58554B;
+	/*background-color: rgb(245, 245, 245);*/
+	padding: 3em;
+	margin: 0px;
+}
+
 .division-card:hover {
 	color: #00ceab;
 }
 
-.division-card>img {
+.division-card>img, .division-header-img {
 	width: 100%;
 	max-width: 500px;
 	border-radius: 50%;
 	margin-bottom: 1em;
+}
+
+
+.article-img {
+	width: 100%
+}
+
+.article-title {
+
+}
+
+.card {
+	border-radius: 0px;
+}
+
+.card>a {
+	color: #000000;
+}
+
+.card-img-top {
+	border-radius: 0px;
 }
