@@ -77,11 +77,19 @@ h1 {
 	padding-top: 3em;
 }
 
+.divisions-block>.row>a:hover {
+	text-decoration: none;
+}
+
 .division-card {
 	min-height: 100%;
 	color: #58554B;
 	background-color: rgb(245, 245, 245);
 	padding: 3em;
+}
+
+.division-card:hover {
+	color: #00ceab;
 }
 
 .division-card>img {
