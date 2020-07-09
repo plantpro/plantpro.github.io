@@ -1,252 +1,73 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Защита растений</title>
+	<title>Защита растений - статьи и книги по теме</title>
 
-	<link rel="stylesheet" href="stylesheets/light.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<svg style="width: 24px; height: 24px; margin-right: 5px;" viewbox="0 0 24 24">
-			<path class="svg-primary"
-				d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
-		</svg>
+	<div class="main-screen">
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand ml-lg-3">
+				<img src="resources/images/logo.svg" />
+			</a>
 
-		<a class="navbar-brand">
-			PLANT PROTECTION
-		</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+				aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="index.html">Домашняя</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="articles/index.html">Статьи</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="library/index.html">Библиотека</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="dictionary/index.html">Словарь</a>
-				</li>
-			</ul>
-
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="about.html">О сайте</a>
-				</li>
-
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="lang-dropdown" role="button" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						<span class="flag-icon flag-icon-ru"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="lang-dropdown">
-						<a class="dropdown-item" href="en/index.html">
-							<span class="flag-icon flag-icon-gb"></span> English
-						</a>
-						<a class="dropdown-item" href="de/index.html">
-							<span class="flag-icon flag-icon-de"></span> Deutsch
-						</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="container-fluid">
-		<div class="row mt-3">
-			<!-- Right area -->
-			<div class="col-lg-3 col-md-4 mt-3 order-1 order-md-0">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Ищете литературу?</h5>
-						<p class="card-text">
-							В нашей библиотеке имеется более 100 книг по агрономии!
-						</p>
-						<a href="library/index.html" class="btn btn-primary">Перейти в библиотеку</a>
-					</div>
-				</div>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item mr-5">
+						<a class="nav-link" href="gallery.html">Статьи</a>
+					</li>
+					<li class="nav-item mr-5">
+						<a class="nav-link" href="gallery.html">Библиотека</a>
+					</li>
+					<li class="nav-item mr-5">
+						<a class="nav-link" href="gallery.html">Апплеты</a>
+					</li>
+					<li class="nav-item mr-5">
+						<a class="nav-link" href="gallery.html">Медиа</a>
+					</li>
+					<li class="nav-item mr-5">
+						<a class="nav-link" href="gallery.html">Словарь</a>
+					</li>
+				</ul>
 			</div>
+		</nav>
 
-			<!-- Main (left) area -->
-			<div class="col-lg-9 col-md-8 order-0 order-md-1">
-				<div>
-					<h3>Последние статьи</h3>
-					<div class="row">
-						<div class="col-lg-11">
-							<div class="row">
-								<div class="col-lg-4 col-md-6">
-									<div class="card h-100">
-										<img src="resources/images/magnesium-defic.png" class="card-img-top" />
-										<a class="text-primary text-decoration-none"
-											href="articles/phytopathology/non-infectious-plant-diseases.html">
-											<div class="card-body">
-												<h5 class="card-title">
-													Неинфекционные болезни растений
-												</h5>
-												<p class="float-right" style="position: relative;margin-top: -1em;font-size: 1.3em;">♫</p>
-											</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="col-lg-4 col-md-6 mt-3 mt-md-0 mt-sm-3">
-									<div class="card h-100">
-										<img src="resources/images/intro-to-stat.png" class="card-img-top" />
-										<a class="text-primary text-decoration-none"
-											href="articles/statistics/introduction-to-statistics.html">
-											<div class="card-body">
-												<h5 class="card-title">Введение в статистику</h5>
-											</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="col-lg-4 col-md-6 mt-3 mt-lg-0 mt-sm-3">
-									<div class="card h-100">
-										<img src="resources/images/tr4.jpg" class="card-img-top" />
-										<a class="text-primary text-decoration-none"
-											href="articles/statistics/introduction-to-data-visualization.html">
-											<div class="card-body">
-												<h5 class="card-title">Введение в визуализацию данных</h5>
-											</div>
-										</a>
-									</div>
-								</div>
-
-								<!-- This button visible only on md screens -->
-								<div class="col-lg-4 col-md-6 mt-md-3 d-none d-md-block d-lg-none">
-									<a href="articles/index.html" class="card h-100 bg-primary">
-										<svg class="arrow-next arrow-next-md" viewbox="0 0 443.52 443.52">
-											<path d="M336.226,209.591l-204.8-204.8c-6.78-6.548-17.584-6.36-24.132,0.42c-6.388,6.614-6.388,17.099,0,23.712l192.734,192.734
-																 L107.294,414.391c-6.663,6.664-6.663,17.468,0,24.132c6.665,6.663,17.468,6.663,24.132,0l204.8-204.8
-																 C342.889,227.058,342.889,216.255,336.226,209.591z" />
-										</svg>
-									</a>
-								</div>
-
-								<!-- This button visible only on sm screens -->
-								<div class="col-lg-4 col-md-6 mt-3 mt-sm-3 d-block d-md-none">
-									<a href="articles/index.html"
-										class="card h-100 bg-primary text-center text-white text-decoration-none">
-										<div class="card-body">
-											<h5 class="card-title">Показать все</h5>
-										</div>
-									</a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Show all button -->
-						<div class="col-lg-1 d-none d-lg-block">
-							<a href="articles/index.html" class="card h-100 bg-primary">
-								<svg class="arrow-next" viewbox="0 0 443.52 443.52">
-									<path d="M336.226,209.591l-204.8-204.8c-6.78-6.548-17.584-6.36-24.132,0.42c-6.388,6.614-6.388,17.099,0,23.712l192.734,192.734
-														 L107.294,414.391c-6.663,6.664-6.663,17.468,0,24.132c6.665,6.663,17.468,6.663,24.132,0l204.8-204.8
-														 C342.889,227.058,342.889,216.255,336.226,209.591z" />
-								</svg>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="mt-3">
-					<h3>Приложения</h3>
-					<div class="row">
-						<div class="col-lg-11">
-							<div class="row">
-								<div class="col-lg-4 col-md-6">
-									<div class="card h-100">
-										<a class="text-primary text-decoration-none" href="applications/punnet-square.html">
-											<div class="card-body">
-												<h5 class="card-title">
-													Решётка Пеннета
-												</h5>
-											</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="col-lg-4 col-md-6 mt-3 mt-md-0 mt-sm-3">
-									<div class="card h-100">
-										<a class="text-primary text-decoration-none" href="applications/complimentarity.html">
-											<div class="card-body">
-												<h5 class="card-title">
-													Комплементарность
-												</h5>
-											</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="col-lg-4 col-md-6 mt-3 mt-lg-0 mt-sm-3">
-									<div class="card h-100">
-										<div class="card-body">
-											<h5 class="card-title">Конвертер величин</h5>
-										</div>
-									</div>
-								</div>
-
-								<!-- This button visible only on md screens -->
-								<div class="col-lg-4 col-md-6 mt-md-3 d-none d-md-block d-lg-none">
-									<a href="articles/index.html" class="card h-100 bg-primary">
-										<svg class="arrow-next arrow-next-md" viewbox="0 0 443.52 443.52">
-											<path d="M336.226,209.591l-204.8-204.8c-6.78-6.548-17.584-6.36-24.132,0.42c-6.388,6.614-6.388,17.099,0,23.712l192.734,192.734
-																 L107.294,414.391c-6.663,6.664-6.663,17.468,0,24.132c6.665,6.663,17.468,6.663,24.132,0l204.8-204.8
-																 C342.889,227.058,342.889,216.255,336.226,209.591z" />
-										</svg>
-									</a>
-								</div>
-
-								<!-- This button visible only on sm screens -->
-								<div class="col-lg-4 col-md-6 mt-3 mt-sm-3 d-block d-md-none">
-									<a href="articles/index.html"
-										class="card h-100 bg-primary text-center text-white text-decoration-none">
-										<div class="card-body">
-											<h5 class="card-title">Показать все</h5>
-										</div>
-									</a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Show all button -->
-						<div class="col-lg-1 d-none d-lg-block">
-							<a href="articles/index.html" class="card h-100 bg-primary">
-								<svg class="arrow-next" viewbox="0 0 443.52 443.52">
-									<path d="M336.226,209.591l-204.8-204.8c-6.78-6.548-17.584-6.36-24.132,0.42c-6.388,6.614-6.388,17.099,0,23.712l192.734,192.734
-														 L107.294,414.391c-6.663,6.664-6.663,17.468,0,24.132c6.665,6.663,17.468,6.663,24.132,0l204.8-204.8
-														 C342.889,227.058,342.889,216.255,336.226,209.591z" />
-								</svg>
-							</a>
-						</div>
-					</div>
-				</div>
+		<div class="main-screen-content">
+			<div class="main-screen-heading">
+				<h1>Plant Protection</h1>
+				<p>Информационный ресурс по защите растений</p>
 			</div>
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-		crossorigin="anonymous"></script>
+	<div class="container-fluid divisions-block text-center">
+		<h2>Разделы</h2>
+
+	</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+			crossorigin="anonymous"></script>
 </body>
 
 </html>
