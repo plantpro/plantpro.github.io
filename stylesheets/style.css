@@ -1,3 +1,16 @@
+:root {
+	--secondary: #ce0e00;
+	--light-grey: rgb(245, 245, 245);
+	--grey: #58554B;
+	--shadow: rgba(0, 0, 0, 0.459);
+
+	--division-header-bg: #ffffff;
+	--division-header-fg: #000000;
+
+	--article-bg: rgb(245, 245, 245);
+	--article-fg: #58554B;
+}
+
 @font-face {
   font-family: "Gotham-Bold";
   src: url("../resources/Gotham Bold.otf") format("otf");
@@ -26,7 +39,7 @@ h1 {
 }
 
 .navbar-grey {
-	background-color: rgb(245, 245, 245);
+	background-color: var(--division-header-bg);
 }
 
 .navbar-toggler-icon {
@@ -47,24 +60,24 @@ h1 {
 }
 
 .nav-link-grey {
-	color: #58554B;
+	color: var(--division-header-fg);
 }
 
 .nav-link:hover {
-	color: #06f0c9;
+	color: var(--secondary);
 	transition: 0.3s;
 }
 
 .main-screen {
   min-height: 100vh;
 
-  background: #03001e;
+  background: #000000;
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/0e/Tractors_in_field_-_panoramio.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 
-	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.459);
+	box-shadow: 0 0 10px 2px var(--shadow);
 }
 
 .main-screen-content {
@@ -80,7 +93,7 @@ h1 {
 }
 
 .divisions-block {
-	color: #58554B;
+	color: var(--grey);
 	min-height: 100vh;
 	padding: 3em 15px;
 }
@@ -95,21 +108,19 @@ h1 {
 
 .division-card {
 	min-height: 100%;
-	color: #58554B;
-	background-color: rgb(245, 245, 245);
+	color: var(--grey);
+	background-color: var(--light-grey);
 	padding: 3em;
 }
 
 .division-header {
-	color: #58554B;
+	color: var(--division-header-fg);
 	padding: 3em;
-	background-color: rgb(245, 245, 245);
-	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.459);
-	
+	background-color: var(--division-header-bg);
 }
 
 .division-card:hover {
-	color: #00ceab;
+	color: var(--secondary);
 }
 
 .division-card>img, .division-header-img {
@@ -119,19 +130,22 @@ h1 {
 	margin-bottom: 1em;
 }
 
-.article-item {
+.article {
 	display: flex;
 	flex-direction: column;
 	padding: 1em 2em;
+	margin: 1em;
+	color: var(--article-fg);
+	background-color: var(--article-bg);
 }
 
 .article-title, .article-title:visited {
 	font-size: 1.6em;
-	color: #000000;
+	color: var(--article-fg);
 }
 
 .article-title:hover, .article-title:focus {
-	color: #00ceab;
+	color: var(--secondary);
 	text-decoration: none;
 	transition: 0.3s;
 }
