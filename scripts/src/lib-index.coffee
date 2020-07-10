@@ -54,7 +54,7 @@ stateChanged = (event) ->
 		indexOfArticlePredicate.processIt = true
 		return
 	indexOfArticlePredicate.processIt = false
-	console.log self
+	console.log event
 	if event.target.control.checked
 		predicates.push(articlePredicate)
 		indexOfArticlePredicate.index = predicates.length - 1
@@ -107,5 +107,5 @@ document.filterByType = (self) ->
 
 document.clearFilter = clearFilter
 
-document.getElementsById "switch-1"
+document.getElementById "switch-1"
 .addEventListener "click", stateChanged

@@ -466,7 +466,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
 
     indexOfArticlePredicate.processIt = false;
-    console.log(self);
+    console.log(event);
 
     if (event.target.control.checked) {
       predicates.push(articlePredicate);
@@ -554,5 +554,5 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.clearFilter = clearFilter;
-  document.getElementsById("switch-1").addEventListener("click", stateChanged);
+  document.getElementById("switch-1").addEventListener("click", stateChanged);
 }).call(void 0);
