@@ -55,6 +55,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       neueText,
       predicates,
       runParser,
+      stateChanged,
       sub,
       sum,
       unique,
@@ -458,7 +459,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     processIt: false
   };
 
-  document.stateChanged = function (self) {
+  stateChanged = function stateChanged(event) {
     if (!indexOfArticlePredicate.processIt) {
       indexOfArticlePredicate.processIt = true;
       return;
@@ -467,7 +468,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     indexOfArticlePredicate.processIt = false;
     console.log(self);
 
-    if (self.control.checked) {
+    if (event.target.control.checked) {
       predicates.push(articlePredicate);
       indexOfArticlePredicate.index = predicates.length - 1;
     } else {
@@ -553,4 +554,5 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.clearFilter = clearFilter;
+  document.getElementsById("switch-1").addEventListener("click", stateChanged);
 }).call(void 0);

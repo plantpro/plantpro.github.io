@@ -49,13 +49,13 @@ articlePredicate = (record) ->
 
 indexOfArticlePredicate = { index: -1, processIt: false }
 
-document.stateChanged = (self) ->
+stateChanged = (event) ->
 	if not indexOfArticlePredicate.processIt
 		indexOfArticlePredicate.processIt = true
 		return
 	indexOfArticlePredicate.processIt = false
 	console.log self
-	if self.control.checked
+	if event.target.control.checked
 		predicates.push(articlePredicate)
 		indexOfArticlePredicate.index = predicates.length - 1
 	else
@@ -106,3 +106,6 @@ document.filterByType = (self) ->
 			makeChipWithColor "Тип: online", "rgb(112, 112, 112)", (predicates.length - 1)
 
 document.clearFilter = clearFilter
+
+document.getElementsById "switch-1"
+.addEventListener "click", stateChanged

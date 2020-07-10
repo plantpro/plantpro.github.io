@@ -1,10 +1,25 @@
-#record-count {
-	color: #999999;
-	font-size: smaller;
+:root {
+	--secondary: #ce0e00;
+	--light-grey: rgb(245, 245, 245);
+	--grey: #58554B;
+	--shadow: rgba(0, 0, 0, 0.459);
+
+	--division-header-bg: #ffffff;
+	--division-header-fg: #000000;
+
+	--article-bg: rgb(245, 245, 245);
+	--article-fg: #58554B;
+}
+
+.division-header {
+	padding-bottom: 0em;
 }
 
 .plpro-lib-record {
-	margin: 10px 0px;
+	padding: 1em 2em;
+	margin: 1em;
+	color: var(--article-fg);
+	background-color: var(--article-bg);
 }
 
 .plpro-lib-record-article {
@@ -13,7 +28,18 @@
 }
 
 .plpro-lib-record-title {
-	margin-bottom: 0px;
+	margin-bottom: 0;
+}
+
+.plpro-lib-record-title>a {
+	font-size: 1.1em;
+	color: var(--article-fg);
+}
+
+.plpro-lib-record-title>a:hover, .plpro-lib-record-title-title>a:focus {
+	color: var(--secondary);
+	text-decoration: none;
+	transition: 0.3s;
 }
 
 .plpro-lib-record-year, .plpro-lib-record-size, .plpro-lib-record-autor {
@@ -21,7 +47,18 @@
 	font-size: smaller;
 }
 
+.filtration-block {
+	text-align: left;
+	margin: 3em;
+}
+
+#filter {
+	margin-top: 1em;
+}
+
 .filetype-tag {
+	margin-left: 3px;
+	float: right;
 	cursor: pointer;
 	text-decoration: none;
 }
