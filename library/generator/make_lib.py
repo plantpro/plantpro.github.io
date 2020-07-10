@@ -58,7 +58,7 @@ def write_to_file(content, recordsCount):
 			<img src="../resources/images/logo-black.svg" />
 		</a>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#inline-navbar"
 			aria-controls="inline-navbar" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
 		</button>
