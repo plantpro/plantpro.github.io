@@ -1,96 +1,224 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<title>Медиа</title>
 
-	<link rel="stylesheet" href="../stylesheets/light.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="../stylesheets/style.css">
+
+	<style>
+		.publication {
+			width: 100%;
+			border-radius: 16px;
+		}
+
+		.card {
+			border: none;
+		}
+
+		.card-columns {
+				column-count: 2;
+			}
+
+			@media (min-width: 576px) { 
+				.card-columns {
+				column-count: 3;
+			}
+			}
+		@media (min-width: 992px) {
+			.card-columns {
+				column-count: 4;
+			}
+		}
+
+		@media (min-width: 1200px) {
+			.card-columns {
+				column-count: 5;
+			}
+		}
+	</style>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<svg style="width: 24px; height: 24px; margin-right: 5px;" viewbox="0 0 24 24">
-			<path class="svg-primary"
-				d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
-		</svg>
+	<nav class="navbar navbar-expand-lg navbar-grey d-flex d-md-none">
 		<a class="navbar-brand">
-			PLANT PROTECTION
+			<img src="../resources/images/logo-black.svg" />
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false">
-			<span class="navbar-toggler-icon"></span>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="../index.html">Домашняя</a>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item mr-lg-5">
+					<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="index.html">Статьи</a>
+				<li class="nav-item mr-lg-5">
+					<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="../library/index.html">Библиотека</a>
+				<li class="nav-item mr-lg-5">
+					<a class="nav-link nav-link-grey" href="../library/index.html">Книги</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="../dictionary/index.html">Словарь</a>
+				<li class="nav-item mr-lg-5">
+					<a class="nav-link nav-link-grey" href="../applets/index.html">Апплеты</a>
 				</li>
-			</ul>
-
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="../about.html">О сайте</a>
-				</li>
-
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						<span class="flag-icon flag-icon-ru"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="en/articles/index.html"><span class="flag-icon flag-icon-gb"></span>
-							English</a>
-						<a class="dropdown-item" href="de/articles/index.html"><span class="flag-icon flag-icon-de"></span>
-							Deutsch</a>
-					</div>
+				<li class="nav-item mr-lg-5">
+					<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 
-	<div class="container-fluid">
-		<div class="row mt-3">
-			<div class="col-lg-12">
-				<div class="row">
-					<div class="col-lg-4 col-md-6">
-						<div class="card h-100 shadow-sm">
-							<img src="../resources/images/Безымянный.png" class="card-img-top" />
-							<div class="card-body">
-								<h5 class="card-title">
-									Неинфекционные болезни растений
-								</h5>
+	<div class="division-header">
+		<div class="row">
+			<div class="col-md-4 col-lg-2 text-center">
+				<img class="division-header-img" src="../resources/images/media-cover.jpg" />
+			</div>
 
-								<a>#infographics</a>
-							</div>
-						</div>
+			<div class="col-md-8 col-lg-10 text-center text-sm-left">
+				<nav class="navbar navbar-expand-lg navbar-grey d-none d-md-flex">
+					<a class="navbar-brand">
+					</a>
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#inline-navbar"
+						aria-controls="inline-navbar" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="inline-navbar">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item mr-lg-5">
+								<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
+							</li>
+							<li class="nav-item mr-lg-5">
+								<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
+							</li>
+							<li class="nav-item mr-lg-5">
+								<a class="nav-link nav-link-grey" href="../library/index.html">Книги</a>
+							</li>
+							<li class="nav-item mr-lg-5">
+								<a class="nav-link nav-link-grey" href="../applets/index.html">Апплеты</a>
+							</li>
+							<li class="nav-item mr-lg-5">
+								<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
+							</li>
+						</ul>
 					</div>
+				</nav>
+				<h1 class="division-header-title">Медиа</h1>
+				<span class="division-header-description">
+					В разделе Медиа находятся полезные изображения и видео
+				</span>
+			</div>
+		</div>
+	</div>
 
-					<div class="col-lg-4 col-md-6">
-						<div class="card h-100 shadow-sm mt-3 mt-md-0">
-							<img src="../resources/images/magnesium-defic.png" class="card-img-top" />
-							<div class="card-body">
-								<h5 class="card-title">
-									Недостаток магния
-								</h5>
+	<div class="container-fluid mt-3 mb-3">
+		<div class="card-columns">
+			<div class="card">
+				<img class="publication" src="../resources/images/Безымянный.png"
+					title="Алгоритм определения недостатка элементов питания" />
+			</div>
 
-								<a>#phytopathology</a>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="card">
+				<img class="publication" src="../resources/images/magnesium-defic.png" title="Симптомы дефицита магния" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/trifolium-pratense.jpg"
+					title="Клевер луговой (Trifolium pratense)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/trifolium-hybridum.jpg"
+					title="Клевер гибридный (Trifolium hybridum)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/caltha-palustris.jpg"
+					title="Калужница болотная (Caltha palustris)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/caltha-palustris2.jpg"
+					title="Калужница болотная (Caltha palustris)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/lychnis-flos-cuculi.jpg"
+					title="Горицвет кукушкин обыкновенный (Lychnis flos-cuculi)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/geranium-pratense.jpg"
+					title="Герань луговая (Geranium pratense)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/lupinus-polyphyllus.jpg"
+					title="Люпин многолистный (Lupinus polyphyllus)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Мать-и-мачеха обыкновенная~Tussilago farfara.png"
+					title="Мать-и-мачеха обыкновенная (Tussilago farfara)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Бодяк полевой~Cirsium arvense.png"
+					title="Бодяк полевой (Cirsium arvense)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Василек синий~Centaurea cyanus.png"
+					title="Василек синий (Centaurea cyanus)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Нивяник обыкновенный~Leucanthemum vulgare.png"
+					title="Нивяник обыкновенный (Leucanthemum vulgare)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Нивяник обыкновенный~Leucanthemum vulgare2.png"
+					title="Нивяник обыкновенный фото (Leucanthemum vulgare)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Одуванчик лекарственный~Taraxacum officinale.png"
+					title="Одуванчик лекарственный (Taraxacum officinale)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Осот полевой~Sonchus arvensis.png"
+					title="Осот полевой (Sonchus arvensis)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Подсолнечник однолетний~Helianthus annuus.png"
+					title="Подсолнечник однолетний (Helianthus annuus)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Подсолнечник однолетний~Helianthus annuus2.png"
+					title="Подсолнечник однолетний фото (Helianthus annuus)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Полынь обыкновенная~Artemisia vulgaris.png"
+					title="Полынь обыкновенная рисунок (Artemisia vulgaris)" />
+			</div>
+
+			<div class="card">
+				<img class="publication" src="../resources/images/media/Полынь обыкновенная~Artemisia vulgaris2.png"
+					title="Полынь обыкновенная фото (Artemisia vulgaris)" />
 			</div>
 		</div>
 	</div>
@@ -110,8 +238,8 @@
 	<script>
 		function showModal(event) {
 			console.log(event)
-			let res = event.target.closest(".card").getElementsByClassName("card-img-top")[0].src;
-			let title = event.target.closest(".card").getElementsByClassName("card-title")[0].innerText;
+			let res = event.target.src;
+			let title = event.target.title;
 			document.getElementById("my-modal").innerHTML = `
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
 				<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -132,7 +260,7 @@
 			$('#myModal').modal()
 		}
 
-		for(let card of document.getElementsByClassName("card")) {
+		for (let card of document.getElementsByClassName("publication")) {
 			card.addEventListener("click", showModal);
 		}
 	</script>
