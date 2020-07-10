@@ -32,6 +32,10 @@ h1 {
 	word-break: break-all;
 }
 
+.main-screen-heading>h1 {
+	word-break: normal;
+}
+
 .navbar {
   font-weight: bold;
   letter-spacing: .1em;
