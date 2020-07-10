@@ -87,7 +87,7 @@ def write_to_file(content, recordsCount):
 	<div class="division-header">
 		<div class="row">
 			<div class="col-md-4 col-lg-2 text-center">
-				<img class="division-header-img" src="../resources/images/articles-cover.jpg" />
+				<img class="division-header-img" src="../resources/images/library-cover.jpg" />
 			</div>
 
 			<div class="col-md-8 col-lg-10 text-center text-sm-left">
