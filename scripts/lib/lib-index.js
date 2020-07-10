@@ -464,7 +464,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     //	indexOfArticlePredicate.processIt = true
     //	return
     indexOfArticlePredicate.processIt = false;
-    console.log(event.target.checked);
+    console.log(predicates);
 
     if (event.target.checked) {
       predicates.push(articlePredicate);
