@@ -11,6 +11,22 @@
 	--article-fg: #58554B;
 }
 
+.custom-control-input:checked~.custom-control-label::before {
+	color: #fff;
+	border-color: var(--secondary);
+	background-color: var(--secondary);
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+	box-shadow: none;
+}
+
+.custom-control-input:not(:disabled):active~.custom-control-label::before {
+	color: #fff;
+	background-color: #ce0e0056;
+	border-color: #ce0e0056;
+}
+
 .division-header {
 	padding-bottom: 0em;
 }
