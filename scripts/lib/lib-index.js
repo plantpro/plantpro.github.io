@@ -468,7 +468,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     indexOfArticlePredicate.processIt = false;
     console.log(event);
 
-    if (event.target.control.checked) {
+    if (event.target.checked) {
       predicates.push(articlePredicate);
       indexOfArticlePredicate.index = predicates.length - 1;
     } else {
