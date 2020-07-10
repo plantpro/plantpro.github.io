@@ -25,12 +25,16 @@ h1 {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-.navbar-black {
-	background-color: #000000;
+.navbar-grey {
+	background-color: rgb(245, 245, 245);
 }
 
 .navbar-toggler-icon {
   background-image: url("../resources/images/toggler.svg");
+}
+
+.navbar-toggler-dark-icon {
+  background-image: url("../resources/images/toggler-dark.svg");
 }
 
 .navbar-brand>img {
@@ -40,6 +44,10 @@ h1 {
 
 .nav-link {
 	color: #ffffff;
+}
+
+.nav-link-grey {
+	color: #58554B;
 }
 
 .nav-link:hover {
@@ -93,8 +101,10 @@ h1 {
 }
 
 .division-header {
-	color: #000000;
+	color: #58554B;
 	padding: 3em;
+	background-color: rgb(245, 245, 245);
+	
 }
 
 .division-card:hover {
