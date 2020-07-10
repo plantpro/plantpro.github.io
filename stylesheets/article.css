@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "Gotham-Bold";
+  src: url("../resources/Gotham Bold.otf") format("otf");
+}
+
+body {
+  font-family: "Gotham-Bold", "Helvetica Neue", sans-serif;
+}
+
 h3 {
-	font-weight: 300;
+	font-weight: 400;
 	margin: 2rem auto;
 }
 

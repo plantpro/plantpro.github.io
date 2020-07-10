@@ -89,7 +89,7 @@ h1 {
 }
 
 .division-header {
-	color: #58554B;
+	color: #000000;
 	padding: 3em;
 }
 
@@ -104,23 +104,25 @@ h1 {
 	margin-bottom: 1em;
 }
 
-
-.article-img {
-	width: 100%
+.article-item {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 2em;
 }
 
-.article-title {
-
-}
-
-.card {
-	border-radius: 0px;
-}
-
-.card>a {
+.article-title, .article-title:visited {
+	font-size: 1.6em;
 	color: #000000;
 }
 
-.card-img-top {
-	border-radius: 0px;
+.article-title:hover, .article-title:focus {
+	color: #00ceab;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.article-publication-date {
+	font-size: small;
+	color: rgba(0, 0, 0, 0.5);
+	margin-bottom: 5px;
 }
