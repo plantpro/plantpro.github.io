@@ -554,5 +554,5 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.clearFilter = clearFilter;
-  document.getElementById("switch-1").addEventListener("click", stateChanged);
+  document.getElementById("switch-1").addEventListener("change", stateChanged);
 }).call(void 0);

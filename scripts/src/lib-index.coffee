@@ -108,4 +108,4 @@ document.filterByType = (self) ->
 document.clearFilter = clearFilter
 
 document.getElementById "switch-1"
-.addEventListener "click", stateChanged
+.addEventListener "change", stateChanged
