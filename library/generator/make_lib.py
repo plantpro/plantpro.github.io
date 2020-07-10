@@ -121,7 +121,7 @@ def write_to_file(content, recordsCount):
 					</div>
 				</nav>
 				
-				<h1 class="division-header-title">Библиотека</h1>
+				<h1 class="division-header-title">Книги</h1>
 				<span class="division-header-description" id="record-count">Записей в библиотеке: {recordsCount}</span>
 			</div>
 		</div>
