@@ -239,7 +239,7 @@ stateChanged = (event) ->
 		indexOfArticlePredicate.processIt = true
 		return
 	indexOfArticlePredicate.processIt = false
-	console.log event
+	console.log event.target
 	if event.target.checked
 		predicates.push(articlePredicate)
 		indexOfArticlePredicate.index = predicates.length - 1
