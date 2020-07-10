@@ -50,9 +50,9 @@ articlePredicate = (record) ->
 indexOfArticlePredicate = { index: -1, processIt: false }
 
 stateChanged = (event) ->
-	if not indexOfArticlePredicate.processIt
-		indexOfArticlePredicate.processIt = true
-		return
+	#if not indexOfArticlePredicate.processIt
+	#	indexOfArticlePredicate.processIt = true
+	#	return
 	indexOfArticlePredicate.processIt = false
 	console.log event.target.checked
 	if event.target.checked

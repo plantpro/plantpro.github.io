@@ -460,11 +460,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   stateChanged = function stateChanged(event) {
-    if (!indexOfArticlePredicate.processIt) {
-      indexOfArticlePredicate.processIt = true;
-      return;
-    }
-
+    //if not indexOfArticlePredicate.processIt
+    //	indexOfArticlePredicate.processIt = true
+    //	return
     indexOfArticlePredicate.processIt = false;
     console.log(event.target.checked);
 
