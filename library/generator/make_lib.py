@@ -59,26 +59,26 @@ def write_to_file(content, recordsCount):
 		</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			aria-controls="inline-navbar" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarText">
+		<div class="collapse navbar-collapse" id="inline-navbar">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item mr-lg-5">
 					<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
 				</li>
 				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="library/index.html">Библиотека</a>
+					<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
 				</li>
 				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="applets/index.html">Апплеты</a>
+					<a class="nav-link nav-link-grey" href="../applets/index.html">Апплеты</a>
 				</li>
 				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="media/index.html">Медиа</a>
+					<a class="nav-link nav-link-grey" href="../media/index.html">Медиа</a>
 				</li>
 				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="dictionary/index.html">Словарь</a>
+					<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
 				</li>
 			</ul>
 		</div>
