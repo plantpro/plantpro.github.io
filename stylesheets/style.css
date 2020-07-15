@@ -185,3 +185,14 @@ h1 {
 	color: rgba(0, 0, 0, 0.5);
 	margin-bottom: 5px;
 }
+
+footer {
+	background-color: #000000;
+	color:#ffffff50;
+	padding: 1em;
+	text-align: center;
+}
+
+footer>p {
+	margin-bottom: 0;
+}

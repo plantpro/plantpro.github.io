@@ -1,0 +1,67 @@
+.main-screen-heading>h1 {
+  word-break: normal;
+}
+
+.navbar-toggler-icon {
+  background-image: url("../resources/images/toggler.svg");
+}
+
+.main-screen {
+	height: 100vh;
+  min-height: 100vh;
+
+  background: #000000;
+  background-image: url(../resources/images/index-cover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+.main-screen-content {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  /* for <= sm */
+  min-height: 90vh;
+  margin-left: 0px;
+  text-align: center;
+}
+
+.divisions-block {
+  color: var(--grey);
+  min-height: 100vh;
+  padding: 3em 15px;
+}
+
+.divisions-block>.row {
+  padding-top: 3em;
+}
+
+.divisions-block>.row>a:hover {
+	color: var(--secondary);
+	text-decoration: none;
+	transition: .3s;
+}
+
+.division-card {
+  min-height: 100%;
+  color: var(--grey);
+  background-color: var(--light-grey);
+  padding: 3em;
+}
+
+.division-card:hover {
+  color: var(--secondary);
+}
+
+.division-card>img,
+.division-header-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 50%;
+  margin-bottom: 1em;
+}

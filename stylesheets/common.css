@@ -1,0 +1,138 @@
+/* Common styles, applied to all pages (with few exceptions) */
+
+:root {
+  --secondary: #ce0e00;
+  --light-grey: rgb(245, 245, 245);
+  --grey: #58554B;
+  --shadow: rgba(0, 0, 0, 0.459);
+
+  --division-header-bg: #ffffff;
+  --division-header-fg: #000000;
+
+  --article-bg: rgb(245, 245, 245);
+  --article-fg: #58554B;
+}
+
+@font-face {
+  font-family: "Gotham-Bold";
+  src: url("../resources/Gotham Bold.otf") format("otf");
+}
+
+body {
+  font-family: "Gotham-Bold", "Helvetica Neue", sans-serif;
+}
+
+button:focus {
+  outline: none;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: 3.5em;
+  word-break: break-all;
+}
+
+.navbar {
+  font-weight: bold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background-color: #000000;
+}
+
+.navbar-grey {
+  background-color: var(--division-header-bg);
+}
+
+.navbar-toggler-dark-icon {
+  background-image: url("../resources/images/toggler-dark.svg");
+}
+
+.navbar-brand>img {
+  height: 24px;
+  width: 24px;
+}
+
+.nav-link {
+  color: #ffffff;
+}
+
+.nav-link-grey {
+  color: var(--division-header-fg);
+}
+
+.nav-link:hover {
+  color: var(--secondary);
+  transition: 0.3s;
+}
+
+.imaged-article {
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+}
+
+.article-img {
+  width: 100%;
+}
+
+.article {
+  margin: 1em;
+  color: var(--article-fg);
+  background-color: var(--article-bg);
+}
+
+.article {
+  padding: 1em 2em;
+}
+
+.row.article {
+  padding: 0;
+}
+
+.article>div:first-child {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.article>div:last-child {
+  padding: 1em 2em;
+}
+
+.article-title,
+.article-title:visited {
+  display: block;
+  font-size: 1.6em;
+  color: var(--article-fg);
+}
+
+.article-title:hover,
+.article-title:focus {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.article-publication-date {
+  font-size: small;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+}
+
+.division-header {
+  color: var(--division-header-fg);
+  padding: 3em;
+  background-color: var(--division-header-bg);
+}
+
+footer {
+  background-color: #000000;
+  color: #ffffff50;
+  padding: 1em;
+  text-align: center;
+}
+
+footer>p {
+  margin-bottom: 0;
+}
