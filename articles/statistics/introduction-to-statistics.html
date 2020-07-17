@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../../stylesheets/light.min.css" />
 		<link rel="stylesheet" href="../../stylesheets/article.css" />
+		<link rel="stylesheet" href="../../stylesheets/audio-player.css" />
   </head>
 
   <body>
@@ -26,7 +27,13 @@
 
       <h3 class="display-4 article-title">
         Введение в статистику
-      </h3>
+			</h3>
+			
+			<div class="mb-3">
+				<audio preload="auto" controls>
+					<source src="../../resources/audio/into-to-stat.mp4" />
+				</audio>
+			</div>
 
       <p>
         Начнём с небольшого примера: в мире более 7.5 миллиардов человек, каждый
@@ -369,5 +376,6 @@
       crossorigin="anonymous"
 		></script>
 		<script type="text/javascript" src="../../scripts/lib/article.min.js"></script>
+		<script type="text/javascript" src="../../scripts/lib/audio-player.js"></script>
   </body>
 </html>

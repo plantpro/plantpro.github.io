@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Кребсы-тРНК</title>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="resources/images/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="resources/images/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="resources/images/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="resources/images/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="resources/images/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="resources/images/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="resources/images/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="resources/images/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="resources/images/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="resources/images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="resources/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="resources/images/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="resources/images/icons/favicon-16x16.png">
+	<link rel="icon" type="image/ico" href="./favicon.ico" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="resources/images/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="./stylesheets/common.css">
+	<link rel="stylesheet" href="./stylesheets/index.css">
+
+	<style>
+		.col-2 {
+			height: 100px;
+			background-color: burlywood;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid divisions-block text-center">
+		<div class="row">
+			<div class="col-2" onclick="setIndex(0)">
+
+			</div>
+			<div class="col-2" onclick="setIndex(1)">
+				
+			</div>
+			<div class="col-2" onclick="setIndex(2)">
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2" onclick="setIndex(3)">
+
+			</div>
+			<div class="col-2" onclick="setIndex(4)">
+				
+			</div>
+			<div class="col-2" onclick="setIndex(5)">
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2" onclick="setIndex(6)">
+
+			</div>
+			<div class="col-2" onclick="setIndex(7)">
+				
+			</div>
+			<div class="col-2" onclick="setIndex(8)">
+				
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+
+	<script>
+		/* начальное состояние доски
+			O |   | X
+			---------
+			X |   | X
+			---------
+				| O | O
+			*/
+		var origBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
+		// человек
+		var huPlayer = "O";
+
+		// ИИ
+		var aiPlayer = "X";
+
+		// возвращает список индексов пустых клеток доски
+		function emptyIndices(board) {
+			return board.filter(s => s != "O" && s != "X");
+		}
+
+		// победные комбинации с учётом индексов
+		function winning(board, player) {
+			if (
+				(board[0] == player && board[1] == player && board[2] == player) ||
+				(board[3] == player && board[4] == player && board[5] == player) ||
+				(board[6] == player && board[7] == player && board[8] == player) ||
+				(board[0] == player && board[3] == player && board[6] == player) ||
+				(board[1] == player && board[4] == player && board[7] == player) ||
+				(board[2] == player && board[5] == player && board[8] == player) ||
+				(board[0] == player && board[4] == player && board[8] == player) ||
+				(board[2] == player && board[4] == player && board[6] == player)
+			) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		// основная минимакс-функция
+		function minimax(newBoard, player) {
+			//доступные клетки
+			var availSpots = emptyIndices(newBoard);
+			// проверка на терминальное состояние (победа / поражение / ничья)
+			//and returning a value accordingly
+			if (winning(newBoard, huPlayer)) {
+				return { score: -10 };
+			}
+			else if (winning(newBoard, aiPlayer)) {
+				return { score: 10 };
+			}
+			else if (availSpots.length === 0) {
+				return { score: 0 };
+			}
+
+			// массив для хранения всех объектов
+			var moves = [];
+
+			// цикл по доступным клеткам
+			for (var i = 0; i < availSpots.length; i++) {
+				//create an object for each and store the index of that spot 
+				var move = {};
+				move.index = newBoard[availSpots[i]];
+
+				// совершить ход за текущего игрока
+				newBoard[availSpots[i]] = player;
+
+				//получить очки, заработанные после вызова минимакса от противника текущего игрока
+				if (player == aiPlayer) {
+					var result = minimax(newBoard, huPlayer);
+					move.score = result.score;
+				}
+				else {
+					var result = minimax(newBoard, aiPlayer);
+					move.score = result.score;
+				}
+
+				// очистить клетку
+				newBoard[availSpots[i]] = move.index;
+
+				// положить объект в массив
+				moves.push(move);
+			}
+			// если это ход ИИ, пройти циклом по ходам и выбрать ход с наибольшим количеством очков
+			var bestMove;
+			if (player === aiPlayer) {
+				var bestScore = -10000;
+				for (var i = 0; i < moves.length; i++) {
+					if (moves[i].score > bestScore) {
+						bestScore = moves[i].score;
+						bestMove = i;
+					}
+				}
+			} else {
+
+				// иначе пройти циклом по ходам и выбрать ход с наименьшим количеством очков
+				var bestScore = 10000;
+				for (var i = 0; i < moves.length; i++) {
+					if (moves[i].score < bestScore) {
+						bestScore = moves[i].score;
+						bestMove = i;
+					}
+				}
+			}
+
+			// вернуть выбранный ход (объект) из массива ходов
+			return moves[bestMove];
+		}
+
+		function setIndex(index) {
+			origBoard[index] = "O";
+			let x = minimax(origBoard, huPlayer)
+			origBoard[x[0]] = "X";
+			console.log(x);
+		}
+	</script>
+</body>
+
+</html>
