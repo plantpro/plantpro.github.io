@@ -1,0 +1,21 @@
+.applet-item {
+		color: var(--article-fg);
+		background-color: var(--article-bg);
+		margin: 1em;
+		padding: 1em 2em;
+}
+
+.applet-item>a, .applet-item>a:visited {
+	font-size: 1.6em;
+	color: var(--grey);
+}
+
+.applet-item>a:hover {
+	text-decoration: none;
+	color: var(--secondary);
+	transition: .3s;
+}
+
+input:focus, input:hover {
+	outline: none;
+}
