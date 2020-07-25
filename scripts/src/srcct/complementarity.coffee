@@ -193,7 +193,7 @@ runParser = (input) ->
 DNA_VALID_CHARS = "ATGCatgcАТГЦатгц "
 RNA_VALID_CHARS = "AUGCaugcАУГЦаугц "
 
-DNA_COMPLIMENTARY = new Map [
+DNA_COMPLIMENTARITY_SCHEME = new Map [
 	["А", "Т"],
 	["Т", "А"],
 	["Г", "Ц"],
@@ -201,7 +201,7 @@ DNA_COMPLIMENTARY = new Map [
 	["Ц", "Г"]
 ]
 
-RNA_COMPLIMENTARY = new Map [
+RNA_COMPLIMENTARITY_SCHEME = new Map [
 	["А", "У"],
 	["Т", "А"],
 	["У", "А"],
@@ -285,13 +285,14 @@ INPUT_TYPE = {
 
 lastInputType = 1
 
+# Application entry point
 runApplication = () ->
 	result = switch lastInputType
-		when 1 then buildByDnaOne()
-		when 2 then buildByDnaTwo()
-		when 3 then buildByInformationalRna()
-		when 4 then buildByTransferRna()
-		when 5 then buildByProtein()
+		when INPUT_TYPE.DNA1 then buildByDnaOne()
+		when INPUT_TYPE.DNA2 then buildByDnaTwo()
+		when INPUT_TYPE.IRNA then buildByInformationalRna()
+		when INPUT_TYPE.TRNA then buildByTransferRna()
+		when INPUT_TYPE.PROTEIN then buildByProtein()
 
 	valueset "dnaInput",     formatOutput result.firstDna
 	valueset "dna2Input",    formatOutput result.secondDna
@@ -377,16 +378,16 @@ mapString = (string, mapper) ->
 	(mapper char for char in string).join ""
 
 makeComplimentaryDna = (dna) ->
-	mapString dna, (x) -> DNA_COMPLIMENTARY.get x
+	mapString dna, (x) -> DNA_COMPLIMENTARITY_SCHEME.get x
 
 makeInformationalRna = (dna1) ->
-	mapString dna1, (x) -> RNA_COMPLIMENTARY.get x
+	mapString dna1, (x) -> RNA_COMPLIMENTARITY_SCHEME.get x
 
 makeDnaFromiRna = (irna) ->
-	mapString irna, (x) -> DNA_COMPLIMENTARY.get x
+	mapString irna, (x) -> DNA_COMPLIMENTARITY_SCHEME.get x
 
 makeTransferRna = (irna) ->
-	mapString irna, (x) -> RNA_COMPLIMENTARY.get x
+	mapString irna, (x) -> RNA_COMPLIMENTARITY_SCHEME.get x
 
 uniformSequence = (dna) ->
 	mapString delws(dna), uniformNucleotide
@@ -425,10 +426,10 @@ validateInput = (type) ->
 
 getCheckerAndInputElement = (inputType) ->
 	switch inputType
-		when 1 then { checker: isValidDnaChar, inputElement: element "dnaInput" }
-		when 2 then { checker: isValidDnaChar, inputElement: element "dna2Input" }
-		when 3 then { checker: isValidRnaChar, inputElement: element "irnaInput" }
-		when 4 then { checker: isValidRnaChar, inputElement: element "trnaInput" }
+		when INPUT_TYPE.DNA1 then { checker: isValidDnaChar, inputElement: element "dnaInput" }
+		when INPUT_TYPE.DNA2 then { checker: isValidDnaChar, inputElement: element "dna2Input" }
+		when INPUT_TYPE.IRNA then { checker: isValidRnaChar, inputElement: element "irnaInput" }
+		when INPUT_TYPE.TRNA then { checker: isValidRnaChar, inputElement: element "trnaInput" }
 		else { checker: isValidDnaChar, inputElement: element "dnaInput" }
 
 isValidAminoacid = (aminoacid) ->

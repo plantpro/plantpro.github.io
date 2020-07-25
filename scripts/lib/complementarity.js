@@ -20,11 +20,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   	Complementarity application
   	Autor: Tsvikevich Denis 2019
   */
-  var DNA_COMPLIMENTARY,
+  var DNA_COMPLIMENTARITY_SCHEME,
       DNA_VALID_CHARS,
       GENETIC_CODE,
       INPUT_TYPE,
-      RNA_COMPLIMENTARY,
+      RNA_COMPLIMENTARITY_SCHEME,
       RNA_VALID_CHARS,
       all,
       any,
@@ -434,8 +434,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   DNA_VALID_CHARS = "ATGCatgcАТГЦатгц ";
   RNA_VALID_CHARS = "AUGCaugcАУГЦаугц ";
-  DNA_COMPLIMENTARY = new Map([["А", "Т"], ["Т", "А"], ["Г", "Ц"], ["У", "А"], ["Ц", "Г"]]);
-  RNA_COMPLIMENTARY = new Map([["А", "У"], ["Т", "А"], ["У", "А"], ["Г", "Ц"], ["Ц", "Г"]]);
+  DNA_COMPLIMENTARITY_SCHEME = new Map([["А", "Т"], ["Т", "А"], ["Г", "Ц"], ["У", "А"], ["Ц", "Г"]]);
+  RNA_COMPLIMENTARITY_SCHEME = new Map([["А", "У"], ["Т", "А"], ["У", "А"], ["Г", "Ц"], ["Ц", "Г"]]);
   GENETIC_CODE = new Map([["УУУ", "ФЕН"], ["УУЦ", "ФЕН"], ["УУА", "ЛЕЙ"], ["УЦУ", "СЕР"], ["УЦЦ", "СЕР"], ["УЦА", "СЕР"], ["УЦГ", "СЕР"], ["УАУ", "ТИР"], ["УАЦ", "ТИР"], ["УАА", "СТОП"], ["УАГ", "СТОП"], ["УГУ", "ЦИС"], ["УГЦ", "ЦИС"], ["УГА", "СТОП"], ["УГГ", "ТРИ"], ["ЦУУ", "ЛЕЙ"], ["ЦУЦ", "ЛЕЙ"], ["ЦУА", "ЛЕЙ"], ["ЦУГ", "ЛЕЙ"], ["ЦЦУ", "ПРО"], ["ЦЦЦ", "ПРО"], ["ЦЦА", "ПРО"], ["ЦЦГ", "ПРО"], ["ЦАУ", "ГИС"], ["ЦАЦ", "ГИС"], ["ЦАА", "ГЛУ"], ["ЦАГ", "ГЛУ"], ["ЦГУ", "АРГ"], ["ЦГЦ", "АРГ"], ["ЦГА", "АРГ"], ["ЦГГ", "АРГ"], ["АУУ", "ИЛЕ"], ["АУЦ", "ИЛЕ"], ["АУА", "ИЛЕ"], ["АУГ", "МЕТ"], ["ГУУ", "ВАЛ"], ["ГУЦ", "ВАЛ"], ["ГУА", "ВАЛ"], ["ГУГ", "ВАЛ"], ["АЦУ", "ТРЕ"], ["АЦЦ", "ТРЕ"], ["АЦА", "ТРЕ"], ["АЦГ", "ТРЕ"], ["ГЦУ", "АЛА"], ["ГЦЦ", "АЛА"], ["ГЦА", "АЛА"], ["ГЦГ", "АЛА"], ["ААУ", "АСН"], ["ААЦ", "АСН"], ["ААА", "ЛИЗ"], ["ААГ", "ЛИЗ"], ["ГАУ", "АСП"], ["ГАЦ", "АСП"], ["ГАА", "ГЛУ"], ["ГАГ", "ГЛУ"], ["АГУ", "СЕР"], ["АГЦ", "СЕР"], ["АГА", "АРГ"], ["АГГ", "АРГ"], ["ГГУ", "ГЛИ"], ["ГГЦ", "ГЛИ"], ["ГГА", "ГЛИ"], ["ГГГ", "ГЛИ"]]);
   INPUT_TYPE = {
     DNA1: 1,
@@ -444,26 +444,26 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     TRNA: 4,
     PROTEIN: 5
   };
-  lastInputType = 1;
+  lastInputType = 1; // Application entry point
 
   runApplication = function runApplication() {
     var result;
 
     result = function () {
       switch (lastInputType) {
-        case 1:
+        case INPUT_TYPE.DNA1:
           return buildByDnaOne();
 
-        case 2:
+        case INPUT_TYPE.DNA2:
           return buildByDnaTwo();
 
-        case 3:
+        case INPUT_TYPE.IRNA:
           return buildByInformationalRna();
 
-        case 4:
+        case INPUT_TYPE.TRNA:
           return buildByTransferRna();
 
-        case 5:
+        case INPUT_TYPE.PROTEIN:
           return buildByProtein();
       }
     }();
@@ -632,25 +632,25 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   makeComplimentaryDna = function makeComplimentaryDna(dna) {
     return mapString(dna, function (x) {
-      return DNA_COMPLIMENTARY.get(x);
+      return DNA_COMPLIMENTARITY_SCHEME.get(x);
     });
   };
 
   makeInformationalRna = function makeInformationalRna(dna1) {
     return mapString(dna1, function (x) {
-      return RNA_COMPLIMENTARY.get(x);
+      return RNA_COMPLIMENTARITY_SCHEME.get(x);
     });
   };
 
   makeDnaFromiRna = function makeDnaFromiRna(irna) {
     return mapString(irna, function (x) {
-      return DNA_COMPLIMENTARY.get(x);
+      return DNA_COMPLIMENTARITY_SCHEME.get(x);
     });
   };
 
   makeTransferRna = function makeTransferRna(irna) {
     return mapString(irna, function (x) {
-      return RNA_COMPLIMENTARY.get(x);
+      return RNA_COMPLIMENTARITY_SCHEME.get(x);
     });
   };
 
@@ -723,25 +723,25 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   getCheckerAndInputElement = function getCheckerAndInputElement(inputType) {
     switch (inputType) {
-      case 1:
+      case INPUT_TYPE.DNA1:
         return {
           checker: isValidDnaChar,
           inputElement: element("dnaInput")
         };
 
-      case 2:
+      case INPUT_TYPE.DNA2:
         return {
           checker: isValidDnaChar,
           inputElement: element("dna2Input")
         };
 
-      case 3:
+      case INPUT_TYPE.IRNA:
         return {
           checker: isValidRnaChar,
           inputElement: element("irnaInput")
         };
 
-      case 4:
+      case INPUT_TYPE.TRNA:
         return {
           checker: isValidRnaChar,
           inputElement: element("trnaInput")

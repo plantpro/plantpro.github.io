@@ -1,10 +1,5 @@
-@font-face {
-  font-family: "GothamLight";
-	src: url("../resources/HomepageBaukasten-Book.woff");
-}
-
 body {
-  font-family: "GothamLight", "Helvetica Neue", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h3 {
