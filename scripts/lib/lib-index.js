@@ -435,7 +435,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   makeChip = function makeChip(text, num) {
-    return "<span class='mdl-chip mdl-chip--deletable'> <span class='mdl-chip__text'>".concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, ").concat(num, ")'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
+    return "<span class='panel'> <span class='mdl-chip__text'>".concat(text, "</span> <button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, ").concat(num, ")'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </span>");
   };
 
   makeChipWithColor = function makeChipWithColor(text, color, num) {

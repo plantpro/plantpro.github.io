@@ -202,7 +202,7 @@ isAll = (record) ->
 	return true
 
 makeChip = (text, num) -> "
-		<span class='mdl-chip mdl-chip--deletable'>
+		<span class='panel'>
 			<span class='mdl-chip__text'>#{text}</span>
 			<button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, #{num})'>
 				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>

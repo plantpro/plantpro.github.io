@@ -64,102 +64,57 @@ def write_to_file(content, recordsCount):
 	<meta name="msapplication-TileImage" content="../resources/images/icons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="../stylesheets/style.css">
+	<link rel="stylesheet" href="../stylesheets/common.css">
 	<link rel="stylesheet" href="../stylesheets/library.css">
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-grey d-flex d-md-none">
-		<a class="navbar-brand">
-			<img src="../resources/images/logo-black.svg" />
-		</a>
+	<div id="background"></div>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#inline-navbar"
-			aria-controls="inline-navbar" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="inline-navbar">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../applets/index.html">Апплеты</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../media/index.html">Медиа</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="division-header">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-4 col-lg-2 text-center">
-				<img class="division-header-img" src="../resources/images/library-cover.jpg" />
-			</div>
-
-			<div class="col-md-8 col-lg-10 text-center text-sm-left">
-				<nav class="navbar navbar-expand-lg navbar-grey d-none d-md-flex">
-					<a class="navbar-brand">
-					</a>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-						aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="navbarText">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../applets/index.html">Апплеты</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../media/index.html">Медиа</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
-							</li>
-						</ul>
+			<div class="col-md-4">
+				<div class="title">
+					<h1>библиотека</h1>
+				</div>
+				<div class="panel">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+							<i class="material-icons">search</i>
+						</label>
+						<div class="mdl-textfield__expandable-holder">
+							<input class="mdl-textfield__input" type="text" id="sample6">
+							<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+						</div>
 					</div>
-				</nav>
-				
-				<h1 class="division-header-title">Книги</h1>
-				<span class="division-header-description" id="record-count">Записей в библиотеке: {recordsCount}</span>
+
+					<div class="filtration-block">
+
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByType(this);">.pdf</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByType(this);">.djvu</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByType(this);">online</span>
+
+						<div class="custom-control custom-switch">
+							<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
+							<label class="custom-control-label" for="switch-1">Только статьи</label>
+						</div>
+					</div>
+					</div>
+
+					<div id="filter"></div>
+			</div>
+			<div class="col-md-8" id="search-box">
+				{content}
 			</div>
 		</div>
-	</div>
-
-	<div class="filtration-block">
-		<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByType(this);">.pdf</span>
-		<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByType(this);">.djvu</span>
-		<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByType(this);">online</span>
-
-		<div class="custom-control custom-switch">
-			<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
-			<label class="custom-control-label" for="switch-1">Только статьи</label>
-		</div>
-
-		<div id="filter"></div>
-	</div>
-
-	<div class="container-fluid mt-3" id="search-box">
-		{content}
 	</div>
 				
 				    <script

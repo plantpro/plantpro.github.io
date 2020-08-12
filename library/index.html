@@ -8,102 +8,76 @@
 
 	<title>Статьи на тему защита растений</title>
 
+	<link rel="apple-touch-icon" sizes="57x57" href="../resources/images/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../resources/images/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../resources/images/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../resources/images/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../resources/images/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../resources/images/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../resources/images/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../resources/images/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../resources/images/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../resources/images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../resources/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../resources/images/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../resources/images/icons/favicon-16x16.png">
+	<link rel="icon" type="image/ico" href="./favicon.ico" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../resources/images/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="../stylesheets/style.css">
+	<link rel="stylesheet" href="../stylesheets/common.css">
 	<link rel="stylesheet" href="../stylesheets/library.css">
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-grey d-flex d-md-none">
-		<a class="navbar-brand">
-			<img src="../resources/images/logo-black.svg" />
-		</a>
+	<div id="background"></div>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#inline-navbar"
-			aria-controls="inline-navbar" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="inline-navbar">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../applets/index.html">Апплеты</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../media/index.html">Медиа</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="division-header">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-4 col-lg-2 text-center">
-				<img class="division-header-img" src="../resources/images/library-cover.jpg" />
-			</div>
-
-			<div class="col-md-8 col-lg-10 text-center text-sm-left">
-				<nav class="navbar navbar-expand-lg navbar-grey d-none d-md-flex">
-					<a class="navbar-brand">
-					</a>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-						aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="navbarText">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../applets/index.html">Апплеты</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../media/index.html">Медиа</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
-							</li>
-						</ul>
+			<div class="col-md-4">
+				<div class="title">
+					<h1>библиотека</h1>
+				</div>
+				<div class="panel">
+					<div>
+						<span id="record-count">Записей в библиотеке: 67</span>
 					</div>
-				</nav>
-				
-				<h1 class="division-header-title">Книги</h1>
-				<span class="division-header-description" id="record-count">Записей в библиотеке: 67</span>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+							<i class="material-icons">search</i>
+						</label>
+						<div class="mdl-textfield__expandable-holder">
+							<input class="mdl-textfield__input" type="text" id="sample6">
+							<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+						</div>
+					</div>
+
+					<div class="filtration-block">
+
+						<span class="filetype-tag" style="background-color: rgb(231, 47, 47);" onclick="document.filterByType(this);">.pdf</span>
+						<span class="filetype-tag" style="background-color: rgb(160, 0, 160);" onclick="document.filterByType(this);">.djvu</span>
+						<span class="filetype-tag" style="background-color: rgb(112, 112, 112);" onclick="document.filterByType(this);">online</span>
+
+						<div class="custom-control custom-switch">
+							<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
+							<label class="custom-control-label" for="switch-1">Только статьи</label>
+						</div>
+					</div>
+					</div>
+
+					<div id="filter"></div>
 			</div>
-		</div>
-	</div>
-
-	<div class="filtration-block">
-		<span class="filetype-tag" style="background-color: rgb(231, 47, 47);" onclick="document.filterByType(this);">.pdf</span>
-		<span class="filetype-tag" style="background-color: rgb(160, 0, 160);" onclick="document.filterByType(this);">.djvu</span>
-		<span class="filetype-tag" style="background-color: rgb(112, 112, 112);" onclick="document.filterByType(this);">online</span>
-
-		<div class="custom-control custom-switch">
-			<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
-			<label class="custom-control-label" for="switch-1">Только статьи</label>
-		</div>
-
-		<div id="filter"></div>
-	</div>
-
-	<div class="container-fluid mt-3" id="search-box">
-		
+			<div class="col-md-8" id="search-box">
+				
 	<div class="plpro-lib-record">
 		<h6 class="plpro-lib-record-title">
 			<a href="https://drive.google.com/file/d/1TFuXEHKQKnuusicduuuM808Vfu8UFwgt/view?usp=sharing">Земледелие с основами почвоведения и агрохимии</a>
@@ -975,6 +949,8 @@
 		
 	</div>
 	
+			</div>
+		</div>
 	</div>
 				
 				    <script
