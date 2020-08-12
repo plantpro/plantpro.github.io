@@ -27,6 +27,15 @@
 	text-align: center;
 }
 
+#down-arrow {
+	display: block;
+	text-align: center;
+}
+
+#down-arrow>img {
+	width: 50px;
+}
+
 @media (min-width: 768px) { 
 	.main-screen-heading {
 		margin-left: 3em;
@@ -83,13 +92,4 @@
 	margin-top: 5px;
 	padding-top: 5px;
 	border-top: 1px rgba(0, 0, 0, .2) solid;
-}
-
-#down-arrow {
-	display: block;
-	text-align: center;
-}
-
-#down-arrow>img {
-	width: 50px;
 }
