@@ -1,14 +1,12 @@
-.navbar-toggler {
-	color: #ffffff;
-}
-
-
 .main-screen {
-	height: 100vh;
-  min-height: 100vh;
+	min-height: 100vh;
+	
+	display: flex;
+  justify-content: center;
+  flex-direction: column;
 
   background: #000000;
-  background-image: url(../resources/images/index-cover.jpg);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../resources/images/main-sc.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -17,44 +15,62 @@
 }
 
 .main-screen-content {
-  color: white;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  /* for <= sm */
-  min-height: 90vh;
-  margin-left: 0px;
-  text-align: center;
+	color: white;
+}
+
+.main-screen-heading {
+	border-right: 1px solid white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 3em;
+	font-weight: 300;
+	min-height: 90vh;
 }
 
 .main-screen-heading>h1 {
+	font-weight: 300;
+	font-size: 2em;
+	letter-spacing: .3em;
   word-break: normal;
 }
 
-.divisions-block {
-  color: var(--secondary-text);
-  min-height: 100vh;
-  padding: 3em 15px;
+.main-screen-heading>p {
+	letter-spacing: .03em;
 }
 
-.divisions-block>.row {
-  padding-top: 3em;
+.main-screen-menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 90vh;
+	margin-right: 2em;
 }
 
-.division-card {
+.nav-card {
+	color: inherit;
+	display: flex;
+	flex-direction: column;
+	font-weight: 300;
+	letter-spacing: .03em;
+	padding: 2em 1em;
+}
+
+.nav-card>.nav-description {
+	letter-spacing: .03em;
+	display: none;
+}
+
+.nav-card:hover {
+	color: white;
+	background-color: rgba(255, 255, 255, .2);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .6);
+	transition: .3s;
+}
+
+.nav-card:hover>.nav-description {
 	display: block;
-	margin-left: 15px;
-	margin-right: 15px;
-  min-height: 100%;
-  color: var(--secondary-text);
-  background-color: var(--secondary);
-  padding: 3em;
-}
-
-.division-card>img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 50%;
-  margin-bottom: 1em;
+	margin-top: 5px;
+	padding-top: 5px;
+	border-top: 1px rgba(255, 255, 255, .2) solid;
 }

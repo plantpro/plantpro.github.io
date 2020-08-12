@@ -10,8 +10,8 @@
 
 .article {
 	margin: 1em;
-	color: var(--article-fg);
-	background-color: var(--article-bg);
+	color: var(--secondary-text);
+	background-color: var(--secondary);
 }
 
 .article {
@@ -34,11 +34,11 @@
 .article-title, .article-title:visited {
 	display: block;
 	font-size: 1.6em;
-	color: var(--article-fg);
+	color: var(--secondary-text);
 }
 
 .article-title:hover, .article-title:focus {
-	color: var(--secondary);
+	color: var(--accent);
 	text-decoration: none;
 	transition: 0.3s;
 }
