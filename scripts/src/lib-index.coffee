@@ -30,7 +30,7 @@ makeChip = (text, num) -> "
 makeChipWithColor = (text, color, num) -> "
 		<div class='panel'>
 			<span class='mdl-chip__text'>#{text}</span>
-			<button type='button' class='mdl-chip__action' onclick='document.clearFilter(this, #{num})'>
+			<button type='button' class='close-panel-btn' onclick='document.clearFilter(this, #{num})'>
 				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>
 					<path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
 				</svg>
@@ -97,13 +97,13 @@ document.filterByType = (self) ->
 
 	if self.innerText == "pdf"
 			filterDiv.innerHTML += " " +
-				makeChipWithColor "Тип: .pdf", "rgb(231, 47, 47)", (predicates.length - 1)
+				makeChipWithColor "Тип: .pdf", "rgba(231, 47, 47, .2)", (predicates.length - 1)
 	if self.innerText == "djvu"
 		filterDiv.innerHTML += " " +
-			makeChipWithColor "Тип: .djvu", "rgb(160, 0, 160)", (predicates.length - 1)
+			makeChipWithColor "Тип: .djvu", "rgba(160, 0, 160, .2)", (predicates.length - 1)
 	if self.innerText == "online"
 		filterDiv.innerHTML += " " +
-			makeChipWithColor "Тип: online", "rgb(112, 112, 112)", (predicates.length - 1)
+			makeChipWithColor "Тип: online", "rgba(112, 112, 112, .2)", (predicates.length - 1)
 
 document.clearFilter = clearFilter
 

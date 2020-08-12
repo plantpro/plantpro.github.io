@@ -130,10 +130,6 @@ body {
 	display: inline-block;
 }
 
-.mdl-chip__action {
-	opacity: 1;
-}
-
 .close-panel-btn {
   height: 24px;
   width: 24px;
@@ -142,7 +138,8 @@ body {
 	float: right;
   color: rgba(0, 0, 0, .87);
   border: none;
-  outline: none
+	outline: none;
+	background-color: transparent;
 }
 
 .mdl-chip:focus {
