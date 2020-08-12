@@ -6,6 +6,10 @@
   --secondary-text: #58554B;
 }
 
+html {
+	scroll-behavior: ;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
