@@ -83,6 +83,9 @@ def write_to_file(content, recordsCount):
 		<div class="row">
 			<div class="col-md-4">
 				<div class="title">
+					<div class="help-icon">
+						<img src="../resources/images/about.svg" alt="">
+					</div>
 					<h1>библиотека</h1>
 				</div>
 

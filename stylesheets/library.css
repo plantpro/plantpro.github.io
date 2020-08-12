@@ -162,3 +162,19 @@ body {
 	left: 10px;
 	text-decoration: none;
 }
+
+
+.help-icon {
+	position: absolute;
+	right: 25px;
+	top: 25px;
+
+	display: flex;
+	flex-direction: column;
+
+	cursor: pointer;
+}
+
+.help-icon>img {
+	width: 24px;
+}
