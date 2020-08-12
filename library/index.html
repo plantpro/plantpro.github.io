@@ -48,9 +48,6 @@
 					<h1>библиотека</h1>
 				</div>
 				<div class="panel">
-					<div>
-						<span id="record-count">Записей в библиотеке: 67</span>
-					</div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 						<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
 							<i class="material-icons">search</i>
@@ -63,9 +60,9 @@
 
 					<div class="filtration-block">
 
-						<span class="filetype-tag" style="background-color: rgb(231, 47, 47);" onclick="document.filterByType(this);">.pdf</span>
-						<span class="filetype-tag" style="background-color: rgb(160, 0, 160);" onclick="document.filterByType(this);">.djvu</span>
-						<span class="filetype-tag" style="background-color: rgb(112, 112, 112);" onclick="document.filterByType(this);">online</span>
+						<span class="filetype-tag" style="background-color: rgb(231, 47, 47);" onclick="document.filterByTypeName("pdf");">.pdf</span>
+						<span class="filetype-tag" style="background-color: rgb(160, 0, 160);" onclick="document.filterByTypeName("djvu");">.djvu</span>
+						<span class="filetype-tag" style="background-color: rgb(112, 112, 112);" onclick="document.filterByTypeName("online");">online</span>
 
 						<div class="custom-control custom-switch">
 							<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">

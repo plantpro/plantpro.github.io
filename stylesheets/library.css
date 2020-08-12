@@ -45,7 +45,7 @@ body {
 .custom-control-input:checked~.custom-control-label::before {
 	color: #ffffff;
 	border-color: var(--secondary);
-	background-color: var(--secondary);
+	background-color: var();
 }
 
 .custom-control-input:focus~.custom-control-label::before {

@@ -98,9 +98,9 @@ def write_to_file(content, recordsCount):
 
 					<div class="filtration-block">
 
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName("pdf");">.pdf</span>
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName("djvu");">.djvu</span>
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName("online");">online</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
 
 						<div class="custom-control custom-switch">
 							<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">

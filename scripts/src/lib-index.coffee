@@ -112,7 +112,7 @@ document.filterByTypeName = (name) ->
 			return true if k.innerText.trim() == name.trim()
 			return false
 	)
-
+	
 	applyPredicates()
 
 	filterDiv = element "filter"
