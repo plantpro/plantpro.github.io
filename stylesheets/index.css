@@ -33,6 +33,10 @@
 		border-right: 1px solid white;
 		text-align: left;
 	}
+
+	#down-arrow {
+		display: none;
+	}
 }
 
 .main-screen-heading>h1 {
@@ -79,4 +83,13 @@
 	margin-top: 5px;
 	padding-top: 5px;
 	border-top: 1px rgba(0, 0, 0, .2) solid;
+}
+
+#down-arrow {
+	display: block;
+	text-align: center;
+}
+
+#down-arrow>img {
+	width: 50px;
 }
