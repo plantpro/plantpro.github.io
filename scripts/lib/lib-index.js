@@ -551,13 +551,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   };
 
-  document.filterByTypeName = function (name) {
+  document.filterByTypeName = function (self) {
     var filterDiv;
     predicates.push(function (record) {
       var k;
       k = record.getElementsByClassName("filetype-tag")[0];
 
-      if (k.innerText.trim() === name.trim()) {
+      if (k.innerText.trim() === self.trim()) {
         return true;
       }
 
@@ -566,15 +566,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     applyPredicates();
     filterDiv = element("filter");
 
-    if (self.innerText === "pdf") {
+    if (self === "pdf") {
       filterDiv.innerHTML += " " + makeChipWithColor("Тип: .pdf", "rgba(231, 47, 47, .2)", predicates.length - 1);
     }
 
-    if (self.innerText === "djvu") {
+    if (self === "djvu") {
       filterDiv.innerHTML += " " + makeChipWithColor("Тип: .djvu", "rgba(160, 0, 160, .2)", predicates.length - 1);
     }
 
-    if (self.innerText === "online") {
+    if (self === "online") {
       return filterDiv.innerHTML += " " + makeChipWithColor("Тип: online", "rgba(112, 112, 112, .2)", predicates.length - 1);
     }
   };
