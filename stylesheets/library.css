@@ -96,18 +96,12 @@ body {
 	font-size: smaller;
 }
 
-.filtration-block {
-	margin-top: 1em;
-	text-align: left;
-}
-
 #filter {
 	margin-top: 1em;
 }
 
 .filetype-tag {
 	margin-left: 3px;
-	float: right;
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -138,19 +132,6 @@ body {
 	background-color: transparent;
 }
 
-.mdl-chip:focus {
-  outline: 0;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
-}
-
-.mdl-chip:active {
-  background-color: #d6d6d6
-}
-
-.mdl-chip--contact {
-  padding-left: 0
-}
-
 .tag {
   color: white;
   padding: 2px;
@@ -174,9 +155,8 @@ body {
 
 .filetype-tag {
   color: white;
-  padding: 2px;
-  border-radius: 3px;
-  font-size: smaller;
+  padding: 3px;
+ font-size: smaller;
   position: relative;
   white-space: nowrap;
 	left: 10px;

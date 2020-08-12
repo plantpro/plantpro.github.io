@@ -5,9 +5,9 @@ CATALOG_NAME = "library\\generator\\catalog.csv"
 OUTPUT_PATH = Path("library\\index.html")
 
 FILE_TYPE_COLORS = {
-	"pdf": "rgb(231, 47, 47)",
-	"djvu": "rgb(160, 0, 160)",
-	"online": "rgb(112, 112, 112)"
+	"pdf": "rgba(231, 47, 47,.5)",
+	"djvu": "rgba(160, 0, 160,.5)",
+	"online": "rgba(112, 112, 112,.5)"
 }
 
 def get_records():
@@ -24,7 +24,7 @@ def record_to_html(record):
 	<div class="plpro-lib-record">
 		<h6 class="plpro-lib-record-title">
 			<a href="{record["Ссылка"]}">{record["Название на языке оригинала"]}</a>
-			<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};" onclick="document.filterByType(this);">
+			<span class="filetype-tag float-right" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};" onclick="document.filterByType(this);">
 				{record["Тип файла"]}
 			</span>
 		</h6>
@@ -85,26 +85,28 @@ def write_to_file(content, recordsCount):
 				<div class="title">
 					<h1>библиотека</h1>
 				</div>
+
 				<div class="panel">
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 						<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
 							<i class="material-icons">search</i>
 						</label>
+
 						<div class="mdl-textfield__expandable-holder">
 							<input class="mdl-textfield__input" type="text" id="sample6">
 							<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
 						</div>
 					</div>
 
-					<div class="filtration-block">
+					<div class="float-right">
 						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
 						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
 						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
+					</div>
 
-						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
-							<label class="custom-control-label" for="switch-1">Только статьи</label>
-						</div>
+					<div class="custom-control custom-switch">
+						<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
+						<label class="custom-control-label" for="switch-1">Только статьи</label>
 					</div>
 					</div>
 
