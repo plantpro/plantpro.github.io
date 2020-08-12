@@ -28,7 +28,7 @@ makeChip = (text, num) -> "
 	"
 
 makeChipWithColor = (text, color, num) -> "
-		<div class='panel'>
+		<div class='panel' style='background-color: #{color};'>
 			<span class='mdl-chip__text'>#{text}</span>
 			<button type='button' class='close-panel-btn' onclick='document.clearFilter(this, #{num})'>
 				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>
