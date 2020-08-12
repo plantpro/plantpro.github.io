@@ -105,6 +105,28 @@ document.filterByType = (self) ->
 		filterDiv.innerHTML += " " +
 			makeChipWithColor "Тип: online", "rgba(112, 112, 112, .2)", (predicates.length - 1)
 
+document.filterByTypeName = (name) ->
+	predicates.push(
+		(record) ->
+			k = (record.getElementsByClassName "filetype-tag")[0]
+			return true if k.innerText.trim() == name.trim()
+			return false
+	)
+
+	applyPredicates()
+
+	filterDiv = element "filter"
+
+	if self.innerText == "pdf"
+			filterDiv.innerHTML += " " +
+				makeChipWithColor "Тип: .pdf", "rgba(231, 47, 47, .2)", (predicates.length - 1)
+	if self.innerText == "djvu"
+		filterDiv.innerHTML += " " +
+			makeChipWithColor "Тип: .djvu", "rgba(160, 0, 160, .2)", (predicates.length - 1)
+	if self.innerText == "online"
+		filterDiv.innerHTML += " " +
+			makeChipWithColor "Тип: online", "rgba(112, 112, 112, .2)", (predicates.length - 1)
+
 document.clearFilter = clearFilter
 
 document.getElementById "switch-1"
