@@ -110,3 +110,28 @@
 
 	opacity: 1;
 }
+
+#help-icon {
+	position: absolute;
+	right: 25px;
+	top: 25px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+#help-icon>img {
+	width: 24px;
+	margin: 0 auto;
+}
+
+#help-icon>span {
+	opacity: 0;
+	color: #ffffff;
+}
+
+#help-icon:hover>span {
+	opacity: 1;
+	color: #ffffff;
+	transition: opacity .3s;
+}
