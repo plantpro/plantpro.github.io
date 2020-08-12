@@ -45,7 +45,7 @@ body {
 .custom-control-input:checked~.custom-control-label::before {
 	color: #ffffff;
 	border-color: var(--secondary);
-	background-color: var();
+	background-color: var(rgba(0, 0, 0, .2));
 }
 
 .custom-control-input:focus~.custom-control-label::before {
@@ -53,13 +53,9 @@ body {
 }
 
 .custom-control-input:not(:disabled):active~.custom-control-label::before {
-	color: #fff;
-	background-color: #ce0e0056;
-	border-color: #ce0e0056;
-}
-
-.division-header {
-	padding-bottom: 0em;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, .2);
+	border-color: rgba(0, 0, 0, .2);
 }
 
 .plpro-lib-record {

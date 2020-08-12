@@ -105,14 +105,14 @@ document.filterByType = (self) ->
 		filterDiv.innerHTML += " " +
 			makeChipWithColor "Тип: online", "rgba(112, 112, 112, .2)", (predicates.length - 1)
 
-document.filterByTypeName = (name) ->
+document.filterByTypeName = (self) ->
 	predicates.push(
 		(record) ->
 			k = (record.getElementsByClassName "filetype-tag")[0]
-			return true if k.innerText.trim() == name.trim()
+			return true if k.innerText.trim() == self.trim()
 			return false
 	)
-	
+
 	applyPredicates()
 
 	filterDiv = element "filter"
@@ -126,7 +126,7 @@ document.filterByTypeName = (name) ->
 	if self.innerText == "online"
 		filterDiv.innerHTML += " " +
 			makeChipWithColor "Тип: online", "rgba(112, 112, 112, .2)", (predicates.length - 1)
-
+	
 document.clearFilter = clearFilter
 
 document.getElementById "switch-1"
