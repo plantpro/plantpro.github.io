@@ -143,6 +143,12 @@ body {
 	background-color: transparent;
 }
 
+.close-panel-btn:hover,
+.close-panel-btn:focus,
+.close-panel-btn:active {
+	outline: none;
+}
+
 .filetype-tag {
   color: white;
   padding: 3px;

@@ -129,7 +129,7 @@ def write_to_file(content, recordsCount):
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
 		></script>
-		<script src="../scripts/lib/lib-index.min.js"></script>
+		<script src="../scripts/lib/lib-index.js"></script>
 				</body>
 			</html>
 	"""

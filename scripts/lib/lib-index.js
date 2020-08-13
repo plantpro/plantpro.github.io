@@ -443,8 +443,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   clearFilter = function clearFilter(self, num) {
-    $(self.parentNode).slideToggle();
-    self.parentNode.remove();
+    $(self.parentNode).animate({
+      opacity: 0
+    }, 300, function () {
+      return self.parentNode.remove();
+    });
     predicates[num] = null;
     return applyPredicates();
   };
@@ -478,7 +481,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   applyPredicates = function applyPredicates() {
-    var i, l, len, ref, results, searchBox;
+    var elem, i, l, len, ref, results, searchBox;
     searchBox = element("search-box");
     ref = searchBox.children;
     results = [];
@@ -487,10 +490,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       i = ref[l];
 
       if (i.className === "plpro-lib-record") {
-        i.style.display = "none";
+        elem = i;
+        $(i).animate({
+          opacity: 0
+        }, 300, function () {
+          return elem.style.display = "none";
+        });
 
         if (isAll(i)) {
-          results.push(i.style.display = "block");
+          i.style.display = "block";
+          results.push($(i).animate({
+            opacity: 1
+          }, 300));
         } else {
           results.push(void 0);
         }

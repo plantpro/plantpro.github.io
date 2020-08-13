@@ -224,8 +224,7 @@ makeChipWithColor = (text, color, num) -> "
 	"
 
 clearFilter = (self, num) ->
-	$(self.parentNode).slideToggle()
-	self.parentNode.remove()
+	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
 	predicates[num] = null
 	applyPredicates()
 
@@ -252,8 +251,11 @@ applyPredicates = () ->
 	searchBox = element "search-box"
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
-			i.style.display = "none"
-			i.style.display = "block" if isAll i
+			elem = i
+			$(i).animate({ opacity: 0 }, 300, () -> elem.style.display = "none")
+			if isAll i
+				i.style.display = "block"
+				$(i).animate({ opacity: 1 }, 300)
 
 document.autorOnClick = (self) ->
 	text = self.innerText
