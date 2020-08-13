@@ -495,7 +495,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           opacity: 0
         }, 300, function () {
           return elem.style.display = "none";
-        });
+        }());
 
         if (isAll(i)) {
           i.style.display = "block";

@@ -67,7 +67,7 @@ applyPredicates = () ->
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
 			elem = i
-			$(i).animate({ opacity: 0 }, 300, () -> elem.style.display = "none")
+			$(i).animate({ opacity: 0 }, 300, do () -> elem.style.display = "none")
 			if isAll i
 				i.style.display = "block"
 				$(i).animate({ opacity: 1 }, 300)
