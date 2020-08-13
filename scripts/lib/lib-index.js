@@ -443,6 +443,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   clearFilter = function clearFilter(self, num) {
+    $(self.parentNode).fadeOut();
     self.parentNode.remove();
     predicates[num] = null;
     return applyPredicates();
