@@ -251,10 +251,12 @@ applyPredicates = () ->
 	searchBox = element "search-box"
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
-			$(i).animate({ opacity: 0 }, 300, do (i) -> () -> i.style.display = "none")
-			if isAll i
-				i.style.display = "block"
-				$(i).animate({ opacity: 1 }, 300)
+			$(i).animate({ opacity: 0 }, 300, do (i) -> () ->
+				i.style.display = "none"
+				if isAll i
+					i.style.display = "block"
+					$(i).animate({ opacity: 1 }, 300)
+			)
 
 document.autorOnClick = (self) ->
 	text = self.innerText

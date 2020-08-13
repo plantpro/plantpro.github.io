@@ -490,22 +490,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       i = ref[l];
 
       if (i.className === "plpro-lib-record") {
-        $(i).animate({
+        results.push($(i).animate({
           opacity: 0
         }, 300, function (i) {
           return function () {
-            return i.style.display = "none";
-          };
-        }(i));
+            i.style.display = "none";
 
-        if (isAll(i)) {
-          i.style.display = "block";
-          results.push($(i).animate({
-            opacity: 1
-          }, 300));
-        } else {
-          results.push(void 0);
-        }
+            if (isAll(i)) {
+              i.style.display = "block";
+              return $(i).animate({
+                opacity: 1
+              }, 300);
+            }
+          };
+        }(i)));
       } else {
         results.push(void 0);
       }
