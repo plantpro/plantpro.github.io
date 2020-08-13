@@ -90,31 +90,27 @@ def write_to_file(content, recordsCount):
 				</div>
 
 				<div class="panel">
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-						<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-							<i class="material-icons">search</i>
-						</label>
+					Поиск
 
-						<div class="mdl-textfield__expandable-holder">
-							<input class="mdl-textfield__input" type="text" id="sample6">
-							<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-						</div>
+					<div id="search-form">
+						<input type="text" id="search-input">
 					</div>
 
-					<div class="float-right">
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
-					</div>
-
-					<div class="custom-control custom-switch">
+					<div id="article-form" class="custom-control custom-switch">
 						<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
 						<label class="custom-control-label" for="switch-1">Только статьи</label>
 					</div>
-					</div>
 
-					<div id="filter"></div>
+					<div id="filetype-form">
+							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
+							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
+							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
+					</div>
+				</div>
+
+				<div id="filter"></div>
 			</div>
+
 			<div class="col-md-8" id="search-box">
 				{content}
 			</div>
