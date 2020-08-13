@@ -224,7 +224,7 @@ makeChipWithColor = (text, color, num) -> "
 	"
 
 clearFilter = (self, num) ->
-	$(self.parentNode).fadeOut()
+	$(self.parentNode).slideToggle()
 	self.parentNode.remove()
 	predicates[num] = null
 	applyPredicates()
