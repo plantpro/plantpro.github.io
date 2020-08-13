@@ -481,7 +481,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   applyPredicates = function applyPredicates() {
-    var elem, i, l, len, ref, results, searchBox;
+    var i, l, len, ref, results, searchBox;
     searchBox = element("search-box");
     ref = searchBox.children;
     results = [];
@@ -490,12 +490,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       i = ref[l];
 
       if (i.className === "plpro-lib-record") {
-        elem = i;
         $(i).animate({
           opacity: 0
-        }, 300, function () {
-          return elem.style.display = "none";
-        }());
+        }, 300, function (i) {
+          return function () {
+            return i.style.display = "none";
+          };
+        }(i));
 
         if (isAll(i)) {
           i.style.display = "block";
