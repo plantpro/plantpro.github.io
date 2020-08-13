@@ -93,7 +93,7 @@ def write_to_file(content, recordsCount):
 					Поиск
 
 					<div id="search-form">
-						<input type="text" id="search-input">
+						<input type="text" placeholder="Что ищем?" id="search-input">
 					</div>
 
 					<div id="article-form" class="custom-control custom-switch">

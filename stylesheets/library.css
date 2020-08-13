@@ -176,7 +176,13 @@ body {
 
 	border-bottom: 3px solid rgb(0, 128, 128, .7);
 
+	padding: 3px 5px;
 	width: 100%;
+}
+
+#search-input::placeholder {
+	color: rgba(255, 255, 255, .3);
+	letter-spacing: .03em;
 }
 
 #search-input:focus,
