@@ -39,7 +39,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       case "djvu":
         return availableFileTypes.DJVU;
 
-      case "onine":
+      case "online":
         return availableFileTypes.ONLINE;
 
       default:

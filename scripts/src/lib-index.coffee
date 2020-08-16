@@ -21,7 +21,7 @@ parseFileType = (string) ->
 	switch string.trim()
 		when "pdf" then availableFileTypes.PDF
 		when "djvu" then availableFileTypes.DJVU
-		when "onine" then availableFileTypes.ONLINE
+		when "online" then availableFileTypes.ONLINE
 		else availableFileTypes.UNKNOWN
 
 predicates = {
@@ -117,7 +117,7 @@ document.deleteFileTypeFilter = (self, fileTypeName) ->
 
 document.filterByType = (self) ->
 	requiredFileType = parseFileType self.innerText
-	predicates.requiredFileTypes.push requiredFileType
+	predicates.requiredFileTypes.push(requiredFileType)
 
 	filterDiv = document.getElementById "filter"
 	filterDiv.innerHTML += " " +
