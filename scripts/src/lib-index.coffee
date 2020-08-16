@@ -28,6 +28,7 @@ predicates = {
 	articleFilterIsEnabled: false,
 	requiredFileTypes: [],
 	requiredAutors: [],
+	searchText: ""
 }
 
 isArticle = (record) ->
@@ -52,10 +53,15 @@ isSatisfiedToAutorFilter = (record) ->
 			return false
 	return true
 
+isSatisfiedToSearch = (record) ->
+	title = record.querySelector ".plpro-lib-record-title:first-child>a"
+	new Regex(predicates.searchText).test(title.innerText)
+
 isSatisfiedToAllPredicates = (record) ->
 	isSatisfiedToArticleFilter(record) and
 	isSatisfiedToFileTypeFilter(record) and
-	isSatisfiedToAutorFilter(record)
+	isSatisfiedToAutorFilter(record) and
+	isSatisfiedToSearch(record)
 
 makeFilterPanel = (text, deleteAction) -> "
 		<div class='panel'>
@@ -139,5 +145,14 @@ document.filterByTypeName = (self) ->
 
 	updateResults()
 	
+searchInputChanged = (event) ->
+	searchInput = document.getElementById "search-input"
+	predicates.searchText = searchInput.value
+
+	updateResults()
+
 document.getElementById "switch-1"
 .addEventListener "change", stateChanged
+
+document.getElementById "search-input"
+.addEventListener "change", searchInputChanged
