@@ -184,7 +184,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     requiredFileType = parseFileType(self.innerText);
     predicates.requiredFileTypes.push(requiredFileType);
     filterDiv = document.getElementById("filter");
-    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: .".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
+    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: ".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
     return updateResults();
   };
 
@@ -193,7 +193,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     requiredFileType = parseFileType(self);
     predicates.requiredFileTypes.push(requiredFileType);
     filterDiv = document.getElementById("filter");
-    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: .".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
+    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: ".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
     return updateResults();
   };
 

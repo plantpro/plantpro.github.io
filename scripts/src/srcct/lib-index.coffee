@@ -121,7 +121,7 @@ document.filterByType = (self) ->
 
 	filterDiv = document.getElementById "filter"
 	filterDiv.innerHTML += " " +
-		makeFilterPanelWithColor("Тип: .#{requiredFileType.name}",
+		makeFilterPanelWithColor("Тип: #{requiredFileType.name}",
 			requiredFileType.color,
 			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
 
@@ -133,7 +133,7 @@ document.filterByTypeName = (self) ->
 	
 	filterDiv = document.getElementById "filter"
 	filterDiv.innerHTML += " " +
-		makeFilterPanelWithColor("Тип: .#{requiredFileType.name}",
+		makeFilterPanelWithColor("Тип: #{requiredFileType.name}",
 			requiredFileType.color,
 			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
 
