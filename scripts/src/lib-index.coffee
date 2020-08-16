@@ -55,7 +55,7 @@ isSatisfiedToAutorFilter = (record) ->
 
 isSatisfiedToSearch = (record) ->
 	title = record.querySelector ".plpro-lib-record-title:first-child>a"
-	new RegExp(predicates.searchText).test(title.innerText)
+	new RegExp(predicates.searchText, 'i').test(title.innerText)
 
 isSatisfiedToAllPredicates = (record) ->
 	isSatisfiedToArticleFilter(record) and

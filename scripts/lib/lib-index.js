@@ -101,7 +101,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   isSatisfiedToSearch = function isSatisfiedToSearch(record) {
     var title;
     title = record.querySelector(".plpro-lib-record-title:first-child>a");
-    return new RegExp(predicates.searchText).test(title.innerText);
+    return new RegExp(predicates.searchText, 'i').test(title.innerText);
   };
 
   isSatisfiedToAllPredicates = function isSatisfiedToAllPredicates(record) {
