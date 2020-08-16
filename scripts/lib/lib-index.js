@@ -150,9 +150,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var autorName, filterDiv;
     autorName = self.innerText;
     predicates.requiredAutors.push(autorName);
-    console.log(autorName);
     filterDiv = document.getElementById("filter");
-    filterDiv.innerHTML += " " + makeFilterPanel("\u0410\u0432\u0442\u043E\u0440: ".concat(autorName), "document.deleteAutorFilter(this, ".concat(autorName, ")"));
+    filterDiv.innerHTML += " " + makeFilterPanel("\u0410\u0432\u0442\u043E\u0440: ".concat(autorName), "document.deleteAutorFilter(this, '".concat(autorName, "')"));
     return updateResults();
   };
 
@@ -185,7 +184,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     requiredFileType = parseFileType(self.innerText);
     predicates.requiredFileTypes.push(requiredFileType);
     filterDiv = document.getElementById("filter");
-    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: .".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, ".concat(requiredFileType.name, ")"));
+    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: .".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, '".concat(requiredFileType.name, "')"));
     return updateResults();
   };
 
@@ -194,7 +193,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     requiredFileType = parseFileType(self);
     predicates.requiredFileTypes.push(requiredFileType);
     filterDiv = document.getElementById("filter");
-    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: .".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, ".concat(requiredFileType.name, ")"));
+    filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: .".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, '".concat(requiredFileType.name, "')"));
     return updateResults();
   };
 
