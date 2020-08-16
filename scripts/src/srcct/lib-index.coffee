@@ -100,7 +100,7 @@ document.autorOnClick = (self) ->
 
 	filterDiv = document.getElementById "filter"
 	filterDiv.innerHTML += " " +
-		makeFilterPanel "Автор: #{autorName}", "document.deleteAutorFilter(this, '#{autorName}')"
+		makeFilterPanel "Автор: #{autorName}", "document.deleteAutorFilter(this, \"#{autorName}\")"
 	
 	updateResults()
 
@@ -123,7 +123,7 @@ document.filterByType = (self) ->
 	filterDiv.innerHTML += " " +
 		makeFilterPanelWithColor("Тип: .#{requiredFileType.name}",
 			requiredFileType.color,
-			"document.deleteFileTypeFilter(this, '#{requiredFileType.name}')")
+			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
 
 	updateResults()
 
@@ -135,7 +135,7 @@ document.filterByTypeName = (self) ->
 	filterDiv.innerHTML += " " +
 		makeFilterPanelWithColor("Тип: .#{requiredFileType.name}",
 			requiredFileType.color,
-			"document.deleteFileTypeFilter(this, '#{requiredFileType.name}')")
+			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
 
 	updateResults()
 	
