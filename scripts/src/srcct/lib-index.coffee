@@ -1,210 +1,61 @@
-# Operator function for '-'
-sub = (x, y) -> x - y
+availableFileTypes = {
+	PDF: {
+		name: ".pdf",
+		color: "rgba(231, 47, 47, .2)"
+	},
 
-# Operator function for '+', also allow to sum of array
-sum = (x, y) ->
-	return x.reduce document.flexibel.sum unless y?
-	x + y
+	DJVU: {
+		name: ".djvu",
+		color: "rgba(160, 0, 160, .2)"
+	},
 
-# Operator function for '*', also allow to mul of array
-mul = (x, y) ->
-	return x.reduce document.flexibel.mul unless y?
-	x * y
+	ONLINE: {
+		name: "online",
+		color: "rgba(112, 112, 112, .2)"
+	},
 
-# Operator function for '/'
-div = (x, y) -> x / y
-
-# Returns the min of two elements, or min of array
-min = (x, y) ->
-	return x.reduce document.flexibel.min unless y?
-	if x < y then x else y
-
-# Returns the max of two elements, or max of array
-max = (x, y) ->
-	return x.reduce document.flexibel.max unless y?
-	if x > y then x else y
-
-last = (container) ->
-	container[container.length - 1]
-
-first = (container) ->
-	container[0]
-
-neue = (name, inner) ->
-	elem = document.createElement name
-	elem.innerHTML = inner if inner?
-	elem
-
-neueText = (name, inner) ->
-	elem = document.createElement name
-	elem.innerText = inner if inner?
-	elem
-
-div = (inner) ->
-	elem = document.createElement "div"
-	elem.innerHTML = inner if inner?
-	elem
-
-h1 = (text) ->
-	neueText "h1", text
-
-h2 = (text) ->
-	neueText "h2", text
-
-h3 = (text) ->
-	neueText "h3", text
-
-h4 = (text) ->
-	neueText "h4", text
-
-h5 = (text) ->
-	neueText "h5", text
-
-h6 = (text) ->
-	neueText "h6", text
-
-element = (id) ->
-	if id.startsWith "."
-		return document.getElementsByClassName (id.substring 1)
-	document.getElementById id
-	
-valueset = (id, value) ->
-	document.flexibel.element(id).value = value
-
-valueof = (id) ->
-	document.flexibel.element(id).value
-
-checkedof = (id) ->
-	document.flexibel.element(id).checked
-
-htmlset = (id, html) ->
-	document.flexibel.element(id).innerHTML = html
-
-htmlget = (id) ->
-	document.flexibel.element(id).innerHTML
-
-any = (values, f) ->
-	for i in values
-		return true	if f i
-	return false
-
-all = (values, f) ->
-	for i in values
-		return false unless f i
-	return true
-
-ejoin = (values) ->
-	values.join ""
-
-delws = (str, sym) ->
-	str.replace(/\s+/g, "")
-
-values = (map) ->
-	[map.values()...]
-
-keys = (map) ->
-	[map.keys()...]
-
-maxKey = (map) ->
-	document.flexibel.keys(map).reduce document.flexibel.max
-
-maxValue = (map) ->
-	document.flexibel.values(map).reduce document.flexibel.max
-
-unique = (values) ->
-	[new Set(values)...]
-
-countIt = (map, it) ->
-	if map.has it
-		map.set it, map.get(it) + 1
-	else
-		map.set it, 1
-
-makeValueCells = (map) ->
-	"<td>#{v}</td>" for v from map.values()
-
-makeKeyCells = (map) ->
-	"<td>#{k}</td>" for k from map.keys()
-
-makeMapCells = (values, mapper) ->
-	"<td>#{mapper k}</td>" for k from values
-
-document.flexibel = {
-	makeKeyCells,
-	makeValueCells,
-	countIt,
-	maxValue,
-	maxKey,
-	keys,
-	values,
-	delws,
-	ejoin,
-	htmlset,
-	checkedof,
-	valueof,
-	valueset,
-	element,
-	first,
-	last,
-	max,
-	min,
-	sum,
-	sub,
-	mul,
-	div,
-	all,
-	any
+	UNKNOWN: null
 }
 
-runParser = (input) ->
-	parserState = {
-		result: []
-		currentPosition: 0
-		input: input
-	}
+parseFileType = (string) ->
+	switch string.trim()
+		when "pdf" then availableFileTypes.PDF
+		when "djvu" then availableFileTypes.DJVU
+		when "onine" then availableFileTypes.ONLINE
+		else availableFileTypes.UNKNOWN
 
-	getCurrent = (state) ->
-		state.input[state.currentPosition]
-	
-	next = (state) ->
-		current = getCurrent state
-		state.currentPosition++
-		current
+predicates = {
+	articleFilterIsEnabled: false,
+	requiredFileTypes: [],
+	requiredAutors: [],
+}
 
-	parseNumber = (state) ->
-		buffer = next state
-		while (current = next state) in "0123456789."
-			buffer += current
-		state.result.push parseFloat(buffer)
+isArticle = (record) ->
+	span = record.getElementsByClassName "plpro-lib-record-article"
+	return span.length > 0
 
-	while parserState.currentPosition < input.length
-		if (getCurrent parserState) in "0123456789-"
-			parseNumber parserState
-		else
-			next parserState
-	
-	parserState.result
+isSatisfiedToArticleFilter = (record) ->
+	not predicates.articleFilterIsEnabled or isArticle record
 
-predicates = []
+isSatisfiedToFileTypeFilter = (record) ->
+	requiredFileTypes.some((requiredFileType) ->
+		fileTypeTag = parseFileType (record.getElementsByClassName "filetype-tag")[0].innerText
+		return fileTypeTag.name == requiredFileType.name
+	)
 
-isAll = (record) ->
-	nullCount = 0
+isSatisfiedToAutorFilter = (record) ->
+	record.children.some((elem) ->
+		elem.className == "plpro-lib-record-autor" and elem.innerText == text)
 
-	for predicate in predicates
-		if predicate != null
-			return false if not predicate record
-		else
-			nullCount += 1
+isSatisfiedToAllPredicates = (record) ->
+	isSatisfiedToArticleFilter record and
+	isSatisfiedToFileTypeFilter record and
+	isSatisfiedToAutorFilter record
 
-	if nullCount == predicates.length
-		predicates.pop() while predicates.length > 0
-	
-	return true
-
-makeChip = (text, num) -> "
+makeFilterPanel = (text, deleteAction) -> "
 		<div class='panel'>
 			<span class='mdl-chip__text'>#{text}</span>
-			<button type='button' class='close-panel-btn' onclick='document.clearFilter(this, #{num})'>
+			<button type='button' class='close-panel-btn' onclick='#{deleteAction}'>
 				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>
 					<path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
 				</svg>
@@ -212,10 +63,10 @@ makeChip = (text, num) -> "
 		</div>
 	"
 
-makeChipWithColor = (text, color, num) -> "
+makeFilterPanelWithColor = (text, color, deleteAction) -> "
 		<div class='panel' style='background-color: #{color};'>
 			<span class='mdl-chip__text'>#{text}</span>
-			<button type='button' class='close-panel-btn' onclick='document.clearFilter(this, #{num})'>
+			<button type='button' class='close-panel-btn' onclick='#{deleteAction}'>
 				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>
 					<path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
 				</svg>
@@ -226,97 +77,67 @@ makeChipWithColor = (text, color, num) -> "
 clearFilter = (self, num) ->
 	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
 	predicates[num] = null
-	applyPredicates()
-
-articlePredicate = (record) ->
-	span = record.getElementsByClassName "plpro-lib-record-article"
-	return span.length > 0
-
-indexOfArticlePredicate = { index: -1, processIt: false }
+	updateResults()
 
 stateChanged = (event) ->
-	#if not indexOfArticlePredicate.processIt
-	#	indexOfArticlePredicate.processIt = true
-	#	return
-	indexOfArticlePredicate.processIt = false
-	console.log predicates
-	if event.target.checked
-		predicates.push(articlePredicate)
-		indexOfArticlePredicate.index = predicates.length - 1
-	else
-		predicates[indexOfArticlePredicate.index] = null
-	applyPredicates()
+	predicates.articleFilterIsEnabled = event.target.checked
+	updateResults()
 
-applyPredicates = () ->
-	searchBox = element "search-box"
+updateResults = () ->
+	searchBox = document.getElementById "search-box"
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
 			$(i).animate({ opacity: 0 }, 300, do (i) -> () ->
 				i.style.display = "none"
-				if isAll i
+				if isSatisfiedToAllPredicates i
 					i.style.display = "block"
 					$(i).animate({ opacity: 1 }, 300)
 			)
 
 document.autorOnClick = (self) ->
-	text = self.innerText
-	predicates.push(
-		(record) ->
-			for j in record.children
-				return true if j.className == "plpro-lib-record-autor" and j.innerText == text
-			return false
-	)
+	autorName = self.innerText
+	predicates.requiredAutors.push autorName
 
-	applyPredicates()
-	filterDiv = element "filter"
+	filterDiv = document.getElementById "filter"
 	filterDiv.innerHTML += " " +
-		makeChip("Автор: #{self.innerText}", predicates.length - 1)
+		makeFilterPanel "Автор: #{autorName}", "document.deleteAutorFilter(this, #{autorName})"
+	
+	updateResults()
+
+document.deleteAutorFilter = (self, autorName) ->
+	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
+	predicates.requiredAutors.splice (predicates.requiredAutors.indexOf autorName), 1
+	updateResults()
+
+document.deleteFileTypeFilter = (self, fileTypeName) ->
+	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
+	index = predicates.requiredFileTypes.findIndex (i) -> i.name == fileTypeName
+	predicates.requiredFileTypes.splice index, 1
+	updateResults()
 
 document.filterByType = (self) ->
-	predicates.push(
-		(record) ->
-			k = (record.getElementsByClassName "filetype-tag")[0]
-			return true if k.innerText.trim() == self.innerText.trim()
-			return false
-	)
+	requiredFileType = parseFileType self.innerText
+	predicates.requiredFileTypes.push requiredFileType
 
-	applyPredicates()
+	filterDiv = document.getElementById "filter"
+	filterDiv.innerHTML += " " +
+		makeFilterPanelWithColor("Тип: .#{requiredFileType.name}",
+			requiredFileType.color,
+			"document.deleteFileTypeFilter(this, #{requiredFileType.name})")
 
-	filterDiv = element "filter"
-
-	if self.innerText == "pdf"
-			filterDiv.innerHTML += " " +
-				makeChipWithColor "Тип: .pdf", "rgba(231, 47, 47, .2)", (predicates.length - 1)
-	if self.innerText == "djvu"
-		filterDiv.innerHTML += " " +
-			makeChipWithColor "Тип: .djvu", "rgba(160, 0, 160, .2)", (predicates.length - 1)
-	if self.innerText == "online"
-		filterDiv.innerHTML += " " +
-			makeChipWithColor "Тип: online", "rgba(112, 112, 112, .2)", (predicates.length - 1)
+	updateResults()
 
 document.filterByTypeName = (self) ->
-	predicates.push(
-		(record) ->
-			k = (record.getElementsByClassName "filetype-tag")[0]
-			return true if k.innerText.trim() == self.trim()
-			return false
-	)
-
-	applyPredicates()
-
-	filterDiv = element "filter"
-
-	if self == "pdf"
-			filterDiv.innerHTML += " " +
-				makeChipWithColor "Тип: .pdf", "rgba(231, 47, 47, .2)", (predicates.length - 1)
-	if self == "djvu"
-		filterDiv.innerHTML += " " +
-			makeChipWithColor "Тип: .djvu", "rgba(160, 0, 160, .2)", (predicates.length - 1)
-	if self == "online"
-		filterDiv.innerHTML += " " +
-			makeChipWithColor "Тип: online", "rgba(112, 112, 112, .2)", (predicates.length - 1)
+	requiredFileType = parseFileType self
+	predicates.requiredFileTypes.push requiredFileType
 	
-document.clearFilter = clearFilter
+	filterDiv = document.getElementById "filter"
+	filterDiv.innerHTML += " " +
+		makeFilterPanelWithColor("Тип: .#{requiredFileType.name}",
+			requiredFileType.color,
+			"document.deleteFileTypeFilter(this, #{requiredFileType.name})")
 
+	updateResults()
+	
 document.getElementById "switch-1"
 .addEventListener "change", stateChanged
