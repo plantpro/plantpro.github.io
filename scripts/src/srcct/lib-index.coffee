@@ -44,8 +44,11 @@ isSatisfiedToFileTypeFilter = (record) ->
 	)
 
 isSatisfiedToAutorFilter = (record) ->
-	record.children.some((elem) ->
-		elem.className == "plpro-lib-record-autor" and elem.innerText == text)
+	for autorName in predicates.requiredAutors
+		if not [record.children...].some((elem) ->
+			elem.className == "plpro-lib-record-autor" and elem.innerText == autorName)
+			return false
+	return true
 
 isSatisfiedToAllPredicates = (record) ->
 	isSatisfiedToArticleFilter record and
@@ -73,11 +76,6 @@ makeFilterPanelWithColor = (text, color, deleteAction) -> "
 			</button>
 		</div>
 	"
-
-clearFilter = (self, num) ->
-	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
-	predicates[num] = null
-	updateResults()
 
 stateChanged = (event) ->
 	predicates.articleFilterIsEnabled = event.target.checked
