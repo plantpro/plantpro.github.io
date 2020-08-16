@@ -141,6 +141,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var autorName, filterDiv;
     autorName = self.innerText;
     predicates.requiredAutors.push(autorName);
+    console.log(autorName);
     filterDiv = document.getElementById("filter");
     filterDiv.innerHTML += " " + makeFilterPanel("\u0410\u0432\u0442\u043E\u0440: ".concat(autorName), "document.deleteAutorFilter(this, ".concat(autorName, ")"));
     return updateResults();

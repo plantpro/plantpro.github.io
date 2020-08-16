@@ -95,7 +95,7 @@ updateResults = () ->
 document.autorOnClick = (self) ->
 	autorName = self.innerText
 	predicates.requiredAutors.push autorName
-
+	console.log(autorName)
 	filterDiv = document.getElementById "filter"
 	filterDiv.innerHTML += " " +
 		makeFilterPanel "Автор: #{autorName}", "document.deleteAutorFilter(this, #{autorName})"
