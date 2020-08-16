@@ -1,7 +1,3 @@
-body {
-	color: #ffffff;
-}
-
 #background {
 	position: fixed;
 
@@ -17,29 +13,17 @@ body {
 	background-position: center;
 }
 
-.title {
-	text-align: center;
-	margin-top: 3em;
-	margin-bottom: 3em;
+header {
+	margin: 1.5em 15px;
 }
 
-.title>h1 {
+header>h1 {
+	flex-basis: 100%;
 	font-weight: 300;
 	font-size: 1.8em;
 	letter-spacing: .3em;
   word-break: normal;
-}
-
-.panel {
-	padding: 1em 2em;
-	margin-top: 1em;
-
-	backdrop-filter: blur(3px);
-	background-color: rgba(255, 255, 255, .2);
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
-
-	font-weight: 300;
-	letter-spacing: .03em;
+	text-align: center;
 }
 
 .custom-control-input~.custom-control-label::before {
@@ -159,11 +143,45 @@ body {
 	border-radius: 2px;
 }
 
+.home-button {
+	display: block;
+	position: fixed;
+
+	z-index: 100;
+	padding: 1em;
+
+	left: 3em;
+	bottom: 3em;
+
+	border-radius: 50%;
+
+	background-color: rgb(0, 128, 128);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
+}
+
+.home-button>svg {
+	width: 24px;
+	margin-top: -3px;
+
+	fill: #ffffff;
+}
+
+.home-button:hover,
+.home-button:active {
+	background-color: rgb(255, 230, 0);
+	transition: .3s;
+}
+
+.home-button:hover>svg,
+.home-button:active>svg {
+	fill: #000000;
+	transition: .3s;
+}
 
 .help-icon {
 	position: absolute;
-	right: 25px;
-	top: 25px;
+	right: 2em;
+	bottom: 15px;
 
 	display: flex;
 	flex-direction: column;
@@ -177,16 +195,12 @@ body {
 
 #search-button {
 	color: #ffffff;
-	background-color: rgb(0, 128, 128, .7);
+	background-color: rgb(0, 128, 128);
 
 	border: none;
 	border-radius: 2px;
 
 	padding: 5px 10px;
-}
-
-.clear:hover>svg>path {
-	fill: white;
 }
 
 #search-form {
@@ -203,8 +217,6 @@ body {
 	background-color: rgba(255, 255, 255, .1);
 	border: none;
 
-	border-bottom: 2px solid rgb(0, 128, 128, .7);
-
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;
 
@@ -215,8 +227,20 @@ body {
 	fill: none;
 }
 
+#search-input-container>.clear:hover {
+	cursor: default;
+}
+
 #search-input:not(:placeholder-shown)+.clear>svg>path {
 	fill: rgba(255, 255, 255, .3);
+}
+
+#search-input:not(:placeholder-shown)+.clear:hover {
+	cursor: pointer;
+}
+
+#search-input:not(:placeholder-shown)+.clear:hover>svg>path {
+	fill: white;
 }
 
 #search-input {
@@ -224,7 +248,10 @@ body {
 	background-color: rgba(255, 255, 255, .1);
 	border: none;
 
-	border-bottom: 2px solid rgb(0, 128, 128, .7);
+	/*border-bottom: 2px solid rgb(0, 128, 128, .7);*/
+
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
 
 	padding: 5px 5px;
 	width: 100%;
@@ -236,16 +263,11 @@ body {
 }
 
 #search-input:focus,
-#search-input:active,
-#search-input:focus+.clear,
-#search-input:active+.clear {
+#search-input:active {
 	outline: none;
-	border-bottom: 2px solid rgba(255, 255, 0);
-	transition: border-bottom .3s;
 }
 
 #article-form,
-#filetype-form,
-#search-form {
+#filetype-form {
 	margin-top: 1em;
 }

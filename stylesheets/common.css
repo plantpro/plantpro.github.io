@@ -22,13 +22,29 @@ h1 {
   word-break: break-all;
 }
 
+body {
+	color: #ffffff;
+}
+
 a:focus,
 a:hover,
 a:active {
 	outline: none;
-	color: var(--accent);
+	color: #ffff00;
 	transition: .3s;
 	text-decoration: none;
+}
+
+.panel {
+	padding: 1em 2em;
+	margin-top: 1em;
+
+	backdrop-filter: blur(3px);
+	background-color: rgba(255, 255, 255, .2);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+
+	font-weight: 300;
+	letter-spacing: .03em;
 }
 
 .navbar-toggler {

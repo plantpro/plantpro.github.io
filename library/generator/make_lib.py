@@ -44,7 +44,7 @@ def write_to_file(content, recordsCount):
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Статьи на тему защита растений</title>
+	<title>Библиотека \ Книги по агрономии и защите растений</title>
 
 	<link rel="apple-touch-icon" sizes="57x57" href="../resources/images/icons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../resources/images/icons/apple-icon-60x60.png">
@@ -64,9 +64,6 @@ def write_to_file(content, recordsCount):
 	<meta name="msapplication-TileImage" content="../resources/images/icons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
 		rel="stylesheet">
@@ -79,15 +76,26 @@ def write_to_file(content, recordsCount):
 <body>
 	<div id="background"></div>
 
+	<a class="home-button" href="../index.html">
+		<svg viewBox="0 0 254.182 254.182" style="enable-background:new 0 0 254.182 254.182;">
+			<g>
+				<path d="M211.655,137.102c-4.143,0-7.5,3.358-7.5,7.5v77.064h-41.373v-77.064c0-4.142-3.357-7.5-7.5-7.5H98.903
+					c-4.143,0-7.5,3.358-7.5,7.5v77.064H50.026v-77.064c0-4.142-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.358-7.5,7.5v84.564
+					c0,4.142,3.357,7.5,7.5,7.5h56.377h56.379h56.373c4.143,0,7.5-3.358,7.5-7.5v-84.564
+					C219.155,140.46,215.797,137.102,211.655,137.102z M106.403,221.666v-69.564h41.379v69.564H106.403z"/>
+				<path d="M251.985,139.298L132.389,19.712c-2.928-2.929-7.677-2.928-10.607,0L2.197,139.298c-2.929,2.929-2.929,7.678,0,10.606
+					c2.93,2.929,7.678,2.929,10.607,0L127.086,35.622l114.293,114.283c1.464,1.464,3.384,2.196,5.303,2.196
+					c1.919,0,3.839-0.732,5.304-2.197C254.914,146.976,254.914,142.227,251.985,139.298z"/>
+			</g>
+		</svg>
+	</a>
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
-				<div class="title">
-					<div class="help-icon">
-						<img src="../resources/images/about.svg" alt="">
-					</div>
-					<h1>библиотека</h1>
-				</div>
+				<header>
+					<h1>Библиотека</h1>
+				</header>
 
 				<div class="panel">
 					<div id="search-form">
@@ -102,15 +110,19 @@ def write_to_file(content, recordsCount):
 						<button id="search-button">Поиск</button>
 					</div>
 
+					<div id="filetype-form">
+							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
+							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
+							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
+					</div>
+
 					<div id="article-form" class="custom-control custom-switch">
 						<input type="checkbox" class="custom-control-input" id="switch-1"  style="margin-bottom: 15px;">
 						<label class="custom-control-label" for="switch-1">Только статьи</label>
 					</div>
 
-					<div id="filetype-form">
-							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
-							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
-							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
+					<div class="help-icon">
+						<img src="../resources/images/about.svg" alt="">
 					</div>
 				</div>
 
@@ -123,21 +135,21 @@ def write_to_file(content, recordsCount):
 		</div>
 	</div>
 				
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-		></script>
-		<script src="../scripts/lib/lib-index.js"></script>
-				</body>
-			</html>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  	crossorigin="anonymous"
+	></script>
+	<script src="../scripts/lib/lib-index.js"></script>
+</body>
+</html>
 	"""
 	OUTPUT_PATH.write_text(result, encoding="utf-8")
 
