@@ -97,23 +97,25 @@ def write_to_file(content, recordsCount):
 					<h1>Библиотека</h1>
 				</header>
 
-				<div class="panel">
-					<div id="search-form">
+				<div class="panel" id="main-panel">
+					<div id="search-area">
 						<div id="search-input-container">
 							<input type="text" placeholder="Что ищем?" id="search-input">
-							<button type='button' class='clear' onclick='clearInput()'>
-								<svg style='width:18px;height:18px;fill:rgba(255, 255, 255, .3);' viewBox='0 0 24 24'>
+							<button type="button" id="search-clear" onclick="clearInput()">
+								<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
 									<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
 								</svg>
 							</button>
-							</div>
+						</div>
+
 						<button id="search-button">Поиск</button>
 					</div>
 
 					<div id="filetype-form">
-							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
-							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
-							<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
+						Тип файла:
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
 					</div>
 
 					<div id="article-form" class="custom-control custom-switch">
