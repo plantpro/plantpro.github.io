@@ -64,7 +64,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   isSatisfiedToFileTypeFilter = function isSatisfiedToFileTypeFilter(record) {
-    return requiredFileTypes.some(function (requiredFileType) {
+    return predicates.requiredFileTypes.some(function (requiredFileType) {
       var fileTypeTag;
       fileTypeTag = parseFileType(record.getElementsByClassName("filetype-tag")[0].innerText);
       return fileTypeTag.name === requiredFileType.name;

@@ -38,7 +38,7 @@ isSatisfiedToArticleFilter = (record) ->
 	not predicates.articleFilterIsEnabled or isArticle record
 
 isSatisfiedToFileTypeFilter = (record) ->
-	requiredFileTypes.some((requiredFileType) ->
+	predicates.requiredFileTypes.some((requiredFileType) ->
 		fileTypeTag = parseFileType (record.getElementsByClassName "filetype-tag")[0].innerText
 		return fileTypeTag.name == requiredFileType.name
 	)
