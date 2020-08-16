@@ -51,9 +51,9 @@ isSatisfiedToAutorFilter = (record) ->
 	return true
 
 isSatisfiedToAllPredicates = (record) ->
-	isSatisfiedToArticleFilter record &&
-	isSatisfiedToFileTypeFilter record &&
-	isSatisfiedToAutorFilter record
+	isSatisfiedToArticleFilter(record) and
+	isSatisfiedToFileTypeFilter(record) and
+	isSatisfiedToAutorFilter(record)
 
 makeFilterPanel = (text, deleteAction) -> "
 		<div class='panel'>

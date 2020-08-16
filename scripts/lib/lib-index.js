@@ -89,7 +89,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   isSatisfiedToAllPredicates = function isSatisfiedToAllPredicates(record) {
-    return isSatisfiedToArticleFilter(record && isSatisfiedToFileTypeFilter(record && isSatisfiedToAutorFilter(record)));
+    return isSatisfiedToArticleFilter(record) && isSatisfiedToFileTypeFilter(record) && isSatisfiedToAutorFilter(record);
   };
 
   makeFilterPanel = function makeFilterPanel(text, deleteAction) {
