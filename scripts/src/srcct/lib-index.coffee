@@ -38,12 +38,14 @@ isSatisfiedToArticleFilter = (record) ->
 	not predicates.articleFilterIsEnabled or isArticle record
 
 isSatisfiedToFileTypeFilter = (record) ->
+	return true if predicates.requiredFileTypes.length == 0
 	predicates.requiredFileTypes.some((requiredFileType) ->
 		fileTypeTag = parseFileType (record.getElementsByClassName "filetype-tag")[0].innerText
 		return fileTypeTag.name == requiredFileType.name
 	)
 
 isSatisfiedToAutorFilter = (record) ->
+	return true if predicates.requiredAutors.length == 0
 	for autorName in predicates.requiredAutors
 		if not [record.children...].some((elem) ->
 			elem.className == "plpro-lib-record-autor" and elem.innerText == autorName)

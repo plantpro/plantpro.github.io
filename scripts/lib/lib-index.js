@@ -64,6 +64,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   isSatisfiedToFileTypeFilter = function isSatisfiedToFileTypeFilter(record) {
+    if (predicates.requiredFileTypes.length === 0) {
+      return true;
+    }
+
     return predicates.requiredFileTypes.some(function (requiredFileType) {
       var fileTypeTag;
       fileTypeTag = parseFileType(record.getElementsByClassName("filetype-tag")[0].innerText);
@@ -73,6 +77,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   isSatisfiedToAutorFilter = function isSatisfiedToAutorFilter(record) {
     var autorName, j, len, ref;
+
+    if (predicates.requiredAutors.length === 0) {
+      return true;
+    }
+
     ref = predicates.requiredAutors;
 
     for (j = 0, len = ref.length; j < len; j++) {
