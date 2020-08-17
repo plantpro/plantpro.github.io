@@ -153,24 +153,21 @@
   };
 
   updateResults = function updateResults() {
-    var i, j, len, ref, results, searchBox;
+    var i, j, len, ref, searchBox;
     searchBox = document.getElementById("search-box");
     ref = searchBox.children;
-    results = [];
 
     for (j = 0, len = ref.length; j < len; j++) {
       i = ref[j];
 
       if (i.className === "plpro-lib-record") {
-        results.push(function (i) {
+        (function (i) {
           return checkRecordForFilters(i);
-        }(i));
-      } else {
-        results.push(void 0);
+        })(i);
       }
     }
 
-    return results;
+    return null;
   };
 
   autorOnClick = function autorOnClick(event) {

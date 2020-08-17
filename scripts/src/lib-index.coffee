@@ -107,9 +107,9 @@ checkRecordForFilters = (record) ->
 
 updateResults = () ->
 	searchBox = document.getElementById "search-box"
-	for i in searchBox.children
-		if i.className == "plpro-lib-record"
-			do (i) -> checkRecordForFilters i
+	for i in searchBox.children when i.className == "plpro-lib-record"
+		do (i) -> checkRecordForFilters i
+	return null
 
 autorOnClick = (event) ->
 	return false if not event.target.classList.contains "record-autor"
