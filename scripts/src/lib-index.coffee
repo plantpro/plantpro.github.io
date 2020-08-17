@@ -25,18 +25,10 @@ parseFileType = (string) ->
 		else availableFileTypes.UNKNOWN
 
 predicates = {
-	articleFilterIsEnabled: false,
 	requiredFileTypes: [],
 	requiredAutors: [],
 	searchText: ""
 }
-
-isArticle = (record) ->
-	span = record.getElementsByClassName "plpro-lib-record-article"
-	return span.length > 0
-
-isSatisfiedToArticleFilter = (record) ->
-	not predicates.articleFilterIsEnabled or isArticle record
 
 isSatisfiedToFileTypeFilter = (record) ->
 	return true if predicates.requiredFileTypes.length == 0
@@ -58,7 +50,6 @@ isSatisfiedToSearch = (record) ->
 	new RegExp(predicates.searchText, 'i').test(title.innerText)
 
 isSatisfiedToAllPredicates = (record) ->
-	isSatisfiedToArticleFilter(record) and
 	isSatisfiedToFileTypeFilter(record) and
 	isSatisfiedToAutorFilter(record) and
 	isSatisfiedToSearch(record)
@@ -96,17 +87,6 @@ updateResults = () ->
 			$(i).animate({ opacity: 0 }, 300, do (i) -> () ->
 				i.style.display = "none"
 				if isSatisfiedToAllPredicates i
-					i.style.display = "block"
-					$(i).animate({ opacity: 1 }, 300)
-			)
-
-doSearch = () ->
-	searchBox = document.getElementById "search-box"
-	for i in searchBox.children
-		if i.className == "plpro-lib-record" and i.style.display != "none"
-			$(i).animate({ opacity: 0 }, 300, do (i) -> () ->
-				i.style.display = "none"
-				if isSatisfiedToSearch i
 					i.style.display = "block"
 					$(i).animate({ opacity: 1 }, 300)
 			)
@@ -162,13 +142,13 @@ updateSearchText = (event) ->
 	return if predicates.searchText == searchInput.value
 	predicates.searchText = searchInput.value
 
-	doSearch()
+	updateResults()
 
 searchInputClear = (event) ->
 	searchInput = document.getElementById "search-input"
-	predicates.searchText = searchInput.value = ""
-	
-	updateResults()
+	searchInput.value = ""
+
+	updateSearchText()
 
 document.getElementById "search-input"
 .addEventListener "change", updateSearchText

@@ -100,17 +100,6 @@ updateResults = () ->
 					$(i).animate({ opacity: 1 }, 300)
 			)
 
-doSearch = () ->
-	searchBox = document.getElementById "search-box"
-	for i in searchBox.children
-		if i.className == "plpro-lib-record" and i.style.display != "none"
-			$(i).animate({ opacity: 0 }, 300, do (i) -> () ->
-				i.style.display = "none"
-				if isSatisfiedToSearch i
-					i.style.display = "block"
-					$(i).animate({ opacity: 1 }, 300)
-			)
-
 document.autorOnClick = (self) ->
 	autorName = self.innerText
 	predicates.requiredAutors.push(autorName)
@@ -162,13 +151,13 @@ updateSearchText = (event) ->
 	return if predicates.searchText == searchInput.value
 	predicates.searchText = searchInput.value
 
-	doSearch()
+	updateResults()
 
 searchInputClear = (event) ->
 	searchInput = document.getElementById "search-input"
-	predicates.searchText = searchInput.value = ""
-	
-	updateResults()
+	searchInput.value = ""
+
+	updateSearchText()
 
 document.getElementById "search-input"
 .addEventListener "change", updateSearchText
