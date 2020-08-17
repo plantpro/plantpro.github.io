@@ -215,7 +215,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var searchInput;
     searchInput = document.getElementById("search-input");
     searchInput.value = "";
-    return updateResults();
+    return searchInputChanged();
   };
 
   document.getElementById("search-input").addEventListener("change", searchInputChanged);

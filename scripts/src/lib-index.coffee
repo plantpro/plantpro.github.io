@@ -155,7 +155,7 @@ searchInputClear = (event) ->
 	searchInput = document.getElementById "search-input"
 	searchInput.value = ""
 
-	updateResults()
+	searchInputChanged()
 
 document.getElementById "search-input"
 .addEventListener "change", searchInputChanged
