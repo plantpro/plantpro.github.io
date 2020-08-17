@@ -160,7 +160,7 @@
     for (j = 0, len = ref.length; j < len; j++) {
       i = ref[j];
 
-      if (i.className === "plpro-lib-record") {
+      if (i.className === "record") {
         (function (i) {
           return checkRecordForFilters(i);
         })(i);
