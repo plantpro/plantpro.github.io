@@ -21,7 +21,7 @@ def autor_format(autor):
 
 def record_to_html(record):
 	return f"""
-	<div class="plpro-lib-record">
+	<div class="plpro-lib-record" data-language="{record["Язык оригинала"]}">
 		<h6 class="plpro-lib-record-title">
 			<a href="{record["Ссылка"]}">{record["Название на языке оригинала"]}</a>
 			<span class="filetype-tag float-right" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};" onclick="document.filterByType(this);">
@@ -115,6 +115,12 @@ def write_to_file(content, recordsCount):
 						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
 						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
 						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
+					</div>
+
+					<div id="filetype-form">
+						Язык:
+						<span class="filetype-tag" onclick="document.filterByLanguage('ru');">Русский</span>
+						<span class="filetype-tag" onclick="document.filterByLanguage('en');">Английский</span>
 					</div>
 
 					<div class="help-icon">

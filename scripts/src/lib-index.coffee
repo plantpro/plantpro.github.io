@@ -25,11 +25,18 @@ parseFileType = (string) ->
 		else availableFileTypes.UNKNOWN
 
 predicates = {
+	requiredLanguages: [],
 	requiredFileTypes: [],
 	requiredAutors: [],
 	searchText: "",
 	cachedRegex: null
 }
+
+isSatisfiedToLanguageFilter = (record) ->
+	return true if predicates.requiredLanguages.length == 0
+	predicates.requiredLanguages.some((requiredLanguage) ->
+		record.dataset.language == requiredLanguage
+	)
 
 isSatisfiedToFileTypeFilter = (record) ->
 	return true if predicates.requiredFileTypes.length == 0
@@ -52,6 +59,7 @@ isSatisfiedToSearch = (record) ->
 	predicates.cachedRegex.test(title.innerText)
 
 isSatisfiedToAllFilters = (record) ->
+	isSatisfiedToLanguageFilter(record) and
 	isSatisfiedToFileTypeFilter(record) and
 	isSatisfiedToAutorFilter(record) and
 	isSatisfiedToSearch(record)
@@ -142,6 +150,21 @@ document.filterByTypeName = (self) ->
 			requiredFileType.color,
 			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
 
+	updateResults()
+
+document.filterByLanguage = (language) ->
+	predicates.requiredLanguages.push language
+	
+	filterDiv = document.getElementById "filter"
+	filterDiv.innerHTML += " " +
+		makeFilterPanel("Язык: #{language}", "document.deleteLanguageFilter(this, \"#{language}\")")
+
+	updateResults()
+
+document.deleteLanguageFilter = (self, language) ->
+	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
+	index = predicates.requiredLanguages.indexOf language
+	predicates.requiredLanguages.splice index, 1
 	updateResults()
 
 createRegExpFromSearchText = (string) ->
