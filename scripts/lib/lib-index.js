@@ -17,6 +17,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var autorOnClick,
       availableFileTypes,
       checkRecordForFilters,
+      completeFilterDeletion,
       createRegExpFromSearchText,
       isSatisfiedToAllFilters,
       isSatisfiedToAutorFilter,
@@ -51,10 +52,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   parseFileType = function parseFileType(string) {
     switch (string.trim()) {
-      case "pdf":
+      case ".pdf":
         return availableFileTypes.PDF;
 
-      case "djvu":
+      case ".djvu":
         return availableFileTypes.DJVU;
 
       case "online":
@@ -193,26 +194,25 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return updateResults();
   };
 
-  document.deleteAutorFilter = function (self, autorName) {
-    $(self.parentNode).animate({
-      opacity: 0
-    }, 300, function () {
+  completeFilterDeletion = function completeFilterDeletion(self) {
+    $(self.parentNode).fadeOut(function () {
       return self.parentNode.remove();
     });
-    predicates.requiredAutors.splice(predicates.requiredAutors.indexOf(autorName), 1);
     return updateResults();
+  };
+
+  document.deleteAutorFilter = function (self, autorName) {
+    predicates.requiredAutors.splice(predicates.requiredAutors.indexOf(autorName), 1);
+    return completeFilterDeletion(self);
   };
 
   document.deleteFileTypeFilter = function (self, fileTypeName) {
     var index;
-    $(self.parentNode).fadeOut(300, function () {
-      return self.parentNode.remove();
-    });
     index = predicates.requiredFileTypes.findIndex(function (i) {
       return i.name === fileTypeName;
     });
     predicates.requiredFileTypes.splice(index, 1);
-    return updateResults();
+    return completeFilterDeletion(self);
   };
 
   document.filterByType = function (self) {
@@ -243,14 +243,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   document.deleteLanguageFilter = function (self, language) {
     var index;
-    $(self.parentNode).animate({
-      opacity: 0
-    }, 300, function () {
-      return self.parentNode.remove();
-    });
     index = predicates.requiredLanguages.indexOf(language);
     predicates.requiredLanguages.splice(index, 1);
-    return updateResults();
+    return completeFilterDeletion(self);
   };
 
   createRegExpFromSearchText = function createRegExpFromSearchText(string) {

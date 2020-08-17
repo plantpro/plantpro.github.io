@@ -19,8 +19,8 @@ availableFileTypes = {
 
 parseFileType = (string) ->
 	switch string.trim()
-		when "pdf" then availableFileTypes.PDF
-		when "djvu" then availableFileTypes.DJVU
+		when ".pdf" then availableFileTypes.PDF
+		when ".djvu" then availableFileTypes.DJVU
 		when "online" then availableFileTypes.ONLINE
 		else availableFileTypes.UNKNOWN
 
@@ -118,17 +118,18 @@ autorOnClick = (event) ->
 	
 	updateResults()
 
-document.deleteAutorFilter = (self, autorName) ->
-	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
-	predicates.requiredAutors.splice (predicates.requiredAutors.indexOf autorName), 1
+completeFilterDeletion = (self) ->
+	$(self.parentNode).fadeOut -> self.parentNode.remove()
 	updateResults()
 
+document.deleteAutorFilter = (self, autorName) ->
+	predicates.requiredAutors.splice (predicates.requiredAutors.indexOf autorName), 1
+	completeFilterDeletion self
+
 document.deleteFileTypeFilter = (self, fileTypeName) ->
-	$ self.parentNode
-	.fadeOut 300, () -> self.parentNode.remove()
 	index = predicates.requiredFileTypes.findIndex (i) -> i.name == fileTypeName
 	predicates.requiredFileTypes.splice index, 1
-	updateResults()
+	completeFilterDeletion self
 
 document.filterByType = (self) ->
 	requiredFileType = parseFileType self.innerText
@@ -164,10 +165,10 @@ document.filterByLanguage = (language) ->
 	updateResults()
 
 document.deleteLanguageFilter = (self, language) ->
-	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
 	index = predicates.requiredLanguages.indexOf language
 	predicates.requiredLanguages.splice index, 1
-	updateResults()
+
+	completeFilterDeletion self
 
 createRegExpFromSearchText = (string) ->
 	return new RegExp(string, 'i') if string != ""

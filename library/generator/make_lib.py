@@ -19,13 +19,18 @@ def get_records():
 def autor_format(autor):
 	return f"""<span class="record-autor">{autor}</span>"""
 
+def normalize_file_type(fileTypeName):
+	if fileTypeName in ("pdf", "djvu"):
+		return "." + fileTypeName
+	return fileTypeName
+
 def record_to_html(record):
 	return f"""
 	<div class="record" data-language="{record["Язык оригинала"]}">
 		<div class="record-title">
 			<a href="{record["Ссылка"]}">{record["Название на языке оригинала"]}</a>
 			<span class="filetype-tag float-right" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};" onclick="document.filterByType(this);">
-				{record["Тип файла"]}
+				{normalize_file_type(record["Тип файла"])}
 			</span>
 		</div>
 
@@ -113,8 +118,8 @@ def write_to_file(content, recordsCount):
 
 					<div class="mt-3">
 						Тип файла:
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('pdf');">.pdf</span>
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('djvu');">.djvu</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};" onclick="document.filterByTypeName('.pdf');">.pdf</span>
+						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};" onclick="document.filterByTypeName('.djvu');">.djvu</span>
 						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};" onclick="document.filterByTypeName('online');">online</span>
 					</div>
 
