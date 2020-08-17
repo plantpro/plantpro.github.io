@@ -138,7 +138,7 @@ document.deleteFileTypeFilter = (self, fileTypeName) ->
 	completeFilterDeletion self
 
 filetypeOnClick = (event) ->
-	return false if not event.target.classList.contains "filetype-tag"
+	return if not event.target.classList.contains "filetype-tag"
 
 	requiredFileType = parseFileType event.target.innerText
 	filters.requiredFileTypes.push requiredFileType

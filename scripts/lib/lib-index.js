@@ -233,7 +233,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var filterPanel, requiredFileType;
 
     if (!event.target.classList.contains("filetype-tag")) {
-      return false;
+      return;
     }
 
     requiredFileType = parseFileType(event.target.innerText);
