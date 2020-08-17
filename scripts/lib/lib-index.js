@@ -162,7 +162,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     for (j = 0, len = ref.length; j < len; j++) {
       i = ref[j];
 
-      if (i.className === "plpro-lib-record" && i.style.display === "none") {
+      if (i.className === "plpro-lib-record" && i.style.display !== "none") {
         results.push($(i).animate({
           opacity: 0
         }, 300, function (i) {

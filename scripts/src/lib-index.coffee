@@ -103,7 +103,7 @@ updateResults = () ->
 doSearch = () ->
 	searchBox = document.getElementById "search-box"
 	for i in searchBox.children
-		if i.className == "plpro-lib-record" and i.style.display == "none"
+		if i.className == "plpro-lib-record" and i.style.display != "none"
 			$(i).animate({ opacity: 0 }, 300, do (i) -> () ->
 				i.style.display = "none"
 				if isSatisfiedToSearch i
