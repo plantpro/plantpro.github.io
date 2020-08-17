@@ -84,7 +84,7 @@
   };
 
   isSatisfiedToAutorFilter = function isSatisfiedToAutorFilter(record) {
-    var autors, j, len, ref, ref1, requiredAutorName;
+    var autors, j, len, ref, requiredAutorName;
 
     if (predicates.requiredAutors.length === 0) {
       return true;
@@ -98,7 +98,7 @@
     for (j = 0, len = ref.length; j < len; j++) {
       requiredAutorName = ref[j];
 
-      if (ref1 = !requiredAutorName, indexOf.call(autors, ref1) >= 0) {
+      if (indexOf.call(autors, requiredAutorName) < 0) {
         return false;
       }
     }

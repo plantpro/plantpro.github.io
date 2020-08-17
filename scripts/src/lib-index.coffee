@@ -51,9 +51,9 @@ isSatisfiedToAutorFilter = (record) ->
 	autors = record
 		.getElementsByClassName "record-autor"
 		.map (autor) -> autor.innerText
-		
+
 	for requiredAutorName in predicates.requiredAutors
-		if not requiredAutorName in autors
+		if requiredAutorName not in autors
 			return false
 	return true
 
