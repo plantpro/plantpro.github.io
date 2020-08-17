@@ -24,7 +24,7 @@ parseFileType = (string) ->
 		when "online" then availableFileTypes.ONLINE
 		else availableFileTypes.UNKNOWN
 
-predicates = {
+filters = {
 	requiredLanguages: [],
 	requiredFileTypes: [],
 	requiredAutors: [],
@@ -33,34 +33,32 @@ predicates = {
 }
 
 isSatisfiedToLanguageFilter = (record) ->
-	return true if predicates.requiredLanguages.length == 0
-	predicates.requiredLanguages.some((requiredLanguage) ->
-		record.dataset.language == requiredLanguage
-	)
+	return yes if filters.requiredLanguages.length is 0
+	filters.requiredLanguages.some(
+		(requiredLanguage) -> record.dataset.language is requiredLanguage)
 
 isSatisfiedToFileTypeFilter = (record) ->
-	return yes if predicates.requiredFileTypes.length == 0
-	predicates.requiredFileTypes.some((requiredFileType) ->
+	return yes if filters.requiredFileTypes.length is 0
+	filters.requiredFileTypes.some((requiredFileType) ->
 		fileTypeTag = parseFileType (record.getElementsByClassName "filetype-tag")[0].innerText
-		return fileTypeTag.name == requiredFileType.name
-	)
+		return fileTypeTag.name == requiredFileType.name)
 
 isSatisfiedToAutorFilter = (record) ->
-	return yes if predicates.requiredAutors.length is 0
+	return yes if filters.requiredAutors.length is 0
 
 	autorsNames =
 		[record.getElementsByClassName("record-autor")...]
 		.map (autor) -> autor.innerText
 
-	for requiredAutorName in predicates.requiredAutors
+	for requiredAutorName in filters.requiredAutors
 		return no if requiredAutorName not in autorsNames
 	return yes
 
 isSatisfiedToSearch = (record) ->
-	return yes if predicates.cachedRegex is null
+	return yes if filters.cachedRegex is null
 
 	recordTitle = record.querySelector ".record-title:first-child>a"
-	return predicates.cachedRegex.test(recordTitle.innerText)
+	return filters.cachedRegex.test(recordTitle.innerText)
 
 isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToLanguageFilter(record) and
@@ -88,23 +86,18 @@ makeFilterPanel = (text, deleteAction) ->
 	makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.2)", deleteAction)
 
 addFilterPanel = (panel) ->
-	filterDiv = document.getElementById "filter-area"
-	filterDiv.appendChild panel
+	document.getElementById("filter-area").appendChild(panel)
 	$(panel).fadeIn()
 
-stateChanged = (event) ->
-	predicates.articleFilterIsEnabled = event.target.checked
-	updateResults()
-
 showRecordIfSatisfiedToAllFilters = (record) ->
-	if isSatisfiedToAllFilters record
+	if isSatisfiedToAllFilters(record)
 		record.style.display = "block"
 		$(record).animate({ opacity: 1 }, 300)
 
 checkRecordForFilters = (record) ->
 	$(record).animate({ opacity: 0 }, 300, () ->
 		record.style.display = "none"
-		showRecordIfSatisfiedToAllFilters record
+		showRecordIfSatisfiedToAllFilters(record)
 	)
 
 updateResults = () ->
@@ -116,10 +109,12 @@ updateResults = () ->
 	return null
 
 autorOnClick = (event) ->
-	return false if not event.target.classList.contains "record-autor"
+	return if not event.target.classList.contains "record-autor"
 
 	autorName = event.target.innerText
-	predicates.requiredAutors.push(autorName)
+	return if autorName in filters.requiredAutors
+
+	filters.requiredAutors.push(autorName)
 
 	filterPanel = makeFilterPanel(
 		"Автор: #{autorName}",
@@ -133,40 +128,31 @@ completeFilterDeletion = (self) ->
 	updateResults()
 
 document.deleteAutorFilter = (self, autorName) ->
-	predicates.requiredAutors.splice (predicates.requiredAutors.indexOf autorName), 1
+	index = filters.requiredAutors.indexOf autorName
+	filters.requiredAutors.splice index, 1
 	completeFilterDeletion self
 
 document.deleteFileTypeFilter = (self, fileTypeName) ->
-	index = predicates.requiredFileTypes.findIndex (i) -> i.name == fileTypeName
-	predicates.requiredFileTypes.splice index, 1
+	index = filters.requiredFileTypes.findIndex (i) -> i.name == fileTypeName
+	filters.requiredFileTypes.splice index, 1
 	completeFilterDeletion self
 
-document.filterByType = (self) ->
-	requiredFileType = parseFileType self.innerText
-	predicates.requiredFileTypes.push(requiredFileType)
+filetypeOnClick = (event) ->
+	return false if not event.target.classList.contains "filetype-tag"
+
+	requiredFileType = parseFileType event.target.innerText
+	filters.requiredFileTypes.push requiredFileType
 
 	filterPanel = makeFilterPanelWithColor(
 		"Тип: #{requiredFileType.name}",
 		requiredFileType.color,
 		"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
-	addFilterPanel(filterPanel)
-
-	updateResults()
-
-document.filterByTypeName = (self) ->
-	requiredFileType = parseFileType self
-	predicates.requiredFileTypes.push requiredFileType
-	
-	filterPanel = makeFilterPanelWithColor(
-		"Тип: #{requiredFileType.name}",
-		requiredFileType.color,
-		"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
-	addFilterPanel(filterPanel)
+	addFilterPanel filterPanel
 
 	updateResults()
 
 document.filterByLanguage = (language) ->
-	predicates.requiredLanguages.push language
+	filters.requiredLanguages.push language
 	
 	filterPanel = makeFilterPanel(
 		"Язык: #{language}",
@@ -176,32 +162,38 @@ document.filterByLanguage = (language) ->
 	updateResults()
 
 document.deleteLanguageFilter = (self, language) ->
-	index = predicates.requiredLanguages.indexOf language
-	predicates.requiredLanguages.splice index, 1
+	index = filters.requiredLanguages.indexOf language
+	filters.requiredLanguages.splice index, 1
 
 	completeFilterDeletion self
 
 createRegExpFromSearchText = (string) ->
-	return new RegExp(string, 'i') if string != ""
+	return new RegExp(string, 'i') if string isnt ""
 	return null
 
 updateSearchText = (event) ->
-	searchInput = document.getElementById "search-input"
+	searchInput = document.getElementById("search-input")
 	# If clicked a search button several times, but input stay the same
-	return if predicates.searchText == searchInput.value
-	predicates.searchText = searchInput.value
-	predicates.cachedRegex = createRegExpFromSearchText predicates.searchText
+	return if filters.searchText == searchInput.value
+	filters.searchText = searchInput.value
+	filters.cachedRegex = createRegExpFromSearchText(filters.searchText)
 	
 	updateResults()
 
 searchInputClear = (event) ->
-	searchInput = document.getElementById "search-input"
+	searchInput = document.getElementById("search-input")
 	searchInput.value = ""
 
 	updateSearchText()
 
 document.getElementById "search-box"
 .addEventListener "click", autorOnClick
+
+document.getElementById "search-box"
+.addEventListener "click", filetypeOnClick
+
+document.getElementById "main-panel"
+.addEventListener "click", filetypeOnClick
 
 document.getElementById "search-input"
 .addEventListener "change", updateSearchText

@@ -20,6 +20,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       checkRecordForFilters,
       completeFilterDeletion,
       createRegExpFromSearchText,
+      filetypeOnClick,
+      filters,
       isSatisfiedToAllFilters,
       isSatisfiedToAutorFilter,
       isSatisfiedToFileTypeFilter,
@@ -28,10 +30,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       makeFilterPanel,
       makeFilterPanelWithColor,
       parseFileType,
-      predicates,
       searchInputClear,
       showRecordIfSatisfiedToAllFilters,
-      stateChanged,
       updateResults,
       updateSearchText,
       indexOf = [].indexOf;
@@ -67,7 +67,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   };
 
-  predicates = {
+  filters = {
     requiredLanguages: [],
     requiredFileTypes: [],
     requiredAutors: [],
@@ -76,21 +76,21 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   isSatisfiedToLanguageFilter = function isSatisfiedToLanguageFilter(record) {
-    if (predicates.requiredLanguages.length === 0) {
+    if (filters.requiredLanguages.length === 0) {
       return true;
     }
 
-    return predicates.requiredLanguages.some(function (requiredLanguage) {
+    return filters.requiredLanguages.some(function (requiredLanguage) {
       return record.dataset.language === requiredLanguage;
     });
   };
 
   isSatisfiedToFileTypeFilter = function isSatisfiedToFileTypeFilter(record) {
-    if (predicates.requiredFileTypes.length === 0) {
+    if (filters.requiredFileTypes.length === 0) {
       return true;
     }
 
-    return predicates.requiredFileTypes.some(function (requiredFileType) {
+    return filters.requiredFileTypes.some(function (requiredFileType) {
       var fileTypeTag;
       fileTypeTag = parseFileType(record.getElementsByClassName("filetype-tag")[0].innerText);
       return fileTypeTag.name === requiredFileType.name;
@@ -100,14 +100,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   isSatisfiedToAutorFilter = function isSatisfiedToAutorFilter(record) {
     var autorsNames, j, len, ref, requiredAutorName;
 
-    if (predicates.requiredAutors.length === 0) {
+    if (filters.requiredAutors.length === 0) {
       return true;
     }
 
     autorsNames = _toConsumableArray(record.getElementsByClassName("record-autor")).map(function (autor) {
       return autor.innerText;
     });
-    ref = predicates.requiredAutors;
+    ref = filters.requiredAutors;
 
     for (j = 0, len = ref.length; j < len; j++) {
       requiredAutorName = ref[j];
@@ -123,12 +123,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   isSatisfiedToSearch = function isSatisfiedToSearch(record) {
     var recordTitle;
 
-    if (predicates.cachedRegex === null) {
+    if (filters.cachedRegex === null) {
       return true;
     }
 
     recordTitle = record.querySelector(".record-title:first-child>a");
-    return predicates.cachedRegex.test(recordTitle.innerText);
+    return filters.cachedRegex.test(recordTitle.innerText);
   };
 
   isSatisfiedToAllFilters = function isSatisfiedToAllFilters(record) {
@@ -150,15 +150,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   addFilterPanel = function addFilterPanel(panel) {
-    var filterDiv;
-    filterDiv = document.getElementById("filter-area");
-    filterDiv.appendChild(panel);
+    document.getElementById("filter-area").appendChild(panel);
     return $(panel).fadeIn();
-  };
-
-  stateChanged = function stateChanged(event) {
-    predicates.articleFilterIsEnabled = event.target.checked;
-    return updateResults();
   };
 
   showRecordIfSatisfiedToAllFilters = function showRecordIfSatisfiedToAllFilters(record) {
@@ -198,11 +191,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var autorName, filterPanel;
 
     if (!event.target.classList.contains("record-autor")) {
-      return false;
+      return;
     }
 
     autorName = event.target.innerText;
-    predicates.requiredAutors.push(autorName);
+
+    if (indexOf.call(filters.requiredAutors, autorName) >= 0) {
+      return;
+    }
+
+    filters.requiredAutors.push(autorName);
     filterPanel = makeFilterPanel("\u0410\u0432\u0442\u043E\u0440: ".concat(autorName), "document.deleteAutorFilter(this, \"".concat(autorName, "\")"));
     addFilterPanel(filterPanel);
     return updateResults();
@@ -216,32 +214,30 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.deleteAutorFilter = function (self, autorName) {
-    predicates.requiredAutors.splice(predicates.requiredAutors.indexOf(autorName), 1);
+    var index;
+    index = filters.requiredAutors.indexOf(autorName);
+    filters.requiredAutors.splice(index, 1);
     return completeFilterDeletion(self);
   };
 
   document.deleteFileTypeFilter = function (self, fileTypeName) {
     var index;
-    index = predicates.requiredFileTypes.findIndex(function (i) {
+    index = filters.requiredFileTypes.findIndex(function (i) {
       return i.name === fileTypeName;
     });
-    predicates.requiredFileTypes.splice(index, 1);
+    filters.requiredFileTypes.splice(index, 1);
     return completeFilterDeletion(self);
   };
 
-  document.filterByType = function (self) {
+  filetypeOnClick = function filetypeOnClick(event) {
     var filterPanel, requiredFileType;
-    requiredFileType = parseFileType(self.innerText);
-    predicates.requiredFileTypes.push(requiredFileType);
-    filterPanel = makeFilterPanelWithColor("\u0422\u0438\u043F: ".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
-    addFilterPanel(filterPanel);
-    return updateResults();
-  };
 
-  document.filterByTypeName = function (self) {
-    var filterPanel, requiredFileType;
-    requiredFileType = parseFileType(self);
-    predicates.requiredFileTypes.push(requiredFileType);
+    if (!event.target.classList.contains("filetype-tag")) {
+      return false;
+    }
+
+    requiredFileType = parseFileType(event.target.innerText);
+    filters.requiredFileTypes.push(requiredFileType);
     filterPanel = makeFilterPanelWithColor("\u0422\u0438\u043F: ".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
     addFilterPanel(filterPanel);
     return updateResults();
@@ -249,7 +245,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   document.filterByLanguage = function (language) {
     var filterPanel;
-    predicates.requiredLanguages.push(language);
+    filters.requiredLanguages.push(language);
     filterPanel = makeFilterPanel("\u042F\u0437\u044B\u043A: ".concat(language), "document.deleteLanguageFilter(this, \"".concat(language, "\")"));
     addFilterPanel(filterPanel);
     return updateResults();
@@ -257,8 +253,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   document.deleteLanguageFilter = function (self, language) {
     var index;
-    index = predicates.requiredLanguages.indexOf(language);
-    predicates.requiredLanguages.splice(index, 1);
+    index = filters.requiredLanguages.indexOf(language);
+    filters.requiredLanguages.splice(index, 1);
     return completeFilterDeletion(self);
   };
 
@@ -274,12 +270,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var searchInput;
     searchInput = document.getElementById("search-input"); // If clicked a search button several times, but input stay the same
 
-    if (predicates.searchText === searchInput.value) {
+    if (filters.searchText === searchInput.value) {
       return;
     }
 
-    predicates.searchText = searchInput.value;
-    predicates.cachedRegex = createRegExpFromSearchText(predicates.searchText);
+    filters.searchText = searchInput.value;
+    filters.cachedRegex = createRegExpFromSearchText(filters.searchText);
     return updateResults();
   };
 
@@ -291,6 +287,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   document.getElementById("search-box").addEventListener("click", autorOnClick);
+  document.getElementById("search-box").addEventListener("click", filetypeOnClick);
+  document.getElementById("main-panel").addEventListener("click", filetypeOnClick);
   document.getElementById("search-input").addEventListener("change", updateSearchText);
   document.getElementById("search-button").addEventListener("click", updateSearchText);
   document.getElementById("search-clear").addEventListener("click", searchInputClear);
