@@ -17,7 +17,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var addFilterPanel,
       autorOnClick,
       availableFileTypes,
-      checkRecordForFilters,
       completeFilterDeletion,
       createRegExpFromSearchText,
       filetypeOnClick,
@@ -31,7 +30,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       makeFilterPanelWithColor,
       parseFileType,
       searchInputClear,
-      showRecordIfSatisfiedToAllFilters,
       updateResults,
       updateSearchText,
       indexOf = [].indexOf;
@@ -72,7 +70,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     requiredFileTypes: [],
     requiredAutors: [],
     searchText: "",
-    cachedRegex: null
+    cachedRegex: null,
+    atLeastOneIsFound: true
   };
 
   isSatisfiedToLanguageFilter = function isSatisfiedToLanguageFilter(record) {
@@ -154,36 +153,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return $(panel).fadeIn();
   };
 
-  showRecordIfSatisfiedToAllFilters = function showRecordIfSatisfiedToAllFilters(record) {
-    if (isSatisfiedToAllFilters(record)) {
-      record.style.display = "block";
-      return $(record).animate({
-        opacity: 1
-      }, 300);
-    }
-  };
-
-  checkRecordForFilters = function checkRecordForFilters(record) {
-    return $(record).animate({
-      opacity: 0
-    }, 300, function () {
-      record.style.display = "none";
-      return showRecordIfSatisfiedToAllFilters(record);
-    });
-  };
-
   updateResults = function updateResults() {
     var j, len, record, records;
+    $("#search-box").fadeOut();
     records = document.getElementById("search-box").getElementsByClassName("record");
 
     for (j = 0, len = records.length; j < len; j++) {
       record = records[j];
 
-      (function (record) {
-        return checkRecordForFilters(record);
-      })(record);
+      if (isSatisfiedToAllFilters(record)) {
+        record.style.display = "block";
+      } else {
+        record.style.display = "none";
+      }
     }
 
+    $("#search-box").fadeIn();
     return null;
   };
 

@@ -29,7 +29,9 @@ filters = {
 	requiredFileTypes: [],
 	requiredAutors: [],
 	searchText: "",
-	cachedRegex: null
+	cachedRegex: null,
+
+	atLeastOneIsFound: true
 }
 
 isSatisfiedToLanguageFilter = (record) ->
@@ -89,23 +91,17 @@ addFilterPanel = (panel) ->
 	document.getElementById("filter-area").appendChild(panel)
 	$(panel).fadeIn()
 
-showRecordIfSatisfiedToAllFilters = (record) ->
-	if isSatisfiedToAllFilters(record)
-		record.style.display = "block"
-		$(record).animate({ opacity: 1 }, 300)
-
-checkRecordForFilters = (record) ->
-	$(record).animate({ opacity: 0 }, 300, () ->
-		record.style.display = "none"
-		showRecordIfSatisfiedToAllFilters(record)
-	)
-
 updateResults = () ->
+	$("#search-box").fadeOut()
 	records = document
 		.getElementById "search-box"
 		.getElementsByClassName "record"
 	for record in records
-		do (record) -> checkRecordForFilters record
+		if isSatisfiedToAllFilters(record)
+			record.style.display = "block"
+		else
+			record.style.display = "none"
+	$("#search-box").fadeIn()
 	return null
 
 autorOnClick = (event) ->
