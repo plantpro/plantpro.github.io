@@ -48,14 +48,13 @@ isSatisfiedToFileTypeFilter = (record) ->
 isSatisfiedToAutorFilter = (record) ->
 	return true if predicates.requiredAutors.length == 0
 	for autorName in predicates.requiredAutors
-		if not [record.children...].some((elem) ->
-			elem.className == "plpro-lib-record-autor" and elem.innerText == autorName)
+		if not (record.getElementsByClassName "record-autor").some((elem) -> elem.innerText == autorName)
 			return false
 	return true
 
 isSatisfiedToSearch = (record) ->
 	return true if predicates.cachedRegex == null
-	title = record.querySelector ".plpro-lib-record-title:first-child>a"
+	title = record.querySelector ".record-title:first-child>a"
 	predicates.cachedRegex.test(title.innerText)
 
 isSatisfiedToAllFilters = (record) ->
