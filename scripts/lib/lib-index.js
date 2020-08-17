@@ -191,7 +191,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     autorName = event.target.innerText;
     predicates.requiredAutors.push(autorName);
-    filterDiv = document.getElementById("filter");
+    filterDiv = document.getElementById("filter-area");
     filterDiv.innerHTML += " " + makeFilterPanel("\u0410\u0432\u0442\u043E\u0440: ".concat(autorName), "document.deleteAutorFilter(this, \"".concat(autorName, "\")"));
     return updateResults();
   };
@@ -224,7 +224,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var filterDiv, requiredFileType;
     requiredFileType = parseFileType(self.innerText);
     predicates.requiredFileTypes.push(requiredFileType);
-    filterDiv = document.getElementById("filter");
+    filterDiv = document.getElementById("filter-area");
     filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: ".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
     return updateResults();
   };
@@ -233,7 +233,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var filterDiv, requiredFileType;
     requiredFileType = parseFileType(self);
     predicates.requiredFileTypes.push(requiredFileType);
-    filterDiv = document.getElementById("filter");
+    filterDiv = document.getElementById("filter-area");
     filterDiv.innerHTML += " " + makeFilterPanelWithColor("\u0422\u0438\u043F: ".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
     return updateResults();
   };
@@ -241,7 +241,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   document.filterByLanguage = function (language) {
     var filterDiv;
     predicates.requiredLanguages.push(language);
-    filterDiv = document.getElementById("filter");
+    filterDiv = document.getElementById("filter-area");
     filterDiv.innerHTML += " " + makeFilterPanel("\u042F\u0437\u044B\u043A: ".concat(language), "document.deleteLanguageFilter(this, \"".concat(language, "\")"));
     return updateResults();
   };

@@ -4,26 +4,20 @@
 	min-height: 100vh;
 	min-width: 100vw;
 
-	background: linear-gradient(180deg,rgb(100, 98, 93), 70vh, rgb(122, 106, 77));
-	/*background-image: 
-		linear-gradient(0deg, rgba(0, 0, 0, .6), rgb(0, 0, 0));*/
-	/*	url(../resources/images/main-sc.jpg);*/
-  background-repeat: no-repeat;
-  background-size: cover;
-	background-position: center;
+	background: rgb(100,98,93);
+	background: linear-gradient(230deg, rgb(100,98,93) 0%, rgb(122,106,77) 100%);
 }
 
 header {
-	margin: 1.5em 15px;
+	margin: 2em 15px;
 }
 
 header>h1 {
-	flex-basis: 100%;
+	text-align: center;
 	font-weight: 300;
 	font-size: 1.8em;
 	letter-spacing: .1em;
   word-break: normal;
-	text-align: center;
 }
 
 #main-panel {
@@ -35,21 +29,20 @@ header>h1 {
 
 #search-area {
 	display: flex;
+	border-radius: 2px;
+	background-color: var(--lighter-color-1);
 }
 
 #search-input {
 	width: 100%;
 	padding: 5px 0px 5px 10px;
-
-	color: #ffffff;
-	background-color: rgba(255, 255, 255, .1);
-
 	border: none;
-	border-radius: 2px 0 0 2px;
+	color: var(--fore-color);
+	background-color: transparent;
 }
 
 #search-input::placeholder {
-	color: rgba(255, 255, 255, .3);
+	color: var(--lighter-color-3);
 }
 
 #search-input:focus,
@@ -59,14 +52,8 @@ header>h1 {
 
 #search-clear {
 	padding: 5px 5px;
-
-	background-color: rgba(255, 255, 255, .1);
-	
 	border: none;
-}
-
-#search-clear:hover {
-	cursor: default;
+	background-color: transparent;
 }
 
 #search-clear:hover {
@@ -87,69 +74,81 @@ header>h1 {
 }
 
 #search-input:not(:placeholder-shown)+#search-clear>svg>path {
-	fill: rgba(255, 255, 255, .3);
+	fill: var(--lighter-color-3);
 }
 
 #search-input:not(:placeholder-shown)+#search-clear:hover>svg>path,
 #search-input:not(:placeholder-shown)+#search-clear:active>svg>path,
 #search-input:not(:placeholder-shown)+#search-clear:focus>svg>path  {
-	fill: white;
+	fill: var(--fore-color);
 }
 
 #search-button {
-	color: #ffffff;
-	background-color: rgb(0, 128, 128);
+	margin: 2px;
+	padding: 5px 15px;
 
 	border: none;
-	border-radius: 0px 2px 2px 0px;
+	border-radius: 2px;
 
-	padding: 5px 15px;
+	color: var(--primary-fore-color);
+	background-color: var(--primary-color);
 }
 
 #search-button:hover,
 #search-button:active,
 #search-button:focus  {
 	outline: none;
-	color: #000000;
-	background-color: rgb(255, 230, 0);
+	color: var(--accent-fore-color);
+	background-color: var(--accent-color);
 	transition: .3s;
 }
-
 /* /search-area */
 
-#article-form,
-#filetype-form {
-	margin-top: 1em;
+.filetype-tag,
+.language-tag {
+  color: var(--fore-color);
+  padding: 3px;
+ 	font-size: 12px;
+  white-space: nowrap;
+	text-decoration: none;
+	font-weight: 400;
+	border-radius: 2px;
+	margin-left: 3px;
+	cursor: pointer;
+	text-decoration: none;
 }
 
+.language-tag {
+  background-color: var(--lighter-color-1);
+}
 
-.help-icon {
+/* help-icon */
+#help-icon {
 	position: absolute;
+
 	right: 2em;
 	bottom: 2em;
-
-	display: flex;
-	flex-direction: column;
 
 	cursor: pointer;
 }
 
-.help-icon>svg {
+#help-icon>svg {
 	width: 24px;
-	fill: rgba(255, 255, 255, .3);
+	fill: var(--lighter-color-3);
 }
 
-.help-icon:hover>svg {
-	fill:rgb(255, 255, 255);
+#help-icon:hover>svg {
+	fill: var(--fore-color);
 }
+/* /help-icon */
 
+/* record */
 .record {
 	padding: 1em 2em;
 	margin-top: 1em;
 }
 
 .record:hover {
-	color: white;
 	backdrop-filter: blur(3px);
 	background-color: rgba(255, 255, 255, .2);
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
@@ -157,24 +156,13 @@ header>h1 {
 }
 
 .record-article-mark {
-	color: #cc2727;
+	color: var(--accent-color);
 	font-size: smaller;
-}
-
-.record-title {
-	margin-bottom: 0;
 }
 
 .record-title>a {
 	font-size: 1.1em;
-	color: var(--article-fg);
-}
-
-.record-title>a:hover,
-.record-title-title>a:focus {
-	color: var(--secondary);
-	text-decoration: none;
-	transition: 0.3s;
+	color: var(--fore-color)
 }
 
 .record-year,
@@ -184,21 +172,17 @@ header>h1 {
 	font-size: smaller;
 }
 
-#filter {
-	margin-top: 1em;
-}
-
-.filetype-tag {
-	margin-left: 3px;
-	cursor: pointer;
-	text-decoration: none;
-}
-
 .record-autor {
 	text-decoration: underline;
 	cursor: pointer;
 }
+/* /record */
 
+#filter-area {
+	margin-top: 1em;
+}
+
+/* filter-panel */
 .filter-panel {
 	font-size: 14px;
 }
@@ -209,14 +193,13 @@ header>h1 {
   cursor: pointer;
 	padding: 0;
 	float: right;
-  color: rgba(0, 0, 0, .87);
   border: none;
 	outline: none;
 	background-color: transparent;
 }
 
 .close-panel-btn>svg {
-	fill: rgba(255, 255, 255, .3);
+	fill: var(--lighter-color-3);
 	width:18px;
 	height:18px;
 }
@@ -230,50 +213,6 @@ header>h1 {
 .close-panel-btn:hover>svg,
 .close-panel-btn:focus>svg,
 .close-panel-btn:active>svg {
-	fill: white;
+	fill: var(--fore-color);
 }
-
-.filetype-tag {
-  color: white;
-  padding: 3px;
- 	font-size: smaller;
-  white-space: nowrap;
-	text-decoration: none;
-	font-weight: 400;
-	border-radius: 2px;
-}
-
-.home-button {
-	display: block;
-	position: fixed;
-
-	z-index: 100;
-	padding: 1em;
-
-	left: 3em;
-	bottom: 3em;
-
-	border-radius: 50%;
-
-	background-color: rgb(0, 128, 128);
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
-}
-
-.home-button>svg {
-	width: 24px;
-	margin-top: -3px;
-
-	fill: #ffffff;
-}
-
-.home-button:hover,
-.home-button:active {
-	background-color: rgb(255, 230, 0);
-	transition: .3s;
-}
-
-.home-button:hover>svg,
-.home-button:active>svg {
-	fill: #000000;
-	transition: .3s;
-}
+/* /filter-panel */

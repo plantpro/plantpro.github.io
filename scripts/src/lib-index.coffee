@@ -110,7 +110,7 @@ autorOnClick = (event) ->
 	autorName = event.target.innerText
 	predicates.requiredAutors.push(autorName)
 
-	filterDiv = document.getElementById "filter"
+	filterDiv = document.getElementById "filter-area"
 	filterDiv.innerHTML += " " +
 		makeFilterPanel "Автор: #{autorName}", "document.deleteAutorFilter(this, \"#{autorName}\")"
 	
@@ -131,7 +131,7 @@ document.filterByType = (self) ->
 	requiredFileType = parseFileType self.innerText
 	predicates.requiredFileTypes.push(requiredFileType)
 
-	filterDiv = document.getElementById "filter"
+	filterDiv = document.getElementById "filter-area"
 	filterDiv.innerHTML += " " +
 		makeFilterPanelWithColor("Тип: #{requiredFileType.name}",
 			requiredFileType.color,
@@ -143,7 +143,7 @@ document.filterByTypeName = (self) ->
 	requiredFileType = parseFileType self
 	predicates.requiredFileTypes.push requiredFileType
 	
-	filterDiv = document.getElementById "filter"
+	filterDiv = document.getElementById "filter-area"
 	filterDiv.innerHTML += " " +
 		makeFilterPanelWithColor("Тип: #{requiredFileType.name}",
 			requiredFileType.color,
@@ -154,7 +154,7 @@ document.filterByTypeName = (self) ->
 document.filterByLanguage = (language) ->
 	predicates.requiredLanguages.push language
 	
-	filterDiv = document.getElementById "filter"
+	filterDiv = document.getElementById "filter-area"
 	filterDiv.innerHTML += " " +
 		makeFilterPanel("Язык: #{language}", "document.deleteLanguageFilter(this, \"#{language}\")")
 

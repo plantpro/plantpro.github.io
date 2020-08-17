@@ -72,20 +72,20 @@
 						<button id="search-button">Поиск</button>
 					</div>
 
-					<div id="filetype-form">
+					<div class="mt-3">
 						Тип файла:
 						<span class="filetype-tag" style="background-color: rgba(231, 47, 47, .5);" onclick="document.filterByTypeName('pdf');">.pdf</span>
 						<span class="filetype-tag" style="background-color: rgba(160, 0, 160, .5);" onclick="document.filterByTypeName('djvu');">.djvu</span>
 						<span class="filetype-tag" style="background-color: rgba(112, 112, 112, .5);" onclick="document.filterByTypeName('online');">online</span>
 					</div>
 
-					<div id="filetype-form">
+					<div class="mt-3">
 						Язык:
-						<span class="filetype-tag" onclick="document.filterByLanguage('ru');">Русский</span>
-						<span class="filetype-tag" onclick="document.filterByLanguage('en');">Английский</span>
+						<span class="language-tag" onclick="document.filterByLanguage('ru');">Русский</span>
+						<span class="language-tag" onclick="document.filterByLanguage('en');">Английский</span>
 					</div>
 
-					<div class="help-icon">
+					<div id="help-icon">
 						<svg viewBox="0 0 512 512">
 							<g>
 								<path d="m256 512c-68.38 0-132.667-26.628-181.02-74.98s-74.98-112.64-74.98-181.02 26.628-132.667 74.98-181.02 112.64-74.98 181.02-74.98 132.667 26.628 181.02 74.98 74.98 112.64 74.98 181.02-26.628 132.667-74.98 181.02-112.64 74.98-181.02 74.98zm0-480c-123.514 0-224 100.486-224 224s100.486 224 224 224 224-100.486 224-224-100.486-224-224-224z"/>
@@ -95,7 +95,7 @@
 					</div>
 				</div>
 
-				<div id="filter"></div>
+				<div id="filter-area"></div>
 			</div>
 
 			<div class="col-md-8" id="search-box">

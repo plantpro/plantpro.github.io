@@ -1,9 +1,16 @@
 /* Common styles, applied to all pages (with few exceptions) */
 
 :root {
-  --accent: #ce0e00;
-  --secondary: rgb(245, 245, 245);
-  --secondary-text: #58554B;
+	--fore-color: rgb(255, 255, 255);
+
+	--primary-color: rgb(0, 128, 128);
+	--primary-fore-color: rgb(255, 255, 255);
+
+	--accent-color: rgb(255, 208, 0);
+	--accent-fore-color: rgb(0, 0, 0);
+
+	--lighter-color-1: rgba(255, 255, 255, .1);
+	--lighter-color-3: rgba(255, 255, 255, .3);
 }
 
 html {
@@ -45,6 +52,42 @@ a:active {
 
 	font-weight: 300;
 	letter-spacing: .03em;
+}
+
+
+.home-button {
+	display: block;
+	position: fixed;
+
+	z-index: 100;
+	padding: 1em;
+
+	left: 3em;
+	bottom: 3em;
+
+	border-radius: 50%;
+
+	background-color: var(--primary-color);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
+}
+
+.home-button>svg {
+	width: 24px;
+	margin-top: -3px;
+
+	fill: var(--fore-color);
+}
+
+.home-button:hover,
+.home-button:active {
+	background-color: var(--accent-color);
+	transition: .3s;
+}
+
+.home-button:hover>svg,
+.home-button:active>svg {
+	fill: var(--accent-fore-color);
+	transition: .3s;
 }
 
 .navbar-toggler {
