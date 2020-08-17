@@ -145,8 +145,11 @@ document.filterByTypeName = (self) ->
 
 	updateResults()
 	
-searchInputChanged = (event) ->
+updateSearchText = (event) ->
 	searchInput = document.getElementById "search-input"
+
+	return if predicates.searchText == searchInput.value
+	
 	predicates.searchText = searchInput.value
 
 	updateResults()
@@ -155,13 +158,13 @@ searchInputClear = (event) ->
 	searchInput = document.getElementById "search-input"
 	searchInput.value = ""
 
-	searchInputChanged()
+	updateSearchText()
 
 document.getElementById "search-input"
-.addEventListener "change", searchInputChanged
+.addEventListener "change", updateSearchText
 
 document.getElementById "search-button"
-.addEventListener "click", searchInputChanged
+.addEventListener "click", updateSearchText
 
 document.getElementById "search-clear"
 .addEventListener "click", searchInputClear
