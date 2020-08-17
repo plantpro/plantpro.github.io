@@ -49,7 +49,7 @@ isSatisfiedToSearch = (record) ->
 	title = record.querySelector ".plpro-lib-record-title:first-child>a"
 	new RegExp(predicates.searchText, 'i').test(title.innerText)
 
-isSatisfiedToAllPredicates = (record) ->
+isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToFileTypeFilter(record) and
 	isSatisfiedToAutorFilter(record) and
 	isSatisfiedToSearch(record)
@@ -80,16 +80,27 @@ stateChanged = (event) ->
 	predicates.articleFilterIsEnabled = event.target.checked
 	updateResults()
 
+showRecordIfSatisfiedToAllFilters = (record) ->
+	if isSatisfiedToAllFilters record
+		record.style.display = "block"
+		$(record).animate({ opacity: 1 }, 300)
+
+checkRecordForFilters = (record) ->
+	record.addEventListener "transitionend", () ->
+		record.style.display = "none"
+		showRecordIfSatisfiedToAllFilters record
+	, true
+	record.style.opacity = 0
+#	$(record).animate({ opacity: 0 }, 300, () ->
+#		record.style.display = "none"
+#		showRecordIfSatisfiedToAllFilters record
+#	)
+
 updateResults = () ->
 	searchBox = document.getElementById "search-box"
 	for i in searchBox.children
 		if i.className == "plpro-lib-record"
-			$(i).animate({ opacity: 0 }, 300, do (i) -> () ->
-				i.style.display = "none"
-				if isSatisfiedToAllPredicates i
-					i.style.display = "block"
-					$(i).animate({ opacity: 1 }, 300)
-			)
+			do (i) -> checkRecordForFilters i
 
 document.autorOnClick = (self) ->
 	autorName = self.innerText
