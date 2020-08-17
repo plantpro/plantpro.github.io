@@ -90,13 +90,13 @@
       return true;
     }
 
+    autors = record.getElementsByClassName("record-autor").map(function (autor) {
+      return autor.innerText;
+    });
     ref = predicates.requiredAutors;
 
     for (j = 0, len = ref.length; j < len; j++) {
       requiredAutorName = ref[j];
-      autors = record.getElementsByClassName("record-autor").map(function (autor) {
-        return autor.innerText;
-      });
 
       if (ref1 = !requiredAutorName, indexOf.call(autors, ref1) >= 0) {
         return false;
