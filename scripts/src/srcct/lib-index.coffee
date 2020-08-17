@@ -86,15 +86,15 @@ showRecordIfSatisfiedToAllFilters = (record) ->
 		$(record).animate({ opacity: 1 }, 300)
 
 checkRecordForFilters = (record) ->
-	record.addEventListener "transitionend", () ->
+	#record.addEventListener "transitionend", () ->
+	#	record.style.display = "none"
+	#	showRecordIfSatisfiedToAllFilters record
+	#, true
+	#record.style.opacity = 0
+	$(record).animate({ opacity: 0 }, 300, () ->
 		record.style.display = "none"
 		showRecordIfSatisfiedToAllFilters record
-	, true
-	record.style.opacity = 0
-#	$(record).animate({ opacity: 0 }, 300, () ->
-#		record.style.display = "none"
-#		showRecordIfSatisfiedToAllFilters record
-#	)
+	)
 
 updateResults = () ->
 	searchBox = document.getElementById "search-box"

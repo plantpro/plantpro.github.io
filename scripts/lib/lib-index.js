@@ -120,16 +120,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   checkRecordForFilters = function checkRecordForFilters(record) {
-    record.addEventListener("transitionend", function () {
+    //record.addEventListener "transitionend", () ->
+    //	record.style.display = "none"
+    //	showRecordIfSatisfiedToAllFilters record
+    //, true
+    //record.style.opacity = 0
+    return $(record).animate({
+      opacity: 0
+    }, 300, function () {
       record.style.display = "none";
       return showRecordIfSatisfiedToAllFilters(record);
-    }, true);
-    return record.style.opacity = 0;
-  }; //	$(record).animate({ opacity: 0 }, 300, () ->
-  //		record.style.display = "none"
-  //		showRecordIfSatisfiedToAllFilters record
-  //	)
-
+    });
+  };
 
   updateResults = function updateResults() {
     var i, j, len, ref, results, searchBox;
