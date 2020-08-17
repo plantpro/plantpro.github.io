@@ -143,15 +143,17 @@ document.filterByTypeName = (self) ->
 			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
 
 	updateResults()
-	
+
+createRegExpFromSearchText = (string) ->
+	return new RegExp(string, 'i') if string != ""
+	else null
+
 updateSearchText = (event) ->
 	searchInput = document.getElementById "search-input"
 	# If clicked a search button several times, but input stay the same
 	return if predicates.searchText == searchInput.value
 	predicates.searchText = searchInput.value
-	predicates.cachedRegex =
-		if predicates.searchText != ""
-			new RegExp(predicates.searchText, 'i')
+	predicates.cachedRegex = createRegExpFromSearchText predicates.searchText
 	
 	updateResults()
 
