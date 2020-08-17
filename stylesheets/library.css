@@ -143,12 +143,12 @@ header>h1 {
 	fill:rgb(255, 255, 255);
 }
 
-.plpro-lib-record {
+.record {
 	padding: 1em 2em;
 	margin-top: 1em;
 }
 
-.plpro-lib-record:hover {
+.record:hover {
 	color: white;
 	backdrop-filter: blur(3px);
 	background-color: rgba(255, 255, 255, .2);
@@ -156,27 +156,30 @@ header>h1 {
 	transition: box-shadow .5s, background-color .5s linear;
 }
 
-.plpro-lib-record-article {
+.record-article-mark {
 	color: #cc2727;
 	font-size: smaller;
 }
 
-.plpro-lib-record-title {
+.record-title {
 	margin-bottom: 0;
 }
 
-.plpro-lib-record-title>a {
+.record-title>a {
 	font-size: 1.1em;
 	color: var(--article-fg);
 }
 
-.plpro-lib-record-title>a:hover, .plpro-lib-record-title-title>a:focus {
+.record-title>a:hover,
+.record-title-title>a:focus {
 	color: var(--secondary);
 	text-decoration: none;
 	transition: 0.3s;
 }
 
-.plpro-lib-record-year, .plpro-lib-record-size, .plpro-lib-record-autor {
+.record-year,
+.record-size,
+.record-autor {
 	color: #999999;
 	font-size: smaller;
 }
@@ -191,18 +194,9 @@ header>h1 {
 	text-decoration: none;
 }
 
-.plpro-lib-record-autor {
+.record-autor {
 	text-decoration: underline;
 	cursor: pointer;
-}
-
-.mdl-chip {
-	color: #ffffff;
-}
-
-.mdl-chip__text {
-	font-size: small;
-	display: inline-block;
 }
 
 .close-panel-btn {

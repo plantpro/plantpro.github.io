@@ -107,8 +107,10 @@ updateResults = () ->
 		if i.className == "plpro-lib-record"
 			do (i) -> checkRecordForFilters i
 
-document.autorOnClick = (self) ->
-	autorName = self.innerText
+autorOnClick = (event) ->
+	return false if not event.target.classList.contains "record-autor"
+
+	autorName = event.target.innerText
 	predicates.requiredAutors.push(autorName)
 
 	filterDiv = document.getElementById "filter"
@@ -185,6 +187,9 @@ searchInputClear = (event) ->
 	searchInput.value = ""
 
 	updateSearchText()
+
+document.getElementById "search-box"
+.addEventListener "click", autorOnClick
 
 document.getElementById "search-input"
 .addEventListener "change", updateSearchText

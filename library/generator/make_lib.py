@@ -1,37 +1,38 @@
 import csv
-from pathlib import Path
+import pathlib
 
-CATALOG_NAME = "library\\generator\\catalog.csv"
-OUTPUT_PATH = Path("library\\index.html")
+CATALOG_PATH = "library\\generator\\catalog.csv"
+OUTPUT_PATH = pathlib.Path("library\\index.html")
 
 FILE_TYPE_COLORS = {
-	"pdf": "rgba(231, 47, 47,.5)",
-	"djvu": "rgba(160, 0, 160,.5)",
-	"online": "rgba(112, 112, 112,.5)"
+	"pdf": "rgba(231, 47, 47, .5)",
+	"djvu": "rgba(160, 0, 160, .5)",
+	"online": "rgba(112, 112, 112, .5)"
 }
 
 def get_records():
-	with open(CATALOG_NAME, encoding="utf-8") as file:
+	with open(CATALOG_PATH, encoding="utf-8") as file:
 		reader = csv.DictReader(file, delimiter=',')
 		records = [record for record in reader]
 	return records
 
 def autor_format(autor):
-	return f"""<span class="plpro-lib-record-autor" onclick="document.autorOnClick(this);">{autor}</span>"""
+	return f"""<span class="record-autor">{autor}</span>"""
 
 def record_to_html(record):
 	return f"""
-	<div class="plpro-lib-record" data-language="{record["Язык оригинала"]}">
-		<h6 class="plpro-lib-record-title">
+	<div class="record" data-language="{record["Язык оригинала"]}">
+		<div class="record-title">
 			<a href="{record["Ссылка"]}">{record["Название на языке оригинала"]}</a>
 			<span class="filetype-tag float-right" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};" onclick="document.filterByType(this);">
 				{record["Тип файла"]}
 			</span>
-		</h6>
-		<span class="plpro-lib-record-year">{record["Год издания"]}</span>
+		</div>
+
+		<span class="record-year">{record["Год издания"]}</span>
 		{" ".join(map(autor_format, record["Авторы"].split(", ")))}
-		<span class="plpro-lib-record-size">{record["Размер"]}</span>
-		{"<span class='plpro-lib-record-article'>статья</span>" if record["Тип"] == "article" else ""}
+		<span class="record-size">{record["Размер"]}</span>
+		{"<span class='record-article-mark'>статья</span>" if record["Тип"] == "article" else ""}
 	</div>
 	"""
 
