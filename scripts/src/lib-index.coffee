@@ -81,7 +81,7 @@ makeFilterPanelWithColor = (text, color, deleteAction) -> "
 	"
 
 makeFilterPanel = (text, deleteAction) ->
-	makeFilterPanelWithColor(text, "inherit", deleteAction)
+	makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.5)", deleteAction)
 
 stateChanged = (event) ->
 	predicates.articleFilterIsEnabled = event.target.checked

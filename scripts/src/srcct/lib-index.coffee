@@ -68,9 +68,6 @@ isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToAutorFilter(record) and
 	isSatisfiedToSearch(record)
 
-makeFilterPanel = (text, deleteAction) -> 
-	makeFilterPanelWithColor(text, "inherit", deleteAction)
-
 makeFilterPanelWithColor = (text, color, deleteAction) -> "
 		<div class='panel filter-panel' style='background-color: #{color};'>
 			<span>#{text}</span>
@@ -82,6 +79,9 @@ makeFilterPanelWithColor = (text, color, deleteAction) -> "
 			</button>
 		</div>
 	"
+
+makeFilterPanel = (text, deleteAction) ->
+	makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.5)", deleteAction)
 
 stateChanged = (event) ->
 	predicates.articleFilterIsEnabled = event.target.checked
