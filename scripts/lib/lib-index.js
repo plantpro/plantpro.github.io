@@ -165,18 +165,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   updateResults = function updateResults() {
-    var i, j, len, ref, searchBox;
-    searchBox = document.getElementById("search-box");
-    ref = searchBox.children;
+    var j, len, record, records;
+    records = document.getElementById("search-box").getElementsByClassName("record");
 
-    for (j = 0, len = ref.length; j < len; j++) {
-      i = ref[j];
+    for (j = 0, len = records.length; j < len; j++) {
+      record = records[j];
 
-      if (i.className === "record") {
-        (function (i) {
-          return checkRecordForFilters(i);
-        })(i);
-      }
+      (function (record) {
+        return checkRecordForFilters(record);
+      })(record);
     }
 
     return null;

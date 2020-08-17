@@ -99,9 +99,11 @@ checkRecordForFilters = (record) ->
 	)
 
 updateResults = () ->
-	searchBox = document.getElementById "search-box"
-	for i in searchBox.children when i.className == "record"
-		do (i) -> checkRecordForFilters i
+	records = document
+		.getElementById "search-box"
+		.getElementsByClassName "record"
+	for record in records
+		do (record) -> checkRecordForFilters record
 	return null
 
 autorOnClick = (event) ->
