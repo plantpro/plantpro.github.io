@@ -205,9 +205,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   document.deleteFileTypeFilter = function (self, fileTypeName) {
     var index;
-    $(self.parentNode).animate({
-      opacity: 0
-    }, 300, function () {
+    $(self.parentNode).fadeOut(300, function () {
       return self.parentNode.remove();
     });
     index = predicates.requiredFileTypes.findIndex(function (i) {

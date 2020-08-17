@@ -124,7 +124,8 @@ document.deleteAutorFilter = (self, autorName) ->
 	updateResults()
 
 document.deleteFileTypeFilter = (self, fileTypeName) ->
-	$(self.parentNode).animate({ opacity: 0 }, 300, () ->  self.parentNode.remove())
+	$ self.parentNode
+	.fadeOut 300, () -> self.parentNode.remove()
 	index = predicates.requiredFileTypes.findIndex (i) -> i.name == fileTypeName
 	predicates.requiredFileTypes.splice index, 1
 	updateResults()
