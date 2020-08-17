@@ -224,3 +224,22 @@ header>h1 {
   padding: 1em;
   border: 1px solid darkred;
 }
+
+#nothing-is-found>button {
+	font-size: 14px;
+	margin-left: auto;
+	padding: 5px 15px;
+
+	border: none;
+	border-radius: 2px;
+
+	color: var(--fore-color);
+	background-color: darkred;
+}
+
+#nothing-is-found>button:hover,
+#nothing-is-found>button:active,
+#nothing-is-found>button:focus {
+	outline: 0;
+	background-color: rgb(99, 0, 0);
+}

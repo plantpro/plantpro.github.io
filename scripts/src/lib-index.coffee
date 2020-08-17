@@ -102,7 +102,7 @@ applyFilters = () ->
 		else
 			record.style.display = "none"
 	if not filters.atLeastOneIsFound
-		document.getElementById("nothing-is-found").style.display = "block"
+		document.getElementById("nothing-is-found").style.display = "flex"
 	else
 		document.getElementById("nothing-is-found").style.display = "none"
 
@@ -207,4 +207,7 @@ document.getElementById "search-button"
 .addEventListener "click", updateSearchText
 
 document.getElementById "search-clear"
+.addEventListener "click", searchInputClear
+
+document.getElementById "nothing-is-found-clear"
 .addEventListener "click", searchInputClear

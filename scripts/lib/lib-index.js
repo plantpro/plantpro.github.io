@@ -170,7 +170,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
 
     if (!filters.atLeastOneIsFound) {
-      return document.getElementById("nothing-is-found").style.display = "block";
+      return document.getElementById("nothing-is-found").style.display = "flex";
     } else {
       return document.getElementById("nothing-is-found").style.display = "none";
     }
@@ -289,4 +289,5 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   document.getElementById("search-input").addEventListener("change", updateSearchText);
   document.getElementById("search-button").addEventListener("click", updateSearchText);
   document.getElementById("search-clear").addEventListener("click", searchInputClear);
+  document.getElementById("nothing-is-found-clear").addEventListener("click", searchInputClear);
 }).call(void 0);
