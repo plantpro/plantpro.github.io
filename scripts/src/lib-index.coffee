@@ -191,6 +191,16 @@ searchInputClear = (event) ->
 
 	updateSearchText()
 
+clearAllFilters = () ->
+	searchInput = document.getElementById("search-input")
+	searchInput.value = ""
+	filters.searchText = searchInput.value
+	filters.cachedRegex = createRegExpFromSearchText(filters.searchText)
+	for i in document.getElementById("filter-area").children
+		i.querySelector(".close-panel-btn:first-child").click()
+
+	updateResults()
+
 document.getElementById "search-box"
 .addEventListener "click", autorOnClick
 
@@ -210,4 +220,4 @@ document.getElementById "search-clear"
 .addEventListener "click", searchInputClear
 
 document.getElementById "nothing-is-found-clear"
-.addEventListener "click", searchInputClear
+.addEventListener "click", clearAllFilters

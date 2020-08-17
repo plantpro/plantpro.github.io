@@ -18,6 +18,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       applyFilters,
       autorOnClick,
       availableFileTypes,
+      clearAllFilters,
       completeFilterDeletion,
       createRegExpFromSearchText,
       filetypeOnClick,
@@ -283,11 +284,27 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return updateSearchText();
   };
 
+  clearAllFilters = function clearAllFilters() {
+    var i, j, len, ref, searchInput;
+    searchInput = document.getElementById("search-input");
+    searchInput.value = "";
+    filters.searchText = searchInput.value;
+    filters.cachedRegex = createRegExpFromSearchText(filters.searchText);
+    ref = document.getElementById("filter-area").children;
+
+    for (j = 0, len = ref.length; j < len; j++) {
+      i = ref[j];
+      i.querySelector(".close-panel-btn:first-child").click();
+    }
+
+    return updateResults();
+  };
+
   document.getElementById("search-box").addEventListener("click", autorOnClick);
   document.getElementById("search-box").addEventListener("click", filetypeOnClick);
   document.getElementById("main-panel").addEventListener("click", filetypeOnClick);
   document.getElementById("search-input").addEventListener("change", updateSearchText);
   document.getElementById("search-button").addEventListener("click", updateSearchText);
   document.getElementById("search-clear").addEventListener("click", searchInputClear);
-  document.getElementById("nothing-is-found-clear").addEventListener("click", searchInputClear);
+  document.getElementById("nothing-is-found-clear").addEventListener("click", clearAllFilters);
 }).call(void 0);
