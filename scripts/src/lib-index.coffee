@@ -166,9 +166,9 @@ updateSearchText = (event) ->
 
 searchInputClear = (event) ->
 	searchInput = document.getElementById "search-input"
-	searchInput.value = ""
-
-	updateSearchText()
+	predicates.searchText = searchInput.value = ""
+	
+	updateResults()
 
 document.getElementById "search-input"
 .addEventListener "change", updateSearchText

@@ -251,8 +251,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   searchInputClear = function searchInputClear(event) {
     var searchInput;
     searchInput = document.getElementById("search-input");
-    searchInput.value = "";
-    return updateSearchText();
+    predicates.searchText = searchInput.value = "";
+    return updateResults();
   };
 
   document.getElementById("search-input").addEventListener("change", updateSearchText);
