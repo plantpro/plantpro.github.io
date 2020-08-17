@@ -146,7 +146,7 @@ document.filterByTypeName = (self) ->
 
 createRegExpFromSearchText = (string) ->
 	return new RegExp(string, 'i') if string != ""
-	else null
+	return null
 
 updateSearchText = (event) ->
 	searchInput = document.getElementById "search-input"

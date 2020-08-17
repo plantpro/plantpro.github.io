@@ -207,7 +207,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   createRegExpFromSearchText = function createRegExpFromSearchText(string) {
-    return new RegExp(string, 'i')(string !== "" ? void 0 : null);
+    if (string !== "") {
+      return new RegExp(string, 'i');
+    }
+
+    return null;
   };
 
   updateSearchText = function updateSearchText(event) {
