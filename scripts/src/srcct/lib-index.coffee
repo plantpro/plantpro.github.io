@@ -68,20 +68,29 @@ isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToAutorFilter(record) and
 	isSatisfiedToSearch(record)
 
-makeFilterPanelWithColor = (text, color, deleteAction) -> "
-		<div class='panel filter-panel' style='background-color: #{color};'>
-			<span>#{text}</span>
+makeFilterPanelWithColor = (text, color, deleteAction) ->
+	panel = document.createElement "div"
+	panel.className = 'panel filter-panel'
+	panel.style.backgroundColor = color
+	panel.style.display = "none"
+	panel.innerHTML = "
+		<span>#{text}</span>
 
-			<button type='button' class='close-panel-btn' onclick='#{deleteAction}'>
-				<svg viewBox='0 0 24 24'>
-					<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
-				</svg>
-			</button>
-		</div>
+		<button type='button' class='close-panel-btn' onclick='#{deleteAction}'>
+			<svg viewBox='0 0 24 24'>
+				<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+			</svg>
+		</button>
 	"
+	panel
 
 makeFilterPanel = (text, deleteAction) ->
 	makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.2)", deleteAction)
+
+addFilterPanel = (panel) ->
+	filterDiv = document.getElementById "filter-area"
+	filterDiv.appendChild panel
+	$(panel).fadeIn()
 
 stateChanged = (event) ->
 	predicates.articleFilterIsEnabled = event.target.checked
@@ -112,9 +121,10 @@ autorOnClick = (event) ->
 	autorName = event.target.innerText
 	predicates.requiredAutors.push(autorName)
 
-	filterDiv = document.getElementById "filter-area"
-	filterDiv.innerHTML += " " +
-		makeFilterPanel "Автор: #{autorName}", "document.deleteAutorFilter(this, \"#{autorName}\")"
+	filterPanel = makeFilterPanel(
+		"Автор: #{autorName}",
+		"document.deleteAutorFilter(this, \"#{autorName}\")")
+	addFilterPanel filterPanel
 	
 	updateResults()
 
@@ -135,11 +145,11 @@ document.filterByType = (self) ->
 	requiredFileType = parseFileType self.innerText
 	predicates.requiredFileTypes.push(requiredFileType)
 
-	filterDiv = document.getElementById "filter-area"
-	filterDiv.innerHTML += " " +
-		makeFilterPanelWithColor("Тип: #{requiredFileType.name}",
-			requiredFileType.color,
-			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
+	filterPanel = makeFilterPanelWithColor(
+		"Тип: #{requiredFileType.name}",
+		requiredFileType.color,
+		"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
+	addFilterPanel(filterPanel)
 
 	updateResults()
 
@@ -147,20 +157,21 @@ document.filterByTypeName = (self) ->
 	requiredFileType = parseFileType self
 	predicates.requiredFileTypes.push requiredFileType
 	
-	filterDiv = document.getElementById "filter-area"
-	filterDiv.innerHTML += " " +
-		makeFilterPanelWithColor("Тип: #{requiredFileType.name}",
-			requiredFileType.color,
-			"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
+	filterPanel = makeFilterPanelWithColor(
+		"Тип: #{requiredFileType.name}",
+		requiredFileType.color,
+		"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
+	addFilterPanel(filterPanel)
 
 	updateResults()
 
 document.filterByLanguage = (language) ->
 	predicates.requiredLanguages.push language
 	
-	filterDiv = document.getElementById "filter-area"
-	filterDiv.innerHTML += " " +
-		makeFilterPanel("Язык: #{language}", "document.deleteLanguageFilter(this, \"#{language}\")")
+	filterPanel = makeFilterPanel(
+		"Язык: #{language}",
+		"document.deleteLanguageFilter(this, \"#{language}\")")
+	addFilterPanel(filterPanel)
 
 	updateResults()
 
