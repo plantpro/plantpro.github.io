@@ -68,18 +68,6 @@ isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToAutorFilter(record) and
 	isSatisfiedToSearch(record)
 
-makeFilterPanel = (text, deleteAction) -> "
-		<div class='panel filter-panel'>
-			<span>#{text}</span>
-
-			<button type='button' class='close-panel-btn' onclick='#{deleteAction}'>
-				<svg viewBox='0 0 24 24'>
-					<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
-				</svg>
-			</button>
-		</div>
-	"
-
 makeFilterPanelWithColor = (text, color, deleteAction) -> "
 		<div class='panel filter-panel' style='background-color: #{color};'>
 			<span>#{text}</span>
@@ -91,6 +79,9 @@ makeFilterPanelWithColor = (text, color, deleteAction) -> "
 			</button>
 		</div>
 	"
+
+makeFilterPanel = (text, deleteAction) ->
+	makeFilterPanelWithColor(text, "inherit", deleteAction)
 
 stateChanged = (event) ->
 	predicates.articleFilterIsEnabled = event.target.checked

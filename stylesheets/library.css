@@ -227,6 +227,12 @@ header>h1 {
 	outline: none;
 }
 
+.close-panel-btn:hover>svg,
+.close-panel-btn:focus>svg,
+.close-panel-btn:active>svg {
+	fill: white;
+}
+
 .filetype-tag {
   color: white;
   padding: 3px;
