@@ -199,6 +199,10 @@ header>h1 {
 	cursor: pointer;
 }
 
+.filter-panel {
+	font-size: 14px;
+}
+
 .close-panel-btn {
   height: 24px;
   width: 24px;
@@ -209,6 +213,12 @@ header>h1 {
   border: none;
 	outline: none;
 	background-color: transparent;
+}
+
+.close-panel-btn>svg {
+	fill: rgba(255, 255, 255, .3);
+	width:18px;
+	height:18px;
 }
 
 .close-panel-btn:hover,

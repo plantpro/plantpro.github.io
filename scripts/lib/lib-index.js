@@ -119,14 +119,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   isSatisfiedToSearch = function isSatisfiedToSearch(record) {
-    var title;
+    var recordTitle;
 
     if (predicates.cachedRegex === null) {
       return true;
     }
 
-    title = record.querySelector(".record-title:first-child>a");
-    return predicates.cachedRegex.test(title.innerText);
+    recordTitle = record.querySelector(".record-title:first-child>a");
+    return predicates.cachedRegex.test(recordTitle.innerText);
   };
 
   isSatisfiedToAllFilters = function isSatisfiedToAllFilters(record) {
@@ -134,11 +134,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   makeFilterPanel = function makeFilterPanel(text, deleteAction) {
-    return "<div class='panel'> <span class='mdl-chip__text'>".concat(text, "</span> <button type='button' class='close-panel-btn' onclick='").concat(deleteAction, "'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </div>");
+    return "<div class='panel filter-panel'> <span>".concat(text, "</span> <button type='button' class='close-panel-btn' onclick='").concat(deleteAction, "'> <svg viewBox='0 0 24 24'> <path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </div>");
   };
 
   makeFilterPanelWithColor = function makeFilterPanelWithColor(text, color, deleteAction) {
-    return "<div class='panel' style='background-color: ".concat(color, ";'> <span class='mdl-chip__text'>").concat(text, "</span> <button type='button' class='close-panel-btn' onclick='").concat(deleteAction, "'> <svg style='width:18px;height:18px' viewBox='0 0 24 24'> <path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </div>");
+    return "<div class='panel filter-panel' style='background-color: ".concat(color, ";'> <span>").concat(text, "</span> <button type='button' class='close-panel-btn' onclick='").concat(deleteAction, "'> <svg viewBox='0 0 24 24'> <path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button> </div>");
   };
 
   stateChanged = function stateChanged(event) {

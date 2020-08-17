@@ -39,28 +39,28 @@ isSatisfiedToLanguageFilter = (record) ->
 	)
 
 isSatisfiedToFileTypeFilter = (record) ->
-	return true if predicates.requiredFileTypes.length == 0
+	return yes if predicates.requiredFileTypes.length == 0
 	predicates.requiredFileTypes.some((requiredFileType) ->
 		fileTypeTag = parseFileType (record.getElementsByClassName "filetype-tag")[0].innerText
 		return fileTypeTag.name == requiredFileType.name
 	)
 
 isSatisfiedToAutorFilter = (record) ->
-	return true if predicates.requiredAutors.length is 0
+	return yes if predicates.requiredAutors.length is 0
 
 	autorsNames =
 		[record.getElementsByClassName("record-autor")...]
 		.map (autor) -> autor.innerText
 
 	for requiredAutorName in predicates.requiredAutors
-		if requiredAutorName not in autorsNames
-			return false
-	return true
+		return no if requiredAutorName not in autorsNames
+	return yes
 
 isSatisfiedToSearch = (record) ->
-	return true if predicates.cachedRegex == null
-	title = record.querySelector ".record-title:first-child>a"
-	predicates.cachedRegex.test(title.innerText)
+	return yes if predicates.cachedRegex is null
+
+	recordTitle = record.querySelector ".record-title:first-child>a"
+	return predicates.cachedRegex.test(recordTitle.innerText)
 
 isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToLanguageFilter(record) and
@@ -69,22 +69,24 @@ isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToSearch(record)
 
 makeFilterPanel = (text, deleteAction) -> "
-		<div class='panel'>
-			<span class='mdl-chip__text'>#{text}</span>
+		<div class='panel filter-panel'>
+			<span>#{text}</span>
+
 			<button type='button' class='close-panel-btn' onclick='#{deleteAction}'>
-				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>
-					<path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+				<svg viewBox='0 0 24 24'>
+					<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
 				</svg>
 			</button>
 		</div>
 	"
 
 makeFilterPanelWithColor = (text, color, deleteAction) -> "
-		<div class='panel' style='background-color: #{color};'>
-			<span class='mdl-chip__text'>#{text}</span>
+		<div class='panel filter-panel' style='background-color: #{color};'>
+			<span>#{text}</span>
+
 			<button type='button' class='close-panel-btn' onclick='#{deleteAction}'>
-				<svg style='width:18px;height:18px' viewBox='0 0 24 24'>
-					<path fill='#ffffff' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+				<svg viewBox='0 0 24 24'>
+					<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
 				</svg>
 			</button>
 		</div>
