@@ -90,6 +90,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   isSatisfiedToSearch = function isSatisfiedToSearch(record) {
     var title;
+
+    if (predicates.cachedRegex === null) {
+      return true;
+    }
+
     title = record.querySelector(".plpro-lib-record-title:first-child>a");
     return predicates.cachedRegex.test(title.innerText);
   };
@@ -210,7 +215,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
 
     predicates.searchText = searchInput.value;
-    predicates.cachedRegex = new RegExp(predicates.searchText, 'i');
+    predicates.cachedRegex = predicates.searchText !== "" ? new RegExp(predicates.searchText, 'i') : void 0;
     return updateResults();
   };
 

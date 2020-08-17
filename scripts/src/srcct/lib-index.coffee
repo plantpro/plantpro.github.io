@@ -47,6 +47,7 @@ isSatisfiedToAutorFilter = (record) ->
 	return true
 
 isSatisfiedToSearch = (record) ->
+	return true if predicates.cachedRegex == null
 	title = record.querySelector ".plpro-lib-record-title:first-child>a"
 	predicates.cachedRegex.test(title.innerText)
 
@@ -148,7 +149,9 @@ updateSearchText = (event) ->
 	# If clicked a search button several times, but input stay the same
 	return if predicates.searchText == searchInput.value
 	predicates.searchText = searchInput.value
-	predicates.cachedRegex = new RegExp(predicates.searchText, 'i')
+	predicates.cachedRegex =
+		if predicates.searchText != ""
+			new RegExp(predicates.searchText, 'i')
 	
 	updateResults()
 
