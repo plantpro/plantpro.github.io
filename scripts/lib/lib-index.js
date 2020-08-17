@@ -220,5 +220,5 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   document.getElementById("search-input").addEventListener("change", searchInputChanged);
   document.getElementById("search-button").addEventListener("click", searchInputChanged);
-  document.getElementById("search-clear").addEventListener("change", searchInputClear);
+  document.getElementById("search-clear").addEventListener("click", searchInputClear);
 }).call(void 0);

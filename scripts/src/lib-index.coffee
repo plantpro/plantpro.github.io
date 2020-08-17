@@ -164,4 +164,4 @@ document.getElementById "search-button"
 .addEventListener "click", searchInputChanged
 
 document.getElementById "search-clear"
-.addEventListener "change", searchInputClear
+.addEventListener "click", searchInputClear
