@@ -50,7 +50,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   predicates = {
     requiredFileTypes: [],
     requiredAutors: [],
-    searchText: ""
+    searchText: "",
+    cachedRegex: null
   };
 
   isSatisfiedToFileTypeFilter = function isSatisfiedToFileTypeFilter(record) {
@@ -90,7 +91,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   isSatisfiedToSearch = function isSatisfiedToSearch(record) {
     var title;
     title = record.querySelector(".plpro-lib-record-title:first-child>a");
-    return new RegExp(predicates.searchText, 'i').test(title.innerText);
+    return predicates.cachedRegex.test(title.innerText);
   };
 
   isSatisfiedToAllFilters = function isSatisfiedToAllFilters(record) {
@@ -120,11 +121,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   checkRecordForFilters = function checkRecordForFilters(record) {
-    //record.addEventListener "transitionend", () ->
-    //	record.style.display = "none"
-    //	showRecordIfSatisfiedToAllFilters record
-    //, true
-    //record.style.opacity = 0
     return $(record).animate({
       opacity: 0
     }, 300, function () {
@@ -214,6 +210,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
 
     predicates.searchText = searchInput.value;
+    predicates.cachedRegex = new RegExp(predicates.searchText, 'i');
     return updateResults();
   };
 

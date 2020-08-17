@@ -27,7 +27,8 @@ parseFileType = (string) ->
 predicates = {
 	requiredFileTypes: [],
 	requiredAutors: [],
-	searchText: ""
+	searchText: "",
+	cachedRegex: null
 }
 
 isSatisfiedToFileTypeFilter = (record) ->
@@ -47,7 +48,7 @@ isSatisfiedToAutorFilter = (record) ->
 
 isSatisfiedToSearch = (record) ->
 	title = record.querySelector ".plpro-lib-record-title:first-child>a"
-	new RegExp(predicates.searchText, 'i').test(title.innerText)
+	predicates.cachedRegex.test(title.innerText)
 
 isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToFileTypeFilter(record) and
@@ -86,11 +87,6 @@ showRecordIfSatisfiedToAllFilters = (record) ->
 		$(record).animate({ opacity: 1 }, 300)
 
 checkRecordForFilters = (record) ->
-	#record.addEventListener "transitionend", () ->
-	#	record.style.display = "none"
-	#	showRecordIfSatisfiedToAllFilters record
-	#, true
-	#record.style.opacity = 0
 	$(record).animate({ opacity: 0 }, 300, () ->
 		record.style.display = "none"
 		showRecordIfSatisfiedToAllFilters record
@@ -152,7 +148,8 @@ updateSearchText = (event) ->
 	# If clicked a search button several times, but input stay the same
 	return if predicates.searchText == searchInput.value
 	predicates.searchText = searchInput.value
-
+	predicates.cachedRegex = new RegExp(predicates.searchText, 'i')
+	
 	updateResults()
 
 searchInputClear = (event) ->

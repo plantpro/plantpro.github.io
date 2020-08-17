@@ -146,8 +146,6 @@ header>h1 {
 .plpro-lib-record {
 	padding: 1em 2em;
 	margin-top: 1em;
-
-	transition: opacity .3s;
 }
 
 .plpro-lib-record:hover {
