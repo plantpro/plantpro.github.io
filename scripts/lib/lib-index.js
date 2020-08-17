@@ -16,7 +16,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 (function () {
   var autorOnClick,
       availableFileTypes,
-      checkRecordForFilters,
       createRegExpFromSearchText,
       isSatisfiedToAllFilters,
       isSatisfiedToAutorFilter,
@@ -28,7 +27,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       parseFileType,
       predicates,
       searchInputClear,
-      showRecordIfSatisfiedToAllFilters,
       stateChanged,
       updateResults,
       updateSearchText,
@@ -146,24 +144,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return updateResults();
   };
 
-  showRecordIfSatisfiedToAllFilters = function showRecordIfSatisfiedToAllFilters(record) {
-    if (isSatisfiedToAllFilters(record)) {
-      record.style.display = "block";
-      return $(record).animate({
-        opacity: 1
-      }, 300);
-    }
-  };
-
-  checkRecordForFilters = function checkRecordForFilters(record) {
-    return $(record).animate({
-      opacity: 0
-    }, 300, function () {
-      record.style.display = "none";
-      return showRecordIfSatisfiedToAllFilters(record);
-    });
-  };
-
   updateResults = function updateResults() {
     var i, j, len, ref, searchBox;
     searchBox = document.getElementById("search-box");
@@ -174,7 +154,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       if (i.className === "record") {
         (function (i) {
-          return checkRecordForFilters(i);
+          $(i).fadeOut();
+
+          if (isSatisfiedToAllFilters(record)) {
+            return $(i).fadeIn();
+          }
         })(i);
       }
     }

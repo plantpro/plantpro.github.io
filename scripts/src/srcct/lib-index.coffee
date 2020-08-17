@@ -87,21 +87,13 @@ stateChanged = (event) ->
 	predicates.articleFilterIsEnabled = event.target.checked
 	updateResults()
 
-showRecordIfSatisfiedToAllFilters = (record) ->
-	if isSatisfiedToAllFilters record
-		record.style.display = "block"
-		$(record).animate({ opacity: 1 }, 300)
-
-checkRecordForFilters = (record) ->
-	$(record).animate({ opacity: 0 }, 300, () ->
-		record.style.display = "none"
-		showRecordIfSatisfiedToAllFilters record
-	)
-
 updateResults = () ->
 	searchBox = document.getElementById "search-box"
 	for i in searchBox.children when i.className == "record"
-		do (i) -> checkRecordForFilters i
+		do (i) ->
+			$(i).fadeOut()
+			if isSatisfiedToAllFilters record
+				$(i).fadeIn()
 	return null
 
 autorOnClick = (event) ->
