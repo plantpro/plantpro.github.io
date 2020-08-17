@@ -48,8 +48,7 @@ isSatisfiedToFileTypeFilter = (record) ->
 isSatisfiedToAutorFilter = (record) ->
 	return true if predicates.requiredAutors.length == 0
 
-	autors = record
-		.getElementsByClassName "record-autor"
+	autors = new Array(record.getElementsByClassName "record-autor")
 		.map (autor) -> autor.innerText
 
 	for requiredAutorName in predicates.requiredAutors

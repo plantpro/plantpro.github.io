@@ -90,7 +90,7 @@
       return true;
     }
 
-    autors = record.getElementsByClassName("record-autor").map(function (autor) {
+    autors = new Array(record.getElementsByClassName("record-autor")).map(function (autor) {
       return autor.innerText;
     });
     ref = predicates.requiredAutors;
