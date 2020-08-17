@@ -143,6 +143,10 @@ def write_to_file(content, recordsCount):
 			</div>
 
 			<div class="col-md-8" id="search-box">
+				<div id="nothing-is-found">
+					Ничего не найдено.
+					<span>Сбросить фильтры</span>
+				</div>
 				{content}
 			</div>
 		</div>

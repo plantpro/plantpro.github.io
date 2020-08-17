@@ -216,3 +216,11 @@ header>h1 {
 	fill: var(--fore-color);
 }
 /* /filter-panel */
+
+#nothing-is-found {
+	display:none;
+	margin: 1em 2em;
+  background-color: rgba(255, 0, 0, .2);
+  padding: 1em;
+  border: 1px solid darkred;
+}

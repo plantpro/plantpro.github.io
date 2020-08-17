@@ -91,16 +91,25 @@ addFilterPanel = (panel) ->
 	document.getElementById("filter-area").appendChild(panel)
 	$(panel).fadeIn()
 
-updateResults = () ->
-	$("#search-box").fadeOut()
+applyFilters = () ->
 	records = document
 		.getElementById "search-box"
 		.getElementsByClassName "record"
 	for record in records
 		if isSatisfiedToAllFilters(record)
 			record.style.display = "block"
+			filters.atLeastOneIsFound = yes
 		else
 			record.style.display = "none"
+	if not filters.atLeastOneIsFound
+		document.getElementById("nothing-is-found").style.display = "block"
+	else
+		document.getElementById("nothing-is-found").style.display = "none"
+
+updateResults = () ->
+	filters.atLeastOneIsFound = no
+	$("#search-box").fadeOut()
+	setTimeout(applyFilters, 300)
 	$("#search-box").fadeIn()
 	return null
 
