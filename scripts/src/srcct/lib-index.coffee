@@ -91,9 +91,9 @@ updateResults = () ->
 	searchBox = document.getElementById "search-box"
 	for i in searchBox.children when i.className == "record"
 		do (i) ->
-			$(i).fadeOut()
-			if isSatisfiedToAllFilters record
-				$(i).fadeIn()
+			$(i).fadeOut("slow", () ->
+				if isSatisfiedToAllFilters record
+					$(i).fadeIn())
 	return null
 
 autorOnClick = (event) ->

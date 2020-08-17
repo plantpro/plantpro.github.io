@@ -154,11 +154,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       if (i.className === "record") {
         (function (i) {
-          $(i).fadeOut();
-
-          if (isSatisfiedToAllFilters(record)) {
-            return $(i).fadeIn();
-          }
+          return $(i).fadeOut("slow", function () {
+            if (isSatisfiedToAllFilters(record)) {
+              return $(i).fadeIn();
+            }
+          });
         })(i);
       }
     }
