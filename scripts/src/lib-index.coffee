@@ -31,7 +31,8 @@ filters = {
 	searchText: "",
 	cachedRegex: null,
 
-	atLeastOneIsFound: true
+	atLeastOneIsFound: true,
+	disableUpdate: false
 }
 
 isSatisfiedToLanguageFilter = (record) ->
@@ -107,6 +108,7 @@ applyFilters = () ->
 		document.getElementById("nothing-is-found").style.display = "none"
 
 updateResults = () ->
+	return if filters.disableUpdate
 	filters.atLeastOneIsFound = no
 	$("#search-box").fadeOut()
 	setTimeout(applyFilters, 300)
@@ -192,13 +194,15 @@ searchInputClear = (event) ->
 	updateSearchText()
 
 clearAllFilters = () ->
+	filters.disableUpdate = yes
 	searchInput = document.getElementById("search-input")
 	searchInput.value = ""
 	filters.searchText = searchInput.value
 	filters.cachedRegex = createRegExpFromSearchText(filters.searchText)
 	for i in document.getElementById("filter-area").children
-		i.querySelector(".close-panel-btn:first-child").click()
+		i.querySelector(".close-panel-btn").click()
 
+	filters.disableUpdate = no
 	updateResults()
 
 document.getElementById "search-box"

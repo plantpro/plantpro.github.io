@@ -73,7 +73,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     requiredAutors: [],
     searchText: "",
     cachedRegex: null,
-    atLeastOneIsFound: true
+    atLeastOneIsFound: true,
+    disableUpdate: false
   };
 
   isSatisfiedToLanguageFilter = function isSatisfiedToLanguageFilter(record) {
@@ -178,6 +179,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   updateResults = function updateResults() {
+    if (filters.disableUpdate) {
+      return;
+    }
+
     filters.atLeastOneIsFound = false;
     $("#search-box").fadeOut();
     setTimeout(applyFilters, 300);
@@ -286,6 +291,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   clearAllFilters = function clearAllFilters() {
     var i, j, len, ref, searchInput;
+    filters.disableUpdate = true;
     searchInput = document.getElementById("search-input");
     searchInput.value = "";
     filters.searchText = searchInput.value;
@@ -294,9 +300,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     for (j = 0, len = ref.length; j < len; j++) {
       i = ref[j];
-      i.querySelector(".close-panel-btn:first-child").click();
+      i.querySelector(".close-panel-btn").click();
     }
 
+    filters.disableUpdate = false;
     return updateResults();
   };
 
