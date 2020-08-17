@@ -151,8 +151,17 @@ searchInputChanged = (event) ->
 
 	updateResults()
 
-document.getElementById "switch-1"
-.addEventListener "change", stateChanged
+searchInputClear = (event) ->
+	searchInput = document.getElementById "search-input"
+	searchInput.value = ""
+
+	updateResults()
 
 document.getElementById "search-input"
 .addEventListener "change", searchInputChanged
+
+document.getElementById "search-button"
+.addEventListener "click", searchInputChanged
+
+document.getElementById "search-clear"
+.addEventListener "change", searchInputClear
