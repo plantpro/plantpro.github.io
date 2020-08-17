@@ -139,7 +139,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   makeFilterPanel = function makeFilterPanel(text, deleteAction) {
-    return makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.5)", deleteAction);
+    return makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.2)", deleteAction);
   };
 
   stateChanged = function stateChanged(event) {
