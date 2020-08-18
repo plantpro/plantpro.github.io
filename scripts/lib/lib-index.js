@@ -17,7 +17,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var addFilterPanel,
       applyFilters,
       autorOnClick,
-      availableFileTypes,
       clearAllFilters,
       completeFilterDeletion,
       createRegExpFromSearchText,
@@ -29,44 +28,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       isSatisfiedToLanguageFilter,
       isSatisfiedToSearch,
       makeFilterPanel,
-      makeFilterPanelWithColor,
-      parseFileType,
+      makeFilterPanelWithClass,
       searchInputClear,
       updateResults,
       updateSearchText,
       indexOf = [].indexOf;
-  availableFileTypes = {
-    PDF: {
-      name: ".pdf",
-      color: "rgba(231, 47, 47, .2)"
-    },
-    DJVU: {
-      name: ".djvu",
-      color: "rgba(160, 0, 160, .2)"
-    },
-    ONLINE: {
-      name: "online",
-      color: "rgba(112, 112, 112, .2)"
-    },
-    UNKNOWN: null
-  };
-
-  parseFileType = function parseFileType(string) {
-    switch (string.trim()) {
-      case ".pdf":
-        return availableFileTypes.PDF;
-
-      case ".djvu":
-        return availableFileTypes.DJVU;
-
-      case "online":
-        return availableFileTypes.ONLINE;
-
-      default:
-        return availableFileTypes.UNKNOWN;
-    }
-  };
-
   filters = {
     requiredLanguages: [],
     requiredFileTypes: [],
@@ -78,24 +44,28 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   isSatisfiedToLanguageFilter = function isSatisfiedToLanguageFilter(record) {
+    var language;
+
     if (filters.requiredLanguages.length === 0) {
       return true;
     }
 
+    language = record.dataset.language;
     return filters.requiredLanguages.some(function (requiredLanguage) {
-      return record.dataset.language === requiredLanguage;
+      return language === requiredLanguage;
     });
   };
 
   isSatisfiedToFileTypeFilter = function isSatisfiedToFileTypeFilter(record) {
+    var fileType;
+
     if (filters.requiredFileTypes.length === 0) {
       return true;
     }
 
+    fileType = record.querySelector(".file-type-tag").innerText.trim();
     return filters.requiredFileTypes.some(function (requiredFileType) {
-      var fileTypeTag;
-      fileTypeTag = parseFileType(record.getElementsByClassName("filetype-tag")[0].innerText);
-      return fileTypeTag.name === requiredFileType.name;
+      return fileType === requiredFileType;
     });
   };
 
@@ -137,18 +107,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return isSatisfiedToLanguageFilter(record) && isSatisfiedToFileTypeFilter(record) && isSatisfiedToAutorFilter(record) && isSatisfiedToSearch(record);
   };
 
-  makeFilterPanelWithColor = function makeFilterPanelWithColor(text, color, deleteAction) {
+  makeFilterPanelWithClass = function makeFilterPanelWithClass(text, deleteAction, className) {
     var panel;
     panel = document.createElement("div");
-    panel.className = 'panel filter-panel';
-    panel.style.backgroundColor = color;
+    panel.className = "panel filter-panel " + className;
     panel.style.display = "none";
     panel.innerHTML = "<span>".concat(text, "</span> <button type='button' class='close-panel-btn' onclick='").concat(deleteAction, "'> <svg viewBox='0 0 24 24'> <path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /> </svg> </button>");
     return panel;
   };
 
   makeFilterPanel = function makeFilterPanel(text, deleteAction) {
-    return makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.2)", deleteAction);
+    return makeFilterPanelWithClass(text, deleteAction, "");
   };
 
   addFilterPanel = function addFilterPanel(panel) {
@@ -225,9 +194,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   document.deleteFileTypeFilter = function (self, fileTypeName) {
     var index;
-    index = filters.requiredFileTypes.findIndex(function (i) {
-      return i.name === fileTypeName;
-    });
+    index = filters.requiredFileTypes.indexOf(fileTypeName);
     filters.requiredFileTypes.splice(index, 1);
     return completeFilterDeletion(self);
   };
@@ -235,13 +202,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   filetypeOnClick = function filetypeOnClick(event) {
     var filterPanel, requiredFileType;
 
-    if (!event.target.classList.contains("filetype-tag")) {
+    if (!event.target.classList.contains("file-type-tag")) {
       return;
     }
 
-    requiredFileType = parseFileType(event.target.innerText);
+    requiredFileType = event.target.innerText;
     filters.requiredFileTypes.push(requiredFileType);
-    filterPanel = makeFilterPanelWithColor("\u0422\u0438\u043F: ".concat(requiredFileType.name), requiredFileType.color, "document.deleteFileTypeFilter(this, \"".concat(requiredFileType.name, "\")"));
+    filterPanel = makeFilterPanelWithClass("\u0422\u0438\u043F: ".concat(requiredFileType), "document.deleteFileTypeFilter(this, \"".concat(requiredFileType, "\")"), "file-type-tag-" + requiredFileType.replace(".", ""));
     addFilterPanel(filterPanel);
     return updateResults();
   };

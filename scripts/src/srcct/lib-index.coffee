@@ -1,29 +1,3 @@
-availableFileTypes = {
-	PDF: {
-		name: ".pdf",
-		color: "rgba(231, 47, 47, .2)"
-	},
-
-	DJVU: {
-		name: ".djvu",
-		color: "rgba(160, 0, 160, .2)"
-	},
-
-	ONLINE: {
-		name: "online",
-		color: "rgba(112, 112, 112, .2)"
-	},
-
-	UNKNOWN: null
-}
-
-parseFileType = (string) ->
-	switch string.trim()
-		when ".pdf" then availableFileTypes.PDF
-		when ".djvu" then availableFileTypes.DJVU
-		when "online" then availableFileTypes.ONLINE
-		else availableFileTypes.UNKNOWN
-
 filters = {
 	requiredLanguages: [],
 	requiredFileTypes: [],
@@ -37,14 +11,15 @@ filters = {
 
 isSatisfiedToLanguageFilter = (record) ->
 	return yes if filters.requiredLanguages.length is 0
-	filters.requiredLanguages.some(
-		(requiredLanguage) -> record.dataset.language is requiredLanguage)
+
+	language = record.dataset.language
+	filters.requiredLanguages.some((requiredLanguage) -> language is requiredLanguage)
 
 isSatisfiedToFileTypeFilter = (record) ->
 	return yes if filters.requiredFileTypes.length is 0
-	filters.requiredFileTypes.some((requiredFileType) ->
-		fileTypeTag = parseFileType (record.getElementsByClassName "filetype-tag")[0].innerText
-		return fileTypeTag.name == requiredFileType.name)
+
+	fileType = record.querySelector(".file-type-tag").innerText.trim()
+	filters.requiredFileTypes.some((requiredFileType) -> fileType is requiredFileType)
 
 isSatisfiedToAutorFilter = (record) ->
 	return yes if filters.requiredAutors.length is 0
@@ -69,10 +44,9 @@ isSatisfiedToAllFilters = (record) ->
 	isSatisfiedToAutorFilter(record) and
 	isSatisfiedToSearch(record)
 
-makeFilterPanelWithColor = (text, color, deleteAction) ->
-	panel = document.createElement "div"
-	panel.className = 'panel filter-panel'
-	panel.style.backgroundColor = color
+makeFilterPanelWithClass = (text, deleteAction, className) ->
+	panel = document.createElement("div")
+	panel.className = "panel filter-panel " + className
 	panel.style.display = "none"
 	panel.innerHTML = "
 		<span>#{text}</span>
@@ -83,10 +57,10 @@ makeFilterPanelWithColor = (text, color, deleteAction) ->
 			</svg>
 		</button>
 	"
-	panel
+	return panel
 
 makeFilterPanel = (text, deleteAction) ->
-	makeFilterPanelWithColor(text, "rgba(255, 255, 255, 0.2)", deleteAction)
+	makeFilterPanelWithClass(text, deleteAction, "")
 
 addFilterPanel = (panel) ->
 	document.getElementById("filter-area").appendChild(panel)
@@ -140,20 +114,20 @@ document.deleteAutorFilter = (self, autorName) ->
 	completeFilterDeletion self
 
 document.deleteFileTypeFilter = (self, fileTypeName) ->
-	index = filters.requiredFileTypes.findIndex (i) -> i.name == fileTypeName
+	index = filters.requiredFileTypes.indexOf fileTypeName
 	filters.requiredFileTypes.splice index, 1
 	completeFilterDeletion self
 
 filetypeOnClick = (event) ->
-	return if not event.target.classList.contains "filetype-tag"
+	return if not event.target.classList.contains("file-type-tag")
 
-	requiredFileType = parseFileType event.target.innerText
+	requiredFileType = event.target.innerText
 	filters.requiredFileTypes.push requiredFileType
 
-	filterPanel = makeFilterPanelWithColor(
-		"Тип: #{requiredFileType.name}",
-		requiredFileType.color,
-		"document.deleteFileTypeFilter(this, \"#{requiredFileType.name}\")")
+	filterPanel = makeFilterPanelWithClass(
+		"Тип: #{requiredFileType}",
+		"document.deleteFileTypeFilter(this, \"#{requiredFileType}\")",
+		"file-type-tag-" + requiredFileType.replace(".", ""))
 	addFilterPanel filterPanel
 
 	updateResults()

@@ -1,36 +1,45 @@
 import csv
 import pathlib
 
-CATALOG_PATH = "library\\generator\\catalog.csv"
-OUTPUT_PATH = pathlib.Path("library\\index.html")
-
-FILE_TYPE_COLORS = {
-	"pdf": "rgba(231, 47, 47, .5)",
-	"djvu": "rgba(160, 0, 160, .5)",
-	"online": "rgba(112, 112, 112, .5)"
-}
+CATALOG_PATH = r"library\generator\catalog.csv"
+OUTPUT_PATH = pathlib.Path(r"library\index.html")
 
 def get_records():
+	"""
+		Return list of CSV records from file 'catalog.csv'
+	"""
 	with open(CATALOG_PATH, encoding="utf-8") as file:
 		reader = csv.DictReader(file, delimiter=',')
 		records = [record for record in reader]
 	return records
 
-def autor_format(autor):
-	return f"""<span class="record-autor">{autor}</span>"""
-
-def normalize_file_type(fileTypeName):
-	if fileTypeName in ("pdf", "djvu"):
+def normalize_file_type_name(fileTypeName):
+	"""
+		Add a dot char before file type name if type is not online
+	"""
+	if fileTypeName != "online":
 		return "." + fileTypeName
 	return fileTypeName
 
+def autor_format(autor):
+	"""
+		Return string represent HTML code of autor
+	"""
+	return f"""<span class="record-autor">{autor}</span>"""
+
+def language_code_to_string(languageCode):
+	return 'Русский' if languageCode == 'ru' else 'Английский'
+
 def record_to_html(record):
+	"""
+		Return string that represent a HTML code of record
+	"""
 	return f"""
-	<div class="record" data-language="{record["Язык оригинала"]}">
+	<div class="record" data-language="{language_code_to_string(record["Язык оригинала"])}">
 		<div class="record-title">
 			<a href="{record["Ссылка"]}">{record["Название на языке оригинала"]}</a>
-			<span class="filetype-tag float-right" style="background-color: {FILE_TYPE_COLORS[record["Тип файла"]]};">
-				{normalize_file_type(record["Тип файла"])}
+			<span class="file-type-tag file-type-tag-{record["Тип файла"]} float-right">
+				{normalize_file_type_name(record["Тип файла"])}
 			</span>
 		</div>
 
@@ -118,15 +127,15 @@ def write_to_file(content, recordsCount):
 
 					<div class="mt-3">
 						Тип файла:
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["pdf"]};">.pdf</span>
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["djvu"]};">.djvu</span>
-						<span class="filetype-tag" style="background-color: {FILE_TYPE_COLORS["online"]};">online</span>
+						<span class="file-type-tag file-type-tag-pdf">.pdf</span>
+						<span class="file-type-tag file-type-tag-djvu">.djvu</span>
+						<span class="file-type-tag file-type-tag-online">online</span>
 					</div>
 
 					<div class="mt-3">
 						Язык:
-						<span class="language-tag" onclick="document.filterByLanguage('ru');">Русский</span>
-						<span class="language-tag" onclick="document.filterByLanguage('en');">Английский</span>
+						<span class="language-tag" onclick="document.filterByLanguage('Русский');">Русский</span>
+						<span class="language-tag" onclick="document.filterByLanguage('Английский');">Английский</span>
 					</div>
 
 					<div id="help-icon">
@@ -175,4 +184,5 @@ def main():
 	content = "".join(map(record_to_html, records))
 	write_to_file(content, len(records))
 
-main()
+if __name__ == '__main__':
+	main()

@@ -104,7 +104,7 @@ header>h1 {
 }
 /* /search-area */
 
-.filetype-tag,
+.file-type-tag,
 .language-tag {
   color: var(--fore-color);
   padding: 3px;
@@ -176,7 +176,20 @@ header>h1 {
 	text-decoration: underline;
 	cursor: pointer;
 }
+
 /* /record */
+
+.file-type-tag-pdf {
+	background-color: rgba(231, 47, 47, .5);
+}
+
+.file-type-tag-djvu {
+	background-color: rgba(160, 0, 160, .5);
+}
+
+.file-type-tag-online {
+	background-color: rgba(112, 112, 112, .5);
+}
 
 #filter-area {
 	margin-top: 1em;
@@ -219,7 +232,7 @@ header>h1 {
 
 #nothing-is-found {
 	display:none;
-	margin: 1em 2em;
+	margin: 1em 0;
   background-color: rgba(255, 0, 0, .2);
   padding: 1em;
   border: 1px solid darkred;
