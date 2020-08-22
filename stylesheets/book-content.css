@@ -1,0 +1,114 @@
+body {
+	background-color: #fafafa;
+	font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+	position: absolute;
+	border: none;
+	backdrop-filter: blur(3px);
+	background-color: rgba(18, 18, 18, .7);
+	color: #ffffff;
+	min-height: calc(100vh - 60px);
+	top: 60px;
+}
+
+.crop {
+	height: calc(100vh - 60px);
+	overflow-y: hidden;
+}
+
+.nav {
+	width: 100%;
+
+	overflow-y: auto;
+}
+
+.nav>li {
+	width: 100%;
+	padding: 10px 25px 10px 25px;
+}
+
+.nav>.active {
+	background-color: rgba(18, 18, 18, .4);
+}
+
+.nav>li>a {
+	color: #ffffff;
+}
+
+.div-name {
+	font-weight: bold;
+	letter-spacing: .05em;
+}
+
+.container-fluid {
+	padding: 20px;
+}
+
+h4 {
+	margin: 20px 0 15px 0;
+}
+
+@media (min-width: 768px) { 
+	nav {
+		width: 400px;
+	}	
+}
+
+.control-panel {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+
+	height: 60px;
+
+	background-color: rgb(18, 18, 18);
+
+	font-size: 12px;
+}
+
+.control-panel>a,
+.control-panel>button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	color: rgba(154, 154, 154);
+	background-color: transparent;
+
+	padding: 5px 10px;
+
+	border: none;
+}
+
+.control-panel>a:hover,
+.control-panel>button:hover {
+	text-decoration: none;
+	background-color: rgb(56, 56, 56);
+
+	transition: background-color .3s;
+}
+
+.control-panel>a>svg,
+.control-panel>button>svg {
+	fill: rgba(154, 154, 154);
+
+	width: 24px;
+	height: 24px;
+
+	margin: 0 auto;
+}
+
+.formula {
+	text-align: center;
+
+	margin: 1rem 0;
+
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+h1, .alert {
+	margin: 1rem 0;
+}
