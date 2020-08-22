@@ -6,8 +6,8 @@ body {
 nav {
 	position: absolute;
 	border: none;
-	backdrop-filter: blur(3px);
-	background-color: rgba(18, 18, 18, .7);
+
+	background-color: rgba(18, 18, 18, .9);
 	color: #ffffff;
 	min-height: calc(100vh - 60px);
 	top: 60px;
@@ -30,7 +30,7 @@ nav {
 }
 
 .nav>.active {
-	background-color: rgba(18, 18, 18, .4);
+	background-color: rgba(18, 18, 18, .8);
 }
 
 .nav>li>a {
@@ -111,4 +111,8 @@ h4 {
 
 h1, .alert {
 	margin: 1rem 0;
+}
+
+.alert {
+	position: inherit;
 }
