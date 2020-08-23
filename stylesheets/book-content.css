@@ -11,6 +11,8 @@ nav {
 	color: #ffffff;
 	min-height: calc(100vh - 60px);
 	top: 60px;
+
+	backdrop-filter: blur(3px);
 }
 
 .crop {
