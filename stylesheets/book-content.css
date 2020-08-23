@@ -74,8 +74,9 @@ h4 {
 .control-panel>button {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 
+	margin: 0 auto;
+	
 	color: rgba(154, 154, 154);
 	background-color: transparent;
 
