@@ -96,8 +96,6 @@ h4 {
 
 	transition: background-color .3s;
 
-	linear-gradient(40%, blue, cyan);
-
 	outline: none
 }
 
