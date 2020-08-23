@@ -76,7 +76,7 @@ h4 {
 	flex-direction: column;
 
 	margin: 0 auto;
-	
+
 	color: rgba(154, 154, 154);
 	background-color: transparent;
 
@@ -118,4 +118,17 @@ h1, .alert {
 
 .alert {
 	position: inherit;
+}
+
+figure {
+	text-align: center;
+	margin: 2rem 0;
+}
+
+figure>img {
+	max-width: 100%;
+}
+
+figure>figcaption {
+	font-size: smaller;
 }
