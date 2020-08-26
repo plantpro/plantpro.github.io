@@ -8,7 +8,9 @@
   $("#content-list").hide();
   document.getElementById("show-hide-source-list").addEventListener("click", function () {
     $("#source-list").fadeToggle();
-    return $(".source-mark").fadeToggle();
+    $(".source-mark").fadeToggle();
+    $("#content-list").fadeOut();
+    return container.classList.remove("crop");
   });
   contentPanel = document.getElementById("content-list");
   container = document.querySelector(".container-fluid");
@@ -18,7 +20,9 @@
     if (container.classList.contains("crop")) {
       return container.classList.remove("crop");
     } else {
-      return container.classList.add("crop");
+      container.classList.add("crop");
+      $("#source-list").fadeOut();
+      return $(".source-mark").fadeOut();
     }
   });
   CONTENT = [{

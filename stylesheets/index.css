@@ -26,6 +26,7 @@ h1 {
 @media (min-width: 768px) { 
 	.main-screen {
 		padding: 2em 15px;
+		overflow: hidden;
 	}
 }
 

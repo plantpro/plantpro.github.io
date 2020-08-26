@@ -5,18 +5,23 @@ $("#content-list").hide()
 document.getElementById("show-hide-source-list").addEventListener("click", () ->
 	$("#source-list").fadeToggle()
 	$(".source-mark").fadeToggle()
+
+	$("#content-list").fadeOut()
+	container.classList.remove("crop")
 )
 
 contentPanel = document.getElementById("content-list")
 container = document.querySelector(".container-fluid")
 
 document.getElementById("show-hide-content-list").addEventListener("click", () ->
-  $("#content-list").fadeToggle()
+	$("#content-list").fadeToggle()
 
-  if container.classList.contains("crop")
-    container.classList.remove("crop")
-  else
-    container.classList.add("crop")
+	if container.classList.contains("crop")
+		container.classList.remove("crop")
+	else
+		container.classList.add("crop")
+		$("#source-list").fadeOut()
+		$(".source-mark").fadeOut()
 )
 
 CONTENT = [{
