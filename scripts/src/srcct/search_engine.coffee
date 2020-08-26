@@ -195,7 +195,7 @@ startSearch = () ->
 		entry.hidden = yes unless firstTest or secondTest
 
 searchInputClear = (event) ->
-	searchInput = document.getElementById("search-input")
+	searchInput = document.getElementById "search-input"
 	searchInput.value = ""
 
 	startSearch()

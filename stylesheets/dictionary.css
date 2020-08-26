@@ -16,11 +16,14 @@
 	text-decoration: none;
 }
 
+.top-panel {
+	font-size: 14px;
+}
+
 #search-area {
 	display: flex;
 	border-radius: 2px;
 	background-color: var(--lighter-color-1);
-	font-size: 14px;
 }
 
 #search-input {
