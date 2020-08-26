@@ -112,7 +112,7 @@ var CONTENT = [{
 }];
 
 function buildDivision(division) {
-  var result = "<p class=\"div-name px-3 pb-4 mb-0 mt-4\">".concat(division.name, "</p>\n\t<ul class=\"nav nav-pills nav-stacked\">");
+  var result = "<p class=\"div-name px-3 pb-4 mb-0 mt-4\">".concat(division.name, "</p>\n\t<div class=\"nav nav-pills nav-stacked\">");
   var index = 1;
 
   var _iterator = _createForOfIteratorHelper(division.items),
@@ -123,9 +123,9 @@ function buildDivision(division) {
       var i = _step.value;
 
       if (document.location.href.endsWith(i.href)) {
-        result += "<li class=\"active\"><a href=\"../".concat(i.href, "\">").concat(index, ". ").concat(i.name, "</a></li>");
+        result += "<a class=\"active\" href=\"../".concat(i.href, "\">").concat(index, ". ").concat(i.name, "</a>");
       } else {
-        result += "<li><a href=\"../".concat(i.href, "\">").concat(index, ". ").concat(i.name, "</a></li>");
+        result += "<a href=\"../".concat(i.href, "\">").concat(index, ". ").concat(i.name, "</a>");
       }
 
       index++;
@@ -136,7 +136,7 @@ function buildDivision(division) {
     _iterator.f();
   }
 
-  return result + "</ul>";
+  return result + "</div>";
 }
 
 function buildContentList() {
