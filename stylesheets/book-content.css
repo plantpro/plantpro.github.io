@@ -13,7 +13,7 @@ body {
 
 .top-panel {
 	display: flex;
-	padding: 0 20px;
+	padding: 5px 20px;
 	background-color: var(--top-panel-bg);
 }
 
