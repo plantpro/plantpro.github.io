@@ -99,18 +99,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-h1 {
-  text-transform: uppercase;
-  font-weight: bold;
-  vertical-align: middle;
-  font-size: 3.5em;
-  word-break: break-all;
-}
-
-body {
-	color: #ffffff;
-}
-
 a:focus,
 a:hover,
 a:active {

@@ -1,3 +1,11 @@
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: 3.5em;
+  word-break: break-all;
+}
+
 .main-screen {
 	min-height: 100vh;
 

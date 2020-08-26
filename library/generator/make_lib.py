@@ -117,35 +117,33 @@ def write_to_file(content, recordsCount):
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-4">
-				<div id="main-panel">
-					<div id="search-area">
-						<input type="text" placeholder="Что ищем?" id="search-input">
+			<div class="col-md-4" id="main-panel">
+				<div id="search-area">
+					<input type="text" placeholder="Что ищем?" id="search-input">
 
-						<button type="button" id="search-clear">
-							<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
-								<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
-							</svg>
-						</button>
+					<button type="button" id="search-clear">
+						<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
+							<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+						</svg>
+					</button>
 
-						<button id="search-button">Поиск</button>
-					</div>
+					<button id="search-button">Поиск</button>
+				</div>
 
-					<div class="mt-3">
-						Тип файла:
-						<span class="file-type-tag file-type-tag-pdf">.pdf</span>
-						<span class="file-type-tag file-type-tag-djvu">.djvu</span>
-						<span class="file-type-tag file-type-tag-online">online</span>
-					</div>
+				<div class="mt-3">
+					Тип файла:
+					<span class="file-type-tag file-type-tag-pdf">.pdf</span>
+					<span class="file-type-tag file-type-tag-djvu">.djvu</span>
+					<span class="file-type-tag file-type-tag-online">online</span>
+				</div>
 
-					<div class="mt-3">
-						Язык:
-						<span class="language-tag" onclick="document.filterByLanguage('Русский');">Русский</span>
-						<span class="language-tag" onclick="document.filterByLanguage('Английский');">Английский</span>
-					</div>
+				<div class="mt-3">
+					Язык:
+					<span class="language-tag" onclick="document.filterByLanguage('Русский');">Русский</span>
+					<span class="language-tag" onclick="document.filterByLanguage('Английский');">Английский</span>
+				</div>
 
-					<div id="filter-area"></div>
-					</div>
+				<div id="filter-area"></div>
 			</div>
 
 			<div class="col-md-8" id="search-box">
@@ -153,6 +151,7 @@ def write_to_file(content, recordsCount):
 					Ничего не найдено.
 					<button type="button" id="nothing-is-found-clear">Сбросить фильтры</button>
 				</div>
+				
 				{content}
 			</div>
 		</div>

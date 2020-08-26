@@ -1,70 +1,6 @@
 :root {
-	--top-panel-bg: rgb(20, 20, 20);
-	--top-panel-fg: rgb(110, 110, 110);
-
-	--gradient-begin: rgb(255, 0, 255);
-	--gradient-end: rgb(0, 255, 255);
-
 	--content-list-fg: rgb(250, 250, 250);
 	--content-list-bg: rgba(20, 20, 20, .8);
-}
-
-body {
-	background-color: rgb(250, 250, 250);
-	font-family: 'Open Sans', sans-serif;
-}
-
-.top-panel {
-	display: flex;
-	padding: 5px 20px;
-	background-color: var(--top-panel-bg);
-}
-
-.top-panel-controls {
-	display: flex;
-	margin-left: auto;
-}
-
-.top-panel>a,
-.top-panel-controls>button {
-	display: flex;
-	flex-direction: column;
-
-	padding: 5px 10px;
-	border: none;
-
-	font-size: 12px;
-
-	color: var(--top-panel-fg);
-	background-color: transparent;
-}
-
-.top-panel>a:focus,
-.top-panel>a:hover,
-.top-panel>a:active,
-.top-panel-controls>button:focus,
-.top-panel-controls>button:hover,
-.top-panel-controls>button:active {
-	outline: none
-}
-
-.top-panel>a>svg,
-.top-panel-controls>button>svg {
-	width: 24px;
-	height: 24px;
-
-	margin: 0 auto; /* horizontal align */
-
-	fill: var(--top-panel-fg);
-}
-
-.top-panel>a:focus>svg,
-.top-panel>a:hover>svg,
-.top-panel>a:active>svg,
-.top-panel-controls>button:focus>svg,
-.top-panel-controls>button:hover>svg,
-.top-panel-controls>button:active>svg {
-	fill: url(#svg-gradient);
 }
 
 .svg-gradient-container {
@@ -81,13 +17,13 @@ body {
 }
 
 .crop {
-	height: calc(100vh - 44px);
+	height: calc(100vh - 50px);
 	overflow-y: hidden;
 }
 
 nav {
 	position: absolute;
-	min-height: calc(100vh - 44px);
+	min-height: calc(100vh - 50px);
 	border: none;
 
 	color: var(--content-list-fg);
@@ -113,7 +49,7 @@ nav {
 
 	margin: 0 10px;
 	padding: 10px 25px;
-	border-radius: 5px;
+	border-radius: 2px;
 }
 
 .nav>.active {
