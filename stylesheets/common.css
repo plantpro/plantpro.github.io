@@ -39,6 +39,7 @@
 .top-panel-controls>button {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 
 	padding: 5px 10px;
 	border: none;

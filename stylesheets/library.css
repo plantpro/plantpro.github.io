@@ -109,6 +109,7 @@
 /* record */
 .record {
 	padding: 1em;
+	margin-top: 1em;
 }
 
 .record-article-mark {
@@ -154,7 +155,7 @@
 }
 
 #filter-area {
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 /* filter-panel */

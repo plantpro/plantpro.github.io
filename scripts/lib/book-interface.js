@@ -36,9 +36,18 @@
     items: [{
       name: "Неинфекционные болезни растений",
       href: "phytopathology/non-infectious-plant-diseases.html"
+    }, {
+      name: "Гаустории паразитических растений",
+      href: "phytopathology/parasitic-plants-haustorium.html"
     }]
   }, {
-    name: "III. Статистика",
+    name: "III. Растениеводство",
+    items: [{
+      name: "Хлеба I и II групп",
+      href: "plant-growning/breads.html"
+    }]
+  }, {
+    name: "IV. Статистика",
     items: [{
       name: "Введение в статистику",
       href: "statistics/introduction-to-statistics.html"
@@ -58,7 +67,7 @@
       i = ref[j];
 
       if (document.location.href.endsWith(i.href)) {
-        result += "<a class='active' href='../".concat(i.href, "'>").concat(index, ".").concat(i.name, "</a>");
+        result += "<a class='active' href='../".concat(i.href, "'>").concat(index, ". ").concat(i.name, "</a>");
       } else {
         result += "<a href='../".concat(i.href, "'>").concat(index, ".").concat(i.name, "</a>");
       }

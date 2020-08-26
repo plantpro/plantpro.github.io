@@ -1,381 +1,449 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Введение в статистику</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="../../stylesheets/light.min.css" />
-		<link rel="stylesheet" href="../../stylesheets/article.css" />
-		<link rel="stylesheet" href="../../stylesheets/audio-player.css" />
-  </head>
+	<title>Введение в статистику</title>
 
-  <body>
-    <div class="container-md">
-			<div id="close-btn">
-				<svg viewbox="0 0 48 48">
-					<g fill="none" fill-rule="evenodd">
-						<path d="m0 0h48v48h-48z" />
-						<g stroke="#000" stroke-linecap="round" stroke-width="2">
-							<path d="m13 13 22 22" transform="matrix(-1 0 0 1 48 0)" />
-							<path d="m13 13 22 22" />
+	<link rel="apple-touch-icon" sizes="57x57" href="../../resources/images/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../../resources/images/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../../resources/images/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../../resources/images/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../../resources/images/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../../resources/images/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../../resources/images/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../../resources/images/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../resources/images/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../../resources/images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../resources/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../../resources/images/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../resources/images/icons/favicon-16x16.png">
+	<link rel="icon" type="image/ico" href="./favicon.ico" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../stylesheets/common.css">
+	<link rel="stylesheet" href="../../stylesheets/book-content.css">
+</head>
+
+<body>
+	<div class="top-panel">
+		<!-- This svg not to display, just to define common svg gradients -->
+		<svg class="svg-gradient-container">
+			<defs>
+				<lineargradient id="svg-gradient" x1="0" x2="1" y1="0" y2="0">
+					<stop offset="0%" class="svg-gradient-begin-color" />
+					<stop offset="100%" class="svg-gradient-end-color" />
+				</lineargradient>
+			</defs>
+		</svg>
+
+		<a href="../../index.html" data-toggle="popover" data-placement="bottom" data-content="На главную">
+			<svg viewbox="0 0 254.182 254.182">
+				<path d="M211.655,137.102c-4.143,0-7.5,3.358-7.5,7.5v77.064h-41.373v-77.064c0-4.142-3.357-7.5-7.5-7.5H98.903
+					c-4.143,0-7.5,3.358-7.5,7.5v77.064H50.026v-77.064c0-4.142-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.358-7.5,7.5v84.564
+					c0,4.142,3.357,7.5,7.5,7.5h56.377h56.379h56.373c4.143,0,7.5-3.358,7.5-7.5v-84.564
+					C219.155,140.46,215.797,137.102,211.655,137.102z M106.403,221.666v-69.564h41.379v69.564H106.403z" />
+				<path d="M251.985,139.298L132.389,19.712c-2.928-2.929-7.677-2.928-10.607,0L2.197,139.298c-2.929,2.929-2.929,7.678,0,10.606
+					c2.93,2.929,7.678,2.929,10.607,0L127.086,35.622l114.293,114.283c1.464,1.464,3.384,2.196,5.303,2.196
+					c1.919,0,3.839-0.732,5.304-2.197C254.914,146.976,254.914,142.227,251.985,139.298z" />
+			</svg>
+		</a>
+
+		<div class="top-panel-controls">
+			<button id="show-hide-content-list" data-toggle="popover" data-placement="bottom"
+				data-content="Показать содержание">
+				<svg viewbox="0 0 512 512">
+					<g>
+						<g>
+							<path
+								d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z" />
+						</g>
+					</g>
+					<g>
+						<g>
+							<path
+								d="M492,76H20C8.954,76,0,84.954,0,96s8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,76,492,76z" />
+						</g>
+					</g>
+					<g>
+						<g>
+							<path d="M492,396H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20
+					C512,404.954,503.046,396,492,396z" />
 						</g>
 					</g>
 				</svg>
-			</div>
+			</button>
 
-      <h3 class="display-4 article-title">
-        Введение в статистику
-			</h3>
-			
-			<div class="mb-3">
-				<audio preload="auto" controls>
-					<source src="../../resources/audio/into-to-stat.mp4" />
-				</audio>
-			</div>
-
-      <p>
-        Начнём с небольшого примера: в мире более 7.5 миллиардов человек, каждый
-        из которых имеет какой-либо рост. Как мы можем узнать средний рост
-        человека? Очевидно, измерять каждого человека - очень плохая идея.
-        Вместо этого мы можем взять лишь часть всех людей, скажем, 800 и найти
-        среднее для них. Все люди в данном случае называется генеральной
-        совокупностью, а те из них, которые мы выбрали для исследования, будут
-        называться выборкой этой генеральной совокупности. Количество людей в
-        выборке называется размером этой выборки, количество людей в генеральной
-        совокупности - размером генеральной совокупности. Если мы измерим рост
-        всех людей в генеральной совокупности, то такие значения будут
-        называться параметрами, а измерив рост людей в выборке, получим
-        статистики.
-      </p>
-
-      <blockquote class="blockquote">
-        <b>Генеральная совокупность (population)</b> - любая интересующая нас
-        группа объектов: люди, машины, растения, бактерии определённого вида и
-        тд.
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Выборка (sample)</b> - любое подмножество генеральной совокупности
-        (выборка также может включать в себя всю генеральную совокупность)
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Размер выборки (sample size)</b> - количество элементов в выборке,
-        обозначается
-        <math>
-          <mi>n</mi>
-        </math>
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Размер генеральной совокупности (population size)</b> - количество
-        элементов в генеральной совокупности, обозначается
-        <math>
-          <mi>N</mi>
-        </math>
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Измерение (measurement)</b> - это число или свойство, измеренное для
-        каждого члена генеральной совокупности или выборки. Все измерения
-        выборки называются <b>данными выборки (sample data)</b>
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Параметр (parameter)</b> - число, обобщающее какое-либо свойство
-        генеральной совокупности
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Статистика (statistic)</b> - число, вычисленное на основе данных
-        выборки
-      </blockquote>
-
-      <p>
-        Продолжая наш пример, если средний рост людей в нашей выборке составит
-        168см, то мы можем предположить что это средний рост всех людей в целом.
-        То есть мы делаем предположение о генеральной совокупности на основании
-        нашей выборки. Взаимосвязь всех этих понятий видна на следующей
-        картинке:
-      </p>
-
-      <p class="text-center">
-        <img
-          style="max-width: 100%;"
-          src="../../resources/article-res/images/statistics/grand_picture.jpg"
-        />
-      </p>
-
-      <p>
-        У нас есть генеральная совокупность, мы создаём из неё выборку, затем
-        проводим измерения нашей выборки и получаем данные, после чего,
-        анализируя данные, мы получаем некие статистики, характерные для нашей
-        выборки и обобщаем результаты исследования получая параметры для всей
-        генеральной совокупности.
-			</p>
-			
-      <p>
-        Обобщая, можно сказать что статистика это наука о данных и делится на
-        две основные ветви: описательную статистику, целью которой является
-        описание свойств данных и индуктивную статистику, целью которой является
-        обобщение данных, полученных из выборки на всю генеральную совокупность.
-      </p>
-
-      <blockquote class="blockquote">
-        <b>Статистика (statistics)</b> - как наука - совокупность методов сбора,
-        отображения, анализа данных
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Описательная статистика (descriptive statistics)</b> - ветвь
-        статистики, задачами которой являются организация, отображение и
-        описание данных
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Индуктивная статистика (inferential statistics)</b> - ветвь
-        статистики, задачей которой является обобщение данных, полученных из
-        выборки на всю генеральную совокупность.
-      </blockquote>
-
-      <p>
-        Стоит сказать что измерения, полученные в ходе ислледования не
-        обязательно должны быть числовыми. Например, мы можем учитывать пол
-        человека: мужской и женский. Очевидно что его не нужно описывать
-        какими-то числами (хотя сделать это мы можем). Слледовательно, данные мы
-        можем разделить на 2 больших типа: количественные и качественные.
-      </p>
-
-      <blockquote class="blockquote">
-        <b>Качественные данные (qualitative data)</b> - это измерения, для
-        которых нет числовой шкалы, они описываются различными нечисловыми
-        значениями, например, метками.
-      </blockquote>
-
-      <blockquote class="blockquote">
-        <b>Количественные данные (quantitative data)</b> - числовые значения, то
-        есть те, которые мы можем расположить на числовой шкале. Из
-        количественных данных мы можем получить количественные статистики
-        выборки (такие как среднее).
-      </blockquote>
-
-			<h3>Популярные способы представления данных</h3>
-			
-      <p>
-        Итак, вы измерили какую-то характеристику вашей выборки и теперь вам
-        нужно как-то представить ваши данные для последующего анализа. В этих
-        статьях мы будем пользоваться двумя способами. Первый - это так
-        называемый <b>список данных (data list)</b>. Список данных - это простое
-        перечисление всех измерений для выборки:
-			</p>
-			
-      <blockquote class="blockquote">
-        Возраст 21 случайных студентов СПбГАУ может быть представлен так:
-        <math xml:id="fwk-shafer-ch01-m0005" display="block">
-          <mrow>
-            <mtable
-              columnspacing="0.5em"
-              columnlines="none none none none none none none none none none"
-            >
-              <mtr>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>19</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>19</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>19</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>22</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>20</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>17</mn>
-                </mtd>
-              </mtr>
-              <mtr>
-                <mtd columnalign="center">
-                  <mn>19</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>24</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>20</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>21</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>20</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>17</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>19</mn>
-                </mtd>
-                <mtd></mtd>
-              </mtr>
-            </mtable>
-          </mrow>
-        </math>
-        или так:
-        <math xml:id="fwk-shafer-ch01-m0006" display="block">
-          <mrow>
-            <mrow>
-              <mo>{</mo>
-              <mrow>
-                <mn
-                  >18, 18, 19, 19, 19, 18, 22, 20, 18, 18, 17, 19, 18, 24, 18,
-                  20, 18, 21, 20, 17, 19</mn
-                >
-              </mrow>
-              <mo>}</mo>
-            </mrow>
-          </mrow>
-        </math>
-      </blockquote>
-
-      <p>
-        Набор данных также может быть представлен
-        <b>таблицей частот (data frequency table)</b> - это таблица, где указан
-        <math>
-          <mi>x</mi>
-        </math>
-        - конкретное значение и соответствующая частота
-        <math>
-          <mi>f</mi>
-        </math>
-        (то есть количество этого значения в нашем наборе).
-      </p>
-
-      <blockquote class="blockquote">
-        Перепишем представленные выше данные в виде таблицы частот:
-        <math display="block">
-          <mrow>
-            <mtable
-              columnspacing="0.5em"
-              columnlines="solid none none none none none none"
-              rowlines="solid"
-            >
-              <mtr>
-                <mtd columnalign="center">
-                  <mi>x</mi>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>17</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>18</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>19</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>20</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>21</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>22</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>24</mn>
-                </mtd>
-              </mtr>
-              <mtr>
-                <mtd columnalign="center">
-                  <mi>f</mi>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>2</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>8</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>5</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>3</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>1</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>1</mn>
-                </mtd>
-                <mtd columnalign="center">
-                  <mn>1</mn>
-                </mtd>
-              </mtr>
-            </mtable>
-          </mrow>
-        </math>
-        Соответственно, у нас 2 раза встречается 17, 8 раз - 18 и так далее.
-			</blockquote>
-			
-			<div id="scrollTop-btn">
-				<svg viewbox="0 0 490.523 490.523">
-					<path fill="#000000" d="M479.859,373.266c-2.831,0.005-5.548-1.115-7.552-3.115L245.192,143.015L18.077,370.151
-							c-4.237,4.093-10.99,3.976-15.083-0.262c-3.993-4.134-3.993-10.687,0-14.821l234.667-234.667c4.165-4.164,10.917-4.164,15.083,0
-							l234.667,234.667c4.159,4.172,4.148,10.926-0.024,15.085C485.388,372.146,482.681,373.265,479.859,373.266z" />
+			<button id="show-hide-source-list" data-toggle="popover" data-placement="bottom"
+				data-content="Показать источники">
+				<svg viewbox="0 0 485.5 485.5">
+					<path d="M422.1,126.2H126.4c-27.4,0-49.8-22.3-49.8-49.8c0-27.4,22.3-49.8,49.8-49.8h295.8c7.4,0,13.3-6,13.3-13.3
+					 c0-7.4-6-13.3-13.3-13.3H126.4C84.3,0,50,34.3,50,76.4v332.7c0,42.1,34.3,76.4,76.4,76.4h295.8c7.4,0,13.3-6,13.3-13.3V139.5
+					 C435.4,132.2,429.5,126.2,422.1,126.2z M408.8,458.9H126.4c-27.4,0-49.8-22.3-49.8-49.8V134.4c13.4,11.5,30.8,18.5,49.8,18.5
+					 h282.4L408.8,458.9L408.8,458.9z" />
+					<path
+						d="M130.6,64.3c-7.4,0-13.3,6-13.3,13.3s6,13.3,13.3,13.3h249.8c7.4,0,13.3-6,13.3-13.3s-6-13.3-13.3-13.3H130.6z" />
+					<path d="M177.4,400.7c1.5,0.5,3,0.8,4.5,0.8c5.5,0,10.6-3.4,12.5-8.8l16.2-45.3H273c0.5,0,1.1,0,1.6-0.1l16.2,45.4
+					 c1.9,5.4,7.1,8.8,12.5,8.8c1.5,0,3-0.3,4.5-0.8c6.9-2.5,10.5-10.1,8-17l-60.6-169.9l0,0c-0.1-0.4-0.3-0.8-0.5-1.2
+					 c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.3-0.4-0.4-0.7c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.2-0.3-0.4-0.5-0.6
+					 c-0.1-0.1-0.2-0.3-0.4-0.4c-0.1-0.2-0.3-0.3-0.5-0.5s-0.3-0.3-0.5-0.5c-0.1-0.1-0.3-0.2-0.4-0.4c-0.2-0.2-0.4-0.3-0.6-0.5
+					 c-0.1-0.1-0.3-0.2-0.4-0.3c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.1-0.4-0.2-0.6-0.3s-0.4-0.2-0.6-0.3c-0.4-0.2-0.8-0.4-1.2-0.5l0,0H247
+					 c-0.4-0.1-0.8-0.2-1.2-0.3c-0.2,0-0.3-0.1-0.5-0.1c-0.3-0.1-0.5-0.1-0.8-0.2c-0.2,0-0.4,0-0.6-0.1c-0.2,0-0.5-0.1-0.7-0.1
+					 s-0.4,0-0.6,0c-0.2,0-0.4,0-0.7,0c-0.2,0-0.5,0-0.7,0.1c-0.2,0-0.4,0-0.6,0.1c-0.3,0-0.5,0.1-0.8,0.2c-0.2,0-0.3,0.1-0.5,0.1
+					 c-0.4,0.1-0.8,0.2-1.1,0.3h-0.1l0,0c-0.4,0.1-0.8,0.3-1.2,0.5c-0.2,0.1-0.4,0.2-0.6,0.3c-0.2,0.1-0.4,0.2-0.6,0.3
+					 c-0.2,0.1-0.4,0.3-0.7,0.4c-0.1,0.1-0.3,0.2-0.4,0.3c-0.2,0.2-0.4,0.3-0.6,0.5c-0.1,0.1-0.3,0.2-0.4,0.4c-0.2,0.2-0.3,0.3-0.5,0.5
+					 s-0.3,0.3-0.5,0.5c-0.1,0.1-0.2,0.3-0.4,0.4c-0.2,0.2-0.3,0.4-0.5,0.6c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.2-0.3,0.4-0.4,0.6
+					 c-0.1,0.2-0.2,0.4-0.3,0.6c-0.1,0.2-0.2,0.4-0.3,0.6c-0.2,0.4-0.4,0.8-0.5,1.2l0,0l-60.8,169.9
+					 C166.9,390.6,170.5,398.2,177.4,400.7z M242.7,257.8l22.5,63h-45.1L242.7,257.8z" />
 				</svg>
-			</div>
-    </div>
 
-    <script
-      type="text/javascript"
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"
-		></script>
-		<script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-		></script>
-		<script type="text/javascript" src="../../scripts/lib/article.min.js"></script>
-		<script type="text/javascript" src="../../scripts/lib/audio-player.js"></script>
-  </body>
+			</button>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<h1>Введение в статистику</h1>
+
+		<p>
+			Начнём с небольшого примера: в мире более 7.5 миллиардов человек, каждый
+			из которых имеет какой-либо рост. Как мы можем узнать средний рост
+			человека? Очевидно, измерять каждого человека - очень плохая идея.
+			Вместо этого мы можем взять лишь часть всех людей, скажем, 800 и найти
+			среднее для них. Все люди в данном случае называется генеральной
+			совокупностью, а те из них, которые мы выбрали для исследования, будут
+			называться выборкой этой генеральной совокупности. Количество людей в
+			выборке называется размером этой выборки, количество людей в генеральной
+			совокупности - размером генеральной совокупности. Если мы измерим рост
+			всех людей в генеральной совокупности, то такие значения будут
+			называться параметрами, а измерив рост людей в выборке, получим
+			статистики.
+		</p>
+
+		<p>
+			<strong>Генеральная совокупность (population)</strong> - любая интересующая нас
+			группа объектов: люди, машины, растения, бактерии определённого вида и
+			тд.
+		</p>
+
+		<p>
+			<strong>Выборка (sample)</strong> - любое подмножество генеральной совокупности
+			(выборка также может включать в себя всю генеральную совокупность)
+		</p>
+
+		<p>
+			<strong>Размер выборки (sample size)</strong> - количество элементов в выборке,
+			обозначается
+			<math>
+				<mi>n</mi>
+			</math>
+		</p>
+
+		<p>
+			<strong>Размер генеральной совокупности (population size)</strong> - количество
+			элементов в генеральной совокупности, обозначается
+			<math>
+				<mi>N</mi>
+			</math>
+		</p>
+
+		<p>
+			<strong>Измерение (measurement)</strong> - это число или свойство, измеренное для
+			каждого члена генеральной совокупности или выборки. Все измерения
+			выборки называются <strong>данными выборки (sample data)</strong>
+		</p>
+
+		<p>
+			<strong>Параметр (parameter)</strong> - число, обобщающее какое-либо свойство
+			генеральной совокупности
+		</p>
+
+		<p>
+			<strong>Статистика (statistic)</strong> - число, вычисленное на основе данных
+			выборки
+		</p>
+
+		<p>
+			Продолжая наш пример, если средний рост людей в нашей выборке составит
+			168см, то мы можем предположить что это средний рост всех людей в целом.
+			То есть мы делаем предположение о генеральной совокупности на основании
+			нашей выборки. Взаимосвязь всех этих понятий видна на следующей
+			картинке:
+		</p>
+
+		<figure>
+			<img src="../../resources/article-res/images/statistics/grand_picture.jpg" />
+		</figure>
+
+		<p>
+			У нас есть генеральная совокупность, мы создаём из неё выборку, затем
+			проводим измерения нашей выборки и получаем данные, после чего,
+			анализируя данные, мы получаем некие статистики, характерные для нашей
+			выборки и обобщаем результаты исследования получая параметры для всей
+			генеральной совокупности.
+		</p>
+
+		<p>
+			Обобщая, можно сказать что статистика это наука о данных и делится на
+			две основные ветви: описательную статистику, целью которой является
+			описание свойств данных и индуктивную статистику, целью которой является
+			обобщение данных, полученных из выборки на всю генеральную совокупность.
+		</p>
+
+		<p>
+			<strong>Статистика (statistics)</strong> - как наука - совокупность методов сбора,
+			отображения, анализа данных
+		</p>
+
+		<p>
+			<strong>Описательная статистика (descriptive statistics)</strong> - ветвь
+			статистики, задачами которой являются организация, отображение и
+			описание данных
+		</p>
+
+		<p>
+			<strong>Индуктивная статистика (inferential statistics)</strong> - ветвь
+			статистики, задачей которой является обобщение данных, полученных из
+			выборки на всю генеральную совокупность.
+		</p>
+
+		<p>
+			Стоит сказать что измерения, полученные в ходе ислледования не
+			обязательно должны быть числовыми. Например, мы можем учитывать пол
+			человека: мужской и женский. Очевидно что его не нужно описывать
+			какими-то числами (хотя сделать это мы можем). Слледовательно, данные мы
+			можем разделить на 2 больших типа: количественные и качественные.
+		</p>
+
+		<p>
+			<strong>Качественные данные (qualitative data)</strong> - это измерения, для
+			которых нет числовой шкалы, они описываются различными нечисловыми
+			значениями, например, метками.
+		</p>
+
+		<p>
+			<strong>Количественные данные (quantitative data)</strong> - числовые значения, то
+			есть те, которые мы можем расположить на числовой шкале. Из
+			количественных данных мы можем получить количественные статистики
+			выборки (такие как среднее).
+		</p>
+
+		<h3>Популярные способы представления данных</h3>
+
+		<p>
+			Итак, вы измерили какую-то характеристику вашей выборки и теперь вам
+			нужно как-то представить ваши данные для последующего анализа. В этих
+			статьях мы будем пользоваться двумя способами. Первый - это так
+			называемый <strong>список данных (data list)</strong>. Список данных - это простое
+			перечисление всех измерений для выборки:
+		</p>
+
+		<p>
+			Возраст 21 случайных студентов СПбГАУ может быть представлен так:
+			<math xml:id="fwk-shafer-ch01-m0005" display="block">
+				<mrow>
+					<mtable columnspacing="0.5em" columnlines="none none none none none none none none none none">
+						<mtr>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>19</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>19</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>19</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>22</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>20</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>17</mn>
+							</mtd>
+						</mtr>
+						<mtr>
+							<mtd columnalign="center">
+								<mn>19</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>24</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>20</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>21</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>20</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>17</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>19</mn>
+							</mtd>
+							<mtd></mtd>
+						</mtr>
+					</mtable>
+				</mrow>
+			</math>
+			или так:
+			<math xml:id="fwk-shafer-ch01-m0006" display="block">
+				<mrow>
+					<mrow>
+						<mo>{</mo>
+						<mrow>
+							<mn>18, 18, 19, 19, 19, 18, 22, 20, 18, 18, 17, 19, 18, 24, 18,
+								20, 18, 21, 20, 17, 19</mn>
+						</mrow>
+						<mo>}</mo>
+					</mrow>
+				</mrow>
+			</math>
+		</p>
+
+		<p>
+			Набор данных также может быть представлен
+			<strong>таблицей частот (data frequency table)</strong> - это таблица, где указан
+			<math>
+				<mi>x</mi>
+			</math>
+			- конкретное значение и соответствующая частота
+			<math>
+				<mi>f</mi>
+			</math>
+			(то есть количество этого значения в нашем наборе).
+		</p>
+
+		<p>
+			Перепишем представленные выше данные в виде таблицы частот:
+			<math display="block">
+				<mrow>
+					<mtable columnspacing="0.5em" columnlines="solid none none none none none none" rowlines="solid">
+						<mtr>
+							<mtd columnalign="center">
+								<mi>x</mi>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>17</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>18</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>19</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>20</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>21</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>22</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>24</mn>
+							</mtd>
+						</mtr>
+						<mtr>
+							<mtd columnalign="center">
+								<mi>f</mi>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>2</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>8</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>5</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>3</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>1</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>1</mn>
+							</mtd>
+							<mtd columnalign="center">
+								<mn>1</mn>
+							</mtd>
+						</mtr>
+					</mtable>
+				</mrow>
+			</math>
+			Соответственно, у нас 2 раза встречается 17, 8 раз - 18 и так далее.
+		</p>
+
+	</div>
+
+	<nav id="content-list"></nav>
+
+	<div id="source-list">
+		
+	</div>
+
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+	<script src="../../scripts/lib/book-interface.js"></script>
+
+	<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+				messageStyle: "none"
+			});
+		</script>
+
+	<script>
+		$('[data-toggle="popover"]').popover({
+			trigger: 'hover'
+		})
+	</script>
+</body>
+
 </html>

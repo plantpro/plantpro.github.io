@@ -2,32 +2,116 @@
 <html lang="ru">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<title>Введение в визуализацию данных</title>
 
-	<link rel="stylesheet" href="../../stylesheets/light.min.css" />
-	<link rel="stylesheet" href="../../stylesheets/article.css" />
+	<link rel="apple-touch-icon" sizes="57x57" href="../../resources/images/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../../resources/images/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../../resources/images/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../../resources/images/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../../resources/images/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../../resources/images/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../../resources/images/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../../resources/images/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../resources/images/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../../resources/images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../resources/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../../resources/images/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../resources/images/icons/favicon-16x16.png">
+	<link rel="icon" type="image/ico" href="./favicon.ico" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../stylesheets/common.css">
+	<link rel="stylesheet" href="../../stylesheets/book-content.css">
 </head>
 
 <body>
-	<div class="container-md">
-		<div id="close-btn">
-			<svg viewbox="0 0 48 48">
-				<g fill="none" fill-rule="evenodd">
-					<path d="m0 0h48v48h-48z" />
-					<g stroke="#000" stroke-linecap="round" stroke-width="2">
-						<path d="m13 13 22 22" transform="matrix(-1 0 0 1 48 0)" />
-						<path d="m13 13 22 22" />
-					</g>
-				</g>
-			</svg>
-		</div>
+	<div class="top-panel">
+		<!-- This svg not to display, just to define common svg gradients -->
+		<svg class="svg-gradient-container">
+			<defs>
+				<lineargradient id="svg-gradient" x1="0" x2="1" y1="0" y2="0">
+					<stop offset="0%" class="svg-gradient-begin-color" />
+					<stop offset="100%" class="svg-gradient-end-color" />
+				</lineargradient>
+			</defs>
+		</svg>
 
-		<h3 class="display-4 article-title">
-			Введение в визуализацию данных
-		</h3>
+		<a href="../../index.html" data-toggle="popover" data-placement="bottom" data-content="На главную">
+			<svg viewbox="0 0 254.182 254.182">
+				<path d="M211.655,137.102c-4.143,0-7.5,3.358-7.5,7.5v77.064h-41.373v-77.064c0-4.142-3.357-7.5-7.5-7.5H98.903
+					c-4.143,0-7.5,3.358-7.5,7.5v77.064H50.026v-77.064c0-4.142-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.358-7.5,7.5v84.564
+					c0,4.142,3.357,7.5,7.5,7.5h56.377h56.379h56.373c4.143,0,7.5-3.358,7.5-7.5v-84.564
+					C219.155,140.46,215.797,137.102,211.655,137.102z M106.403,221.666v-69.564h41.379v69.564H106.403z" />
+				<path d="M251.985,139.298L132.389,19.712c-2.928-2.929-7.677-2.928-10.607,0L2.197,139.298c-2.929,2.929-2.929,7.678,0,10.606
+					c2.93,2.929,7.678,2.929,10.607,0L127.086,35.622l114.293,114.283c1.464,1.464,3.384,2.196,5.303,2.196
+					c1.919,0,3.839-0.732,5.304-2.197C254.914,146.976,254.914,142.227,251.985,139.298z" />
+			</svg>
+		</a>
+
+		<div class="top-panel-controls">
+			<button id="show-hide-content-list" data-toggle="popover" data-placement="bottom"
+				data-content="Показать содержание">
+				<svg viewbox="0 0 512 512">
+					<g>
+						<g>
+							<path
+								d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z" />
+						</g>
+					</g>
+					<g>
+						<g>
+							<path
+								d="M492,76H20C8.954,76,0,84.954,0,96s8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,76,492,76z" />
+						</g>
+					</g>
+					<g>
+						<g>
+							<path d="M492,396H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20
+					C512,404.954,503.046,396,492,396z" />
+						</g>
+					</g>
+				</svg>
+			</button>
+
+			<button id="show-hide-source-list" data-toggle="popover" data-placement="bottom"
+				data-content="Показать источники">
+				<svg viewbox="0 0 485.5 485.5">
+					<path d="M422.1,126.2H126.4c-27.4,0-49.8-22.3-49.8-49.8c0-27.4,22.3-49.8,49.8-49.8h295.8c7.4,0,13.3-6,13.3-13.3
+					 c0-7.4-6-13.3-13.3-13.3H126.4C84.3,0,50,34.3,50,76.4v332.7c0,42.1,34.3,76.4,76.4,76.4h295.8c7.4,0,13.3-6,13.3-13.3V139.5
+					 C435.4,132.2,429.5,126.2,422.1,126.2z M408.8,458.9H126.4c-27.4,0-49.8-22.3-49.8-49.8V134.4c13.4,11.5,30.8,18.5,49.8,18.5
+					 h282.4L408.8,458.9L408.8,458.9z" />
+					<path
+						d="M130.6,64.3c-7.4,0-13.3,6-13.3,13.3s6,13.3,13.3,13.3h249.8c7.4,0,13.3-6,13.3-13.3s-6-13.3-13.3-13.3H130.6z" />
+					<path d="M177.4,400.7c1.5,0.5,3,0.8,4.5,0.8c5.5,0,10.6-3.4,12.5-8.8l16.2-45.3H273c0.5,0,1.1,0,1.6-0.1l16.2,45.4
+					 c1.9,5.4,7.1,8.8,12.5,8.8c1.5,0,3-0.3,4.5-0.8c6.9-2.5,10.5-10.1,8-17l-60.6-169.9l0,0c-0.1-0.4-0.3-0.8-0.5-1.2
+					 c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.3-0.4-0.4-0.7c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.2-0.3-0.4-0.5-0.6
+					 c-0.1-0.1-0.2-0.3-0.4-0.4c-0.1-0.2-0.3-0.3-0.5-0.5s-0.3-0.3-0.5-0.5c-0.1-0.1-0.3-0.2-0.4-0.4c-0.2-0.2-0.4-0.3-0.6-0.5
+					 c-0.1-0.1-0.3-0.2-0.4-0.3c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.1-0.4-0.2-0.6-0.3s-0.4-0.2-0.6-0.3c-0.4-0.2-0.8-0.4-1.2-0.5l0,0H247
+					 c-0.4-0.1-0.8-0.2-1.2-0.3c-0.2,0-0.3-0.1-0.5-0.1c-0.3-0.1-0.5-0.1-0.8-0.2c-0.2,0-0.4,0-0.6-0.1c-0.2,0-0.5-0.1-0.7-0.1
+					 s-0.4,0-0.6,0c-0.2,0-0.4,0-0.7,0c-0.2,0-0.5,0-0.7,0.1c-0.2,0-0.4,0-0.6,0.1c-0.3,0-0.5,0.1-0.8,0.2c-0.2,0-0.3,0.1-0.5,0.1
+					 c-0.4,0.1-0.8,0.2-1.1,0.3h-0.1l0,0c-0.4,0.1-0.8,0.3-1.2,0.5c-0.2,0.1-0.4,0.2-0.6,0.3c-0.2,0.1-0.4,0.2-0.6,0.3
+					 c-0.2,0.1-0.4,0.3-0.7,0.4c-0.1,0.1-0.3,0.2-0.4,0.3c-0.2,0.2-0.4,0.3-0.6,0.5c-0.1,0.1-0.3,0.2-0.4,0.4c-0.2,0.2-0.3,0.3-0.5,0.5
+					 s-0.3,0.3-0.5,0.5c-0.1,0.1-0.2,0.3-0.4,0.4c-0.2,0.2-0.3,0.4-0.5,0.6c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.2-0.3,0.4-0.4,0.6
+					 c-0.1,0.2-0.2,0.4-0.3,0.6c-0.1,0.2-0.2,0.4-0.3,0.6c-0.2,0.4-0.4,0.8-0.5,1.2l0,0l-60.8,169.9
+					 C166.9,390.6,170.5,398.2,177.4,400.7z M242.7,257.8l22.5,63h-45.1L242.7,257.8z" />
+				</svg>
+
+			</button>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<h1>Введение в визуализацию данных</h1>
 
 		<p>
 			Как правило, использование списков данных - не самый лучший способ
@@ -36,7 +120,7 @@
 			и в этой статье мы рассмотрим 3 из них на примере следующей выборки:
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			30 студентов СПбГАУ набрали на интернет-тестировании следующее
 			количество баллов:
 			<math display="block">
@@ -201,7 +285,7 @@
 					</mtable>
 				</mrow>
 			</math>
-		</blockquote>
+		</p>
 
 		<h3>Листостебельная диаграмма</h3>
 
@@ -211,7 +295,7 @@
 			примера мы можем построить такую диаграмму:
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			<math display="block">
 				<mrow>
 					<mtable columnspacing="0.5em" columnlines="solid none none none">
@@ -361,7 +445,7 @@
 					</mtable>
 				</mrow>
 			</math>
-		</blockquote>
+		</p>
 
 		<p>
 			Эта диаграмма состоит из <b>стебля</b> - чисел, стоящих слева от
@@ -382,7 +466,7 @@
 			проядке возрастания. Для нашего примера:
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			<math display="block">
 				<mrow>
 					<mtable columnspacing="0.5em" columnlines="solid none none none">
@@ -532,7 +616,7 @@
 					</mtable>
 				</mrow>
 			</math>
-		</blockquote>
+		</p>
 
 		<p>
 			Такие диаграммы могут быть довольно гибкими: например мы можем разбить
@@ -540,7 +624,7 @@
 			два (80-84 и 85-89):
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			<math display="block">
 				<mrow>
 					<mtable columnspacing="0.5em" columnlines="solid none none none">
@@ -573,7 +657,7 @@
 					</mtable>
 				</mrow>
 			</math>
-		</blockquote>
+		</p>
 
 		<div class="card">
 			<div class="card-body">
@@ -604,7 +688,7 @@
 			сгруппировать так:
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			<math display="block">
 				<mrow>
 					<mtable columnspacing="0.5em" columnlines="solid none none none none none none none" rowlines="solid">
@@ -687,14 +771,14 @@
 					</mtable>
 				</mrow>
 			</math>
-		</blockquote>
+		</p>
 
 		<p>
 			Затем подсчитываем частоту для каждой группы (то есть строим таблицу
 			частот для групп):
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			<math display="block">
 				<mrow>
 					<mtable columnspacing="0.5em" columnlines="solid none none none none none none none" rowlines="solid">
@@ -777,7 +861,7 @@
 					</mtable>
 				</mrow>
 			</math>
-		</blockquote>
+		</p>
 
 		<p>
 			И строим диаграмму частот, отмечая группы по оси
@@ -832,7 +916,7 @@
 			относительными частотами.
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			<b>Относительная частота (relative frequency),
 				<math>
 					<mi>ω</mi>
@@ -840,13 +924,13 @@
 			</b>
 			- отношение частоты элемента к размеру выборки или генеральной
 			совокупности
-		</blockquote>
+		</p>
 
 		<p>
 			Мы можем построить таблицу относительных частот для нашего примера:
 		</p>
 
-		<blockquote class="blockquote">
+		<p>
 			<math display="block">
 				<mrow>
 					<mtable columnspacing="0.5em" columnlines="solid none none none none none none none" rowlines="solid">
@@ -929,7 +1013,7 @@
 					</mtable>
 				</mrow>
 			</math>
-		</blockquote>
+		</p>
 
 		<p>
 			И строим гистограмму, на этот раз отмечая по оси y уже относительные
@@ -982,21 +1066,28 @@
 					</li>
 				</ol>
 				</p>
+
 			</div>
 		</div>
+	</div>
+	<nav id="content-list"></nav>
 
-		<div id="scrollTop-btn">
-			<svg viewbox="0 0 490.523 490.523">
-				<path fill="#000000" d="M479.859,373.266c-2.831,0.005-5.548-1.115-7.552-3.115L245.192,143.015L18.077,370.151
-						c-4.237,4.093-10.99,3.976-15.083-0.262c-3.993-4.134-3.993-10.687,0-14.821l234.667-234.667c4.165-4.164,10.917-4.164,15.083,0
-						l234.667,234.667c4.159,4.172,4.148,10.926-0.024,15.085C485.388,372.146,482.681,373.265,479.859,373.266z" />
-			</svg>
-		</div>
+	<div id="source-list">
+
 	</div>
 
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="../../scripts/lib/article.min.js"></script>
+	<script src="../../scripts/lib/book-interface.js"></script>
 	<script>
 		(function onLoad() {
 			// Load the Visualization API and the corechart package.
@@ -1123,6 +1214,18 @@
 				});
 			}
 		})();
+	</script>
+
+	<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+				messageStyle: "none"
+			});
+		</script>
+
+	<script>
+		$('[data-toggle="popover"]').popover({
+			trigger: 'hover'
+		})
 	</script>
 </body>
 

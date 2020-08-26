@@ -1,117 +1,86 @@
 
 	<!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Словарь</title>
+	<title>Словарь - слова на букву О</title>
 
+	<link rel="apple-touch-icon" sizes="57x57" href="../../resources/images/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../../resources/images/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../../resources/images/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../../resources/images/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../../resources/images/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../../resources/images/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../../resources/images/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../../resources/images/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../resources/images/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../../resources/images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../resources/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../../resources/images/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../resources/images/icons/favicon-16x16.png">
+	<link rel="icon" type="image/ico" href="./favicon.ico" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="../../stylesheets/style.css">
-	<style>
-		.letter-group {
-			font-size: 3em;
-			text-align: center;
-		}
-
-		.letter {
-			color: var(--secondary);
-		}
-
-		.letter:hover {
-			color: var(--secondary);
-			text-decoration: none;
-		}
-	</style>
+	<link rel="stylesheet" href="../../stylesheets/common.css">
+	<link rel="stylesheet" href="../../stylesheets/dictionary.css">
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-grey d-flex d-md-none">
-		<a class="navbar-brand">
-			<img src="../../resources/images/logo-black.svg" />
+	<div class="top-panel">
+		<!-- This svg not to display, just to define common svg gradients -->
+		<svg class="svg-gradient-container">
+			<defs>
+				<lineargradient id="svg-gradient" x1="0" x2="1" y1="0" y2="0">
+					<stop offset="0%" class="svg-gradient-begin-color" />
+					<stop offset="100%" class="svg-gradient-end-color" />
+				</lineargradient>
+			</defs>
+		</svg>
+
+		<a href="../../index.html" data-toggle="popover" data-placement="bottom" data-content="На главную">
+			<svg viewbox="0 0 254.182 254.182">
+				<path d="M211.655,137.102c-4.143,0-7.5,3.358-7.5,7.5v77.064h-41.373v-77.064c0-4.142-3.357-7.5-7.5-7.5H98.903
+					c-4.143,0-7.5,3.358-7.5,7.5v77.064H50.026v-77.064c0-4.142-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.358-7.5,7.5v84.564
+					c0,4.142,3.357,7.5,7.5,7.5h56.377h56.379h56.373c4.143,0,7.5-3.358,7.5-7.5v-84.564
+					C219.155,140.46,215.797,137.102,211.655,137.102z M106.403,221.666v-69.564h41.379v69.564H106.403z" />
+				<path d="M251.985,139.298L132.389,19.712c-2.928-2.929-7.677-2.928-10.607,0L2.197,139.298c-2.929,2.929-2.929,7.678,0,10.606
+					c2.93,2.929,7.678,2.929,10.607,0L127.086,35.622l114.293,114.283c1.464,1.464,3.384,2.196,5.303,2.196
+					c1.919,0,3.839-0.732,5.304-2.197C254.914,146.976,254.914,142.227,251.985,139.298z" />
+			</svg>
 		</a>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
+		<div class="top-panel-controls">
+				
+	<div id="search-area">
+		<input type="text" placeholder="Что ищем?" id="search-input">
+
+		<button type="button" id="search-clear">
+			<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
+				<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+			</svg>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../../index.html">Главная</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../../articles/index.html">Статьи</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../../library/index.html">Книги</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../../applets/index.html">Апплеты</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../../media/index.html">Медиа</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="division-header">
-		<div class="row">
-			<div class="col-md-4 col-lg-2 text-center">
-				<img class="division-header-img" src="../../resources/images/dictionary-cover.jpg" />
-			</div>
-
-			<div class="col-md-8 col-lg-10 text-center text-sm-left">
-				<nav class="navbar navbar-expand-lg navbar-grey d-none d-md-flex">
-					<a class="navbar-brand">
-					</a>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#inline-navbar"
-						aria-controls="inline-navbar" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="inline-navbar">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../../index.html">Главная</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../../articles/index.html">Статьи</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../../library/index.html">Книги</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../../applets/index.html">Апплеты</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../../media/index.html">Медиа</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-				<h1 class="division-header-title">Словарь</h1>
-				<span class="division-header-description">
-
-				</span>
-				
-	<input class="form-control mr-sm-2" id="text-to-find" type="search" placeholder="Поиск" aria-label="Search">
+		<button id="search-button">Поиск</button>
+	</div>
 		
-			</div>
 		</div>
 	</div>
 
-	<div class="container-fluid mt-3 mb-3">
+	<div class="container-fluid">
 			<h3>О</h3>
 			
 		<table class="table table-bordered">
-		<thead>
+		<thead class="thead thead-dark">
 			<tr>
 				<th>Слово</th>
 				<th>Перевод</th>
@@ -122,7 +91,7 @@
 		</tbody>
 		</table>
 		
-		</div>
+	</div>
 		
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

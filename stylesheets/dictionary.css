@@ -1,0 +1,92 @@
+.container-fluid {
+	margin-top: 2em;
+}
+
+.letter-group {
+	font-size: 3em;
+	text-align: center;
+}
+
+.letter {
+	color: var(--secondary);
+}
+
+.letter:hover {
+	color: var(--secondary);
+	text-decoration: none;
+}
+
+#search-area {
+	display: flex;
+	border-radius: 2px;
+	background-color: var(--lighter-color-1);
+	font-size: 14px;
+}
+
+#search-input {
+	width: 100%;
+	padding: 5px 0px 5px 10px;
+	border: none;
+	color: var(--fore-color);
+	background-color: transparent;
+}
+
+#search-input::placeholder {
+	color: var(--lighter-color-3);
+}
+
+#search-input:focus,
+#search-input:active {
+	outline: none;
+}
+
+#search-clear {
+	padding: 5px 5px;
+	border: none;
+	background-color: transparent;
+}
+
+#search-clear:hover {
+	cursor: default;
+}
+
+#search-clear:focus,
+#search-clear:active {
+	outline: none;
+}
+
+#search-clear>svg>path {
+	fill: none;
+}
+
+#search-input:not(:placeholder-shown)+#search-clear:hover {
+	cursor: pointer;
+}
+
+#search-input:not(:placeholder-shown)+#search-clear>svg>path {
+	fill: var(--lighter-color-3);
+}
+
+#search-input:not(:placeholder-shown)+#search-clear:hover>svg>path,
+#search-input:not(:placeholder-shown)+#search-clear:active>svg>path,
+#search-input:not(:placeholder-shown)+#search-clear:focus>svg>path  {
+	fill: var(--fore-color);
+}
+
+#search-button {
+	margin: 2px;
+	padding: 5px 15px;
+
+	border: none;
+	border-radius: 2px;
+
+	color: var(--primary-fore-color);
+	background-color: var(--top-panel-bg);
+}
+
+#search-button:hover,
+#search-button:active,
+#search-button:focus  {
+	outline: none;
+	background: linear-gradient(90deg, var(--gradient-begin), var(--gradient-end));
+}

@@ -47,6 +47,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       neue,
       neueText,
       runParser,
+      searchInputClear,
       startSearch,
       sub,
       sum,
@@ -401,7 +402,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   startSearch = function startSearch() {
     var entries, entry, firstTest, input, j, len, ref, results, secondTest;
-    input = new RegExp(valueof("text-to-find"), "i");
+    input = new RegExp(valueof("search-input"), "i");
     entries = element("dict-entries");
     ref = entries.children;
     results = [];
@@ -422,5 +423,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return results;
   };
 
-  element("text-to-find").addEventListener("input", startSearch);
+  searchInputClear = function searchInputClear(event) {
+    var searchInput;
+    searchInput = document.getElementById("search-input");
+    searchInput.value = "";
+    return startSearch();
+  };
+
+  document.getElementById("search-input").addEventListener("input", startSearch);
+  document.getElementById("search-button").addEventListener("click", startSearch);
+  document.getElementById("search-clear").addEventListener("click", searchInputClear);
 }).call(void 0);

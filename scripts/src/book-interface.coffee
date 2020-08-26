@@ -31,13 +31,22 @@ CONTENT = [{
     href: "soil-science/density.html"
   }]
 }, {
-  name: "II. Фитопатология",
+	name: "II. Фитопатология",
+	items: [{
+		name: "Неинфекционные болезни растений",
+		href: "phytopathology/non-infectious-plant-diseases.html"
+	}, {
+		name: "Гаустории паразитических растений",
+		href: "phytopathology/parasitic-plants-haustorium.html"
+	}]
+}, {
+  name: "III. Растениеводство",
   items: [{
-    name: "Неинфекционные болезни растений",
-    href: "phytopathology/non-infectious-plant-diseases.html"
+    name: "Хлеба I и II групп",
+    href: "plant-growning/breads.html"
   }]
 }, {
-  name: "III. Статистика",
+  name: "IV. Статистика",
   items: [{
     name: "Введение в статистику",
     href: "statistics/introduction-to-statistics.html"
@@ -54,7 +63,7 @@ buildDivision = (division) ->
 
 	for i in division.items
 		if document.location.href.endsWith(i.href)
-			result += "<a class='active' href='../#{i.href}'>#{index}.#{i.name}</a>"
+			result += "<a class='active' href='../#{i.href}'>#{index}. #{i.name}</a>"
 		else
 			result += "<a href='../#{i.href}'>#{index}.#{i.name}</a>"
 		index += 1
