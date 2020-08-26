@@ -76,11 +76,11 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
-var contentPanel = document.getElementById("content-panel");
+var contentPanel = document.getElementById("content-list");
 var container = document.querySelector(".container-fluid");
-$("#content-panel").hide();
-document.getElementById("show-hide-content-panel").addEventListener("click", function () {
-  $("#content-panel").fadeToggle();
+$("#content-list").hide();
+document.getElementById("show-hide-content-list").addEventListener("click", function () {
+  $("#content-list").fadeToggle();
 
   if (container.classList.contains("crop")) {
     container.classList.remove("crop");
