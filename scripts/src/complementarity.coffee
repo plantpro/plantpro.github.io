@@ -111,7 +111,7 @@ setLastInputType = (inputType) ->
 		when INPUT_TYPE.TRNA then "тРНК"
 		when INPUT_TYPE.PROTEIN then "белку"
 
-updateFields = () ->
+updateFields = (result) ->
 	valueset "dnaInput",     formatOutput result.firstDna
 	valueset "dna2Input",    formatOutput result.secondDna
 	valueset "irnaInput",    formatOutput result.informationalRna

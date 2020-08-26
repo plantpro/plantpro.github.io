@@ -289,14 +289,14 @@ lastInputType = { inputType: 1 }
 
 setLastInputType = (inputType) ->
 	lastInputType.inputType = inputType
-	runButton.innerText = "Построить по " + switch lastInputType.inputType
+	runButton.innerText = "Построить по " + switch inputType
 		when INPUT_TYPE.DNA1 then "ДНК 1"
 		when INPUT_TYPE.DNA2 then "ДНК 2"
 		when INPUT_TYPE.IRNA then "иРНК"
 		when INPUT_TYPE.TRNA then "тРНК"
 		when INPUT_TYPE.PROTEIN then "белку"
 
-updateFields = () ->
+updateFields = (result) ->
 	valueset "dnaInput",     formatOutput result.firstDna
 	valueset "dna2Input",    formatOutput result.secondDna
 	valueset "irnaInput",    formatOutput result.informationalRna
@@ -509,25 +509,25 @@ formatProteinSequence = (sequence) ->
 	
 	triplets.join "-"
 
-element "dnaInput"
+document.getElementById "dnaInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.DNA1)
-element "dna2Input"
+document.getElementById "dna2Input"
 	.addEventListener("input", -> validateInput INPUT_TYPE.DNA2)
-element "irnaInput"
+document.getElementById "irnaInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.IRNA)
-element "trnaInput"
+document.getElementById "trnaInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.TRNA)
-element "proteinInput"
+document.getElementById "proteinInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.PROTEIN)
-element "runButton"
+document.getElementById "runButton"
 	.addEventListener("click", runApplication)
-element "buildByDna1Button"
+document.getElementById "buildByDna1Button"
 	.addEventListener("click", () -> updateFields(buildByDnaOne()))
-element "buildByDna2Button"
+document.getElementById "buildByDna2Button"
 	.addEventListener("click", () -> updateFields(buildByDnaTwo()))
-element "buildByiRnaButton"
+document.getElementById "buildByiRnaButton"
 	.addEventListener("click", () -> updateFields(buildByInformationalRna()))
-element "buildBytRnaButton"
+document.getElementById "buildBytRnaButton"
 	.addEventListener("click", () -> updateFields(buildByTransferRna()))
-element "buildByProteinButton"
+document.getElementById "buildByProteinButton"
 	.addEventListener("click", () -> updateFields(buildByProtein()))

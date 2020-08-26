@@ -455,7 +455,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   setLastInputType = function setLastInputType(inputType) {
     lastInputType.inputType = inputType;
     return runButton.innerText = "Построить по " + function () {
-      switch (lastInputType.inputType) {
+      switch (inputType) {
         case INPUT_TYPE.DNA1:
           return "ДНК 1";
 
@@ -474,7 +474,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }();
   };
 
-  updateFields = function updateFields() {
+  updateFields = function updateFields(result) {
     valueset("dnaInput", formatOutput(result.firstDna));
     valueset("dna2Input", formatOutput(result.secondDna));
     valueset("irnaInput", formatOutput(result.informationalRna));
@@ -914,35 +914,35 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return triplets.join("-");
   };
 
-  element("dnaInput").addEventListener("input", function () {
+  document.getElementById("dnaInput").addEventListener("input", function () {
     return validateInput(INPUT_TYPE.DNA1);
   });
-  element("dna2Input").addEventListener("input", function () {
+  document.getElementById("dna2Input").addEventListener("input", function () {
     return validateInput(INPUT_TYPE.DNA2);
   });
-  element("irnaInput").addEventListener("input", function () {
+  document.getElementById("irnaInput").addEventListener("input", function () {
     return validateInput(INPUT_TYPE.IRNA);
   });
-  element("trnaInput").addEventListener("input", function () {
+  document.getElementById("trnaInput").addEventListener("input", function () {
     return validateInput(INPUT_TYPE.TRNA);
   });
-  element("proteinInput").addEventListener("input", function () {
+  document.getElementById("proteinInput").addEventListener("input", function () {
     return validateInput(INPUT_TYPE.PROTEIN);
   });
-  element("runButton").addEventListener("click", runApplication);
-  element("buildByDna1Button").addEventListener("click", function () {
+  document.getElementById("runButton").addEventListener("click", runApplication);
+  document.getElementById("buildByDna1Button").addEventListener("click", function () {
     return updateFields(buildByDnaOne());
   });
-  element("buildByDna2Button").addEventListener("click", function () {
+  document.getElementById("buildByDna2Button").addEventListener("click", function () {
     return updateFields(buildByDnaTwo());
   });
-  element("buildByiRnaButton").addEventListener("click", function () {
+  document.getElementById("buildByiRnaButton").addEventListener("click", function () {
     return updateFields(buildByInformationalRna());
   });
-  element("buildBytRnaButton").addEventListener("click", function () {
+  document.getElementById("buildBytRnaButton").addEventListener("click", function () {
     return updateFields(buildByTransferRna());
   });
-  element("buildByProteinButton").addEventListener("click", function () {
+  document.getElementById("buildByProteinButton").addEventListener("click", function () {
     return updateFields(buildByProtein());
   });
 }).call(void 0);
