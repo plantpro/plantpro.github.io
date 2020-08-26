@@ -139,3 +139,13 @@ figure>figcaption {
 	background-color: var(--content-list-bg);
 	backdrop-filter: blur(3px);
 }
+
+.source-mark {
+	display: inline-block;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+	width: 1.5em;
+	text-align: center;
+	margin-left: 5px;
+}

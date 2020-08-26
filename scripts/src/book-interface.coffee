@@ -1,13 +1,14 @@
 $("#source-list").hide()
+$(".source-mark").hide()
+$("#content-list").hide()
 
 document.getElementById("show-hide-source-list").addEventListener("click", () ->
-  $("#source-list").fadeToggle()
+	$("#source-list").fadeToggle()
+	$(".source-mark").fadeToggle()
 )
 
 contentPanel = document.getElementById("content-list")
 container = document.querySelector(".container-fluid")
-
-$("#content-list").hide()
 
 document.getElementById("show-hide-content-list").addEventListener("click", () ->
   $("#content-list").fadeToggle()
