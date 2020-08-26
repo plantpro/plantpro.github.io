@@ -88,6 +88,10 @@ document.getElementById("show-hide-content-list").addEventListener("click", func
     container.classList.add("crop");
   }
 });
+$("#source-list").hide();
+document.getElementById("show-hide-source-list").addEventListener("click", function () {
+  $("#source-list").fadeToggle();
+});
 var CONTENT = [{
   name: "I. Физика почв",
   items: [{

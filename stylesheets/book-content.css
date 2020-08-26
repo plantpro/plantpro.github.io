@@ -23,6 +23,7 @@
 
 nav {
 	position: absolute;
+	top: 50px;
 	min-height: calc(100vh - 50px);
 	border: none;
 
@@ -122,4 +123,19 @@ figure>img {
 
 figure>figcaption {
 	font-size: smaller;
+}
+
+#source-list {
+	position: fixed;
+
+	padding: 1em 2em;
+	height: 20vh;
+	width: 100%;
+	bottom: 0;
+
+	overflow-y: auto;
+
+	color: var(--content-list-fg);
+	background-color: var(--content-list-bg);
+	backdrop-filter: blur(3px);
 }
