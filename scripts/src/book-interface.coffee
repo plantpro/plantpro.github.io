@@ -65,7 +65,7 @@ buildDivision = (division) ->
 		if document.location.href.endsWith(i.href)
 			result += "<a class='active' href='../#{i.href}'>#{index}. #{i.name}</a>"
 		else
-			result += "<a href='../#{i.href}'>#{index}.#{i.name}</a>"
+			result += "<a href='../#{i.href}'>#{index}. #{i.name}</a>"
 		index += 1
 	
 	return result + "</div>"

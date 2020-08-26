@@ -77,12 +77,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       neue,
       neueText,
       runApplication,
+      runButton,
       runParser,
+      setLastInputType,
       sub,
       sum,
       uniformNucleotide,
       uniformSequence,
       unique,
+      updateFields,
       validateInput,
       valueof,
       values,
@@ -444,13 +447,46 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     TRNA: 4,
     PROTEIN: 5
   };
-  lastInputType = 1; // Application entry point
+  runButton = document.getElementById("runButton");
+  lastInputType = {
+    inputType: 1
+  };
+
+  setLastInputType = function setLastInputType(inputType) {
+    lastInputType.inputType = inputType;
+    return runButton.innerText = "Построить по " + function () {
+      switch (lastInputType.inputType) {
+        case INPUT_TYPE.DNA1:
+          return "ДНК 1";
+
+        case INPUT_TYPE.DNA2:
+          return "ДНК 2";
+
+        case INPUT_TYPE.IRNA:
+          return "иРНК";
+
+        case INPUT_TYPE.TRNA:
+          return "тРНК";
+
+        case INPUT_TYPE.PROTEIN:
+          return "белку";
+      }
+    }();
+  };
+
+  updateFields = function updateFields() {
+    valueset("dnaInput", formatOutput(result.firstDna));
+    valueset("dna2Input", formatOutput(result.secondDna));
+    valueset("irnaInput", formatOutput(result.informationalRna));
+    valueset("trnaInput", formatOutput(result.transferRna));
+    return valueset("proteinInput", result.protein);
+  };
 
   runApplication = function runApplication() {
     var result;
 
     result = function () {
-      switch (lastInputType) {
+      switch (lastInputType.inputType) {
         case INPUT_TYPE.DNA1:
           return buildByDnaOne();
 
@@ -468,11 +504,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     }();
 
-    valueset("dnaInput", formatOutput(result.firstDna));
-    valueset("dna2Input", formatOutput(result.secondDna));
-    valueset("irnaInput", formatOutput(result.informationalRna));
-    valueset("trnaInput", formatOutput(result.transferRna));
-    return valueset("proteinInput", result.protein);
+    return updateFields(result);
   };
 
   buildByDnaOne = function buildByDnaOne() {
@@ -682,7 +714,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   validateInput = function validateInput(type) {
     var aminoacid, checker, formatedInput, i, inputElement, j, l, len, len1, ref, ref1;
-    lastInputType = type;
+    setLastInputType(type);
     clearError();
 
     if (type === INPUT_TYPE.PROTEIN) {
@@ -898,4 +930,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return validateInput(INPUT_TYPE.PROTEIN);
   });
   element("runButton").addEventListener("click", runApplication);
+  element("buildByDna1Button").addEventListener("click", function () {
+    return updateFields(buildByDnaOne());
+  });
+  element("buildByDna2Button").addEventListener("click", function () {
+    return updateFields(buildByDnaTwo());
+  });
+  element("buildByiRnaButton").addEventListener("click", function () {
+    return updateFields(buildByInformationalRna());
+  });
+  element("buildBytRnaButton").addEventListener("click", function () {
+    return updateFields(buildByTransferRna());
+  });
+  element("buildByProteinButton").addEventListener("click", function () {
+    return updateFields(buildByProtein());
+  });
 }).call(void 0);

@@ -98,22 +98,35 @@ INPUT_TYPE = {
 	PROTEIN: 5
 }
 
-lastInputType = 1
+runButton = document.getElementById "runButton"
 
-# Application entry point
+lastInputType = { inputType: 1 }
+
+setLastInputType = (inputType) ->
+	lastInputType.inputType = inputType
+	runButton.innerText = "Построить по " + switch inputType
+		when INPUT_TYPE.DNA1 then "ДНК 1"
+		when INPUT_TYPE.DNA2 then "ДНК 2"
+		when INPUT_TYPE.IRNA then "иРНК"
+		when INPUT_TYPE.TRNA then "тРНК"
+		when INPUT_TYPE.PROTEIN then "белку"
+
+updateFields = () ->
+	valueset "dnaInput",     formatOutput result.firstDna
+	valueset "dna2Input",    formatOutput result.secondDna
+	valueset "irnaInput",    formatOutput result.informationalRna
+	valueset "trnaInput",    formatOutput result.transferRna
+	valueset "proteinInput", result.protein
+
 runApplication = () ->
-	result = switch lastInputType
+	result = switch lastInputType.inputType
 		when INPUT_TYPE.DNA1 then buildByDnaOne()
 		when INPUT_TYPE.DNA2 then buildByDnaTwo()
 		when INPUT_TYPE.IRNA then buildByInformationalRna()
 		when INPUT_TYPE.TRNA then buildByTransferRna()
 		when INPUT_TYPE.PROTEIN then buildByProtein()
 
-	valueset "dnaInput",     formatOutput result.firstDna
-	valueset "dna2Input",    formatOutput result.secondDna
-	valueset "irnaInput",    formatOutput result.informationalRna
-	valueset "trnaInput",    formatOutput result.transferRna
-	valueset "proteinInput", result.protein
+	updateFields result
 
 buildByDnaOne = () ->
 	firstDna = uniformSequence valueof "dnaInput"
@@ -217,7 +230,7 @@ uniformNucleotide = (nucleotide) ->
 		else nucleotide.toUpperCase()
 
 validateInput = (type) ->
-	lastInputType = type
+	setLastInputType type
 	clearError()
 
 	if type is INPUT_TYPE.PROTEIN
@@ -311,15 +324,25 @@ formatProteinSequence = (sequence) ->
 	
 	triplets.join "-"
 
-element "dnaInput"
+document.getElementById "dnaInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.DNA1)
-element "dna2Input"
+document.getElementById "dna2Input"
 	.addEventListener("input", -> validateInput INPUT_TYPE.DNA2)
-element "irnaInput"
+document.getElementById "irnaInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.IRNA)
-element "trnaInput"
+document.getElementById "trnaInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.TRNA)
-element "proteinInput"
+document.getElementById "proteinInput"
 	.addEventListener("input", -> validateInput INPUT_TYPE.PROTEIN)
-element "runButton"
+document.getElementById "runButton"
 	.addEventListener("click", runApplication)
+document.getElementById "buildByDna1Button"
+	.addEventListener("click", () -> updateFields(buildByDnaOne()))
+document.getElementById "buildByDna2Button"
+	.addEventListener("click", () -> updateFields(buildByDnaTwo()))
+document.getElementById "buildByiRnaButton"
+	.addEventListener("click", () -> updateFields(buildByInformationalRna()))
+document.getElementById "buildBytRnaButton"
+	.addEventListener("click", () -> updateFields(buildByTransferRna()))
+document.getElementById "buildByProteinButton"
+	.addEventListener("click", () -> updateFields(buildByProtein()))

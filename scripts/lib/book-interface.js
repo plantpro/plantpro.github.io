@@ -69,7 +69,7 @@
       if (document.location.href.endsWith(i.href)) {
         result += "<a class='active' href='../".concat(i.href, "'>").concat(index, ". ").concat(i.name, "</a>");
       } else {
-        result += "<a href='../".concat(i.href, "'>").concat(index, ".").concat(i.name, "</a>");
+        result += "<a href='../".concat(i.href, "'>").concat(index, ". ").concat(i.name, "</a>");
       }
 
       index += 1;
