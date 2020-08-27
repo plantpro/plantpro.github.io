@@ -18,7 +18,7 @@
 }
 
 .main-illustration>img {
-	height: 50vh;
+	width: 80vw;
 }
 
 .main-screen-heading {
@@ -63,6 +63,10 @@
 
 	.main-illustration {
 		text-align: left;
+	}
+
+	.main-illustration>img {
+		width: 30vw;
 	}
 
 	.left-panel {
