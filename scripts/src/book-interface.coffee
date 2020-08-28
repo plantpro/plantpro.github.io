@@ -1,19 +1,15 @@
-$("#source-list").hide()
 $(".source-mark").hide()
+$("#source-list").hide()
 $("#content-list").hide()
 
-document.getElementById("show-hide-source-list").addEventListener("click", () ->
+showOrHideSourceList = () ->
 	$("#source-list").fadeToggle()
 	$(".source-mark").fadeToggle()
 
 	$("#content-list").fadeOut()
 	container.classList.remove("crop")
-)
 
-contentPanel = document.getElementById("content-list")
-container = document.querySelector(".container-fluid")
-
-document.getElementById("show-hide-content-list").addEventListener("click", () ->
+showOrHideContentList = () ->
 	$("#content-list").fadeToggle()
 
 	if container.classList.contains("crop")
@@ -22,6 +18,18 @@ document.getElementById("show-hide-content-list").addEventListener("click", () -
 		container.classList.add("crop")
 		$("#source-list").fadeOut()
 		$(".source-mark").fadeOut()
+
+$("show-hide-source-list")
+.click(showOrHideSourceList)
+
+contentPanel = document.getElementById("content-list")
+container = document.querySelector(".container-fluid")
+
+document.getElementById("show-hide-content-list").addEventListener("click", () ->
+	$("#content-list").fadeToggle()
+
+	$("#source-list").fadeOut()
+	$(".source-mark").fadeOut()
 )
 
 CONTENT = [{

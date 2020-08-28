@@ -3,6 +3,10 @@
 	--content-list-bg: rgba(20, 20, 20, .8);
 }
 
+body {
+	position: relative; /* to set nav height 100% s*/
+}
+
 .svg-gradient-container {
 	width: 0;
 	height: 0;
@@ -16,15 +20,10 @@
 	stop-color: var(--gradient-end);
 }
 
-.crop {
-	height: calc(100vh - 50px);
-	overflow-y: hidden;
-}
-
 nav {
 	position: absolute;
 	top: 50px;
-	min-height: calc(100vh - 50px);
+	height: 100%;
 	border: none;
 
 	color: var(--content-list-fg);
@@ -37,17 +36,9 @@ nav {
 	overflow-y: auto;
 }
 
-/* md and larger */
-@media (min-width: 768px) { 
-	nav {
-		width: 400px;
-	}	
-}
-
 .nav>a {
 	display: block;
 	width: 100%;
-
 	margin: 0 10px;
 	padding: 10px 25px;
 	border-radius: 2px;
@@ -69,9 +60,11 @@ nav {
 	background-color: rgba(18, 18, 18, .5);
 }
 
-.div-name {
-	font-weight: bold;
-	letter-spacing: .05em;
+/* md and larger */
+@media (min-width: 768px) { 
+	nav {
+		width: 400px;
+	}	
 }
 
 .container-fluid {
@@ -148,4 +141,8 @@ figure>figcaption {
 	width: 1.5em;
 	text-align: center;
 	margin-left: 5px;
+}
+
+.fit-scroll {
+	overflow-x: auto;
 }
