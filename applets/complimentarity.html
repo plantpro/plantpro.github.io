@@ -46,15 +46,16 @@
 			</defs>
 		</svg>
 
-		<a href="../index.html" data-toggle="popover" data-placement="bottom" data-content="На главную">
-			<svg viewbox="0 0 254.182 254.182">
-				<path d="M211.655,137.102c-4.143,0-7.5,3.358-7.5,7.5v77.064h-41.373v-77.064c0-4.142-3.357-7.5-7.5-7.5H98.903
-					c-4.143,0-7.5,3.358-7.5,7.5v77.064H50.026v-77.064c0-4.142-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.358-7.5,7.5v84.564
-					c0,4.142,3.357,7.5,7.5,7.5h56.377h56.379h56.373c4.143,0,7.5-3.358,7.5-7.5v-84.564
-					C219.155,140.46,215.797,137.102,211.655,137.102z M106.403,221.666v-69.564h41.379v69.564H106.403z" />
-				<path d="M251.985,139.298L132.389,19.712c-2.928-2.929-7.677-2.928-10.607,0L2.197,139.298c-2.929,2.929-2.929,7.678,0,10.606
-					c2.93,2.929,7.678,2.929,10.607,0L127.086,35.622l114.293,114.283c1.464,1.464,3.384,2.196,5.303,2.196
-					c1.919,0,3.839-0.732,5.304-2.197C254.914,146.976,254.914,142.227,251.985,139.298z" />
+		<a href="index.html" data-toggle="popover" data-placement="bottom" data-content="Назад">
+			<svg viewbox="0 0 512 512">
+				<g>
+					<g>
+						<path d="M501.333,245.333H36.417l141.792-141.792c4.167-4.167,4.167-10.917,0-15.083c-4.167-4.167-10.917-4.167-15.083,0l-160,160
+			c-4.167,4.167-4.167,10.917,0,15.083l160,160c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125
+			c4.167-4.167,4.167-10.917,0-15.083L36.417,266.667h464.917c5.896,0,10.667-4.771,10.667-10.667S507.229,245.333,501.333,245.333z
+			" />
+					</g>
+				</g>
 			</svg>
 		</a>
 	</div>
@@ -66,38 +67,39 @@
 			<div class="form-group">
 				<label class="small" for="dnaInput">ДНК 1</label>
 				<input type="text" class="form-control" id="dnaInput">
-				<span class="mdl-textfield__error" id="dna1err" style="visibility: visible"></span>
+				<span class="error-log" id="dna1err"></span>
 			</div>
 
 			<div class="form-group">
 				<label class="small" for="dna2Input">ДНК 2</label>
 				<input type="text" class="form-control" id="dna2Input">
-				<span class="mdl-textfield__error" id="dna2err" style="visibility: visible"></span>
+				<span class="error-log" id="dna2err"></span>
 			</div>
 
 			<div class="form-group">
 				<label class="small" for="irnaInput">иРНК</label>
 				<input type="text" class="form-control" id="irnaInput">
-				<span class="mdl-textfield__error" id="irnaerr" style="visibility: visible"></span>
+				<span class="error-log" id="irnaerr"></span>
 			</div>
 
 			<div class="form-group">
 				<label class="small" for="trnaInput">тРНК</label>
 				<input type="text" class="form-control" id="trnaInput">
-				<span class="mdl-textfield__error" id="trnaerr" style="visibility: visible"></span>
+				<span class="error-log" id="trnaerr"></span>
 			</div>
 
 			<div class="form-group">
 				<label class="small" for="proteinInput">Белок</label>
 				<input type="text" class="form-control" id="proteinInput">
-				<span class="mdl-textfield__error" id="proteinerr" style="visibility: visible"></span>
+				<span class="error-log" id="proteinerr"></span>
 			</div>
 
-			<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-				<button type="button" class="btn btn-secondary" id="runButton">Построить</button>
-			
+			<div class="btn-group" role="group">
+				<button type="button" class="btn" id="runButton">Построить</button>
+
 				<div class="btn-group" role="group">
-					<button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
 					</button>
 
 					<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">

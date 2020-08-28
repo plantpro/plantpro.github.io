@@ -7,6 +7,28 @@
 .form-control:focus {
 	background-color: rgb(250, 250, 250);
 	outline: none;
-	border-color: black;
+	border-color: rgb(92, 92, 92);
 	box-shadow: none;
+}
+
+.error-log {
+	color: rgb(150, 0, 0);
+	font-size: 14px;
+}
+
+.btn {
+	border-radius: 2px;
+	color: rgb(250, 250, 250);
+	background-color: var(--top-panel-bg);
+}
+
+.btn:hover, .btn:active, .btn:focus {
+	box-shadow: none;
+	color: rgb(250, 250, 250);
+	background: var(--content-list-bg);
+	border-color: var(--content-list-bg);
+}
+
+.dropdown-menu {
+	border-radius: 2px;
 }

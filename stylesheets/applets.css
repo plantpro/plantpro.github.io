@@ -1,21 +1,126 @@
-.applet-item {
-		color: var(--article-fg);
-		background-color: var(--article-bg);
-		margin: 1em;
-		padding: 1em 2em;
+h1 {
+	word-wrap: break-word;
 }
 
-.applet-item>a, .applet-item>a:visited {
-	font-size: 1.6em;
-	color: var(--grey);
+#menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
+
+	height: calc(100vh - 50px);
 }
 
-.applet-item>a:hover {
+.left-panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: calc(100vh - 50px - 6em);
+}
+
+.main-illustration {
+	text-align: center;
+}
+
+.main-illustration>img {
+	width: 80vw;
+	max-height: 60vh;
+}
+
+.main-screen-heading {
+	margin-top: 30px;
+	text-align: center;
+	letter-spacing: .03em;
+}
+
+.main-screen-heading>h1 {
+	text-transform: uppercase;
+	font-size: 2em;
+  word-break: normal;
+	font-weight: bold;
+}
+
+#down-arrow {
+	display: block;
+	height: 6em;
+	text-align: center;
+}
+
+#down-arrow>img {
+	width: 50px;
+}
+
+@media (min-width: 768px) { 
+	.main-screen-heading {
+		margin-left: 3em;
+		text-align: left;
+	}
+
+	#down-arrow {
+		display: none;
+	}
+
+	.main-illustration {
+		margin-left: 2em;
+		text-align: left;
+	}
+
+	.main-illustration>img {
+		width: 30vw;
+		max-height: 100vh;
+	}
+
+	.left-panel {
+		height: calc(100vh - 50px);
+	}
+
+	.nav-card {
+		margin-right: 2em;
+	}
+}
+
+.nav-card {
+	color: inherit;
+	letter-spacing: .03em;
+	padding: 1em 1em;
+	border-radius: 2px;
+	display: flex;
+	flex-direction: column;
+
+	background-color: rgba(0, 0, 0, .8);
+	color: var(--content-list-fg);
+}
+
+.nav-card:hover, .nav-card:focus {
+	color: white;
 	text-decoration: none;
-	color: var(--secondary);
-	transition: .3s;
+	
+	background-color: var(--top-panel-bg);
+
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+	transition: .5s;
 }
 
-input:focus, input:hover {
-	outline: none;
+.nav-card:hover>.cont>.arrow-icon,
+.nav-card:focus>.cont>.arrow-icon {
+	opacity: 1;
+}
+
+.cont {
+	border-top: 1px rgba(255, 255, 255, .6) solid;
+	letter-spacing: .03em;
+	margin-top: 5px;
+	padding-top: 5px;
+	display: flex;
+	color: rgba(255, 255, 255, .6);
+	font-size: 14px;
+}
+
+.arrow-icon {
+	margin-left: auto;
+	opacity: 0;
+}
+
+.arrow-icon>img {
+	height: 50px;
 }
