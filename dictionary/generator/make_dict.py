@@ -157,7 +157,9 @@ class WordCounter:
 
 	<div class="container-fluid">
 			<h3>{title}</h3>
+			<div class="fit-scroll">
 			{self._generateTable(sorted(pairs, key=lambda x: x.word))}
+			</div>
 	</div>
 		
     <script

@@ -93,3 +93,7 @@
 	outline: none;
 	background: linear-gradient(90deg, var(--gradient-begin), var(--gradient-end));
 }
+
+.fit-scroll {
+	overflow-x: auto;
+}
