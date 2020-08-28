@@ -19,6 +19,7 @@
 
 .main-illustration>img {
 	width: 80vw;
+	max-height: 60vh;
 }
 
 .main-screen-heading {
@@ -53,7 +54,7 @@
 
 @media (min-width: 768px) { 
 	.main-screen-heading {
-		padding-left: 3em;
+		margin-left: 3em;
 		text-align: left;
 	}
 
@@ -62,11 +63,13 @@
 	}
 
 	.main-illustration {
+		margin-left: 2em;
 		text-align: left;
 	}
 
 	.main-illustration>img {
 		width: 30vw;
+		max-height: 100vh;
 	}
 
 	.left-panel {
