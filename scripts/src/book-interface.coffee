@@ -61,7 +61,7 @@ createContentItem = ([index, { href, name }]) ->
 	a.addClass "active" if document.location.href.endsWith(href)
 	return a
 
-appendDivision = ({ divisionName, items }) ->
+appendDivision = ({ name: divisionName, items }) ->
 	appendDivisionHeader divisionName
 
 	div = $ "<div class='nav nav-pills nav-stacked'></div>"

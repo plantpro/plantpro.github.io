@@ -92,7 +92,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   };
 
   appendDivision = function appendDivision(_ref3) {
-    var divisionName = _ref3.divisionName,
+    var divisionName = _ref3.name,
         items = _ref3.items;
     var div, entry, i, len, ref;
     appendDivisionHeader(divisionName);
