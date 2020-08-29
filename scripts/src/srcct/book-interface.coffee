@@ -1,88 +1,76 @@
-$(".source-mark").hide()
-$("#source-list").hide()
-$("#content-list").hide()
+hideContentList = () ->
+	$("#content-list").hide()
+
+hideSourceList = () ->
+	$(".source-mark").hide()
+	$("#source-list").hide()
 
 showOrHideSourceList = () ->
 	$("#source-list").fadeToggle()
 	$(".source-mark").fadeToggle()
 
-	$("#content-list").fadeOut()
-	container.classList.remove("crop")
+	hideContentList()
 
 showOrHideContentList = () ->
 	$("#content-list").fadeToggle()
+	
+	hideSourceList()
 
-	if container.classList.contains("crop")
-		container.classList.remove("crop")
-	else
-		container.classList.add("crop")
-		$("#source-list").fadeOut()
-		$(".source-mark").fadeOut()
+hideContentList()
+hideSourceList()
 
-$("show-hide-source-list")
-.click(showOrHideSourceList)
+$ "#show-hide-source-list"
+.click showOrHideSourceList
 
-contentPanel = document.getElementById("content-list")
-container = document.querySelector(".container-fluid")
+$ "#show-hide-content-list"
+.click showOrHideContentList
 
-document.getElementById("show-hide-content-list").addEventListener("click", () ->
-	$("#content-list").fadeToggle()
+# Creates a content list item
+item = (name, href) -> { name, href }
 
-	$("#source-list").fadeOut()
-	$(".source-mark").fadeOut()
-)
-
-CONTENT = [{
-  name: "I. Физика почв",
-  items: [{
-    name: "Плотность почвы",
-    href: "soil-science/density.html"
-  }]
+CONTENT_LIST = [{
+	name: "I. Физика почв",
+	items: [
+		item "Плотность почвы", "soil-science/density.html"
+	]
 }, {
 	name: "II. Фитопатология",
-	items: [{
-		name: "Неинфекционные болезни растений",
-		href: "phytopathology/non-infectious-plant-diseases.html"
-	}, {
-		name: "Гаустории паразитических растений",
-		href: "phytopathology/parasitic-plants-haustorium.html"
-	}]
+	items: [
+		item "Неинфекционные болезни растений", "phytopathology/non-infectious-plant-diseases.html"
+		item "Гаустории паразитических растений", "phytopathology/parasitic-plants-haustorium.html"
+	]
 }, {
-  name: "III. Растениеводство",
-  items: [{
-    name: "Хлеба I и II групп",
-    href: "plant-growning/breads.html"
-  }]
+	name: "III. Растениеводство",
+	items: [
+		item "Хлеба I и II групп", "plant-growning/breads.html"
+	]
 }, {
-  name: "IV. Статистика",
-  items: [{
-    name: "Введение в статистику",
-    href: "statistics/introduction-to-statistics.html"
-  }, {
-    name: "Введение в визуализацию данных",
-    href: "statistics/introduction-to-data-visualization.html"
-  }]
+	name: "IV. Статистика",
+	items: [
+		item "Введение в статистику", "statistics/introduction-to-statistics.html"
+		item "Введение в визуализацию данных", "statistics/introduction-to-data-visualization.html"
+	]
 }]
 
-buildDivision = (division) ->
-	result = "<p class='div-name px-3 pb-4 mb-0 mt-4'>#{division.name}</p>
-	<div class='nav nav-pills nav-stacked'>"
-	index = 1
+appendDivisionHeader = (name) ->
+	$ "#content-list"
+	.append($ "<p class='px-3 pb-4 mb-0 mt-4'>#{name}</p>")
 
-	for i in division.items
-		if document.location.href.endsWith(i.href)
-			result += "<a class='active' href='../#{i.href}'>#{index}. #{i.name}</a>"
-		else
-			result += "<a href='../#{i.href}'>#{index}. #{i.name}</a>"
-		index += 1
+createContentItem = ([index, { href, name }]) ->
+	a = $ "<a href='../#{href}'>#{index+1}. #{name}</a>"
+	a.addClass "active" if document.location.href.endsWith(href)
+	return a
+
+appendDivision = ({ divisionName, items }) ->
+	appendDivisionHeader divisionName
+
+	div = $ "<div class='nav nav-pills nav-stacked'></div>"
+	div.append(createContentItem entry) for entry in [items.entries()...]
 	
-	return result + "</div>"
+	$ "#content-list"
+	.append div
 
 buildContentList = () ->
-	builder = ""
-	for division in CONTENT
-		builder += buildDivision(division)
-  
-	contentPanel.innerHTML = builder
+	appendDivision division for division in CONTENT_LIST
 
 buildContentList()
