@@ -143,6 +143,16 @@ figure>figcaption {
 	margin-left: 5px;
 }
 
+#source-list>a {
+	color: var(--content-list-fg);
+	display: block;
+	width: 100%;
+	margin: 5px 10px;
+	padding: 10px 25px;
+	border-radius: 2px;
+	background-color: rgba(20, 20, 20, .5);
+}
+
 .fit-scroll {
 	overflow-x: auto;
 }
