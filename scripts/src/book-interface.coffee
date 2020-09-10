@@ -74,3 +74,60 @@ buildContentList = () ->
 	appendDivision division for division in CONTENT_LIST
 
 buildContentList()
+
+hsvToRgb = (h, s, v) ->
+	i = Math.floor(h * 6)
+	f = h * 6 - i
+	p = v * (1 - s)
+	q = v * (1 - f * s)
+	t = v * (1 - (1 - f) * s)
+	switch i % 6
+		when 0
+			r = v
+			g = t
+			b = p
+		when 1
+			r = q
+			g = v
+			b = p
+		when 2
+			r = p
+			g = v
+			b = t
+		when 3
+			r = p
+			g = q
+			b = v
+		when 4
+			r = t
+			g = p
+			b = v
+		when 5
+			r = v
+			g = p
+			b = q
+
+	return {
+		r: Math.round(r * 255),
+		g: Math.round(g * 255),
+		b: Math.round(b * 255)
+	}
+
+GOLDEN_RATIO = 0.618033988749895
+
+getColor = () ->
+	h = Math.random() + GOLDEN_RATIO
+	h = h % 1
+	col = hsvToRgb h, 0.9, 1
+	return "rgb(#{col.r}, #{col.g}, #{col.b})"
+
+cahce = new Map
+colorize = () ->
+	for i in $(".source-mark")
+		if cahce.has(i.innerText)
+			i.style.backgroundColor = cahce.get(i.innerText)
+		else
+			cahce.set(i.innerText, getColor())
+			i.style.backgroundColor = cahce.get(i.innerText)
+
+colorize()
