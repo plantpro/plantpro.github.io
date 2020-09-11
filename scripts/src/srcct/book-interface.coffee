@@ -31,7 +31,7 @@ item = (name, href) -> { name, href }
 CONTENT_LIST = [{
 	name: "I. Физика почв",
 	items: [
-		item "Плотность почвы", "soil-science/density.html"
+		item "Плотность и порозность почвы", "soil-science/density.html"
 	]
 }, {
 	name: "II. Фитопатология",

@@ -116,6 +116,8 @@ figure>img {
 
 figure>figcaption {
 	font-size: smaller;
+	padding-top: .75rem;
+  padding-bottom: .75rem;
 }
 
 #source-list {
@@ -155,4 +157,39 @@ figure>figcaption {
 
 .fit-scroll {
 	overflow-x: auto;
+}
+
+.table-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 2rem 0;
+}
+
+.table-wrapper>table {
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.table-note {
+	margin-top: 1rem;
+	font-size: smaller;
+	caption-side: top;
+	color: inherit;
+}
+
+.table thead th {
+	border-bottom: none;
+}
+
+.table-bordered {
+	border: none;
+}
+
+caption {
+	font-size: smaller;
+	caption-side: top;
+	text-align: center;
+	color: inherit;
 }

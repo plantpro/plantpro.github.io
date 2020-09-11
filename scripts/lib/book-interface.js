@@ -58,7 +58,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
   CONTENT_LIST = [{
     name: "I. Физика почв",
-    items: [item("Плотность почвы", "soil-science/density.html")]
+    items: [item("Плотность и порозность почвы", "soil-science/density.html")]
   }, {
     name: "II. Фитопатология",
     items: [item("Неинфекционные болезни растений", "phytopathology/non-infectious-plant-diseases.html"), item("Гаустории паразитических растений", "phytopathology/parasitic-plants-haustorium.html")]
