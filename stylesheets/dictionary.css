@@ -1,7 +1,3 @@
-.container-fluid {
-	margin-top: 2em;
-}
-
 .letter-group {
 	font-size: 3em;
 	text-align: center;
@@ -96,4 +92,18 @@
 
 .fit-scroll {
 	overflow-x: auto;
+}
+
+.tools-panel {
+	padding: 2em;
+	font-size: 14px;
+	background-color: rgb(40, 40, 40);
+	color: white;
+}
+
+/* md and larger */
+@media (min-width: 768px) { 
+	.tools-panel {
+		min-height: calc(100vh - 60px);
+	}	
 }

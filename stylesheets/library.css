@@ -8,7 +8,7 @@
 /* md and larger */
 @media (min-width: 768px) { 
 	#main-panel {
-		min-height: calc(100vh - 50px);
+		min-height: calc(100vh - 60px);
 	}	
 }
 
