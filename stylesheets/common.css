@@ -25,13 +25,20 @@
 .top-panel {
 	display: flex;
 	height: 60px;
-	padding: 5px 20px;
+	padding: 5px;
 	background-color: var(--top-panel-bg);
 	color: var(--top-panel-fg);
+	overflow-x: auto;
+}
+
+@media (min-width: 768px) { 
+	.top-panel {
+		padding: 5px 20px;
+	}
 }
 
 .top-panel-name {
-	margin: auto auto auto 5px;
+	margin: auto auto auto 0;
 	padding: 3px 10px;
 	height: fit-content;
 	font-weight: bold;
