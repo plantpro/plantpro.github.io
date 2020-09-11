@@ -187,6 +187,10 @@ figure>figcaption {
 	border: none;
 }
 
+.table td, .table th {
+	padding: .4rem;
+}
+
 caption {
 	font-size: smaller;
 	caption-side: top;
