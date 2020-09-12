@@ -85,7 +85,7 @@
 #search-button:active,
 #search-button:focus  {
 	outline: none;
-	background: linear-gradient(90deg, var(--gradient-begin), var(--gradient-end));
+	background: var(--accent-color);
 }
 /* /search-area */
 
