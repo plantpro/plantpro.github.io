@@ -114,7 +114,8 @@ figure>img {
 	max-width: 100%;
 }
 
-figure>figcaption {
+figure>figcaption,
+header {
 	font-size: smaller;
 	padding-top: .75rem;
   padding-bottom: .75rem;
@@ -161,22 +162,23 @@ figure>figcaption {
 
 .table-wrapper {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	margin: 2rem 0;
 }
 
-.table-wrapper>table {
-	width: fit-content;
-	margin: 0 auto;
+.table-wrapper table {
+	margin-top: 1rem;
+	overflow-x: auto;
+}
+
+.table-wrapper header {
+	text-align: center;
 }
 
 .table-note {
 	margin-top: 1rem;
 	font-size: smaller;
-	caption-side: top;
 	color: inherit;
+	text-align: justify;
 }
 
 .table thead th {
