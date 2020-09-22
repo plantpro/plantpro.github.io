@@ -5,19 +5,28 @@
 
 body {
 	position: relative; /* to set nav height 100% s*/
+	font-size: 18px;
 }
 
-.svg-gradient-container {
-	width: 0;
-	height: 0;
+.top-panel {
+	background-color: #ffffff;
 }
 
-.svg-gradient-begin-color {
-	stop-color: var(--gradient-begin);
+.top-panel img {
+	height: 24px;
+	width: 24px;
+	margin: 0 auto;
 }
 
-.svg-gradient-end-color {
-	stop-color: var(--gradient-end);
+h1 {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+@media (min-width: 992px){
+	.container {
+			max-width: 720px;
+	}
 }
 
 nav {
@@ -105,9 +114,32 @@ h1, .note {
 	border-color: var(--danger);
 }
 
+.formula {
+	min-width: 100%;
+	display: flex;
+}
+
+.formula span {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.formula .eval-link {
+	font-size: 14px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: rebeccapurple;
+	color: white;
+	padding: 5px;
+}
+
 figure {
 	text-align: center;
 	margin: 2rem 0;
+	padding: 30px;
+	background-color: #fafafa;
 }
 
 figure>img {
@@ -163,6 +195,8 @@ header {
 .table-wrapper {
 	width: 100%;
 	margin: 2rem 0;
+	padding: 30px;
+	background-color: #fafafa;
 }
 
 .table-wrapper table {

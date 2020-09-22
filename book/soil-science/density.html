@@ -25,9 +25,7 @@
 	<meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link
-		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
-		rel="stylesheet">
+	<link rel="stylesheet" href="../../resources/fonts/stylesheet.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="../../stylesheets/common.css">
@@ -36,24 +34,20 @@
 
 <body>
 	<div class="top-panel">
-		<div class="top-panel-name">Учебник</div>
+		<button id="show-hide-content-list">
+			<img src="../../resources/images/menu.svg" />
+
+		</button>
 
 		<div class="top-panel-controls">
-			<button id="show-hide-content-list">
-				<span>Содержание</span>
-			</button>
-
 			<button id="show-hide-source-list">
-				<span>Источники</span>
-			</button>
+				<img src="../../resources/images/settings.svg" />
 
-			<a href="../../index.html" data-toggle="popover" data-placement="bottom" data-content="На главную">
-				<span>Назад</span>
-			</a>
+			</button>
 		</div>
 	</div>
 
-	<div class="container-fluid">
+	<div class="container">
 		<h1>Плотность и порозность почвы</h1>
 
 		<p>
@@ -70,7 +64,12 @@
 		</p>
 
 		<div class="formula">
-			`rho_s = (m_s)/(V_s)` [г/см<sup>3</sup>]<span class="source-mark">1</span>
+			<span>
+				`rho_s = (m_s)/(V_s)` [г/см<sup>3</sup>]
+				<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#solid-phase-density">Вычислить</a>
 		</div>
 
 		<div class="note note-secondary">
@@ -84,8 +83,12 @@
 		</p>
 
 		<div class="formula">
-			`rho_b = (m_s)/(V_t)` [г/см<sup>3</sup>]
-			<span class="source-mark">1</span>
+			<span>
+				`rho_b = (m_s)/(V_t)` [г/см<sup>3</sup>]
+				<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#soil-density">Вычислить</a>
 		</div>
 
 		<div class="note note-secondary">
@@ -108,99 +111,102 @@
 			<span class="source-mark">1</span>
 		</p>
 
-		<div class="table-wrapper">
-			<header>Таблица 1. Характерная плотность почв различного гранулометрического состава<sup>1</sup><span
-					class="source-mark">1</span></header>
-					
-			<div class="row">
-				<table class="col-md-6 table table-responsive table-striped table-bordered">
-					<thead>
-						<th>
-							Класс по гранулометрическому составу
-						</th>
-						<th>
-							Плотность почвы [г/см<sup>3</sup>]
-						</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								Песок рыхлый<sup>2</sup>
-							</td>
-							<td>
-								1.65 (1.5–1.75)
-							</td>
-						</tr>
-	
-						<tr>
-							<td>
-								Песок связный<sup>2</sup>
-							</td>
-							<td>
-								1.6 (1.5–1.7)
-							</td>
-						</tr>
-	
-						<tr>
-							<td>
-								Супесь
-							</td>
-							<td>
-								1.5 (1.4–1.6)
-							</td>
-						</tr>
-	
-						<tr>
-							<td>
-								Легкий суглинок
-							</td>
-							<td>
-								1.4 (1.3–1.5)
-							</td>
-						</tr>
-	
-						<tr>
-							<td>
-								Средний суглинок
-							</td>
-							<td>
-								1.35 (1.3–1.4)
-							</td>
-						</tr>
-	
-						<tr>
-							<td>
-								Тяжелый суглинок
-							</td>
-							<td>
-								1.3 (1.25–1.45)
-							</td>
-						</tr>
-	
-						<tr>
-							<td>
-								Глина
-							</td>
-							<td>
-								1.25 (1.2–1.4)
-							</td>
-						</tr>
-					</tbody>
-				</table>
+	</div>
 
-				<p class="col-md-6 table-note">
-					<strong>Примечания:</strong><br>
-					1. В скобках приведён наиболее вероятный диапазон. В данной таблице приведены ориентировочные значения
-					физических свойств. В реальных условиях при
-					непосредственных определениях эти усредненные значения и пределы варьирования могут значительно
-					отличаться в связи с содержанием органического вещества, оструктуренностью, сельскохозяйственной
-					обработкой, растительностью и многими другими факторами, существенно изменяющими приведенные
-					ориентировочные значения.<br>
-					2. Природные пески почти всегда слоисты. Вследствие этого приведенные данные весьма ориентировочны.
-				</p>
-			</div>
+	<div class="table-wrapper">
+		<header>Таблица 1. Характерная плотность почв различного гранулометрического состава<sup>1</sup><span
+				class="source-mark">1</span></header>
+
+		<div class="row">
+			<table class="col-md-6 table table-responsive table-striped table-bordered">
+				<thead>
+					<th>
+						Класс по гранулометрическому составу
+					</th>
+					<th>
+						Плотность почвы [г/см<sup>3</sup>]
+					</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							Песок рыхлый<sup>2</sup>
+						</td>
+						<td>
+							1.65 (1.5–1.75)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Песок связный<sup>2</sup>
+						</td>
+						<td>
+							1.6 (1.5–1.7)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Супесь
+						</td>
+						<td>
+							1.5 (1.4–1.6)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Легкий суглинок
+						</td>
+						<td>
+							1.4 (1.3–1.5)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Средний суглинок
+						</td>
+						<td>
+							1.35 (1.3–1.4)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Тяжелый суглинок
+						</td>
+						<td>
+							1.3 (1.25–1.45)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Глина
+						</td>
+						<td>
+							1.25 (1.2–1.4)
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="col-md-6 table-note">
+				<strong>Примечания:</strong><br>
+				1. В скобках приведён наиболее вероятный диапазон. В данной таблице приведены ориентировочные значения
+				физических свойств. В реальных условиях при
+				непосредственных определениях эти усредненные значения и пределы варьирования могут значительно
+				отличаться в связи с содержанием органического вещества, оструктуренностью, сельскохозяйственной
+				обработкой, растительностью и многими другими факторами, существенно изменяющими приведенные
+				ориентировочные значения.<br>
+				2. Природные пески почти всегда слоисты. Вследствие этого приведенные данные весьма ориентировочны.
+			</p>
 		</div>
+	</div>
 
+	<div class="container">
 		<p>
 			<strong>Общая порозность (пористость) почвы</strong> - это объём почвенных пор в почвенном образце
 			по отношению к объёму всего образца:
@@ -208,8 +214,12 @@
 		</p>
 
 		<div class="formula">
-			`epsilon = (V_t - V_s)/V_t = 1 - V_s/V_t = 1 - rho_b/rho_s` [см<sup>3</sup>/см<sup>3</sup>]
-			<span class="source-mark">1</span>
+			<span>
+				`epsilon = (V_t - V_s)/V_t = 1 - V_s/V_t = 1 - rho_b/rho_s` [см<sup>3</sup>/см<sup>3</sup>]
+				<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#soil-epsilon">Вычислить</a>
 		</div>
 
 		<div class="note note-secondary">
@@ -223,8 +233,12 @@
 		</p>
 
 		<div class="formula">
-			`theta = V_w/V_t` [см<sup>3</sup>/см<sup>3</sup>]
-			<span class="source-mark">1</span>
+			<span>
+				`theta = V_w/V_t` [см<sup>3</sup>/см<sup>3</sup>]
+				<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#theta">Вычислить</a>
 		</div>
 
 		<p>
@@ -234,8 +248,12 @@
 		</p>
 
 		<div class="formula">
+			<span>
 			`epsilon_(air) = epsilon - theta` [см<sup>3</sup>/см<sup>3</sup>]
 			<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#epsilon-air">Вычислить</a>
 		</div>
 
 		<div class="note note-primary">
@@ -252,8 +270,12 @@
 		</p>
 
 		<div class="formula">
+			<span>
 			`Phi = 1/rho_b - 1/rho_s` [см<sup>3</sup>/г]
 			<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#phi">Вычислить</a>
 		</div>
 
 		<p>
@@ -263,8 +285,12 @@
 		</p>
 
 		<div class="formula">
+			<span>
 			`e = V_0/V_s = epsilon / (1-epsilon) = (rho_s-rho_b) / rho_b` [см<sup>3</sup>/см<sup>3</sup>]
 			<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#e">Вычислить</a>
 		</div>
 
 		<div class="note note-primary">
@@ -298,8 +324,12 @@
 		</p>
 
 		<div class="formula">
+			<span>
 			`rho_a = m_s/V_a` [г/см<sup>3</sup>]
 			<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#rho_a">Вычислить</a>
 		</div>
 
 		<p>
@@ -308,8 +338,11 @@
 		</p>
 
 		<div class="formula">
+			<span>
 			`epsilon_a = V_(tt "пор")/V_a` [см<sup>3</sup>/см<sup>3</sup>]
 			<span class="source-mark">1</span>
+				</span>
+			<a class="eval-link" href="../../applets/soil.html#epsilon_a">Вычислить</a>
 		</div>
 
 		<p>
@@ -332,9 +365,13 @@
 		</p>
 
 		<div class="formula">
+			<span>
 			`epsilon_(sum tt "агр") = V_(tt "пор")/V_t = (V_a - V_s)/V_t = rho_b/rho_a - rho_b/rho_s =
 			(epsilon_a(1-epsilon)) / (1-epsilon_a)` [см<sup>3</sup>/см<sup>3</sup>]
 			<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#epsilon-agr">Вычислить</a>
 		</div>
 
 		<p>
@@ -343,8 +380,12 @@
 		</p>
 
 		<div class="formula">
+			<span>
 			`epsilon_(tt "межагр") = epsilon-epsilon_(sum tt "агр")` [см<sup>3</sup>/см<sup>3</sup>]
 			<span class="source-mark">1</span>
+			</span>
+
+			<a class="eval-link" href="../../applets/soil.html#epsilon-inter-agr">Вычислить</a>
 		</div>
 
 		<div class="note note-secondary">
@@ -367,138 +408,140 @@
 			межагрегатной), поэтому при анализе полученных величин следует делать соответствующие выводы.
 			<span class="source-mark">1</span>
 		</p>
+	</div>
 
-		<div class="table-wrapper">
-			<header>Таблица 2. Характерная порозность почв различного гранулометрического состава<sup>1</sup><span
-					class="source-mark">1</span></header>
+	<div class="table-wrapper">
+		<header>Таблица 2. Характерная порозность почв различного гранулометрического состава<sup>1</sup><span
+				class="source-mark">1</span></header>
 
-			<div class="row">
-				<table class="col-md-6 table table-responsive table-striped table-bordered">
-					<thead>
-						<th>
-							Класс по гранулометрическому составу
-						</th>
-						<th>
-							Порозность (% объемный)
-						</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								Песок рыхлый<sup>2</sup>
-							</td>
-							<td>
-								37 (32–40)
-							</td>
-						</tr>
+		<div class="row">
+			<table class="col-md-6 table table-responsive table-striped table-bordered">
+				<thead>
+					<th>
+						Класс по гранулометрическому составу
+					</th>
+					<th>
+						Порозность (% объемный)
+					</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							Песок рыхлый<sup>2</sup>
+						</td>
+						<td>
+							37 (32–40)
+						</td>
+					</tr>
 
-						<tr>
-							<td>
-								Песок связный<sup>2</sup>
-							</td>
-							<td>
-								38 (32–42)
-							</td>
-						</tr>
+					<tr>
+						<td>
+							Песок связный<sup>2</sup>
+						</td>
+						<td>
+							38 (32–42)
+						</td>
+					</tr>
 
-						<tr>
-							<td>
-								Супесь
-							</td>
-							<td>
-								43 (40–46)
-							</td>
-						</tr>
+					<tr>
+						<td>
+							Супесь
+						</td>
+						<td>
+							43 (40–46)
+						</td>
+					</tr>
 
-						<tr>
-							<td>
-								Легкий суглинок
-							</td>
-							<td>
-								47 (43–51)
-							</td>
-						</tr>
+					<tr>
+						<td>
+							Легкий суглинок
+						</td>
+						<td>
+							47 (43–51)
+						</td>
+					</tr>
 
-						<tr>
-							<td>
-								Средний суглинок
-							</td>
-							<td>
-								49 (47–51)
-							</td>
-						</tr>
+					<tr>
+						<td>
+							Средний суглинок
+						</td>
+						<td>
+							49 (47–51)
+						</td>
+					</tr>
 
-						<tr>
-							<td>
-								Тяжелый суглинок
-							</td>
-							<td>
-								51 (49–53)
-							</td>
-						</tr>
+					<tr>
+						<td>
+							Тяжелый суглинок
+						</td>
+						<td>
+							51 (49–53)
+						</td>
+					</tr>
 
-						<tr>
-							<td>
-								Глина
-							</td>
-							<td>
-								53 (51–55)
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<p class="col-md-6 table-note">
-					<strong>Примечания:</strong><br>
-					1. В скобках приведён наиболее вероятный диапазон. В данной таблице приведены ориентировочные значения
-					физических свойств. В реальных условиях при
-					непосредственных определениях эти усредненные значения и пределы варьирования могут значительно
-					отличаться в связи с содержанием органического вещества, оструктуренностью, сельскохозяйственной
-					обработкой, растительностью и многими другими факторами, существенно изменяющими приведенные
-					ориентировочные значения.<br>
-					2. Природные пески почти всегда слоисты. Вследствие этого приведенные данные весьма ориентировочны.
+					<tr>
+						<td>
+							Глина
+						</td>
+						<td>
+							53 (51–55)
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="col-md-6 table-note">
+				<strong>Примечания:</strong><br>
+				1. В скобках приведён наиболее вероятный диапазон. В данной таблице приведены ориентировочные значения
+				физических свойств. В реальных условиях при
+				непосредственных определениях эти усредненные значения и пределы варьирования могут значительно
+				отличаться в связи с содержанием органического вещества, оструктуренностью, сельскохозяйственной
+				обработкой, растительностью и многими другими факторами, существенно изменяющими приведенные
+				ориентировочные значения.<br>
+				2. Природные пески почти всегда слоисты. Вследствие этого приведенные данные весьма ориентировочны.
+			</p>
+		</div>
+	</div>
+
+	<figure>
+		<figcaption>
+			Рисунок 1. Соотношение объёма твёрдой фазы и пор по
+			профилю серой лесной суглинистой почвы на лёссе.
+			<span class="source-mark">2</span>
+		</figcaption>
+
+		<div class="row">
+			<div class="col-md-6">
+				<img src="../../resources/images/illustrations/soil-dens-6.svg" style="max-width: 520px;" />
+			</div>
+			<div class="col-md-6">
+				<p class="table-note">
+					<strong>Обозначения:</strong><br>
+					1. Поры "устойчивой аэрации"<br>
+					2. Поры, заполняемые легкоподвижной водой<br>
+					3. Поры, заполняемые среднеподвижной водой<br>
+					4. Поры, заполняемые практически неподвижной водой (недоступной растениям)<br>
+					5. &gt; 0.3 мм<br>
+					6. 0.3-0.06 мм<br>
+					7. 0.06-0.03 мм<br>
+					8. 0.03-0.01 мм<br>
+					9. 0.01-0.003 мм<br>
+					10. &lt; 0.003 мм<br>
+					<strong>Пояснение:</strong><br>
+					На рисунке показано соотношение объёмов, занимаемых твёрдой фазой и порами разных категорий (на примере
+					серой средне-оподзоленной лесной суглинистой почвы на лёссе). В гумусовом горизонте содержится более
+					60% пор, что отвечает оптимальным значениям `epsilon`.<br>
+					На долю пор устойчивой аэрации приходится половина всего объёма пор, а на долю всех активных (> 0.003 мм)
+					пор - около 2/3. Вниз по профилю снижается как общая порозность, так и доля крупных пор, зато возрастает доля
+					пор, заполненных связанной водой.<br>
+					Наименее благоприятны показатели порозности в горизонте `B_2` (60-90 см), что объясняется его оглиненностью и
+					низкой биологической активностью.
+
 				</p>
 			</div>
 		</div>
+	</figure>
 
-		<figure>
-			<figcaption>
-				Рисунок 1. Соотношение объёма твёрдой фазы и пор по
-				профилю серой лесной суглинистой почвы на лёссе.
-				<span class="source-mark">2</span>
-			</figcaption>
-
-			<div class="row">
-				<div class="col-md-6">
-					<img src="../../resources/images/illustrations/soil-dens-6.svg" style="max-width: 520px;" />
-				</div>
-				<div class="col-md-6">
-					<p class="table-note">
-						<strong>Обозначения:</strong><br>
-						1. Поры "устойчивой аэрации"<br>
-						2. Поры, заполняемые легкоподвижной водой<br>
-						3. Поры, заполняемые среднеподвижной водой<br>
-						4. Поры, заполняемые практически неподвижной водой (недоступной растениям)<br>
-						5. &gt; 0.3 мм<br>
-						6. 0.3-0.06 мм<br>
-						7. 0.06-0.03 мм<br>
-						8. 0.03-0.01 мм<br>
-						9. 0.01-0.003 мм<br>
-						10. &lt; 0.003 мм<br>
-						<strong>Пояснение:</strong><br>
-						На рисунке показано соотношение объёмов, занимаемых твёрдой фазой и порами разных категорий (на примере
-						серой средне-оподзоленной лесной суглинистой почвы на лёссе). В гумусовом горизонте содержится более
-						60% пор, что отвечает оптимальным значениям `epsilon`.<br>
-						На долю пор устойчивой аэрации приходится половина всего объёма пор, а на долю всех активных (> 0.003 мм)
-						пор - около 2/3. Вниз по профилю снижается как общая порозность, так и доля крупных пор, зато возрастает доля 
-						пор, заполненных связанной водой.<br>
-						Наименее благоприятны показатели порозности в горизонте `B_2` (60-90 см), что объясняется его оглиненностью и 
-						низкой биологической активностью.
-
-					</p>
-				</div>
-			</div>
-		</figure>
-
+	<div class="container">
 		<h3>Значение плотности и порозности почвы</h3>
 
 		<p>
@@ -637,7 +680,7 @@
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
 			messageStyle: "none"
-    });
+		});
 	</script>
 </body>
 
