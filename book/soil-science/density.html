@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Плотность и порозность почвы</title>
+	<title>Плотность и порозность почвы - Физика почв</title>
 
 	<link rel="apple-touch-icon" sizes="57x57" href="../../resources/images/icons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../../resources/images/icons/apple-icon-60x60.png">
@@ -25,31 +25,27 @@
 	<meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link rel="stylesheet" href="../../resources/fonts/stylesheet.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../resources/fonts/stylesheet.css">
 	<link rel="stylesheet" href="../../stylesheets/common.css">
 	<link rel="stylesheet" href="../../stylesheets/book-content.css">
 </head>
 
 <body>
 	<div class="top-panel">
-		<button id="show-hide-content-list">
-			<img src="../../resources/images/menu.svg" />
-
-		</button>
-
-		<div class="top-panel-controls">
-			<button id="show-hide-source-list">
-				<img src="../../resources/images/settings.svg" />
-
+			<button id="show-hide-content-list">
+				<span>Содержание</span>
 			</button>
-		</div>
+
+			<button id="show-hide-source-list">
+				<span>Настройки</span>
+			</button>
 	</div>
 
 	<div class="container">
-		<h1>Плотность и порозность почвы</h1>
-
+		<h1>§ 1. Плотность и порозность почвы</h1>
+		<hr>
 		<p>
 			Почва является гетерогенной многофазной дисперсной системой, состоящей из трёх фаз:
 			твёрдой, жидкой и газообразной.
@@ -381,8 +377,8 @@
 
 		<div class="formula">
 			<span>
-			`epsilon_(tt "межагр") = epsilon-epsilon_(sum tt "агр")` [см<sup>3</sup>/см<sup>3</sup>]
-			<span class="source-mark">1</span>
+				`epsilon_(tt "межагр") = epsilon-epsilon_(sum tt "агр")` [см<sup>3</sup>/см<sup>3</sup>]
+				<span class="source-mark">1</span>
 			</span>
 
 			<a class="eval-link" href="../../applets/soil.html#epsilon-inter-agr">Вычислить</a>
@@ -665,6 +661,16 @@
 			1983.</a>
 	</div>
 
+	<div id="settings-panel">
+		<div>
+		<p>Тема:</p>
+		<button class="btn" id="theme-light">
+			<div style="width: 20px; height: 20px; border: 1px solid black; background-color: #ffffff;"></div>Светлая</button>
+		<button class="btn" id="theme-dark">
+			<div style="width: 20px; height: 20px; border: 1px solid black; background-color: #000000;"></div>Тёмная</button>
+		</div>
+	</div>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_HTMLorMML"
 		async></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -681,6 +687,71 @@
     MathJax.Hub.Config({
 			messageStyle: "none"
 		});
+
+		$(".eval-link").text("")
+
+		$(".eval-link").mouseenter((e) => {
+			$(e.target).text("Вычислить")
+		})
+
+		$(".eval-link").mouseleave((e) => {
+			$(e.target).text("")
+		})
+
+		$("#theme-light").click(() => {
+			$("body").css({
+				backgroundColor: '#ffffff',
+				color: '#000000'
+			})
+
+			$("figure").css({
+				backgroundColor: '#ffffff',
+				color: '#000000'
+			})
+
+			$(".table-wrapper").css({
+				backgroundColor: '#ffffff',
+				color: '#000000'
+			})
+
+			localStorage.setItem('theme', 'light');
+		});
+
+		$("#theme-dark").click(() => {
+			$("body").css({
+				backgroundColor: '#000000',
+				color: '#ffffff'
+			})
+
+			$("figure").css({
+				backgroundColor: '#333333',
+				color: '#ffffff'
+			})
+
+			$(".table-wrapper").css({
+				backgroundColor: '#333333',
+				color: '#ffffff'
+			})
+
+			localStorage.setItem('theme', 'dark');
+		});
+
+		if(localStorage.getItem('theme') == 'dark') {
+			$("body").css({
+				backgroundColor: '#000000',
+				color: '#ffffff'
+			})
+
+			$("figure").css({
+				backgroundColor: '#333333',
+				color: '#ffffff'
+			})
+
+			$(".table-wrapper").css({
+				backgroundColor: '#333333',
+				color: '#ffffff'
+			})
+		}
 	</script>
 </body>
 

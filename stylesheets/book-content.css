@@ -8,14 +8,25 @@ body {
 	font-size: 18px;
 }
 
-.top-panel {
-	background-color: #ffffff;
+#hide-content-list-btn {
+	text-align: right;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.top-panel img {
-	height: 24px;
+#hide-content-list-btn>img {
 	width: 24px;
-	margin: 0 auto;
+	height: 24px;
+	transform: rotate(180deg);
+}
+
+.top-panel {
+	background-color: lavender;
+  height: auto;
+  padding: 10px 20px;
+	width: fit-content;
+	
+	border-bottom-right-radius: 5px;
 }
 
 h1 {
@@ -31,7 +42,7 @@ h1 {
 
 nav {
 	position: absolute;
-	top: 60px;
+	top: 0;
 	height: 100%;
 	border: none;
 
@@ -115,6 +126,7 @@ h1, .note {
 }
 
 .formula {
+	position: relative;
 	min-width: 100%;
 	display: flex;
 }
@@ -125,14 +137,15 @@ h1, .note {
 }
 
 .formula .eval-link {
-	font-size: 14px;
+	font-size: 12px;
 	cursor: pointer;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: rebeccapurple;
+	background-color: rgb(173, 92, 255);
 	color: white;
 	padding: 5px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-radius: 5px;
 }
 
 figure {

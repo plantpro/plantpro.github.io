@@ -57,16 +57,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   };
 
   CONTENT_LIST = [{
-    name: "I. Физика почв",
+    name: "Ⅰ. Физика почв",
     items: [item("Плотность и порозность почвы", "soil-science/density.html")]
   }, {
-    name: "II. Фитопатология",
+    name: "ⅠⅠ. Фитопатология",
     items: [item("Неинфекционные болезни растений", "phytopathology/non-infectious-plant-diseases.html"), item("Гаустории паразитических растений", "phytopathology/parasitic-plants-haustorium.html")]
   }, {
-    name: "III. Растениеводство",
+    name: "ⅠⅠⅠ. Растениеводство",
     items: [item("Хлеба I и II групп", "plant-growning/breads.html")]
   }, {
-    name: "IV. Статистика",
+    name: "Ⅳ. Статистика",
     items: [item("Введение в статистику", "statistics/introduction-to-statistics.html"), item("Введение в визуализацию данных", "statistics/introduction-to-data-visualization.html")]
   }];
 
@@ -108,7 +108,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   };
 
   buildContentList = function buildContentList() {
-    var division, j, len, results;
+    var closeBtn, division, j, len, results;
+    closeBtn = $("<div id='hide-content-list-btn'><img src='../../resources/images/right.svg'/></div>");
+    closeBtn.click(showOrHideContentList);
+    $("#content-list").append(closeBtn);
     results = [];
 
     for (j = 0, len = CONTENT_LIST.length; j < len; j++) {
