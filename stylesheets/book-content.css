@@ -105,7 +105,7 @@ h4 {
 }
 
 h1, .note {
-	margin: 1rem 0;
+	margin: 1.5rem 0;
 }
 
 .note {
@@ -161,7 +161,7 @@ figure>img {
 
 figure>figcaption,
 header {
-	font-size: smaller;
+	font-size: 14px;
 	padding-top: .75rem;
   padding-bottom: .75rem;
 }
@@ -215,6 +215,7 @@ header {
 .table-wrapper table {
 	margin-top: 1rem;
 	overflow-x: auto;
+	font-size: 14px;
 }
 
 .table-wrapper header {
@@ -223,7 +224,7 @@ header {
 
 .table-note {
 	margin-top: 1rem;
-	font-size: smaller;
+	font-size: 14px;
 	color: inherit;
 	text-align: justify;
 }
@@ -241,7 +242,7 @@ header {
 }
 
 caption {
-	font-size: smaller;
+	font-size: 14px;
 	caption-side: top;
 	text-align: center;
 	color: inherit;

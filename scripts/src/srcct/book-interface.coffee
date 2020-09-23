@@ -29,23 +29,23 @@ $ "#show-hide-content-list"
 item = (name, href) -> { name, href }
 
 CONTENT_LIST = [{
-	name: "Ⅰ. Физика почв",
+	name: "I. Физика почв",
 	items: [
 		item "Плотность и порозность почвы", "soil-science/density.html"
 	]
 }, {
-	name: "ⅠⅠ. Фитопатология",
+	name: "II. Фитопатология",
 	items: [
 		item "Неинфекционные болезни растений", "phytopathology/non-infectious-plant-diseases.html"
 		item "Гаустории паразитических растений", "phytopathology/parasitic-plants-haustorium.html"
 	]
 }, {
-	name: "ⅠⅠⅠ. Растениеводство",
+	name: "III. Растениеводство",
 	items: [
 		item "Хлеба I и II групп", "plant-growning/breads.html"
 	]
 }, {
-	name: "Ⅳ. Статистика",
+	name: "IV. Статистика",
 	items: [
 		item "Введение в статистику", "statistics/introduction-to-statistics.html"
 		item "Введение в визуализацию данных", "statistics/introduction-to-data-visualization.html"
