@@ -40,7 +40,7 @@
 			</svg>
 		</div>
 
-		<h1>Плотность твёрдой фазы почвы</h1>
+		<h1>Плотность почвы</h1>
 
 		<form class="m-3 mt-5" name="mainForm">
 			<div class="input-control">
@@ -50,14 +50,14 @@
 			</div>
 
 			<div class="input-control">
-				<label for="solidPhaseVolumeInput">Объём твёрдой фазы `V_s`</label>
-				<input type="text" class="form-control" id="solidPhaseVolumeInput" placeholder="0">
+				<label for="solidPhaseVolumeInput">Объём почвы `V_t`</label>
+				<input type="text" class="form-control" id="soilVolumeInput" placeholder="0">
 				<span class="error-log" id="dna2err"></span>
 			</div>
 
 			<div class="output-control">
-				<label for="solidPhaseDensityOutput">Плотность твёрдой фазы `rho_s`</label>
-				<input type="text" class="form-control" id="solidPhaseDensityOutput" placeholder="-" readonly>
+				<label for="solidPhaseDensityOutput">Плотность почвы `rho_b`</label>
+				<input type="text" class="form-control" id="soilDensityOutput" placeholder="-" readonly>
 				<span class="error-log" id="irnaerr"></span>
 			</div>
 		</form>
@@ -72,7 +72,7 @@
 		</div>
 
 		<div id="infoBox" class="hide">
-			<div class="formula">`rho_s = (m_s)/(V_s)` [г/см<sup>3</sup>]</div>
+			<div class="formula">`rho_b = (m_s)/(V_t)` [г/см<sup>3</sup>]</div>
 		</div>
 	</div>
 
@@ -91,13 +91,13 @@
 
 		function evaluate() {
 			let solidPhaseMass = parseFloat($("#solidPhaseMassInput").val());
-			let solidPhaseVolume = parseFloat($("#solidPhaseVolumeInput").val());
+			let solidPhaseVolume = parseFloat($("#soilVolumeInput").val());
 
-			$("#solidPhaseDensityOutput").val(solidPhaseMass / solidPhaseVolume);
+			$("#soilDensityOutput").val(solidPhaseMass / solidPhaseVolume);
 		}
 
 		$("#solidPhaseMassInput").change(evaluate);
-		$("#solidPhaseVolumeInput").change(evaluate);
+		$("#soilVolumeInput").change(evaluate);
 
 		$("#infoButton").click(() => $("#infoBox").toggleClass("hide"));
 	</script>
