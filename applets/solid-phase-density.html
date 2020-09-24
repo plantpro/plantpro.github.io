@@ -42,35 +42,38 @@
 
 		<h1>Плотность твёрдой фазы</h1>
 
-		<div class="info-box">
-			<div class="formula">`rho_s = (m_s)/(V_s)` [г/см<sup>3</sup>]</div>
-		</div>
-
-		<form class="m-3" name="mainForm">
-			<div class="form-group">
-				<div class="input">
-					<label for="solidPhaseMassInput">Масса твёрдой фазы `m_s`</label>
-					<input type="text" class="form-control" id="solidPhaseMassInput" placeholder="0">
-				</div>
+		<form class="m-3 mt-5" name="mainForm">
+			<div class="input-control">
+				<label for="solidPhaseMassInput">Масса твёрдой фазы `m_s`</label>
+				<input type="text" class="form-control" id="solidPhaseMassInput" placeholder="0">
 				<span class="error-log" id="dna1err"></span>
 			</div>
 
-			<div class="form-group">
-				<div class="input">
-					<label for="solidPhaseVolumeInput">Объём твёрдой фазы `V_s`</label>
-					<input type="text" class="form-control" id="solidPhaseVolumeInput" placeholder="0">
-				</div>
+			<div class="input-control">
+				<label for="solidPhaseVolumeInput">Объём твёрдой фазы `V_s`</label>
+				<input type="text" class="form-control" id="solidPhaseVolumeInput" placeholder="0">
 				<span class="error-log" id="dna2err"></span>
 			</div>
 
-			<div class="form-group">
-				<div class="input">
+			<div class="output-control">
 				<label for="solidPhaseDensityOutput">Плотность твёрдой фазы `rho_s`</label>
 				<input type="text" class="form-control" id="solidPhaseDensityOutput" placeholder="-" readonly>
-				</div>
 				<span class="error-log" id="irnaerr"></span>
 			</div>
 		</form>
+
+		<div id="infoButton">
+			<svg x="0px" y="0px" viewBox="0 0 512 512">
+				<path fill="#ffffff" d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256
+					s26.629,132.667,74.98,181.02C123.333,485.371,187.62,512,256,512s132.667-26.629,181.02-74.98
+					C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,70c30.327,0,55,24.673,55,55c0,30.327-24.673,55-55,55
+					c-30.327,0-55-24.673-55-55C201,94.673,225.673,70,256,70z M326,420H186v-30h30V240h-30v-30h110v180h30V420z"/>
+			</svg>
+		</div>
+
+		<div id="infoBox" class="hide">
+			<div class="formula">`rho_s = (m_s)/(V_s)` [г/см<sup>3</sup>]</div>
+		</div>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_HTMLorMML"
@@ -95,6 +98,8 @@
 
 		$("#solidPhaseMassInput").change(evaluate);
 		$("#solidPhaseVolumeInput").change(evaluate);
+
+		$("#infoButton").click(() => $("#infoBox").toggleClass("hide"));
 	</script>
 </body>
 
