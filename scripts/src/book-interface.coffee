@@ -71,7 +71,7 @@ appendDivision = ({ name: divisionName, items }) ->
 	.append div
 
 buildContentList = () ->
-	closeBtn = $ "<div id='hide-content-list-btn'><img src='../../resources/images/right.svg'/></div>"
+	closeBtn = $ "<div id='hide-content-list-btn'>Содержание</div>"
 	closeBtn.click showOrHideContentList
 	$ "#content-list"
 	.append closeBtn
