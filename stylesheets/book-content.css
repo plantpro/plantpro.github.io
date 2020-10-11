@@ -9,9 +9,10 @@ body {
 }
 
 #hide-content-list-btn {
-	text-align: right;
-  padding: 10px;
-  cursor: pointer;
+	padding: 20px 25px 10px 25px;
+	cursor: pointer;
+	color: rgb(0, 145, 255);
+	font-weight: bold;
 }
 
 #hide-content-list-btn>img {
@@ -67,7 +68,6 @@ nav {
 
 	color: #000000;
 	background-color: #F2F2F2;
-	backdrop-filter: blur(3px);
 }
 
 .nav {
@@ -84,7 +84,7 @@ nav {
 }
 
 .nav>.active {
-	background-color: rgba(20, 20, 20, .5);
+	background-color: rgba(20, 20, 20, .2);
 }
 
 .nav>a {
