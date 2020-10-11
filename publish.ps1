@@ -18,7 +18,7 @@ $srcPath = "C:\\Users\\Admin\\Documents\\plantpro.github.io\\scripts\\src"
 $srcctPath = "C:\\Users\\Admin\\Documents\\plantpro.github.io\\scripts\\src\\srcct"
 
 # Apply CoffeScript compiler
-coffee -c -o $libPath $srcctPath
+coffee -c -o $libPath $srcPath
 
 # Apply Babel
 #set-location $babelPath

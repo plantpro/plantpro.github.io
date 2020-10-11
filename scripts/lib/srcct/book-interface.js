@@ -92,7 +92,7 @@
 
   buildContentList = function() {
     var closeBtn, division, j, len, results;
-    closeBtn = $("<div id='hide-content-list-btn'>Содержание</div>");
+    closeBtn = $("<div id='hide-content-list-btn'><img src='../../resources/images/right.svg'/></div>");
     closeBtn.click(showOrHideContentList);
     $("#content-list").append(closeBtn);
     results = [];
