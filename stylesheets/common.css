@@ -13,7 +13,7 @@
 	--lighter-color-3: rgba(255, 255, 255, .3);
 
 	--top-panel-bg: rgb(20, 20, 20);
-	--top-panel-fg: rgb(110, 110, 110);
+	--top-panel-fg:	white;
 
 	--gradient-begin: rgb(255, 0, 255);
 	--gradient-end: rgb(0, 255, 255);
@@ -24,16 +24,19 @@
 
 .top-panel {
 	display: flex;
-	height: 60px;
-	padding: 5px;
+	/*height: 60px;*/
+	padding: 10px 0px;
 	background-color: var(--top-panel-bg);
 	color: var(--top-panel-fg);
 	overflow-x: auto;
+	-webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.1);
+	-moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.1);
+	box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.1);
 }
 
 @media (min-width: 768px) { 
 	.top-panel {
-		padding: 5px 20px;
+		/*padding: 0px 20px;*/
 	}
 }
 
@@ -53,9 +56,10 @@
 .top-panel button {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 
-	padding: 5px 10px;
+	padding: 10px 15px;
 	border: none;
 
 	font-size: 12px;
@@ -70,42 +74,13 @@
 .top-panel button:focus,
 .top-panel button:hover,
 .top-panel button:active {
-	outline: none
+	outline: none;
+	background: rgba(0, 0, 0, .2);
 }
 
 .top-panel span {
 	font-weight: bold;
 }
-
-.top-panel a>svg,
-.top-panel button>svg {
-	display: none;
-	width: 24px;
-	height: 24px;
-
-	margin: 0 auto; /* horizontal align */
-
-	fill: var(--top-panel-fg);
-}
-
-.top-panel a:focus>svg,
-.top-panel a:hover>svg,
-.top-panel a:active>svg,
-.top-panel button:focus>svg,
-.top-panel button:hover>svg,
-.top-panel button:active>svg {
-	fill: var(--accent-color);
-}
-
-.top-panel a:focus span,
-.top-panel a:hover span,
-.top-panel a:active span,
-.top-panel button:focus span,
-.top-panel button:hover span,
-.top-panel button:active span {
-	color: var(--accent-color);
-}
-
 
 .svg-gradient-container {
 	width: 0;
