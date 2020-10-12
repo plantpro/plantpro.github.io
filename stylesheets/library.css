@@ -19,10 +19,10 @@ nav {
 	position: relative;
 	font-size: 14px;
 	color: var(--text-color);
-	background-color: var(--secondary-backgroundcolor);
-	-webkit-box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
-	-moz-box-shadow:    0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
-	box-shadow:         0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+	background-color: var(--secondary-background-color);
+	-webkit-box-shadow: var(--shadow);
+	-moz-box-shadow:    var(--shadow);
+	box-shadow:         var(--shadow);
 }
 
 .main-panel-group {

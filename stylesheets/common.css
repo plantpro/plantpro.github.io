@@ -1,11 +1,13 @@
 /* Common styles, applied to all pages (with few exceptions) */
 
 :root {
-	--background-color: rgb(255, 255, 255);
 	--text-color: rgb(33, 37, 41);
-	--secondary-backgroundcolor: rgb(242, 242, 242);
+	--background-color: rgb(255, 255, 255);
+	--secondary-background-color: rgb(242, 242, 242);
 
 	--darker: rgba(0, 0, 0, .2);
+
+	--shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, .132), 0 0.3px 0.9px 0 rgba(0, 0, 0, .108);
 }
 
 html {
@@ -13,7 +15,12 @@ html {
 }
 
 body {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
 	flex-direction: row;
 
 	font-family: 'SF UI Text', sans-serif;
@@ -27,17 +34,25 @@ nav {
 
 	width: 60px;
 	height: 100vh;
+	overflow-x: auto;
+
+	display: -webkit-box;
+
+	display: -ms-flexbox;
 
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 
 	padding: 10px 0px;
-	color: var(--top-panel-fg);
-	overflow-x: auto;
-	-webkit-box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
-	-moz-box-shadow:    0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
-	box-shadow:         0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+
+	-webkit-box-shadow: var(--shadow);
+	box-shadow:         var(--shadow);
 }
 
 nav img {
@@ -45,31 +60,29 @@ nav img {
 	height: 24px;
 }
 
-.top-panel-name {
-	margin: auto auto auto 0;
-	padding: 3px 10px;
-	height: fit-content;
-	font-weight: bold;
-}
-
-.top-panel-controls {
-	display: flex;
-	margin-left: auto;
-}
-
 nav a,
 nav button {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
+
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 
-	padding: 10px 15px;
+	padding: 15px 15px;
 	border: none;
 
 	font-size: 12px;
 
-	color: var(--top-panel-fg);
 	background-color: transparent;
 }
 
@@ -83,16 +96,63 @@ nav button:active {
 	background: var(--darker);
 }
 
-nav span {
-	font-weight: bold;
+.nav-panel {
+	position: fixed;
+
+	left: 60px;
+	top: 0;
+
+	height: 100vh;
+	width: 400px;
+
+	overflow-y: auto;
+	-ms-scroll-chaining: none;
+	overscroll-behavior: contain;
+
+	border: none;
+
+	color: var(--text-color);
+	background-color: var(--secondary-background-color);
+
+	-webkit-box-shadow: var(--shadow);
+	box-shadow:         var(--shadow);
 }
 
+.nav-panel-title {
+	display: block;
+	padding: 20px 25px 10px 25px;
+
+	color: var(--accent-color);
+
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.nav-group {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex; 
+	-webkit-box-orient: vertical; 
+	-webkit-box-direction: normal; 
+	-ms-flex-direction: column; 
+	flex-direction: column; 
+	gap: 10px;
+}
+
+a,
 a:focus,
 a:hover,
 a:active {
 	outline: none;
-	color: #ffff00;
+	color: hsl(206, 100%, 30%);
+	-webkit-transition: .3s;
+	-o-transition: .3s;
 	transition: .3s;
+	text-decoration: underline;
+}
+
+a {
+	color: hsl(206, 100%, 30%);
 	text-decoration: none;
 }
 
@@ -101,57 +161,37 @@ main {
 	left: 60px;
 }
 
-.nav-panel {
-	position: fixed;
-	left: 60px;
-	top: 0;
-	height: 100vh;
-	width: 400px;
-	overflow-y: auto;
-	overscroll-behavior: contain; /* what about compatibility ? */
-	border: none;
-
-	color: var(--text-color);
-	background-color: var(--secondary-backgroundcolor);
-	-webkit-box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
-	-moz-box-shadow:    0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
-	box-shadow:         0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
-}
-
-.nav-panel-title {
-	display: block;
-	padding: 20px 25px 10px 25px;
-	color: var(--accent-color);
-	font-weight: bold;
-	font-size: 18px;
-}
-
-.nav-group {
-	display: flex; 
-	flex-direction: column; 
-	gap: 10px;
-}
-
+/* small screens */
 @media (max-width: 768px) { 
 	body {
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 	}
 
 	nav {
+		position: relative;
+
 		width: 100%;
 		height: 60px;
-		position: relative;
+
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+
+		-ms-flex-direction: row;
 		flex-direction: row;
+
 		padding: 0px 10px;
 	}
 
 	.nav-group {
-		display: flex; 
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
 		flex-direction: row; 
-		gap: 10px;
 	}
 	
-
 	main {
 		position: relative;
 		left: 0;
@@ -160,104 +200,29 @@ main {
 	.nav-panel {
 		left: 0;
 		top: 60px;
+
 		height: 100vh;
+
+		-ms-scroll-chaining: none;
 		overscroll-behavior: contain;
+		
 		width: 100%;
 	}
 }
-
 
 .panel {
 	padding: 1em 2em;
 	margin-top: 1em;
 
-	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+
+	        backdrop-filter: blur(3px);
 	background-color: rgba(255, 255, 255, .2);
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+	        box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
 
 	font-weight: 300;
 	letter-spacing: .03em;
-}
-
-
-.home-button {
-	display: block;
-	position: fixed;
-
-	z-index: 100;
-	padding: 1em;
-
-	left: 3em;
-	bottom: 3em;
-
-	border-radius: 50%;
-
-	background-color: var(--primary-color);
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
-}
-
-.home-button>svg {
-	width: 24px;
-	margin-top: -3px;
-
-	fill: var(--fore-color);
-}
-
-.home-button:hover,
-.home-button:active {
-	background-color: var(--accent-color);
-	transition: .3s;
-}
-
-.home-button:hover>svg,
-.home-button:active>svg {
-	fill: var(--accent-fore-color);
-	transition: .3s;
-}
-
-.navbar-toggler {
-	text-transform: uppercase;
-	font-size: 1rem;
-	line-height: 1.5;
-	font-weight: bold;
-  letter-spacing: .1em;
-}
-
-.navbar-toggler:focus,
-.navbar-toggler:hover,
-.navbar-toggler:active {
-	outline: none;
-	color: var(--accent);
-	transition: .3s;
-	text-decoration: none;
-}
-
-.navbar {
-  font-weight: bold;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  background-color: #000000;
-}
-
-.navbar-grey {
-  background-color: #ffffff;
-}
-
-.navbar-toggler-dark-icon {
-  background-image: url("../resources/images/toggler-dark.svg");
-}
-
-.navbar-brand>img {
-  height: 24px;
-  width: 24px;
-}
-
-.nav-link {
-  color: #ffffff;
-}
-
-.nav-link-grey {
-  color: var(--secondary-text);
 }
 
 .division-header {
@@ -269,17 +234,6 @@ main {
 	.division-header {
 		padding: 3em;
 	}
-}
-
-footer {
-  background-color: #000000;
-  color: #ffffff50;
-  padding: 1em;
-  text-align: center;
-}
-
-footer>p {
-  margin-bottom: 0;
 }
 
 .darker {

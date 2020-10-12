@@ -4,17 +4,13 @@
 	--font-size: 18px;
 }
 
-body {
-	font-size: 18px;
-}
-
 nav {
 	background: var(--accent-color);
-	background: linear-gradient(45deg hsl(206, 100%, 50%) 0%, hsl(206, 100%, 30%) 100%);
 }
 
 main {
 	margin-top: 2em;
+	font-size: 18px;
 }
 
 h1 {
@@ -23,8 +19,15 @@ h1 {
 }
 
 .division-list {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
+	
 	width: 100%;
 }
 
@@ -98,6 +101,8 @@ h1, .note {
 .formula {
 	position: relative;
 	min-width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 
@@ -122,7 +127,7 @@ figure {
 	text-align: center;
 	margin: 2rem 0;
 	padding: 30px;
-	background-color: var(--secondary-backgroundcolor);
+	background-color: var(--secondary-background-color);
 }
 
 figure>img {
@@ -149,7 +154,8 @@ figure>figcaption,
 
 	color: var(--content-list-fg);
 	background-color: var(--content-list-bg);
-	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	        backdrop-filter: blur(3px);
 }
 
 .source-mark {
