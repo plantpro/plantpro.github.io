@@ -141,8 +141,8 @@ themeChanged = (event) ->
 	theme = event.target.value
 	console.log theme
 
-$ "settings-theme-light"
-.addEventListener "change", themeChanged
+$ "#settings-theme-light"
+.change themeChanged
 
-$ "settings-theme-dark"
-.addEventListener "change",  themeChanged
+$ "#settings-theme-dark"
+.change  themeChanged
