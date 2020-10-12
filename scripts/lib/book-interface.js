@@ -67,7 +67,7 @@
   ];
 
   appendDivisionHeader = function(name) {
-    return $("#content-list").append($(`<p class='px-3 pb-4 mb-0 mt-4'>${name}</p>`));
+    return $("#content-list").append($(`<span class='section-title'>${name}</span>`));
   };
 
   createContentItem = function([index, {href, name}]) {
@@ -85,7 +85,7 @@
     }) {
     var div, entry, j, len, ref;
     appendDivisionHeader(divisionName);
-    div = $("<div class='division-list'></div>");
+    div = $("<div class='section-list'></div>");
     ref = [...items.entries()];
     for (j = 0, len = ref.length; j < len; j++) {
       entry = ref[j];
@@ -184,13 +184,13 @@
 
   enableDarkTheme = function() {
     document.documentElement.style.setProperty("--text-color", "rgb(242, 242, 242)");
-    document.documentElement.style.setProperty("--secondary-backgroundcolor", "rgb(45, 45, 45)");
+    document.documentElement.style.setProperty("--secondary-background-color", "rgb(45, 45, 45)");
     return document.documentElement.style.setProperty("--background-color", " rgb(30, 30, 30)");
   };
 
   enableLightTheme = function() {
     document.documentElement.style.setProperty("--text-color", "rgb(33, 37, 41)");
-    document.documentElement.style.setProperty("--secondary-backgroundcolor", "rgb(242, 242, 242)");
+    document.documentElement.style.setProperty("--secondary-background-color", "rgb(242, 242, 242)");
     return document.documentElement.style.setProperty("--background-color", " rgb(255, 255, 255)");
   };
 

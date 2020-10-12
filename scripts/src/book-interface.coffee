@@ -58,7 +58,7 @@ CONTENT_LIST = [{
 
 appendDivisionHeader = (name) ->
 	$ "#content-list"
-	.append($ "<p class='px-3 pb-4 mb-0 mt-4'>#{name}</p>")
+	.append($ "<span class='section-title'>#{name}</span>")
 
 createContentItem = ([index, { href, name }]) ->
 	a = $ "<a href='../#{href}'>#{index+1}. #{name}</a>"
@@ -68,7 +68,7 @@ createContentItem = ([index, { href, name }]) ->
 appendDivision = ({ name: divisionName, items }) ->
 	appendDivisionHeader divisionName
 
-	div = $ "<div class='division-list'></div>"
+	div = $ "<div class='section-list'></div>"
 	div.append(createContentItem entry) for entry in [items.entries()...]
 	
 	$ "#content-list"
@@ -141,12 +141,12 @@ colorize()
 
 enableDarkTheme = () ->
 	document.documentElement.style.setProperty("--text-color", "rgb(242, 242, 242)");
-	document.documentElement.style.setProperty("--secondary-backgroundcolor", "rgb(45, 45, 45)");
+	document.documentElement.style.setProperty("--secondary-background-color", "rgb(45, 45, 45)");
 	document.documentElement.style.setProperty("--background-color", " rgb(30, 30, 30)");
 
 enableLightTheme = () ->
 	document.documentElement.style.setProperty("--text-color", "rgb(33, 37, 41)");
-	document.documentElement.style.setProperty("--secondary-backgroundcolor", "rgb(242, 242, 242)");
+	document.documentElement.style.setProperty("--secondary-background-color", "rgb(242, 242, 242)");
 	document.documentElement.style.setProperty("--background-color", " rgb(255, 255, 255)");
 
 themeChanged = (event) ->

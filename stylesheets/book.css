@@ -18,7 +18,7 @@ h1 {
 	font-size: 18px;
 }
 
-.division-list {
+.section-list {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -27,24 +27,24 @@ h1 {
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	
+
 	width: 100%;
 }
 
-.division-list>a {
+.section-list>a {
 	display: block;
 	width: 100%;
 	padding: 10px 25px;
 }
 
-.division-list>a {
+.section-list>a {
 	color: var(--text-color);
 }
 
-.division-list>.active,
-.division-list>a:hover,
-.division-list>a:focus,
-.division-list>a:active {
+.section-list>.active,
+.section-list>a:hover,
+.section-list>a:focus,
+.section-list>a:active {
 	text-decoration: none;
 	outline: none;
 	background-color: var(--darker);
