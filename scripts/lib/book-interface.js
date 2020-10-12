@@ -81,7 +81,7 @@
     }) {
     var div, entry, j, len, ref;
     appendDivisionHeader(divisionName);
-    div = $("<div class='nav nav-pills nav-stacked'></div>");
+    div = $("<div class='division-list'></div>");
     ref = [...items.entries()];
     for (j = 0, len = ref.length; j < len; j++) {
       entry = ref[j];

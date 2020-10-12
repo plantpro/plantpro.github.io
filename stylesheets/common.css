@@ -22,9 +22,8 @@
 	--content-list-bg: rgba(20, 20, 20, .8);
 }
 
-.top-panel {
+nav {
 	display: flex;
-	/*height: 60px;*/
 	padding: 10px 0px;
 	background-color: var(--top-panel-bg);
 	color: var(--top-panel-fg);
@@ -32,12 +31,6 @@
 	-webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.1);
 	-moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.1);
 	box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.1);
-}
-
-@media (min-width: 768px) { 
-	.top-panel {
-		/*padding: 0px 20px;*/
-	}
 }
 
 .top-panel-name {
@@ -52,8 +45,8 @@
 	margin-left: auto;
 }
 
-.top-panel a,
-.top-panel button {
+nav a,
+nav button {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -68,31 +61,18 @@
 	background-color: transparent;
 }
 
-.top-panel a:focus,
-.top-panel a:hover,
-.top-panel a:active,
-.top-panel button:focus,
-.top-panel button:hover,
-.top-panel button:active {
+nav a:focus,
+nav a:hover,
+nav a:active,
+nav button:focus,
+nav button:hover,
+nav button:active {
 	outline: none;
 	background: rgba(0, 0, 0, .2);
 }
 
-.top-panel span {
+nav span {
 	font-weight: bold;
-}
-
-.svg-gradient-container {
-	width: 0;
-	height: 0;
-}
-
-.svg-gradient-begin-color {
-	stop-color: var(--gradient-begin);
-}
-
-.svg-gradient-end-color {
-	stop-color: var(--gradient-end);
 }
 
 body {

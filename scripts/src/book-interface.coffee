@@ -64,7 +64,7 @@ createContentItem = ([index, { href, name }]) ->
 appendDivision = ({ name: divisionName, items }) ->
 	appendDivisionHeader divisionName
 
-	div = $ "<div class='nav nav-pills nav-stacked'></div>"
+	div = $ "<div class='division-list'></div>"
 	div.append(createContentItem entry) for entry in [items.entries()...]
 	
 	$ "#content-list"
