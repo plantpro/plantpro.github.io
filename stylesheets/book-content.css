@@ -38,6 +38,7 @@ h1 {
 	font-size: 18px;
 }
 
+#settings-panel,
 #content-list {
 	position: fixed;
 	left: 60px;
@@ -52,6 +53,7 @@ h1 {
 	background-color: var(--secondary-backgroundcolor);
 }
 
+.settings-panel-title,
 #content-list-title {
 	padding: 20px 25px 10px 25px;
 	color: var(--accent-color);
@@ -80,6 +82,7 @@ h1 {
 	#content-list {
 		left: 0;
 		top: 60px;
+		height: calc(100vh - 60px);
 		overscroll-behavior: contain;
 		width: 100%;
 	}

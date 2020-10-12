@@ -3,13 +3,12 @@ hideContentList = (event) ->
 	$("#show-hide-content-list").removeClass "darker"
 
 hideSourceList = () ->
-	$(".source-mark").hide()
-	$("#source-list").hide()
+	$("#settings-panel").hide()
+	$("#show-hide-settings-panel").removeClass "darker"
 
 showOrHideSourceList = (event) ->
-	$("#source-list").toggle()
-	$(".source-mark").toggle()
-	$("#show-hide-source-list").toggleClass "darker"
+	$("#settings-panel").toggle()
+	$("#show-hide-settings-panel").toggleClass "darker"
 
 	hideContentList()
 
@@ -22,7 +21,7 @@ showOrHideContentList = (event) ->
 hideContentList()
 hideSourceList()
 
-$ "#show-hide-source-list"
+$ "#show-hide-settings-panel"
 .click showOrHideSourceList
 
 $ "#show-hide-content-list"

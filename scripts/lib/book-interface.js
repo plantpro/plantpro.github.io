@@ -8,14 +8,13 @@
   };
 
   hideSourceList = function() {
-    $(".source-mark").hide();
-    return $("#source-list").hide();
+    $("#settings-panel").hide();
+    return $("#show-hide-settings-panel").removeClass("darker");
   };
 
   showOrHideSourceList = function(event) {
-    $("#source-list").toggle();
-    $(".source-mark").toggle();
-    $("#show-hide-source-list").toggleClass("darker");
+    $("#settings-panel").toggle();
+    $("#show-hide-settings-panel").toggleClass("darker");
     return hideContentList();
   };
 
@@ -29,7 +28,7 @@
 
   hideSourceList();
 
-  $("#show-hide-source-list").click(showOrHideSourceList);
+  $("#show-hide-settings-panel").click(showOrHideSourceList);
 
   $("#show-hide-content-list").click(showOrHideContentList);
 
