@@ -183,7 +183,7 @@
   enableDarkTheme = function() {
     document.documentElement.style.setProperty("--text-color", "rgb(242, 242, 242)");
     document.documentElement.style.setProperty("--secondary-backgroundcolor", "rgb(33, 37, 41)");
-    return document.documentElement.style.setProperty("--background-color", " rgb(0, 0, 0)");
+    return document.documentElement.style.setProperty("--background-color", " rgb(30, 30, 30)");
   };
 
   enableLightTheme = function() {
