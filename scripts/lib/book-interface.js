@@ -4,9 +4,7 @@
 
   hideContentList = function(event) {
     $("#content-list").hide();
-    if (event) {
-      return $(event.target.closest("button")).removeClass("darker");
-    }
+    return $("#show-hide-content-list").removeClass("darker");
   };
 
   hideSourceList = function() {
@@ -15,15 +13,15 @@
   };
 
   showOrHideSourceList = function(event) {
-    $("#source-list").fadeToggle();
-    $(".source-mark").fadeToggle();
-    $(event.target.closest("button")).toggleClass("darker");
+    $("#source-list").toggle();
+    $(".source-mark").toggle();
+    $("#show-hide-source-list").toggleClass("darker");
     return hideContentList();
   };
 
   showOrHideContentList = function(event) {
-    $("#content-list").fadeToggle();
-    $(event.target.closest("button")).toggleClass("darker");
+    $("#content-list").toggle();
+    $("#show-hide-content-list").toggleClass("darker");
     return hideSourceList();
   };
 
