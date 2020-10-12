@@ -1,35 +1,11 @@
 /* Common styles, applied to all pages (with few exceptions) */
 
 :root {
-	--fore-color: rgb(255, 255, 255);
-
-	--primary-color: rgb(0, 128, 128);
-	--primary-fore-color: rgb(250, 250, 250);
-
-	--accent-color: rgb(255, 241, 42);
-	--accent-fore-color: rgb(0, 0, 0);
-
-	--lighter-color-1: rgba(255, 255, 255, .1);
-	--lighter-color-3: rgba(255, 255, 255, .3);
-
-	--top-panel-bg: rgb(20, 20, 20);
-	--top-panel-fg:	white;
-
-	--gradient-begin: rgb(255, 0, 255);
-	--gradient-end: rgb(0, 255, 255);
-
-	--content-list-fg: rgb(250, 250, 250);
-	--content-list-bg: rgba(20, 20, 20, .8);
-
-	--darker: rgba(0, 0, 0, .2);
-
 	--background-color: rgb(255, 255, 255);
 	--text-color: rgb(33, 37, 41);
 	--secondary-backgroundcolor: rgb(242, 242, 242);
-}
 
-.darker {
-	background-color: var(--darker);
+	--darker: rgba(0, 0, 0, .2);
 }
 
 html {
@@ -37,20 +13,25 @@ html {
 }
 
 body {
-	font-family: 'SF UI Text', sans-serif;
-	color: var(--text-color);
-	background: var(--background-color);
 	display: flex;
 	flex-direction: row;
+
+	font-family: 'SF UI Text', sans-serif;
+
+	color: var(--text-color);
+	background: var(--background-color);
 }
 
 nav {
 	position: fixed;
-	flex-direction: column;
-	justify-content: space-between;
+
 	width: 60px;
 	height: 100vh;
+
 	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
 	padding: 10px 0px;
 	color: var(--top-panel-fg);
 	overflow-x: auto;
@@ -299,4 +280,8 @@ footer {
 
 footer>p {
   margin-bottom: 0;
+}
+
+.darker {
+	background-color: var(--darker);
 }
