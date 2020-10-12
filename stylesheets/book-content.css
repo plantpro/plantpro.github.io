@@ -3,12 +3,13 @@
 	--text-color: rgb(33, 37, 41);
 	--accent-color: rgb(0, 94, 166);
 	--secondary-backgroundcolor: rgb(242, 242, 242);
+	--font-size: 18px;
 }
 
 body {
 	display: flex;
 	flex-direction: row;
-	font-size: 18px;
+	font-size: var(--font-size);
 	color: var(--text-color);
 	background: var(--background-color);
 }
@@ -84,6 +85,7 @@ h1 {
 		margin-top: 2em;
 	}
 
+	#settings-panel,
 	#content-list {
 		left: 0;
 		top: 60px;
@@ -193,7 +195,7 @@ figure>img {
 }
 
 figure>figcaption,
-header {
+.table-wrapper header {
 	font-size: 14px;
 	padding-top: .75rem;
   padding-bottom: .75rem;
@@ -284,4 +286,12 @@ caption {
 	caption-side: top;
 	text-align: center;
 	color: inherit;
+}
+
+#settings-panel>form {
+	padding: 10px 25px;
+}
+
+#settings-panel>form>header {
+	font-weight: bolder;
 }

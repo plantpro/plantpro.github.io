@@ -155,8 +155,15 @@ themeChanged = (event) ->
 	else
 		enableLightTheme()
 
+fontSizeChanged = () ->
+	console.log($("#settings-font-size").val())
+	document.documentElement.style.setProperty("--font-size", $("#settings-font-size").val());
+
 $ "#settings-theme-light"
 .change themeChanged
 
 $ "#settings-theme-dark"
 .change  themeChanged
+
+$ "#settings-font-size"
+.change fontSizeChanged
