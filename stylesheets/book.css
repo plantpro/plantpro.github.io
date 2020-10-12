@@ -51,6 +51,10 @@ h1 {
 	.container {
 		max-width: 720px;
 	}
+
+	.trim {
+		height: 0;
+	}
 }
 
 h4 {
@@ -221,4 +225,8 @@ caption {
 
 #settings-panel>form>header {
 	font-weight: bolder;
+}
+
+.trim {
+	height: auto;
 }

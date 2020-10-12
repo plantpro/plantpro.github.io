@@ -14,12 +14,14 @@
 
   showOrHideSourceList = function(event) {
     $("#settings-panel").toggle();
+    $("main").toggleClass("trim");
     $("#show-hide-settings-panel").toggleClass("darker");
     return hideContentList();
   };
 
   showOrHideContentList = function(event) {
     $("#content-list").toggle();
+    $("main").toggleClass("trim");
     $("#show-hide-content-list").toggleClass("darker");
     return hideSourceList();
   };

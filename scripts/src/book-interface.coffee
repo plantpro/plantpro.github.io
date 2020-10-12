@@ -8,12 +8,14 @@ hideSourceList = () ->
 
 showOrHideSourceList = (event) ->
 	$("#settings-panel").toggle()
+	$("main").toggleClass("trim")
 	$("#show-hide-settings-panel").toggleClass "darker"
 
 	hideContentList()
 
 showOrHideContentList = (event) ->
 	$("#content-list").toggle()
+	$("main").toggleClass("trim")
 	$("#show-hide-content-list").toggleClass "darker"
 	
 	hideSourceList()
