@@ -19,7 +19,7 @@
 
   showOrHideContentList = function(event) {
     $("#content-list").fadeToggle();
-    $(event.target).toggleClass(".darker");
+    $(event.target).toggleClass("darker");
     return hideSourceList();
   };
 
