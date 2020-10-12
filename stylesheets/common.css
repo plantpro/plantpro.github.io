@@ -28,14 +28,6 @@
 	--secondary-backgroundcolor: rgb(242, 242, 242);
 }
 
-.nav-panel-title {
-	display: block;
-	padding: 20px 25px 10px 25px;
-	color: var(--accent-color);
-	font-weight: bold;
-	font-size: 18px;
-}
-
 .darker {
 	background-color: var(--darker);
 }
@@ -62,9 +54,9 @@ nav {
 	padding: 10px 0px;
 	color: var(--top-panel-fg);
 	overflow-x: auto;
-	-webkit-box-shadow: 3px 0px 6px 0px rgba(0, 0, 0, 0.12);
-	-moz-box-shadow:    3px 0px 6px 0px rgba(0, 0, 0, 0.12);
-	box-shadow:         3px 0px 6px 0px rgba(0, 0, 0, 0.12);
+	-webkit-box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+	-moz-box-shadow:    0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+	box-shadow:         0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
 }
 
 nav img {
@@ -140,9 +132,17 @@ main {
 
 	color: var(--text-color);
 	background-color: var(--secondary-backgroundcolor);
-	-webkit-box-shadow: 3px 0px 6px 0px rgba(0, 0, 0, 0.12);
-	-moz-box-shadow:    3px 0px 6px 0px rgba(0, 0, 0, 0.12);
-	box-shadow:         3px 0px 6px 0px rgba(0, 0, 0, 0.12);
+	-webkit-box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+	-moz-box-shadow:    0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+	box-shadow:         0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+}
+
+.nav-panel-title {
+	display: block;
+	padding: 20px 25px 10px 25px;
+	color: var(--accent-color);
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .nav-group {

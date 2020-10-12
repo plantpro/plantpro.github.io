@@ -20,9 +20,9 @@ nav {
 	font-size: 14px;
 	color: var(--text-color);
 	background-color: var(--secondary-backgroundcolor);
-	-webkit-box-shadow: 3px 0px 3px 0px rgba(50, 50, 50, 0.1);
-	-moz-box-shadow:    3px 0px 3px 0px rgba(50, 50, 50, 0.1);
-	box-shadow:         3px 0px 3px 0px rgba(50, 50, 50, 0.1);
+	-webkit-box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+	-moz-box-shadow:    0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+	box-shadow:         0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
 }
 
 .main-panel-group {
@@ -262,5 +262,9 @@ h1 {
 @media (max-width: 768px) { 
 	#search-box {
 		height: auto;
+	}
+
+	main {
+		width: 100%;
 	}
 }

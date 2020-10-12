@@ -74,7 +74,7 @@ appendDivision = ({ name: divisionName, items }) ->
 
 buildContentList = () ->
 	$ "#content-list"
-	.append  $("<div id='content-list-title'>Содержание</div>")
+	.append  $("<div class='nav-panel-title'>Содержание</div>")
 
 	appendDivision division for division in CONTENT_LIST
 
@@ -155,15 +155,8 @@ themeChanged = (event) ->
 	else
 		enableLightTheme()
 
-fontSizeChanged = () ->
-	console.log($("#settings-font-size").val())
-	document.documentElement.style.setProperty("--font-size", $("#settings-font-size").val() + "px");
-
 $ "#settings-theme-light"
 .change themeChanged
 
 $ "#settings-theme-dark"
 .change  themeChanged
-
-$ "#settings-font-size"
-.change fontSizeChanged
