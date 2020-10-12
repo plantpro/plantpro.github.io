@@ -20,6 +20,12 @@
 
 	--content-list-fg: rgb(250, 250, 250);
 	--content-list-bg: rgba(20, 20, 20, .8);
+
+	--darker: rgba(0, 0, 0, .2);
+}
+
+.darker {
+	background-color: var(--darker);
 }
 
 nav {
@@ -68,7 +74,7 @@ nav button:focus,
 nav button:hover,
 nav button:active {
 	outline: none;
-	background: rgba(0, 0, 0, .2);
+	background: var(--darker);
 }
 
 nav span {

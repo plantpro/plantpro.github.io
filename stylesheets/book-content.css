@@ -1,30 +1,25 @@
 :root {
-	--content-list-fg: rgb(250, 250, 250);
-	--content-list-bg: rgba(20, 20, 20, .8);
+	--text-color: rgb(33, 37, 41);
+	--accent-color: rgb(0, 94, 166);
+	--secondary-backgroundcolor: rgb(242, 242, 242);
 }
 
 body {
 	display: flex;
 	flex-direction: row;
 	font-size: 18px;
-}
-
-#content-list-title {
-	padding: 20px 25px 10px 25px;
-	cursor: pointer;
-	color: rgb(0, 94, 166);
-	font-weight: bold;
+	color: var(--text-color);
 }
 
 nav {
-	width: 60px;
-	height: 100vh;
 	position: fixed;
 	flex-direction: column;
 	justify-content: space-between;
+	width: 60px;
+	height: 100vh;
 
-	background: rgb(0, 94, 166);
-	background: linear-gradient(45deg rgba(0, 145, 255, 1) 0%,  rgba(0, 94, 166, 1) 100%);
+	background: var(--accent-color);
+	background: linear-gradient(45deg rgb(0, 145, 255) 0%,  rgb(0, 94, 166) 100%);
 }
 
 nav img {
@@ -43,23 +38,24 @@ h1 {
 	font-size: 18px;
 }
 
-@media (min-width: 992px){
-	.container {
-		max-width: 720px;
-	}
-}
-
 #content-list {
 	position: fixed;
 	left: 60px;
 	top: 0;
 	height: 100vh;
+	width: 400px;
 	overflow-y: auto;
 	overscroll-behavior: contain; /* what about compatibility ? */
 	border: none;
 
-	color: #000000;
-	background-color: #F2F2F2;
+	color: var(--text-color);
+	background-color: var(--secondary-backgroundcolor);
+}
+
+#content-list-title {
+	padding: 20px 25px 10px 25px;
+	color: var(--accent-color);
+	font-weight: bold;
 }
 
 @media (max-width: 768px) { 
@@ -90,6 +86,8 @@ h1 {
 }
 
 .division-list {
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 }
 
@@ -99,37 +97,23 @@ h1 {
 	padding: 10px 25px;
 }
 
-.division-list>.active {
-	background-color: rgba(20, 20, 20, .2);
-}
-
 .division-list>a {
-	color: #000000;
+	color: var(--text-color);
 }
 
+.division-list>.active,
 .division-list>a:hover,
 .division-list>a:focus,
 .division-list>a:active {
 	text-decoration: none;
 	outline: none;
-	background-color: rgba(18, 18, 18, .5);
+	background-color: var(--darker);
 }
 
-.division-list {
-	display: flex;
-	flex-direction: column;
-	
-}
-
-/* md and larger */
-@media (min-width: 768px) { 
-	#content-list {
-		width: 400px;
-	}	
-}
-
-.container-fluid {
-	padding: 20px;
+@media (min-width: 992px){
+	.container {
+		max-width: 720px;
+	}
 }
 
 h4 {
@@ -180,7 +164,7 @@ h1, .note {
 .formula .eval-link {
 	font-size: 12px;
 	cursor: pointer;
-	background-color: rgb(173, 92, 255);
+	background-color: var(--accent-color);
 	color: white;
 	padding: 5px;
 	position: absolute;
