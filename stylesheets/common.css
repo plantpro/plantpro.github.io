@@ -160,7 +160,7 @@ main {
 	.nav-panel {
 		left: 0;
 		top: 60px;
-		height: calc(100vh - 60px);
+		height: 100vh;
 		overscroll-behavior: contain;
 		width: 100%;
 	}
