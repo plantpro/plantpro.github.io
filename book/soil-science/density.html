@@ -34,7 +34,7 @@
 
 <body>
 	<nav>
-		<button id="show-hide-content-list">
+		<button id="show-hide-content-panel">
 			<img src="../../resources/images/menu.svg">
 		</button>
 
@@ -52,8 +52,6 @@
 	<main>
 		<div class="container">
 			<h1>§ 1. Плотность и порозность почвы</h1>
-
-			<hr>
 
 			<p>
 				Почва является гетерогенной многофазной дисперсной системой, состоящей из трёх фаз:
@@ -710,18 +708,27 @@
 
 			<img src="../../resources/images/illustrations/soil-dens-4.svg" style="max-width: 520px;" />
 		</figure>
+
+		<div id="source-list">
+			<span>Источники</span>
+			<a class="source"><span class="source-mark">1</span> Шеин Е. В. Курс физики почв. 2005.</a>
+			<a class="source"><span class="source-mark">2</span> Растворова О. Г. Физика почв (Практическое руководство).
+				1983.</a>
+		</div>
 	</main>
 
-	<div id="content-list" class="nav-panel"></div>
-
-	<div id="source-list">
-		<a class="source"><span class="source-mark">1</span> Шеин Е. В. Курс физики почв. 2005.</a>
-		<a class="source"><span class="source-mark">2</span> Растворова О. Г. Физика почв (Практическое руководство).
-			1983.</a>
-	</div>
+	<div id="content-panel" class="nav-panel"></div>
 
 	<div id="settings-panel" class="nav-panel">
 		<span class="nav-panel-title">Настройки</span>
+
+		<form>
+			<input type="checkbox" id="show-sources">
+
+			<label class="form-check-label" for="show-sources">
+				Показать источники
+			  </label>
+		</form>
 
 		<form>
 			<header>Тема:</header>

@@ -1,5 +1,5 @@
 :root {
-	--accent-color: hsl(150, 100%, 30%);
+	--accent-color: rgb(0, 153, 77);
 }
 
 main {
@@ -12,7 +12,6 @@ main {
 
 nav {
 	background: var(--accent-color);
-	background: linear-gradient(45deg hsl(130, 100%, 50%) 0%,  hsl(150, 100%, 30%) 100%);
 }
 
 #main-panel {
@@ -86,13 +85,13 @@ nav {
 }
 
 #search-input:not(:placeholder-shown)+#search-clear>svg>path {
-	fill: var(--lighter-color-3);
+	fill: rgba(0, 0, 0, .2);
 }
 
 #search-input:not(:placeholder-shown)+#search-clear:hover>svg>path,
 #search-input:not(:placeholder-shown)+#search-clear:active>svg>path,
 #search-input:not(:placeholder-shown)+#search-clear:focus>svg>path  {
-	fill: var(--fore-color);
+	fill: rgb(0, 0, 0);
 }
 
 #search-button {
@@ -101,7 +100,7 @@ nav {
 	border: none;
 	border-radius: 2px;
 
-	color: var(--primary-fore-color);
+	color: rgb(255, 255, 255);
 	background-color: var(--accent-color);
 }
 
@@ -109,13 +108,13 @@ nav {
 #search-button:active,
 #search-button:focus  {
 	outline: none;
-	background: var(--accent-color);
+	background: hsl(150, 100%, 25%);
 }
 /* /search-area */
 
 .file-type-tag,
 .language-tag {
-  	color: var(--fore-color);
+  	color: rgb(255, 255, 255);
   	padding: 3px 5px;
 	font-size: 12px;
   	white-space: nowrap;
@@ -149,14 +148,8 @@ h1 {
 }
 
 .record-title>a {
-	font-size: 1.1em;
-	color: var(--top-panel-bg);
-}
-
-.record-title>a:hover,
-.record-title>a:active,
-.record-title>a:focus {
-	color: rgb(3, 192, 192);
+	font-size: 16px;
+	color: var(--text-color);
 }
 
 .record-year,
@@ -186,7 +179,8 @@ h1 {
 }
 
 #filter-area {
-	margin-top: 1em;
+	margin-top: 2em;
+	margin-bottom: 2em;
 }
 
 /* filter-panel */
@@ -195,6 +189,7 @@ h1 {
 	border-radius: 2px;
 	background-color: var(--accent-color);
 	color: var(--background-color);
+	margin-bottom: 1rem;
 }
 
 .close-panel-btn {
@@ -209,7 +204,7 @@ h1 {
 }
 
 .close-panel-btn>svg {
-	fill: var(--lighter-color-3);
+	fill: rgba(255, 255, 255, .5);
 	width:18px;
 	height:18px;
 }
@@ -223,7 +218,7 @@ h1 {
 .close-panel-btn:hover>svg,
 .close-panel-btn:focus>svg,
 .close-panel-btn:active>svg {
-	fill: var(--fore-color);
+	fill: rgb(255, 255, 255);
 }
 /* /filter-panel */
 

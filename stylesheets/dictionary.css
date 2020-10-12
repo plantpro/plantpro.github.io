@@ -1,5 +1,49 @@
+:root {
+	--accent-color: hsl(293, 100%, 30%);
+}
+
+nav {
+	background: var(--accent-color);
+}
+
+main {
+	width: calc(100% - 60px);
+}
+
+.row {
+	margin: 0;
+}
+
+.main-panel {
+	position: relative;
+	font-size: 14px;
+	color: var(--text-color);
+	background-color: var(--secondary-background-color);
+	-webkit-box-shadow: var(--shadow);
+	-moz-box-shadow:    var(--shadow);
+	box-shadow:         var(--shadow);
+}
+
+.main-panel-group {
+	margin: 20px 25px 10px 25px;
+}
+
+.col-md-8 {
+	height: 100vh;
+}
+
+@media (max-width: 768px) { 
+	.col-md-8 {
+		height: auto;
+	}
+
+	main {
+		width: 100%;
+	}
+}
+
 .letter-group {
-	font-size: 3em;
+	font-size: 20px;
 	text-align: center;
 }
 

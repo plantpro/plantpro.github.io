@@ -127,27 +127,10 @@ class WordCounter:
 </head>
 
 <body>
-	<div class="top-panel">
-		<div class="top-panel-name">Словарь - {title}</div>
-
-		<div class="top-panel-controls">
-			<a href="../index.html">
-				<span>Назад</span>
-			</a>
-		</div>
-	</div>
-
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-4 tools-panel">
-				{SEARCH_FORM}		
-			</div>
-			<div class="col-md-8">
 				<div class="fit-scroll">
 					{self._generateTable(sorted(pairs, key=lambda x: x.word))}
 				</div>
-			</div>
-		</div>
 	</div>
 		
     <script
