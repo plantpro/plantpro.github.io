@@ -47,13 +47,17 @@ h1 {
 	background-color: var(--darker);
 }
 
+.trim {
+	display: none;
+}
+
 @media (min-width: 992px){
 	.container {
 		max-width: 720px;
 	}
 
 	.trim {
-		height: 0;
+		display: block;
 	}
 }
 
@@ -225,8 +229,4 @@ caption {
 
 #settings-panel>form>header {
 	font-weight: bolder;
-}
-
-.trim {
-	height: auto;
 }
