@@ -71,10 +71,8 @@ appendDivision = ({ name: divisionName, items }) ->
 	.append div
 
 buildContentList = () ->
-	closeBtn = $ "<div id='hide-content-list-btn'>Содержание</div>"
-	closeBtn.click showOrHideContentList
 	$ "#content-list"
-	.append closeBtn
+	.append  $("<div id='content-list-title'>Содержание</div>")
 
 	appendDivision division for division in CONTENT_LIST
 

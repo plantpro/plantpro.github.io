@@ -91,10 +91,8 @@
   };
 
   buildContentList = function() {
-    var closeBtn, division, j, len, results;
-    closeBtn = $("<div id='hide-content-list-btn'>Содержание</div>");
-    closeBtn.click(showOrHideContentList);
-    $("#content-list").append(closeBtn);
+    var division, j, len, results;
+    $("#content-list").append($("<div id='content-list-title'>Содержание</div>"));
     results = [];
     for (j = 0, len = CONTENT_LIST.length; j < len; j++) {
       division = CONTENT_LIST[j];
