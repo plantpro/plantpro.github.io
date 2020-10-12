@@ -137,9 +137,23 @@ colorize = () ->
 
 colorize()
 
+enableDarkTheme = () ->
+	document.documentElement.style.setProperty("--text-color", "rgb(242, 242, 242)");
+	document.documentElement.style.setProperty("--secondary-backgroundcolor", "rgb(33, 37, 41)");
+	document.documentElement.style.setProperty("--background-color", " rgb(0, 0, 0)");
+
+enableLightTheme = () ->
+	document.documentElement.style.setProperty("--text-color", "rgb(33, 37, 41)");
+	document.documentElement.style.setProperty("--secondary-backgroundcolor", "rgb(242, 242, 242)");
+	document.documentElement.style.setProperty("--background-color", " rgb(255, 255, 255)");
+
 themeChanged = (event) ->
 	theme = event.target.value
-	console.log theme
+	
+	if theme == "theme-dark"
+		enableDarkTheme()
+	else
+		enableLightTheme()
 
 $ "#settings-theme-light"
 .change themeChanged

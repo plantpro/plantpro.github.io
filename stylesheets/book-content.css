@@ -1,4 +1,5 @@
 :root {
+	--background-color: rgb(255, 255, 255);
 	--text-color: rgb(33, 37, 41);
 	--accent-color: rgb(0, 94, 166);
 	--secondary-backgroundcolor: rgb(242, 242, 242);
@@ -9,6 +10,7 @@ body {
 	flex-direction: row;
 	font-size: 18px;
 	color: var(--text-color);
+	background: var(--background-color);
 }
 
 nav {
