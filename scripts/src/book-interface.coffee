@@ -136,3 +136,13 @@ colorize = () ->
 			i.style.backgroundColor = cahce.get(i.innerText)
 
 colorize()
+
+themeChanged = (event) ->
+	theme = event.target.value
+	console.log theme
+
+$ "settings-theme-light"
+.change themeChanged
+
+$ "settings-theme-dark"
+.change themeChanged

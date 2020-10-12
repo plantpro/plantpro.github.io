@@ -715,10 +715,27 @@
 	</div>
 
 	<div id="settings-panel">
-		<span class="settings-panel-title"></span>
+		<span class="settings-panel-title">Настройки</span>
 		Тема:
-		<button id="settings-theme-light">Светлая</button>
-		<button id="settings-theme-dark">Тёмная</button>
+		<form>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="themeRadio" 
+				id="settings-theme-light" value="theme-light" checked>
+
+				<label class="form-check-label" for="settings-theme-light">
+				  Светлая
+				</label>
+			</div>
+
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="themeRadio" 
+				id="settings-theme-dark" value="theme-dark" checked>
+				
+				<label class="form-check-label" for="settings-theme-dark">
+				  Тёмная
+				</label>
+			</div>
+		</form>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_HTMLorMML"
