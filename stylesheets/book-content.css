@@ -185,7 +185,7 @@ figure {
 	text-align: center;
 	margin: 2rem 0;
 	padding: 30px;
-	background-color: #fafafa;
+	background-color: var(--secondary-backgroundcolor);
 }
 
 figure>img {
@@ -243,7 +243,7 @@ header {
 	width: 100%;
 	margin: 2rem 0;
 	padding: 30px;
-	background-color: #fafafa;
+	background-color: var(--secondary-backgroundcolor);
 }
 
 .table-wrapper table {
@@ -261,6 +261,10 @@ header {
 	font-size: 14px;
 	color: inherit;
 	text-align: justify;
+}
+
+.table {
+	color: var(--text-color)
 }
 
 .table thead th {
