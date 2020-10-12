@@ -186,8 +186,8 @@
     return console.log(theme);
   };
 
-  $("settings-theme-light").change(themeChanged);
+  $("settings-theme-light").addEventListener("change", themeChanged);
 
-  $("settings-theme-dark").change(themeChanged);
+  $("settings-theme-dark").addEventListener("change", themeChanged);
 
 }).call(this);
