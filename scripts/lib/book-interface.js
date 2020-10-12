@@ -3,7 +3,8 @@
   var CONTENT_LIST, GOLDEN_RATIO, appendDivision, appendDivisionHeader, buildContentList, cahce, colorize, createContentItem, getColor, hideContentList, hideSourceList, hsvToRgb, item, showOrHideContentList, showOrHideSourceList;
 
   hideContentList = function() {
-    return $("#content-list").hide();
+    $("#content-list").hide();
+    return $(event.target.closest("button")).removeClass("darker");
   };
 
   hideSourceList = function() {
@@ -14,6 +15,7 @@
   showOrHideSourceList = function() {
     $("#source-list").fadeToggle();
     $(".source-mark").fadeToggle();
+    $(event.target.closest("button")).toggleClass("darker");
     return hideContentList();
   };
 

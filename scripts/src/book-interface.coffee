@@ -1,5 +1,6 @@
 hideContentList = () ->
 	$("#content-list").hide()
+	$(event.target.closest("button")).removeClass "darker"
 
 hideSourceList = () ->
 	$(".source-mark").hide()
@@ -8,6 +9,7 @@ hideSourceList = () ->
 showOrHideSourceList = () ->
 	$("#source-list").fadeToggle()
 	$(".source-mark").fadeToggle()
+	$(event.target.closest("button")).toggleClass "darker"
 
 	hideContentList()
 
