@@ -157,7 +157,7 @@ themeChanged = (event) ->
 
 fontSizeChanged = () ->
 	console.log($("#settings-font-size").val())
-	document.documentElement.style.setProperty("--font-size", $("#settings-font-size").val());
+	document.documentElement.style.setProperty("--font-size", $("#settings-font-size").val() + "px");
 
 $ "#settings-theme-light"
 .change themeChanged

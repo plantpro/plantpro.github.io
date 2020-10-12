@@ -204,7 +204,7 @@
 
   fontSizeChanged = function() {
     console.log($("#settings-font-size").val());
-    return document.documentElement.style.setProperty("--font-size", $("#settings-font-size").val());
+    return document.documentElement.style.setProperty("--font-size", $("#settings-font-size").val() + "px");
   };
 
   $("#settings-theme-light").change(themeChanged);
