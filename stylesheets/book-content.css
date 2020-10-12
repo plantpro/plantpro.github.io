@@ -1,26 +1,13 @@
 :root {
-	--background-color: rgb(255, 255, 255);
-	--text-color: rgb(33, 37, 41);
 	--accent-color: rgb(0, 94, 166);
-	--secondary-backgroundcolor: rgb(242, 242, 242);
 	--font-size: 18px;
 }
 
 body {
-	display: flex;
-	flex-direction: row;
 	font-size: var(--font-size);
-	color: var(--text-color);
-	background: var(--background-color);
 }
 
 nav {
-	position: fixed;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 60px;
-	height: 100vh;
-
 	background: var(--accent-color);
 	background: linear-gradient(45deg rgb(0, 145, 255) 0%,  rgb(0, 94, 166) 100%);
 }
@@ -54,6 +41,9 @@ h1 {
 
 	color: var(--text-color);
 	background-color: var(--secondary-backgroundcolor);
+	-webkit-box-shadow: 3px 0px 6px 0px rgba(0, 0, 0, 0.12);
+	-moz-box-shadow:    3px 0px 6px 0px rgba(0, 0, 0, 0.12);
+	box-shadow:         3px 0px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
 .settings-panel-title,
@@ -63,8 +53,6 @@ h1 {
 	color: var(--accent-color);
 	font-weight: bold;
 }
-
-
 
 @media (max-width: 768px) { 
 	body {

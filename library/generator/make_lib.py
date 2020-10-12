@@ -91,39 +91,44 @@ def write_to_file(content, recordsCount):
 </head>
 
 <body>
-	<div class="top-panel">
-		<div class="top-panel-name">Библиотека</div>
+	<nav>
+		<button class="darker">
+			<img src="../resources/images/search.svg">
+		</button>
 
-		<div class="top-panel-controls">
-			<a href="../index.html" data-toggle="popover" data-placement="bottom" data-content="На главную">
-				<span>На главную</span>
+		<div class="nav-group">
+			<a href="../index.html">
+				<img src="../resources/images/home.svg">
 			</a>
 		</div>
-	</div>
+	</nav>
 
-	<div class="container-fluid">
+	<main>
 		<div class="row">
 			<div class="col-md-4" id="main-panel">
+				<span class="nav-panel-title">Поиск</span>
+
 				<div id="search-area">
-					<input type="text" placeholder="Что ищем?" id="search-input">
+					<div>
+						<input type="text" placeholder="Что ищем?" id="search-input">
 
-					<button type="button" id="search-clear">
-						<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
-							<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
-						</svg>
-					</button>
-
+						<button type="button" id="search-clear">
+							<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
+								<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+							</svg>
+						</button>
+					</div>
 					<button id="search-button">Поиск</button>
 				</div>
 
-				<div class="mt-3">
+				<div class="main-panel-group">
 					Тип файла:
 					<span class="file-type-tag file-type-tag-pdf">.pdf</span>
 					<span class="file-type-tag file-type-tag-djvu">.djvu</span>
 					<span class="file-type-tag file-type-tag-online">online</span>
 				</div>
 
-				<div class="mt-3">
+				<div class="main-panel-group">
 					Язык:
 					<span class="language-tag" onclick="document.filterByLanguage('Русский');">Русский</span>
 					<span class="language-tag" onclick="document.filterByLanguage('Английский');">Английский</span>
@@ -133,15 +138,17 @@ def write_to_file(content, recordsCount):
 			</div>
 
 			<div class="col-md-8" id="search-box">
+				<h1>Библиотека</h1>
+
 				<div id="nothing-is-found">
 					Ничего не найдено.
 					<button type="button" id="nothing-is-found-clear">Сбросить фильтры</button>
 				</div>
-				
+
 				{content}
 			</div>
 		</div>
-	</div>
+	</main>
 				
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
