@@ -75,17 +75,9 @@ class WordCounter:
 	
 	def _generateTable(self, translations):
 		return f"""
-		<table class="table">
-		<thead>
-			<tr>
-				<th>Слово</th>
-				<th>Перевод</th>
-			</tr>
-		</thead>
-		<tbody id="dict-entries">
-		{"".join([f"<tr><td class='mdl-data-table__cell--non-numeric'>{tr.word}</td><td class='mdl-data-table__cell--non-numeric'>{tr.meaning}</td></tr>" for tr in translations])}
-		</tbody>
-		</table>
+		<dl>
+		{"".join([f"<dt>{tr.word}</dt><dd>{tr.meaning}</dd>" for tr in translations])}
+		</dl>
 		"""
 
 	def _buildPage(self, pairs, title):
