@@ -2,9 +2,11 @@
 (function() {
   var CONTENT_LIST, GOLDEN_RATIO, appendDivision, appendDivisionHeader, buildContentList, cahce, colorize, createContentItem, getColor, hideContentList, hideSourceList, hsvToRgb, item, showOrHideContentList, showOrHideSourceList;
 
-  hideContentList = function() {
+  hideContentList = function(event) {
     $("#content-list").hide();
-    return $(event.target.closest("button")).removeClass("darker");
+    if (event) {
+      return $(event.target.closest("button")).removeClass("darker");
+    }
   };
 
   hideSourceList = function() {
@@ -12,7 +14,7 @@
     return $("#source-list").hide();
   };
 
-  showOrHideSourceList = function() {
+  showOrHideSourceList = function(event) {
     $("#source-list").fadeToggle();
     $(".source-mark").fadeToggle();
     $(event.target.closest("button")).toggleClass("darker");
