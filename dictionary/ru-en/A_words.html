@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву A</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву A</h1>
+    
 		<dl>
 		<dt>ant poor-quality</dt><dd>high-quality</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "A") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "A") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

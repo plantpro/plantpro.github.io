@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву Т</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву Т</h1>
+    
 		<dl>
 		<dt>табак</dt><dd>tobacco</dd><dt>таять</dt><dd>thaw</dd><dt>твердая фаза</dt><dd>solid</dd><dt>твердая частица</dt><dd>solid</dd><dt>твердеть</dt><dd>harden</dd><dt>твердость</dt><dd>firmness, hardness</dd><dt>твердый (об агрегатном состоянии вещества)</dt><dd>solid</dd><dt>твѐрдая частица</dt><dd>particulate</dd><dt>текстура</dt><dd>texture</dd><dt>текучий</dt><dd>fluid, liquid</dd><dt>теневыносливость</dt><dd>shade tolerance</dd><dt>теплица</dt><dd>greenhouse</dd><dt>теплица для рассады</dt><dd>propagator</dd><dt>тепличные и парниковые культуры</dt><dd>crops under glass</dd><dt>тепло (та)</dt><dd>heat</dd><dt>теплотворная способность</dt><dd>caloricity</dd><dt>термически обработанный</dt><dd>heat treated</dd><dt>термостат для проращивания семян</dt><dd>propagator</dd><dt>термоустойчивость</dt><dd>heat stability</dd><dt>терпеноиды</dt><dd>terpenoids</dd><dt>терпены</dt><dd>terpens</dd><dt>терять культурную форму</dt><dd>fall out of cultivation</dd><dt>теряющий на зиму листву</dt><dd>deciduous</dd><dt>техника</dt><dd>machinery</dd><dt>техническая культура</dt><dd>industrial crop</dd><dt>технические приемы</dt><dd>technique, method</dd><dt>технический прием</dt><dd>technique, method</dd><dt>техническое оборудование</dt><dd>machinery</dd><dt>технологический процесс</dt><dd>process</dd><dt>технология</dt><dd>practice</dd><dt>технология возделывания пшеницы</dt><dd>wheat cultivation technology</dd><dt>технология техника</dt><dd>technique, method</dd><dt>тип (растений)</dt><dd>division</dd><dt>титруемая кислотность</dt><dd>titratable acidity</dd><dt>ткань</dt><dd>tissue</dd><dt>тля</dt><dd>aphid</dd><dt>товар</dt><dd>commodity</dd><dt>товарная культура</dt><dd>cash crop</dd><dt>товарная часть урожая</dt><dd>cash crop</dd><dt>товарный сорт</dt><dd>commercial grade</dd><dt>токсин</dt><dd>poison</dd><dt>толерантный</dt><dd>tolerant</dd><dt>толл-подобные рецепторы</dt><dd>toll-like receptors, TLR, TLRs</dd><dt>толща</dt><dd>depth</dd><dt>толщина</dt><dd>depth</dd><dt>томиться (на огне)</dt><dd>stew</dd><dt>топкий</dt><dd>thin</dd><dt>торговая марка</dt><dd>brand</dd><dt>торможение</dt><dd>inhibition</dd><dt>тормозить</dt><dd>inhibit</dd><dt>тормозить (развитие и т. п.)</dt><dd>retard</dd><dt>торф</dt><dd>peat</dd><dt>торфо-глинистый компост</dt><dd>loam-peat compost</dd><dt>торфяник</dt><dd>bog</dd><dt>точное земледелие</dt><dd>precision agriculture, precision farming</dd><dt>тощий (о земле)</dt><dd>barren area</dd><dt>трава</dt><dd>grass, herb</dd><dt>трава или сорняк с ползучими быстро размножающимися корневищами</dt><dd>couch</dd><dt>травостой</dt><dd>herbage, stand, sward</dd><dt>травоядное (животное)</dt><dd>herbivore</dd><dt>травы</dt><dd>herbage</dd><dt>травянистое растение</dt><dd>herb</dd><dt>травянистое растение (в узком смысле)</dt><dd>plant</dd><dt>травяной силос</dt><dd>haylage</dd><dt>традиционный</dt><dd>conventional</dd><dt>трамбовать</dt><dd>firm</dd><dt>транспирация (испарение воды растениями)</dt><dd>transpiration</dd><dt>требование</dt><dd>requirement</dd><dt>требовать (чего-л.)</dt><dd>require (smth)</dd><dt>треугольник Прянишникова</dt><dd>soil-plant-fertilizer relation</dd><dt>труд</dt><dd>labour</dd><dt>трудно перевариваемый</dt><dd>indigestible</dd><dt>тушиться</dt><dd>stew</dd><dt>тщательно</dt><dd>thoroughly</dd><dt>тычинка</dt><dd>stamen</dd><dt>тяжелый</dt><dd>clay loam</dd><dt>тяжѐлая почва</dt><dd>heavy soil</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "Т") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "Т") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву A</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву A</h1>
+    
 		<dl>
 		<dt>AMS (Agricultural Management Solutions)</dt><dd>cистемы управления сельским хозяйством, системы точного земледелия</dd><dt>abloom</dt><dd>цветущий, в цвету</dd><dt>above-ground</dt><dd>надземная часть</dd><dt>abscisic acid</dt><dd>абсцизовая кислота, АБК</dd><dt>absorb</dt><dd>впитывать, абсорбировать, поглощать</dd><dt>absorption</dt><dd>абсорбция, впитывание, всасывание</dd><dt>absorption capacity of soil</dt><dd>поглотительная способность почвы</dd><dt>abundant</dt><dd>широко распространенный, обильный</dd><dt>accelerate</dt><dd>ускорять(-ся), убыстрять</dd><dt>accumulation</dt><dd>накопление, аккумулирование, скопление</dd><dt>acid</dt><dd>кислота, кислотный, кислый</dd><dt>acid-base balance</dt><dd>кислотно-щелочной баланс</dd><dt>acidity</dt><dd>кислотность</dd><dt>acre</dt><dd>акр</dd><dt>acreage</dt><dd>площадь в акрах</dd><dt>adapt</dt><dd>приспосабливать(-ся)</dd><dt>add</dt><dd>прибавлять, добавлять</dd><dt>additional</dt><dd>дополнительный</dd><dt>additive</dt><dd>добавка, приправа</dd><dt>adhesion of soil</dt><dd>связность почвы</dd><dt>aerate</dt><dd>аэрировать, насыщать воздухом почву, проветривать</dd><dt>affect</dt><dd>воздействовать на что-то, поражать</dd><dt>afforestation</dt><dd>облесение, лесонасаждение, лесовозобновление</dd><dt>after-ripening</dt><dd>дозревание</dd><dt>aftercrop</dt><dd>второй урожай</dd><dt>ageing</dt><dd>вызревание, созревание</dd><dt>aggregate</dt><dd>совокупность, собирать, соединять</dd><dt>aggregate structure</dt><dd>агрегатная структура</dd><dt>aggregated</dt><dd>агрегированный, отструктурированный</dd><dt>aging</dt><dd>вызревание, созревание, выдержка</dd><dt>agricultural soil science</dt><dd>агропочвоведение</dd><dt>agriculture</dt><dd>сельское хозяйство, земледелие, агрокультура</dd><dt>agronomics</dt><dd>агрономия</dd><dt>agronomist</dt><dd>агроном</dd><dt>agronomy</dt><dd>агрономия</dd><dt>agrotechnical level of tilling</dt><dd>агротехнический уровень обработки почв</dd><dt>airtight</dt><dd>герметичный, воздухонепроницаемый</dd><dt>alkali</dt><dd>щёлочь, зола</dd><dt>alkalify</dt><dd>подщелачивать</dd><dt>alkaline</dt><dd>щелочной</dd><dt>alkaloids</dt><dd>алкалоиды</dd><dt>allow</dt><dd>позволять, разрешать</dd><dt>alter</dt><dd>изменять, менять, видоизменять, вносить изменения, переделывать</dd><dt>alternate row</dt><dd>промежуточный ряд (растений)</dd><dt>aminoacid</dt><dd>аминокислота</dd><dt>amount</dt><dd>величина, количество, количество</dd><dt>amount of growth</dt><dd>прирост</dd><dt>anaerobic</dt><dd>анаэробный</dd><dt>anchor</dt><dd>закреплять, фиксировать, укореняться</dd><dt>animal husbandry</dt><dd>животноводство</dd><dt>annual</dt><dd>однолетнее растение</dd><dt>aphid</dt><dd>тля</dd><dt>application</dt><dd>применение, внесение</dd><dt>apply</dt><dd>вносить (удобрения)</dd><dt>arable</dt><dd>пашня, пахотная земля</dd><dt>arable land cultivation</dt><dd>обработка пахотных земель</dd><dt>area</dt><dd>площадь, зона, район, область</dd><dt>area of risk farming</dt><dd>зона рискованного земледелия</dd><dt>arid</dt><dd>засушливый, сухой, безводный</dd><dt>aridity</dt><dd>засушливость, аридность</dd><dt>arm</dt><dd>ветвь, отросток, вырост (растения)</dd><dt>artificial</dt><dd>искусственный, синтетический</dd><dt>assess</dt><dd>оценивать, давать оценку</dd><dt>assimilate</dt><dd>поглощать, усваивать</dd><dt>available</dt><dd>доступный, усвояемый</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "A") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "A") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

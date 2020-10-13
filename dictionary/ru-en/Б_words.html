@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву Б</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву Б</h1>
+    
 		<dl>
 		<dt>бабочка</dt><dd>moth</dd><dt>бактерия</dt><dd>bacterium, bacteria</dd><dt>баланс</dt><dd>equilibrium</dd><dt>барабанная сушилка</dt><dd>drum dryer</dd><dt>без добавок</dt><dd>plain</dd><dt>без примесей</dt><dd>pure</dd><dt>без примесей (о цвете)</dt><dd>solid</dd><dt>безводный</dt><dd>arid, droughty</dd><dt>безвредный</dt><dd>harmless</dd><dt>бездействующий</dt><dd>dormant</dd><dt>беззаморозковый период</dt><dd>frostproof date</dd><dt>безопасный</dt><dd>harmless</dd><dt>безотвальное рыхление</dt><dd>subsurface loosening</dd><dt>белок</dt><dd>protein</dd><dt>белянка капустная</dt><dd>cabbage white butterfly</dd><dt>бескосточковый</dt><dd>seedless</dd><dt>беспахотный</dt><dd>no till</dd><dt>беспорядочный</dt><dd>random</dd><dt>беспримесность</dt><dd>purity</dd><dt>бессемянный</dt><dd>seedless</dd><dt>бессистемный</dt><dd>random</dd><dt>бессменная культура</dt><dd>monoculture</dd><dt>бесструктурный (о почве)</dt><dd>lack in structure</dd><dt>биоцикл</dt><dd>biocycle</dd><dt>бирка</dt><dd>label</dd><dt>благодаря</dt><dd>due to</dd><dt>благоприятный</dt><dd>favourable</dd><dt>благоприятствовать</dt><dd>favour</dd><dt>боб</dt><dd>legume, pod</dd><dt>бобово-злаковый</dt><dd>legume-grass</dd><dt>бобовый</dt><dd>leguminous</dd><dt>бобовый суглинок</dt><dd>leguminous loam</dd><dt>богарный</dt><dd>dry land (dry-land)</dd><dt>богатство</dt><dd>fertility</dd><dt>боковая плеть</dt><dd>lateral</dd><dt>боковой побег</dt><dd>lateral</dd><dt>болезнь</dt><dd>disease</dd><dt>болезнями),бороться</dt><dd>control</dd><dt>болотистая почва</dt><dd>bog</dd><dt>большой</dt><dd>bulky</dd><dt>борозда</dt><dd>drill, furrow, groove, middle</dd><dt>бороздовать</dt><dd>furrow</dd><dt>бороздовая сеялка</dt><dd>furrow planter</dd><dt>бороздоделатель</dt><dd>furrow-making device</dd><dt>борона</dt><dd>drag, harrow, narrow</dd><dt>боронить</dt><dd>drag, harrow</dd><dt>бороновать</dt><dd>drag</dd><dt>борьба (с насекомыми</dt><dd>control</dd><dt>борьба за существование</dt><dd>competition</dd><dt>ботва</dt><dd>crown, herbage</dd><dt>ботва (корнеплодов)</dt><dd>top</dd><dt>бренд</dt><dd>brand</dd><dt>буйно растущий (о травах)</dt><dd>dank</dd><dt>букетировать (корнеплодные культуры)</dt><dd>thin</dd><dt>букетировка</dt><dd>thinning</dd><dt>букетировщик</dt><dd>thinner</dd><dt>бушель</dt><dd>bushel</dd><dt>быстро испаряющийся</dt><dd>volatile</dd><dt>быстрота (как физическая характеристика)</dt><dd>rate</dd><dt>быстрый</dt><dd>rapid</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "Б") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "Б") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

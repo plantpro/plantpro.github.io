@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву L</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву L</h1>
+    
 		<dl>
 		<dt>label</dt><dd>ярлык, этикетка, наклейка, бирка, категоризировать, относить к какой-л. категории</dd><dt>labour</dt><dd>труд, работа</dd><dt>lack</dt><dd>недостаток, отсутствие (чего-л.)</dd><dt>lack in structure</dt><dd>бесструктурный (о почве)</dd><dt>lactic-acid bacterium (pl bacteria)</dt><dd>молочнокислая бактерия</dd><dt>lactose</dt><dd>лактоза, молочный сахар</dd><dt>land</dt><dd>земля, почва, грунт, делянка, землевладение</dd><dt>land use</dt><dd>землепользование</dd><dt>large seeded</dt><dd>крупносеменной</dd><dt>larva</dt><dd>личинка, гусеница</dd><dt>latent</dt><dd>латентный, скрытый, покоящийся, спящий</dd><dt>lateral</dt><dd>боковой побег, боковая плеть</dd><dt>layer</dt><dd>слой, пласт (земли), отводок, стелящийся побег, ярус растительности, разводить (размножать растения) отводками</dd><dt>leach</dt><dd>выщелачивать, высолаживать, вымывать, зола</dd><dt>leaf(pl. leaves)</dt><dd>лист (растения)</dd><dt>leafy</dt><dd>облиственный (о стебле), с хорошо развитой ботвой, лиственный</dd><dt>lean</dt><dd>обеднѐнный (о почве), неурожайный (год)</dd><dt>leek</dt><dd>лук-порей</dd><dt>leggy</dt><dd>вытянувшийся (о рассаде)</dd><dt>legume</dt><dd>растение из семейства бобовых (Leguminosae), боб, плод бобовых, зеленый горошек, столовые овощи, фасоль</dd><dt>legume-grass</dt><dd>бобово-злаковый</dd><dt>leguminous</dt><dd>бобовый</dd><dt>leguminous loam</dt><dd>бобовый суглинок</dd><dt>level</dt><dd>уровень, ровный, гладкий, выравнивать</dd><dt>lifter</dt><dd>подъѐмник, машина для уборки корнеплодов</dd><dt>light soil</dt><dd>лѐгкая почва, почва лѐгкого механического состава</dd><dt>lignin</dt><dd>лигнин</dd><dt>lime</dt><dd>известь, известковое удобрение, лайм, липа</dd><dt>limestone</dt><dd>известняк</dd><dt>limit</dt><dd>ограничивать (в пределах чего-л.)</dd><dt>linseed</dt><dd>льняное семя, лѐн обыкновенный</dd><dt>liquid</dt><dd>жидкий, текучий, жидкость</dd><dt>loaf</dt><dd>кочан (капусты,салата), образовывать кочан</dd><dt>loam</dt><dd>суглинистая почва, супесь, суглинок</dd><dt>loam-peat compost</dt><dd>торфо-глинистый компост</dd><dt>lodge</dt><dd>полегать (о хлебах,посевах)</dd><dt>longevity of seeds</dt><dd>продолжительность сохранения жизнеспособности семян</dd><dt>loose</dt><dd>рыхлая, сыпучая (порода)</dd><dt>loosen</dt><dd>разрыхлять (почву)</dd><dt>loss</dt><dd>потеря, утрата, убыток, ущерб, потеря</dd><dt>low grade</dt><dd>низкое качество</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "L") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "L") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

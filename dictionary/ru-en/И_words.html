@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву И</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву И</h1>
+    
 		<dl>
 		<dt>из-за</dt><dd>due to</dd><dt>избыток</dt><dd>excess, overrun, surplus</dd><dt>избыточный</dt><dd>surplus</dd><dt>известковое удобрение</dt><dd>lime</dd><dt>известняк</dt><dd>limestone</dd><dt>известь</dt><dd>lime</dd><dt>извлечение</dt><dd>extraction</dd><dt>изготовление</dt><dd>making</dd><dt>изготовлять (промышленным способом)</dt><dd>manufacture</dd><dt>излишек</dt><dd>excess, surplus</dd><dt>излишнее количество</dt><dd>excess</dd><dt>излишний</dt><dd>surplus</dd><dt>измельчать</dt><dd>grit</dd><dt>измельчение</dt><dd>milling</dd><dt>измельченное в порошок</dt><dd>powder</dd><dt>изменчивый</dt><dd>fluid</dd><dt>изменять</dt><dd>alter</dd><dt>изменять(-ся)</dt><dd>vary, differ</dd><dt>изменяться</dt><dd>vary from … to …</dd><dt>измерение</dt><dd>measurement</dd><dt>измерять</dt><dd>quantify, measure</dd><dt>изобилие</dt><dd>fertility</dd><dt>изобильный</dt><dd>fertile</dd><dt>изоляция</dt><dd>segregation</dd><dt>изофлавоноид</dt><dd>isoflavonoids</dd><dt>ил</dt><dd>silt</dd><dt>илистое отложение</dt><dd>silt</dd><dt>иловатый суглинок</dt><dd>clay loam</dd><dt>иметь результатом</dt><dd>result (in smth)</dd><dt>иметь тенденцию (к чему-л.)</dt><dd>tend (to/towards)</dd><dt>имеющий какую-либо окраску</dt><dd>stained</dd><dt>иммунитет</dt><dd>immunity (to)</dd><dt>иммунитет растений</dt><dd>plant disease resistance</dd><dt>инвазия</dt><dd>infestation, invasion</dd><dt>инвентарь</dt><dd>implement, tool</dd><dt>ингибирование</dt><dd>inhibition</dd><dt>ингибиторы ферментов</dt><dd>enzyme inhibitors</dd><dt>инкубационный период болезни растений</dt><dd>incubative period of a plant disease</dd><dt>инструмент</dt><dd>implement, tool</dd><dt>интенсивный выпас</dt><dd>intensive grazing</dd><dt>интервал между поливами</dt><dd>irrigation frequency</dd><dt>интервал севооборота</dt><dd>rotation interval</dd><dt>интерфероны</dt><dd>interferons, IFNs</dd><dt>интоксикация</dt><dd>poisoning</dd><dt>интродукция</dt><dd>introduction</dd><dt>исключать</dt><dd>eliminate</dd><dt>исключительный</dt><dd>unique</dd><dt>искусственный</dt><dd>artificial</dd><dt>испарение</dt><dd>evaporation</dd><dt>испарять</dt><dd>evaporate</dd><dt>использование</dt><dd>use, utilize</dd><dt>использование для другой цели</dt><dd>recycling</dd><dt>использовать</dt><dd>employ, use, utilize</dd><dt>использовать вместо чего-л.</dt><dd>substitute</dd><dt>испытание</dt><dd>test, trial</dd><dt>испытывать</dt><dd>test, undergo (underwent, undergone)</dd><dt>исследование</dt><dd>test, trial</dd><dt>истончѐнный (о всходах,о рассаде)</dt><dd>drawn</dd><dt>источник</dt><dd>origin, source</dd><dt>исходное (родительское) растение</dt><dd>parental plant</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "И") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "И") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

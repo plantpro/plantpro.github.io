@@ -120,7 +120,7 @@ class WordCounter:
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -128,13 +128,10 @@ class WordCounter:
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву {title}</h1>
-        {self._generateTable(sorted(pairs, key=lambda x: x.word))}
-      </div>
+  <main class="offseted">
+	  <h1>Слова на букву {title}</h1>
+    {self._generateTable(sorted(pairs, key=lambda x: x.word))}
+  </main>
 
 	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
@@ -317,7 +314,6 @@ class WordCounter:
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -331,11 +327,19 @@ class WordCounter:
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {{
-		if(a.innerText.trim() === "{title}") {{
-			a.style.color = "hsl(293, 100%, 30%)";
-		}}
-	}}
+    for(let a of $("a")) {{
+      if(a.innerText.trim() === "{title}") {{
+        a.style.color = "hsl(293, 100%, 30%)";
+      }}
+    }}
+
+    function menuToggle() {{
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }}
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

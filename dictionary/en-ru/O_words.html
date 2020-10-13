@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву O</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву O</h1>
+    
 		<dl>
 		<dt>oak</dt><dd>дуб</dd><dt>obtain</dt><dd>получать, доставать, приобретать</dd><dt>occasional occurrence of species</dt><dd>редкая встречаемость вида</dd><dt>odour</dt><dd>запах, аромат</dd><dt>offal</dt><dd>отходы помола, отруби, высевки, побочные продукты переработки, отбросы, мусор</dd><dt>oil</dt><dd>растительное масло</dd><dt>onion</dt><dd>лук</dd><dt>open-pollinated</dt><dd>перекрѐстноопыляющийся</dd><dt>orchard</dt><dd>фруктовый сад, плодовый питомник</dd><dt>origin</dt><dd>происхождение, источник, род</dd><dt>original</dt><dd>первоначальный, коренной</dd><dt>ornamental</dt><dd>декоративный, орнаментальный, служащий украшением</dd><dt>outbreak</dt><dd>вспышка болезни, эпифитотия, нашествие (с/х вредителей)</dd><dt>outlet</dt><dd>выпускное, выходное отверстие, выпуск, выход, слив, сток</dd><dt>outyield</dt><dd>превосходить по урожайности или продуктивности</dd><dt>overdrill</dt><dd>подсев, подсевать</dd><dt>overgrowth</dt><dd>гипертрофия, разрастание, заросль</dd><dt>overripe</dt><dd>перезрелый</dd><dt>overrun</dt><dd>избыток</dd><dt>overseed</dt><dd>высевать сверх нормы</dd><dt>oversow</dt><dd>пересевать, сеять дополнительно, сеять вразброс</dd><dt>overwinter</dt><dd>перезимовывать</dd><dt>oxidation</dt><dd>окисление</dd><dt>oxygen</dt><dd>кислород</dd><dt>oxygent-tolerant</dt><dd>не чувствительный к кислороду</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "O") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "O") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

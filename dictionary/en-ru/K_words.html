@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву K</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву K</h1>
+    
 		<dl>
 		<dt>keep</dt><dd>пастбище, подножный корм, запас кормов</dd><dt>keep (kept – kept)</dt><dd>держать, содержать (животных), хранить, сохранять,</dd><dt>keep down</dt><dd>уничтожать (сорняки)</dd><dt>keep up the fertility</dt><dd>поддерживать плодородие почвы</dd><dt>kernel milk line</dt><dd>молочная спелость зерна (в основном про кукурузу</dd><dt>kernel percentage</dt><dd>озернѐнность колоса в %</dd><dt>kernel size</dt><dd>величина зерна</dd><dt>kernel smut</dt><dd>головня зерен</dd><dt>kidney</dt><dd>почка</dd><dt>kill</dt><dd>уничтожать (сорняки,вредителей), ослаблять</dd><dt>killer</dt><dd>препарат для уничтожения (сорняков,вредителей)</dd><dt>killing frosts</dt><dd>летнее похолодание, заморозки</dd><dt>kind</dt><dd>вид, сорт, отличительный признак</dd><dt>knead</dt><dd>смешивать до получения однородной массы</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "K") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "K") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву U</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву U</h1>
+    
 		<dl>
 		<dt>ultrafiltration</dt><dd>ультрафильтрация (технология очистки воды путѐм фильтрации через сверхтонкие мембраны)</dd><dt>ultrafiltration concentration</dt><dd>концентрирование ультрафильтрацией</dd><dt>unable (to)</dt><dd>неспособный</dd><dt>undergo (underwent</dt><dd>испытывать, подвергаться (чему-л.)</dd><dt>undergone)</dt><dd>испытывать, подвергаться (чему-л.)</dd><dt>underground</dt><dd>подземный, подпочва</dd><dt>underseeding</dt><dd>подсев</dd><dt>undeveloped</dt><dd>необработанный, неосвоенный (о почве)</dd><dt>undo (undid – undone)</dt><dd>уничтожать (сорняки), губить (рост растений)</dd><dt>uniform</dt><dd>однородный, равномерный, единообразный, дружный (о всходах)</dd><dt>uniformly</dt><dd>единообразно, равномерно (по времени)</dd><dt>unique</dt><dd>уникальный, исключительный, необыкновенный</dd><dt>unsaturated</dt><dd>ненасыщенный</dd><dt>upper</dt><dd>верхний</dd><dt>uproot</dt><dd>вырывать с корнем, выкорчѐвывать, корчевать</dd><dt>uptake (uptook — uptaken)</dt><dd>поглощать, усваивать, поглощение, усвоение, потребление</dd><dt>urea</dt><dd>мочевина</dd><dt>use</dt><dd>употребление, применение, польза, использование, использовать, пользоваться, применять, употреблять</dd><dt>useful</dt><dd>полезный, ценный, высоко ценимый</dd><dt>usefulness</dt><dd>применимость, пригодность</dd><dt>utilize</dt><dd>употребление, применение, польза, использование, использовать, пользоваться, применять, употреблять</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "U") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "U") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

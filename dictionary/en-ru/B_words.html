@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву B</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву B</h1>
+    
 		<dl>
 		<dt>bacteria</dt><dd>бактерия</dd><dt>bacterium</dt><dd>бактерия</dd><dt>bark</dt><dd>кора (дерева)</dd><dt>barn</dt><dd>амбар, сенной сарай, гумно, хлев</dd><dt>barnyard</dt><dd>скотный двор</dd><dt>barnyard manure</dt><dd>навоз со скотного двора</dd><dt>barren area</dt><dd>пустошь, неплодородный, тощий (о земле)</dd><dt>base</dt><dd>основание, нижняя часть (растения)</dd><dt>basic</dt><dd>основной, главный</dd><dt>bear</dt><dd>производить, плодоносить</dd><dt>beard</dt><dd>ость (колоса)</dd><dt>bearing</dt><dd>плодоношение, плоды, урожай</dd><dt>bed</dt><dd>грядка, место семени в стручке, сажать, высаживать</dd><dt>bedding-out</dt><dd>высаживание, высадка в грунт</dd><dt>beetle</dt><dd>жук, жучок</dd><dt>belt</dt><dd>зона, район, полоса</dd><dt>bench test</dt><dd>лабораторное испытание</dd><dt>berry</dt><dd>ягода, мясистый плод</dd><dt>biennial</dt><dd>двулетник, двулетний</dd><dt>bind</dt><dd>связывать</dd><dt>biocycle</dt><dd>биоцикл, жизненный цикл</dd><dt>biodegrade</dt><dd>становиться биологически безопасным</dd><dt>black frost</dt><dd>заморозки при сухой погоде</dd><dt>blade</dt><dd>пластинка (листа)</dd><dt>blend</dt><dd>смесь семян разных сортов трав</dd><dt>blight</dt><dd>заболевание растений (завядание,гниение или прекращение роста)</dd><dt>blossom</dt><dd>цвет, цвести, распускаться, расцветать</dd><dt>bog</dt><dd>болотистая почва, верховое болото, торфяник</dd><dt>bogging</dt><dd>заболачивание</dd><dt>bottom</dt><dd>нижняя часть растения</dd><dt>branch</dt><dd>ветвь, ветка, ветвиться</dd><dt>branchy</dt><dd>разветвлѐнный, ветвистый, раскидистый</dd><dt>brand</dt><dd>торговая марка, бренд, маркировать</dd><dt>branded product</dt><dd>маркированное изделие (с фабричной или торговой маркой)</dd><dt>break</dt><dd>вспахивать, разрыхлять,</dd><dt>break down</dt><dd>лопаться (о почках), распускаться (о бутонах)</dd><dt>breed</dt><dd>разводить, выводить</dd><dt>breeding</dt><dd>селекция, улучшение породы или сорта</dd><dt>bring under cultivation</dt><dd>вводить в культуру</dd><dt>broadcast</dt><dd>посев вразброс, производить посев вразброс</dd><dt>broadcast dressing</dt><dd>разбросное внесение удобрений</dd><dt>bud</dt><dd>почка, давать почки, окулировать, прививать глазком</dd><dt>budding</dt><dd>окулировка, прививка глазком</dd><dt>bulb</dt><dd>луковица (цветка)</dd><dt>bulk starter</dt><dd>производственная закваска</dd><dt>bulky</dt><dd>большой, объемистый</dd><dt>bury</dt><dd>закладывать в почву, закапывать</dd><dt>bush</dt><dd>куст, кустарник, густо разрастаться</dd><dt>bushel</dt><dd>бушель</dd><dt>bushing</dt><dd>закустаривание</dd><dt>by-product</dt><dd>побочный продукт</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "B") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "B") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

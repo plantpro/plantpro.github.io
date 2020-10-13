@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву F</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву F</h1>
+    
 		<dl>
 		<dt>facility</dt><dd>оборудование, приспособления, аппаратура, здания (заводов), средства обслуживания</dd><dt>fade</dt><dd>увядать, вянуть, обесцвечивать(ся)</dd><dt>fail</dt><dd>не уродиться (о культуре)</dd><dt>fall</dt><dd>осыпание (семян), осень</dd><dt>fall out of cultivation</dt><dd>дичать, терять культурную форму</dd><dt>fallow</dt><dd>пар, паровое поле, заброшенная пашня, залежь</dd><dt>farming</dt><dd>земледелие, возделывание с-х культур, ведение с-х</dd><dt>fat soluble</dt><dd>жирорастворимый</dd><dt>favour</dt><dd>благоприятствовать</dd><dt>favourable</dt><dd>благоприятный</dd><dt>feldspar</dt><dd>полевой шпат</dd><dt>female</dt><dd>женский</dd><dt>fertile</dt><dd>плодородный (о почве), изобильный, урожайный</dd><dt>fertility</dt><dd>плодородие (почвы), изобилие, богатство</dd><dt>fertilization</dt><dd>внесение удобрений, подкормка удобрениями</dd><dt>fertilize</dt><dd>удобрять, вносить удобрение, унаваживать</dd><dt>fertilizer</dt><dd>удобрение (минеральное)</dd><dt>fiber</dt><dd>волокно, клетчатка</dd><dt>fibrous</dt><dd>мочковатый (корень), волокнистый</dd><dt>fibrous root system</dt><dd>мочковатая корневая система</dd><dt>field</dt><dd>поле, делянка,</dd><dt>field evaluation</dt><dd>полевая оценка</dd><dt>fine</dt><dd>мелкий, высококачественный, мелкозернистая (о почве)</dd><dt>fine-grained</dt><dd>мелкозернистый</dd><dt>firm</dt><dd>трамбовать, утрамбовывать землю, осевшая, уплотненная почва</dd><dt>firmness</dt><dd>твердость, крепость, прочность, устойчивость</dd><dt>fit for tillage</dt><dd>пригодный для пахоты</dd><dt>flake</dt><dd>вкрапление (небольшое), чешуйка</dd><dt>flat</dt><dd>плоский, нерельефный, однообразный, ровный, гладкий,</dd><dt>flavonoids</dt><dd>флавоноиды</dd><dt>fleshy fruit</dt><dd>сочный плод</dd><dt>fluid</dt><dd>жидкость, жидкий, текучий, подвижный, изменчивый</dd><dt>fluid manure spreader</dt><dd>машина для внесения навозной жижи</dd><dt>fold (four-fold)</dt><dd>кратно (четырехкратно)</dd><dt>forest litter</dt><dd>лесная подстилка, лесной опад</dd><dt>fraction</dt><dd>доля, порция, часть</dd><dt>frame</dt><dd>парник, парниковый сруб</dd><dt>frame grown</dt><dd>парниковый</dd><dt>freeze (froze frozen)</dt><dd>замерзать. замораживать, застывать, затвердевать</dd><dt>frequency</dt><dd>частота, повторяемость</dd><dt>friability of soil</dt><dd>рыхлость, эрозийность почв</dd><dt>frost date</dt><dd>срок наступления заморозков</dd><dt>frost day</dt><dd>день с отрицательной температурой (на поверхности почвы или растений)</dd><dt>frost-hardy</dt><dd>морозостойкий</dd><dt>frost-killing</dt><dd>вымерзание (растений)</dd><dt>frost-resistant</dt><dd>морозостойкий</dd><dt>frostproof</dt><dd>морозостойкий</dd><dt>frostproof date</dt><dd>срок минования весенних заморозков, беззаморозковый период</dd><dt>fruit</dt><dd>плод</dd><dt>fruit farming</dt><dd>плодоводство</dd><dt>fruitful</dt><dd>плодоносный, плодоносящий, продуктивный, плодородный</dd><dt>fungicide</dt><dd>фунгицид</dd><dt>fungous</dt><dd>грибной, грибковый</dd><dt>fungus (pl. fungi)</dt><dd>гриб, грибок, плесень</dd><dt>furrow</dt><dd>борозда, пахать, нарезать борозды, бороздовать</dd><dt>furrow applicator</dt><dd>машина для внесения ядохимикатов на дно борозды</dd><dt>furrow planter</dt><dd>бороздовая сеялка</dd><dt>furrow spacing</dt><dd>расстояние между бороздами</dd><dt>furrow-making device</dt><dd>бороздоделатель</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "F") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "F") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву Г</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву Г</h1>
+    
 		<dl>
 		<dt>газонокосилка</dt><dd>grasscutter, scythe</dd><dt>газы с тепличным/ парниковым эффектом</dt><dd>greenhouse gases</dd><dt>галлон</dt><dd>gallon</dd><dt>гектар</dt><dd>hectare</dd><dt>ген</dt><dd>gene</dd><dt>генотип</dt><dd>genotype</dd><dt>гербицид</dt><dd>herbicide, weedkiller, weedicide</dd><dt>гербицидная обработка почвы (без вспашки)</dt><dd>no till</dd><dt>герметичный</dt><dd>airtight</dd><dt>гибрид</dt><dd>cross</dd><dt>гибридизация</dt><dd>hybridization</dd><dt>гигиенический</dt><dd>sanitary</dd><dt>гидропоника</dt><dd>hydroponic culture</dd><dt>гидропонная установка</dt><dd>hydroponic plant</dd><dt>гидропонный</dt><dd>hydroponic</dd><dt>гидропонный стеллаж</dt><dd>hydroponic bed</dd><dt>гипертрофия</dt><dd>overgrowth</dd><dt>главный</dt><dd>basic, primary, principal</dd><dt>гладкий</dt><dd>level</dd><dt>гладкий,</dt><dd>flat</dd><dt>глазок</dt><dd>eye</dd><dt>гликопротеиды</dt><dd>glycosteroids</dd><dt>глина</dt><dd>clay</dd><dt>глубина</dt><dd>depth</dd><dt>глубина вспашки</dt><dd>tilth</dd><dt>глыбистый (о почве)</dt><dd>cloddy</dd><dt>гниение</dt><dd>corruption, decay, decomposition</dd><dt>гниение пищевых и скоропортящихся продуктов</dt><dd>spoilage</dd><dt>гнилой</dt><dd>corrupt</dd><dt>гниль</dt><dd>decay, mold</dd><dt>гнить</dt><dd>corrupt, decay, mold, rot</dd><dt>год</dt><dd>year</dd><dt>годный</dt><dd>suitable (for smth)</dd><dt>головня</dt><dd>rust</dd><dt>головня зерен</dt><dd>kernel smut</dd><dt>гомогенный</dt><dd>homogeneous</dd><dt>горшечная рассада</dt><dd>potted plant</dd><dt>гранула</dt><dd>nodule</dd><dt>грести</dt><dd>rake</dd><dt>гриб</dt><dd>fungus (pl. fungi)</dd><dt>гриб (съедобный)</dt><dd>mushroom</dd><dt>грибковый</dt><dd>fungous</dd><dt>грибница</dt><dd>mycelium</dd><dt>грибной</dt><dd>fungous</dd><dt>грибок</dt><dd>fungus (pl. fungi)</dd><dt>грубозернистый</dt><dd>grit</dd><dt>грубый (на ощупь)</dt><dd>harsh</dd><dt>грунт</dt><dd>ground, land</dd><dt>грунтовой</dt><dd>soil</dd><dt>гряда</dt><dd>row</dd><dt>грядка</dt><dd>bed</dd><dt>губить (рост растений)</dt><dd>undo (undid – undone)</dd><dt>гумно</dt><dd>barn</dd><dt>гумус</dt><dd>humus, mold</dd><dt>гусеница</dt><dd>caterpillar, larva</dd><dt>густо разрастаться</dt><dd>bush</dd><dt>густота</dt><dd>density</dd><dt>густота всходов</dt><dd>stand</dd><dt>густота посадки</dt><dd>row spacing</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "Г") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "Г") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

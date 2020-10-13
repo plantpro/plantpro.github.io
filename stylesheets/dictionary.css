@@ -6,8 +6,8 @@ nav {
 	background: var(--accent-color);
 }
 
-main {
-	width: calc(100% - 60px);
+main.offseted {
+	left: 460px;
 }
 
 h1 {
@@ -44,8 +44,8 @@ dl {
 }
 
 @media (max-width: 768px) { 
-	.col-md-8 {
-		height: auto;
+	main.offseted {
+		display: none;
 	}
 
 	main {

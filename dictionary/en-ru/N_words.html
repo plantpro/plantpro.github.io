@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву N</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву N</h1>
+    
 		<dl>
 		<dt>narrow</dt><dd>борона</dd><dt>narrow-row</dt><dd>узкорядный</dd><dt>narrow-row planter</dt><dd>узкорядная сеялка</dd><dt>narrow-row planting</dt><dd>узкорядный посев</dd><dt>natural resources</dt><dd>природные ресурсы</dd><dt>natural selection</dt><dd>естественный отбор</dd><dt>nature</dt><dd>природа, основное свойство, сущность</dd><dt>necrogenic</dt><dd>некрогенный, ускоряющий разложение растений</dd><dt>necrosis</dt><dd>некроз, отмирание</dd><dt>nematode</dt><dd>нематода (нитчатый червь)</dd><dt>net</dt><dd>чистый, нетто (о весе, доходе)</dd><dt>net weight</dt><dd>вес нетто, вес без упаковки</dd><dt>nitrate</dt><dd>нитрат, селитра, соль азотной кислоты</dd><dt>nitrogen</dt><dd>натрий</dd><dt>nitrogen fixer</dt><dd>азотофиксатор (бактерия)</dd><dt>nitrogenous</dt><dd>азотный, азотистый</dd><dt>nitroshooter</dt><dd>машина для внесения жидких азотных удобрений</dd><dt>no till</dt><dd>нулевая обработка почвы (перед посевом), гербицидная обработка почвы (без вспашки), беспахотный</dd><dt>no-grade</dt><dd>не сортовой</dd><dt>node</dt><dd>узел (на стебле у злаков), колено (ветки,корня), нарост, утолщение</dd><dt>nodule</dt><dd>клубенѐк, узелок, гранула, зерно, нарост на растении</dd><dt>non-essential</dt><dd>заменимый</dd><dt>non-essential amino acid</dt><dd>заменимая аминокислота</dd><dt>nuclear membrane</dt><dd>ядерная оболочка</dd><dt>nucleic acids</dt><dd>нуклеиновые кислоты</dd><dt>nucleous</dt><dd>ядро (клетки), косточка (плода), ядро (ореха)</dd><dt>nursery</dt><dd>питомник, рассадник</dd><dt>nursery seedlings</dt><dd>саженцы, выращенные в питомнике</dd><dt>nursling</dt><dd>сеянец, молодое растение, саженец</dd><dt>nut</dt><dd>орех, плод ореха, собирать орехи</dd><dt>nutrient</dt><dd>питательное вещество</dd><dt>nutrient intensity</dt><dd>концентрация питательных веществ</dd><dt>nutrient lack</dt><dd>недостаток питательных веществ</dd><dt>nutrient value</dt><dd>питательность</dd><dt>nutritional</dt><dd>относящийся к питанию, пищевой, питательный</dd><dt>nutritional value</dt><dd>питательная ценность</dd><dt>nutritious</dt><dd>питательный</dd><dt>nutritive</dt><dd>относящийся к питанию, пищевой, питательный</dd><dt>nutritive supplement</dt><dd>пищевые добавки</dd><dt>nutritive value</dt><dd>пищевая ценность</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "N") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "N") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

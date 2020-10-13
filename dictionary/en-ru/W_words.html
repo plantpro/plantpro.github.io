@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву W</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву W</h1>
+    
 		<dl>
 		<dt>walk</dt><dd>пастбище, выгон, выпас</dd><dt>washing</dt><dd>промывка, отмывка</dd><dt>waste</dt><dd>пустыня, пустошь, отходы (производства)</dd><dt>waste water</dt><dd>сточные воды</dd><dt>water</dt><dd>вода, водоѐм</dd><dt>water soluble</dt><dd>водорастворимый</dd><dt>water-holding capacilty</dt><dd>водоудерживающая способность</dd><dt>watering</dt><dd>водопой, полив, орошение</dd><dt>waterlogged</dt><dd>заболоченный</dd><dt>waxing</dt><dd>парафинирование, пропитывание воском, воскование</dd><dt>weed</dt><dd>сорняк, сорная трава, полоть, пропалывать, выпалывать, выдѐргивать сорняки</dd><dt>weed out</dt><dd>уничтожать сорняки</dd><dt>weed seeds</dt><dd>семена сорняков</dd><dt>weedicide</dt><dd>гербицид</dd><dt>weedkiller</dt><dd>гербицид</dd><dt>weigh</dt><dd>взвешивать</dd><dt>weighing n</dt><dd>взвешивание, определение массы</dd><dt>weight</dt><dd>вес, масса</dd><dt>weight loss</dt><dd>потеря веса</dd><dt>wheat</dt><dd>пшеница</dd><dt>wheat cultivation technology</dt><dd>технология возделывания пшеницы</dd><dt>whey</dt><dd>сыворотка</dd><dt>whey protein</dt><dd>сывороточный белок</dd><dt>whip</dt><dd>взбивать</dd><dt>whole</dt><dd>цельный</dd><dt>whole kernel corn</dt><dd>цельнозѐрная кукуруза</dd><dt>wholesome</dt><dd>целебный, полезный для здоровья</dd><dt>wholesome food</dt><dd>здоровая пища</dd><dt>wide-row</dt><dd>широкорядный (о посеве)</dd><dt>widespread</dt><dd>широко распространенный</dd><dt>wilding</dt><dd>дичок, дикое растение, одичавшее растение</dd><dt>wilt</dt><dd>вянуть, увядать, поникать, вилт (болезнь увядания)</dd><dt>wind row</dt><dd>валок сжатого хлеба или скошенной травы</dd><dt>winter</dt><dd>зимовать, перезимовывать</dd><dt>winter hardiness</dt><dd>зимостойкость</dd><dt>winter wheat</dt><dd>озимая пшеница</dd><dt>winter-annual</dt><dd>озимый</dd><dt>winterhardy</dt><dd>зимостойкий</dd><dt>winterkilling</dt><dd>вымерзание (растений)</dd><dt>wire-row planting</dt><dd>посев по мерной проволоке</dd><dt>wireworm</dt><dd>нематода, проволочник</dd><dt>wither</dt><dd>увядать, сохнуть, вянуть, засыхать</dd><dt>withering</dt><dd>вилт, увядание</dd><dt>withstand (withstood – withstood)</dt><dd>сопротивляться, противостоять, выдерживать</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "W") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "W") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 

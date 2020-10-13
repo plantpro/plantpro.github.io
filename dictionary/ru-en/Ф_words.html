@@ -37,7 +37,7 @@
 
 <body>
   <nav>
-    <button class="darker">
+    <button class="darker" id="menu-show">
       <img src="../../resources/images/menu.svg" >
     </button>
     <a href="../../index.html">
@@ -45,19 +45,16 @@
     </a>
   </nav>
 
-  <main>
-    <div class="row">
-
-      <div class="col-md-8">
-	  	<h1>Слова на букву Ф</h1>
-        
+  <main class="offseted">
+	  <h1>Слова на букву Ф</h1>
+    
 		<dl>
 		<dt>Ф. происходит с участием различных пигментов (хлорофилл и др)</dt><dd>photosynthesis</dd><dt>фактор почвообразования</dt><dd>soil-forming factor</dd><dt>фасоль</dt><dd>legume</dd><dt>фермент</dt><dd>enzyme, zyme</dd><dt>фермер</dt><dd>single variety grower</dd><dt>физическая спелость почвы</dt><dd>tilth</dd><dt>фиксатор</dt><dd>preservative</dd><dt>фиксировать</dt><dd>anchor</dd><dt>фитоалексины</dt><dd>phytoalexins</dd><dt>фитоиммунитет</dt><dd>plant disease resistance</dd><dt>фитонцид</dt><dd>phytoncide</dd><dt>флавоноиды</dt><dd>flavonoids</dd><dt>форма</dt><dd>shape</dd><dt>формировать (кроны плодовых деревьев и кустарников)</dt><dd>train</dd><dt>фосфатный</dt><dd>phosphatic</dd><dt>фосфор</dt><dd>phosphorus</dd><dt>фотосинтез</dt><dd>photosynthesis</dd><dt>фотохимический синтез (процесс превращения энергии видимого света в энергию химических связей</dt><dd>photosynthesis</dd><dt>фреза</dt><dd>tiller</dd><dt>фрезерный культиватор</dt><dd>row tiller</dd><dt>фруктовый сад</dt><dd>orchard</dd><dt>фунгицид</dt><dd>fungicide</dd><dt>фундук</dt><dd>cob</dd><dt>фунт (вес)</dt><dd>pound</dd>
 		</dl>
 		
-      </div>
+  </main>
 
-	  <div id="content-panel" class="nav-panel">
+	  <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -238,7 +235,6 @@
             </div>
           </div>
 	  </div>
-    </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -252,11 +248,19 @@
     crossorigin="anonymous"></script>
   <script src="../../scripts/lib/search_engine.min.js"> </script>
   <script>
-	for(let a of $("a")) {
-		if(a.innerText.trim() === "Ф") {
-			a.style.color = "hsl(293, 100%, 30%)";
-		}
-	}
+    for(let a of $("a")) {
+      if(a.innerText.trim() === "Ф") {
+        a.style.color = "hsl(293, 100%, 30%)";
+      }
+    }
+
+    function menuToggle() {
+      $("#content-panel").toggle();
+      $("main").toggleClass("offseted");
+      $("#menu-show").toggleClass("darker");
+    }
+
+    document.getElementById("menu-show").addEventListener("click", menuToggle);
   </script>
 </body>
 
