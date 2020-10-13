@@ -206,3 +206,7 @@ document.getElementById "toggle-search"
 	.toggleClass "darker"
 	$ "#main-panel"
 	.toggle()
+	$ "#search-box"
+	.toggleClass "col-md-8"
+	$ "#search-box"
+	.toggleClass "col-md-12"

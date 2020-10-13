@@ -235,7 +235,9 @@
 
   document.getElementById("toggle-search").addEventListener("click", function() {
     $("#toggle-search").toggleClass("darker");
-    return $("#main-panel").toggle();
+    $("#main-panel").toggle();
+    $("#search-box").toggleClass("col-md-8");
+    return $("#search-box").toggleClass("col-md-12");
   });
 
 }).call(this);
