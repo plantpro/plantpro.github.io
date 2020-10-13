@@ -92,7 +92,7 @@ def write_to_file(content, recordsCount):
 
 <body>
 	<nav>
-		<button class="darker">
+		<button class="darker" id="toggle-search">
 			<img src="../resources/images/search.svg">
 		</button>
 

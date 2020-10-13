@@ -199,3 +199,10 @@ document.getElementById "search-clear"
 
 document.getElementById "nothing-is-found-clear"
 .addEventListener "click", clearAllFilters
+
+document.getElementById "toggle-search"
+.addEventListener "click", () ->
+	$ "#toggle-search"
+	.classToggle "darker"
+	$ "#main-panel"
+	.toggle()
