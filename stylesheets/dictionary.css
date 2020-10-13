@@ -46,10 +46,7 @@ dl {
 @media (max-width: 768px) { 
 	main.offseted {
 		display: none;
-	}
-
-	main {
-		width: 100%;
+		left: 0;
 	}
 }
 
