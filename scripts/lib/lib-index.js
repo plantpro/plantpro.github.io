@@ -234,7 +234,7 @@
   document.getElementById("nothing-is-found-clear").addEventListener("click", clearAllFilters);
 
   document.getElementById("toggle-search").addEventListener("click", function() {
-    $("#toggle-search").classToggle("darker");
+    $("#toggle-search").toggleClass("darker");
     return $("#main-panel").toggle();
   });
 

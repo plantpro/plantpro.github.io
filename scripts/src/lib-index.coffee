@@ -203,6 +203,6 @@ document.getElementById "nothing-is-found-clear"
 document.getElementById "toggle-search"
 .addEventListener "click", () ->
 	$ "#toggle-search"
-	.classToggle "darker"
+	.toggleClass "darker"
 	$ "#main-panel"
 	.toggle()
