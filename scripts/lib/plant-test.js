@@ -1,102 +1,85 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Array.prototype["remove"] = function (from, to) {
     var rest = this.slice((to || from) + 1 || this.length);
     this.length = from < 0 ? this.length + from : from;
     return this.push.apply(this, rest);
 };
-var Test = /** @class */ (function () {
-    function Test(element, questions) {
+class Test extends HTMLElement {
+    constructor(questions) {
+        super();
         this.questions = questions;
-        this.element = element;
         this.current = 0;
         this.score = 0;
         this.maxScore = this.questions.length;
     }
-    Test.prototype.nextQuestion = function (score) {
+    nextQuestion(score) {
         this.score += score;
         this.current++;
         if (this.current >= this.questions.length) {
-            this.element.innerHTML = "Score: " + this.score + "/" + this.maxScore;
+            this.innerHTML = "Score: " + this.score + "/" + this.maxScore;
             return;
         }
-        this.element.innerHTML = "";
-        var q = this.questions[this.current];
+        this.innerHTML = "";
+        let q = this.questions[this.current];
         q.onAnswer(this.nextQuestion.bind(this));
-        this.element.appendChild(q.render(this.current + 1));
-    };
-    Test.prototype.render = function () {
-        var q = this.questions[this.current];
+        this.appendChild(q.render(this.current + 1));
+    }
+    render() {
+        let q = this.questions[this.current];
         q.onAnswer(this.nextQuestion.bind(this));
-        this.element.appendChild(q.render(this.current + 1));
-    };
-    return Test;
-}());
-var VariantQuestion = /** @class */ (function () {
-    function VariantQuestion(text, answers) {
+        this.appendChild(q.render(this.current + 1));
+    }
+}
+customElements.define("plant-test", Test);
+class VariantQuestion {
+    constructor(text, answers) {
         this.text = text;
         this.answers = answers;
     }
-    VariantQuestion.prototype.onAnswer = function (handler) {
+    onAnswer(handler) {
         this.onAnswerHandler = handler;
-    };
-    VariantQuestion.prototype.render = function (number) {
-        var div = document.createElement("div");
+    }
+    render(number) {
+        let div = document.createElement("div");
         div.className = "question question-" + this.classSuffix;
-        var heading = document.createElement("div");
+        let heading = document.createElement("div");
         heading.className = "question-heading";
-        var numberSpan = document.createElement("span");
+        let numberSpan = document.createElement("span");
         numberSpan.className = "question-no";
         numberSpan.innerText = number.toString();
-        var questionText = document.createElement("span");
+        let questionText = document.createElement("span");
         questionText.className = "question-text";
         questionText.innerText = this.text;
         heading.appendChild(numberSpan);
         heading.appendChild(questionText);
         div.appendChild(heading);
-        var answers = document.createElement("div");
+        let answers = document.createElement("div");
         answers.className = "answers";
-        var answerNumber = 1;
-        for (var _i = 0, _a = this.answers; _i < _a.length; _i++) {
-            var answer = _a[_i];
-            var renderedAnswer = answer.render(answerNumber);
+        let answerNumber = 1;
+        for (const answer of this.answers) {
+            let renderedAnswer = answer.render(answerNumber);
             answers.appendChild(renderedAnswer);
             renderedAnswer.addEventListener("click", this.selectAnswer.bind(this));
             answerNumber++;
         }
         div.appendChild(answers);
-        var nextButton = document.createElement("button");
-        nextButton.innerText = "Далее";
+        let nextButton = document.createElement("button");
+        nextButton.innerText = "Проверить";
+        nextButton.id = "next-button";
         nextButton.addEventListener("click", this.checkAnswer.bind(this));
         div.appendChild(nextButton);
         return div;
-    };
-    return VariantQuestion;
-}());
-var MultiQuestion = /** @class */ (function (_super) {
-    __extends(MultiQuestion, _super);
-    function MultiQuestion(text, answers, rightAnswerNumbers) {
-        var _this = _super.call(this, text, answers) || this;
-        _this.classSuffix = "multi";
-        _this.rightAnswerNumbers = rightAnswerNumbers;
-        _this.selected = [];
-        return _this;
     }
-    MultiQuestion.prototype.checkAnswer = function () {
-        var score = 0;
-        for (var _i = 0, _a = this.selected; _i < _a.length; _i++) {
-            var ans = _a[_i];
+}
+class MultiQuestion extends VariantQuestion {
+    constructor(text, answers, rightAnswerNumbers) {
+        super(text, answers);
+        this.classSuffix = "multi";
+        this.rightAnswerNumbers = rightAnswerNumbers;
+        this.selected = [];
+    }
+    checkAnswer() {
+        let score = 0;
+        for (const ans of this.selected) {
             if (this.rightAnswerNumbers.includes(ans)) {
                 score++;
             }
@@ -110,44 +93,66 @@ var MultiQuestion = /** @class */ (function (_super) {
         else {
             this.onAnswerHandler(0);
         }
-    };
-    MultiQuestion.prototype.selectAnswer = function (event) {
-        var answer = event.target.closest(".answer");
+    }
+    selectAnswer(event) {
+        let answer = event.target.closest(".answer");
         if (answer.classList.contains("answer-selected")) {
             answer.classList.remove("answer-selected");
-            var no = parseInt(answer.getElementsByClassName("answer-no")[0].innerText);
+            let no = parseInt(answer.getElementsByClassName("answer-no")[0].innerText);
             this.selected.remove(this.selected.indexOf(no));
         }
         else {
             answer.classList.add("answer-selected");
-            var no = parseInt(answer.getElementsByClassName("answer-no")[0].innerText);
+            let no = parseInt(answer.getElementsByClassName("answer-no")[0].innerText);
             this.selected.push(no);
         }
-    };
-    return MultiQuestion;
-}(VariantQuestion));
-var SingleQuestion = /** @class */ (function (_super) {
-    __extends(SingleQuestion, _super);
-    function SingleQuestion(text, answers, rightAnswerNumber) {
-        var _this = _super.call(this, text, answers) || this;
-        _this.classSuffix = "single";
-        _this.rightAnswerNumber = rightAnswerNumber;
-        _this.selected = null;
-        return _this;
     }
-    SingleQuestion.prototype.checkAnswer = function () {
+}
+class SingleQuestion extends VariantQuestion {
+    constructor(text, answers, rightAnswerNumber) {
+        super(text, answers);
+        this.classSuffix = "single";
+        this.flag = false;
+        this.rightAnswerNumber = rightAnswerNumber;
+        this.selected = null;
+    }
+    getAnswerByNumber(number) {
+        let answers = document.querySelectorAll(".answer");
+        for (const answer of answers) {
+            let no = parseInt(answer.querySelector(".answer-no").innerText);
+            if (no === number) {
+                return answer;
+            }
+        }
+    }
+    hightlightAnswers() {
         if (this.selected === this.rightAnswerNumber) {
-            this.onAnswerHandler(1);
+            this.getAnswerByNumber(this.selected).classList.add("correct-answer");
         }
         else {
-            this.onAnswerHandler(0);
+            this.getAnswerByNumber(this.rightAnswerNumber).classList.add("correct-answer");
+            this.getAnswerByNumber(this.selected).classList.add("wrong-answer");
         }
-    };
-    SingleQuestion.prototype.selectAnswer = function (event) {
+    }
+    checkAnswer() {
+        if (!this.flag) {
+            this.hightlightAnswers();
+            document.querySelector("#next-button").innerText = "Далее";
+            this.flag = true;
+        }
+        else {
+            if (this.selected === this.rightAnswerNumber) {
+                this.onAnswerHandler(1);
+            }
+            else {
+                this.onAnswerHandler(0);
+            }
+        }
+    }
+    selectAnswer(event) {
         if (this.selected != null) {
-            for (var _i = 0, _a = event.target.closest(".answers").children; _i < _a.length; _i++) {
-                var i = _a[_i];
-                var no = parseInt(i.getElementsByClassName("answer-no")[0].innerText);
+            for (let i of event.target.closest(".answers").children) {
+                let no = parseInt(i.getElementsByClassName("answer-no")[0].innerText);
                 if (no === this.selected) {
                     i.classList.remove("answer-selected");
                     this.selected = null;
@@ -155,7 +160,7 @@ var SingleQuestion = /** @class */ (function (_super) {
                 }
             }
         }
-        var answer = event.target.closest(".answer");
+        let answer = event.target.closest(".answer");
         if (answer.classList.contains("answer-selected")) {
             answer.classList.remove("answer-selected");
             this.selected = null;
@@ -164,56 +169,54 @@ var SingleQuestion = /** @class */ (function (_super) {
             answer.classList.add("answer-selected");
             this.selected = parseInt(answer.getElementsByClassName("answer-no")[0].innerText);
         }
-    };
-    return SingleQuestion;
-}(VariantQuestion));
-var InputQuestion = /** @class */ (function () {
-    function InputQuestion(text, rightAnswer) {
+    }
+}
+class InputQuestion {
+    constructor(text, rightAnswer) {
         this.text = text;
         this.rightAnswer = rightAnswer;
     }
-    InputQuestion.prototype.onAnswer = function (handler) {
+    onAnswer(handler) {
         this.onAnswerHandler = handler;
-    };
-    InputQuestion.prototype.render = function (number) {
-        var div = document.createElement("div");
+    }
+    render(number) {
+        let div = document.createElement("div");
         div.className = "question question-input";
-        var heading = document.createElement("div");
+        let heading = document.createElement("div");
         heading.className = "question-heading";
-        var numberSpan = document.createElement("span");
+        let numberSpan = document.createElement("span");
         numberSpan.className = "question-no";
         numberSpan.innerText = number.toString();
-        var questionText = document.createElement("span");
+        let questionText = document.createElement("span");
         questionText.className = "question-text";
         questionText.innerText = this.text;
         heading.appendChild(numberSpan);
         heading.appendChild(questionText);
         div.appendChild(heading);
-        var answers = document.createElement("div");
+        let answers = document.createElement("div");
         answers.className = "answers";
-        var input = document.createElement("input");
+        let input = document.createElement("input");
         input.type = "text";
         this.input = input;
         answers.appendChild(input);
         div.appendChild(answers);
-        var nextButton = document.createElement("button");
+        let nextButton = document.createElement("button");
         nextButton.innerText = "Далее";
         nextButton.addEventListener("click", this.checkAnswer.bind(this));
         div.appendChild(nextButton);
         return div;
-    };
-    InputQuestion.prototype.checkAnswer = function () {
+    }
+    checkAnswer() {
         if (this.input.value === this.rightAnswer) {
             this.onAnswerHandler(1);
         }
         else {
             this.onAnswerHandler(0);
         }
-    };
-    return InputQuestion;
-}());
-var HTMLAnswer = /** @class */ (function () {
-    function HTMLAnswer(element) {
+    }
+}
+class HTMLAnswer {
+    constructor(element) {
         if (typeof element === "string") {
             this.element = document.createElement("div");
             this.element.innerHTML = element;
@@ -222,23 +225,22 @@ var HTMLAnswer = /** @class */ (function () {
             this.element = element;
         }
     }
-    HTMLAnswer.prototype.render = function (number) {
-        var div = document.createElement("div");
+    render(number) {
+        let div = document.createElement("div");
         div.className = "answer html-answer";
         div.id = "answer-no-" + number;
-        var numberSpan = document.createElement("span");
+        let numberSpan = document.createElement("span");
         numberSpan.innerText = number.toString();
         numberSpan.className = "answer-no";
-        var content = document.createElement("div");
+        let content = document.createElement("div");
         content.className = "answer-content";
         content.appendChild(this.element);
         div.appendChild(content);
         return div;
-    };
-    return HTMLAnswer;
-}());
-var TextAnswer = /** @class */ (function () {
-    function TextAnswer(text) {
+    }
+}
+class TextAnswer {
+    constructor(text) {
         this.text = text;
     }
     /**
@@ -247,24 +249,23 @@ var TextAnswer = /** @class */ (function () {
      *  <span class="answer-content"></span>
      * </div>
      */
-    TextAnswer.prototype.render = function (number) {
-        var div = document.createElement("div");
+    render(number) {
+        let div = document.createElement("div");
         div.className = "answer text-answer";
         div.id = "answer-no-" + number;
-        var numberSpan = document.createElement("span");
+        let numberSpan = document.createElement("span");
         numberSpan.innerText = number.toString();
         numberSpan.className = "answer-no";
-        var content = document.createElement("span");
+        let content = document.createElement("span");
         content.innerText = this.text;
         content.className = "answer-content";
         div.appendChild(numberSpan);
         div.appendChild(content);
         return div;
-    };
-    return TextAnswer;
-}());
-var ImageAnswer = /** @class */ (function () {
-    function ImageAnswer(src, alt) {
+    }
+}
+class ImageAnswer {
+    constructor(src, alt) {
         this.src = src;
         this.alt = alt;
     }
@@ -276,22 +277,21 @@ var ImageAnswer = /** @class */ (function () {
      *  </div>
      * </div>
      */
-    ImageAnswer.prototype.render = function (number) {
-        var div = document.createElement("div");
+    render(number) {
+        let div = document.createElement("div");
         div.className = "answer image-answer";
         div.id = "answer-no-" + number;
-        var numberSpan = document.createElement("span");
+        let numberSpan = document.createElement("span");
         numberSpan.innerText = number.toString();
         numberSpan.className = "answer-no";
-        var content = document.createElement("div");
+        let content = document.createElement("div");
         content.className = "answer-content";
-        var image = document.createElement("img");
+        let image = document.createElement("img");
         image.src = this.src;
         image.alt = this.alt;
         content.appendChild(image);
         div.appendChild(numberSpan);
         div.appendChild(content);
         return div;
-    };
-    return ImageAnswer;
-}());
+    }
+}

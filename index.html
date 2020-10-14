@@ -35,7 +35,7 @@
 
 <body>
 	<div class="container-fluid main-screen">
-		<div class="row" id="firstRow">
+		<div class="row">
 			<div class="col-md-6">
 				<div class="left-panel">
 					<div class="main-illustration">
@@ -55,103 +55,47 @@
 
 			<div class="col-md-6">
 				<div class="main-screen-menu" id="mnu">
-					<a class="nav-card" href="book/soil-science/density.html">
-						Учебник
+					<a class="nav-card background-color-book" href="book/soil-science/density.html">
+						<strong>Учебник</strong>
 
 						<div class="cont">
 							<p class="nav-description">
 								Прочитайте наш учебник по агрономии
 							</p>
-
-							<div class="arrow-icon">
-								<img src="resources/images/right.svg" />
-							</div>
 						</div>
 					</a>
 
-					<a class="nav-card" href="library/index.html">
-						Библиотека
+					<a class="nav-card background-color-library" href="library/index.html">
+						<strong>Библиотека</strong>
 
 						<div class="cont">
 							<p class="nav-description">
 								Более 100 бесплатных книг по теме
 							</p>
-
-							<div class="arrow-icon">
-								<img src="resources/images/right.svg" />
-							</div>
 						</div>
 					</a>
 
-					<a class="nav-card" href="dictionary/en-ru/A_words.html">
-						Словарь
+					<a class="nav-card background-color-dictionary" href="dictionary/en-ru/A_words.html">
+						<strong>Словарь</strong>
 
 						<div class="cont">
 							<p class="nav-description">
 								Русско-английский и англо-русский словари
 							</p>
-
-							<div class="arrow-icon">
-								<img src="resources/images/right.svg" />
-							</div>
 						</div>
 					</a>
 
-					<a class="nav-card" href="applets/index.html">
-						Апплеты
+					<a class="nav-card background-color-applets" href="applets/index.html">
+						<strong>Апплеты</strong>
 
 						<div class="cont">
 							<p class="nav-description">
 								Апплеты - это небольшие приложения, призванные упростить жизнь
 							</p>
-
-							<div class="arrow-icon">
-								<img src="resources/images/right.svg" />
-							</div>
 						</div>
 					</a>
 				</div>
 			</div>
-		</div>
-
-		<div class="row" id="secondRow">
-			<div class="col-md-6">
-				<div class="main-screen-heading">
-					<h1>О сайте</h1>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<div class="main-screen-menu">
-					<p>
-						На данном сайте предоставлены различные материалы, предназначенные для обучения студентов
-						по специальности "Агрономия" и смежным специальностям.
-						Доступ к материалам сайта открыт для всех желающих.
-					</p>
-
-					<p>
-						Сайт является некомерческим, вопросы и предложения Вы можете прислать на электронную почту
-						<a href="mailto:plant-pro@mail.ru">plant-pro@mail.ru</a>
-					</p>
-
-					<p>
-						Исходный код данного сайта является открытым и доступен на
-						сервисе GitHub.
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div id="help-icon">
-			<img src="resources/images/about.svg" alt="">
-
-			<span>О сайте</span>
-		</div>
-
-		<div id="help-icon-2">
-			<img src="resources/images/door.svg" alt="">
-
-			<span>&nbsp;Назад&nbsp;</span>
 		</div>
 	</div>
 
@@ -163,21 +107,6 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
-	<script>
-		$("#secondRow").hide();
-		$("#help-icon-2").hide();
-
-		function switchContent() {
-			$("#firstRow").slideToggle();
-			$("#secondRow").slideToggle();
-
-			$("#help-icon").toggle();
-			$("#help-icon-2").toggle();
-		}
-
-		$("#help-icon").click(switchContent);
-		$("#help-icon-2").click(switchContent);
-	</script>
 </body>
 
 </html>

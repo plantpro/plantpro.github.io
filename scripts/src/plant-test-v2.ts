@@ -1,117 +1,61 @@
-Array.prototype["remove"] = function (from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
-};
-
 class Test extends HTMLElement {
-  private questions: Question[];
   private current: number;
   private score: number;
-  public maxScore: number;
 
-  constructor(questions: Question[]) {
+  constructor() {
     super();
-    this.questions = questions;
+
     this.current = 0;
     this.score = 0;
-    this.maxScore = this.questions.length;
   }
 
   nextQuestion(score: number) {
     this.score += score;
 
-    this.current++;
-
-    if (this.current >= this.questions.length) {
-      this.innerHTML = "Score: " + this.score + "/" + this.maxScore;
+    if (this.current >= this.children.length) {
+      this.innerHTML = "Score: " + this.score + "/" + (this.childNodes.length - 1);
       return;
     }
 
-    this.innerHTML = "";
-    let q = this.questions[this.current];
+    let q = this.children[this.current] as Question;
     q.onAnswer(this.nextQuestion.bind(this));
-    this.appendChild(q.render(this.current + 1));
-  }
+    q.style.display = 'block';
 
-  render() {
-    let q = this.questions[this.current];
-    q.onAnswer(this.nextQuestion.bind(this));
-    this.appendChild(q.render(this.current + 1));
+    this.current++;
   }
 }
 
-customElements.define("plant-test", Test);
+abstract class Question extends HTMLElement {
+  abstract onAnswer(handler: (score: number) => void): void;
+  abstract checkAnswer();
 
-interface Question {
-  render(number: number): Element;
-  onAnswer(handler: (score: number) => void): void;
+  private btn: HTMLButtonElement;
+
+  constructor() {
+    super();
+
+    this.btn = document.createElement("button");
+    this.btn.innerText = "Проверить";
+    this.btn.addEventListener("click", this.checkAnswer.bind(this));
+
+    this.appendChild(this.btn);
+  }
 }
 
-abstract class VariantQuestion implements Question {
-  protected abstract classSuffix: string;
-
-  protected text: string;
-  protected answers: Answer[];
-
+abstract class VariantQuestion extends Question {
   protected onAnswerHandler: (isCorrect: number) => void;
 
-  constructor(text: string, answers: Answer[]) {
-    this.text = text;
-    this.answers = answers;
+  constructor() {
+    super();
   }
 
   onAnswer(handler: (isCorrect: number) => void) {
     this.onAnswerHandler = handler;
   }
 
-  render(number: number): Element {
-    let div = document.createElement("div");
-    div.className = "question question-" + this.classSuffix;
-
-    let heading = document.createElement("div");
-    heading.className = "question-heading";
-
-    let numberSpan = document.createElement("span");
-    numberSpan.className = "question-no";
-    numberSpan.innerText = number.toString();
-
-    let questionText = document.createElement("span");
-    questionText.className = "question-text";
-    questionText.innerText = this.text;
-
-    heading.appendChild(numberSpan);
-    heading.appendChild(questionText);
-
-    div.appendChild(heading);
-
-    let answers = document.createElement("div");
-    answers.className = "answers";
-
-    let answerNumber = 1;
-    for (const answer of this.answers) {
-      let renderedAnswer = answer.render(answerNumber);
-      answers.appendChild(renderedAnswer);
-      renderedAnswer.addEventListener("click", this.selectAnswer.bind(this));
-      answerNumber++;
-    }
-
-    div.appendChild(answers);
-
-    let nextButton = document.createElement("button");
-    nextButton.innerText = "Проверить";
-    nextButton.id = "next-button";
-    nextButton.addEventListener("click", this.checkAnswer.bind(this));
-
-    div.appendChild(nextButton);
-
-    return div;
-  }
-
   abstract checkAnswer(): void;
-  abstract selectAnswer(event: { target: Element }): void;
 }
-
+/*
 class MultiQuestion extends VariantQuestion {
   private rightAnswerNumbers: number[];
   private selected: number[];
@@ -154,17 +98,10 @@ class MultiQuestion extends VariantQuestion {
     }
   }
 }
-
+*/
 class SingleQuestion extends VariantQuestion {
-  private rightAnswerNumber: number;
-  private selected: number | null;
-
-  protected classSuffix: string = "single";
-
-  constructor(text: string, answers: Answer[], rightAnswerNumber: number) {
-    super(text, answers);
-    this.rightAnswerNumber = rightAnswerNumber;
-    this.selected = null;
+  constructor() {
+    super();
   }
 
   getAnswerByNumber(number: number): Element {
@@ -178,12 +115,12 @@ class SingleQuestion extends VariantQuestion {
   }
 
   hightlightAnswers() {
-    if (this.selected === this.rightAnswerNumber) {
+  /*  if (this.selected === this.rightAnswerNumber) {
       this.getAnswerByNumber(this.selected).classList.add("correct-answer");
     } else {
       this.getAnswerByNumber(this.rightAnswerNumber).classList.add("correct-answer");
       this.getAnswerByNumber(this.selected).classList.add("wrong-answer");
-    }
+    }*/
   }
 
   flag = false;
@@ -194,16 +131,16 @@ class SingleQuestion extends VariantQuestion {
       (document.querySelector("#next-button") as HTMLButtonElement).innerText = "Далее";
       this.flag = true;
     } else {
-      if (this.selected === this.rightAnswerNumber) {
+     /* if (this.selected === this.rightAnswerNumber) {
         this.onAnswerHandler(1);
       } else {
         this.onAnswerHandler(0);
-      }
+      }*/
     }
   }
 
   selectAnswer(event: { target: Element }) {
-    if (this.selected != null) {
+  /*  if (this.selected != null) {
       for (let i of event.target.closest(".answers").children) {
         let no = parseInt((i.getElementsByClassName("answer-no")[0] as HTMLSpanElement).innerText);
         if (no === this.selected) {
@@ -221,10 +158,10 @@ class SingleQuestion extends VariantQuestion {
     } else {
       answer.classList.add("answer-selected");
       this.selected = parseInt((answer.getElementsByClassName("answer-no")[0] as HTMLSpanElement).innerText);
-    }
+    }*/
   }
 }
-
+/*
 class InputQuestion implements Question {
   protected text: string;
   protected rightAnswer: string;
@@ -289,7 +226,7 @@ class InputQuestion implements Question {
     }
   }
 }
-
+*/
 interface Answer {
   render(number: number): Element;
 }
@@ -398,3 +335,6 @@ class ImageAnswer implements Answer {
     return div;
   }
 }
+
+customElements.define("plant-test", Test);
+customElements.define("plant-single-question", SingleQuestion);
