@@ -1,0 +1,279 @@
+@import 'common';
+
+$accent-color: hsl(206, 100%, 30%);
+$accent-color-light: hsl(206, 100%, 50%);
+
+nav {
+	background: $accent-color;
+}
+
+.nav-panel-title {
+	color: $accent-color;
+}
+
+main {
+	margin-top: 2em;
+	font-size: 18px;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 18px;
+	border-bottom: solid 1px var(--darker);
+	padding: 10px 0;
+}
+
+.section-title {
+	display: block;
+	font-weight: bolder;
+	padding: 30px 10px 10px 20px;
+}
+
+.section-list {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+
+	width: 100%;
+}
+
+.section-list>a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+}
+
+.section-list>a {
+	color: var(--text-color);
+}
+
+.section-list>.active,
+.section-list>a:hover,
+.section-list>a:focus,
+.section-list>a:active {
+	text-decoration: none;
+	outline: none;
+	background-color: var(--darker);
+}
+
+.trim {
+	display: none;
+}
+
+@media (min-width: 992px){
+	.container {
+		max-width: 720px;
+	}
+
+	.trim {
+		display: block;
+	}
+}
+
+h3 {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 20px 0 15px 0;
+	border-bottom: solid 1px var(--darker);
+	padding: 10px 0;
+}
+
+.formula {
+	text-align: center;
+
+	margin: 1rem 0;
+
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+h1, .note {
+	margin: 1.5rem 0;
+}
+
+.note {
+	border-left: solid 5px;
+	padding: 10px 0 10px 10px;
+}
+
+.note-primary {
+	border-color: var(--primary);
+}
+
+.note-secondary {
+	border-color: var(--secondary);
+}
+
+.note-danger {
+	border-color: var(--danger);
+}
+
+.formula {
+	position: relative;
+	min-width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.formula span {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.formula .eval-link {
+	font-size: 12px;
+	cursor: pointer;
+	background-color: var(--accent-color);
+	color: white;
+	padding: 5px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-radius: 5px;
+}
+
+figure {
+	text-align: center;
+	margin: 2rem 0;
+	padding: 30px;
+	background-color: var(--secondary-background-color);
+}
+
+figure>img {
+	max-width: 100%;
+}
+
+figure>figcaption,
+.table-wrapper header {
+	font-size: 14px;
+	padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+#source-list {
+
+	padding: 1em 2em;
+	width: 100%;
+
+	overflow-y: auto;
+}
+
+.source-mark {
+	display: inline-block;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+	width: 1.5em;
+	text-align: center;
+	margin-left: 5px;
+}
+
+#source-list>a {
+	display: block;
+	width: 100%;
+	margin: 5px 10px;
+	padding: 10px 25px;
+	border-radius: 2px;
+	background-color: rgba(20, 20, 20, .05);
+}
+
+.fit-scroll {
+	overflow-x: auto;
+}
+
+.table-wrapper {
+	width: 100%;
+	margin: 2rem 0;
+	padding: 30px;
+	background-color: var(--secondary-backgroundcolor);
+}
+
+.table-wrapper table {
+	margin-top: 1rem;
+	overflow-x: auto;
+	font-size: 14px;
+}
+
+.table-wrapper header {
+	text-align: center;
+}
+
+.table-note {
+	margin-top: 1rem;
+	font-size: 14px;
+	color: inherit;
+	text-align: justify;
+}
+
+.table {
+	color: var(--text-color)
+}
+
+.table thead th {
+	border-bottom: none;
+}
+
+.table-bordered {
+	border: none;
+}
+
+.table td, .table th {
+	padding: .4rem;
+}
+
+caption {
+	font-size: 14px;
+	caption-side: top;
+	text-align: center;
+	color: inherit;
+}
+
+#settings-panel>form {
+	padding: 10px 25px;
+}
+
+#settings-panel>form>header {
+	font-weight: bolder;
+}
+
+
+input[type="radio"]+label {
+	padding-left: 5px;
+}
+
+input[type="radio"] {
+	visibility: hidden;
+}
+
+input[type="radio"]+label::before {
+    content: "";
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked+label::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    right: 0px;
+    box-sizing: border-box;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(20, 20, 20);
+    top: 5px;
+}

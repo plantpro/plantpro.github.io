@@ -131,18 +131,6 @@ namespace Sources {
 
 // In this namespace we customize interface
 namespace Theming {
-  function enableDarkTheme() {
-    document.documentElement.style.setProperty("--text-color", "rgb(242, 242, 242)");
-    document.documentElement.style.setProperty("--secondary-background-color", "rgb(45, 45, 45)");
-    document.documentElement.style.setProperty("--background-color", " rgb(30, 30, 30)");
-  }
-
-  function enableLightTheme() {
-    document.documentElement.style.setProperty("--text-color", "rgb(33, 37, 41)");
-    document.documentElement.style.setProperty("--secondary-background-color", "rgb(242, 242, 242)");
-    document.documentElement.style.setProperty("--background-color", " rgb(255, 255, 255)");
-  }
-
   function saveTheme(themeName: string) {
     try {
       localStorage.setItem("theme", themeName);
@@ -153,12 +141,13 @@ namespace Theming {
 
   export function themeChanged(event) {
     let themeName = event.target.value as string;
-	
-    if (themeName === "theme-dark") {
-      enableDarkTheme();
-    } else {
-      enableLightTheme();
+
+    let oldThemeName = localStorage.getItem("theme");
+    
+    if (themeName !== undefined) {
+      document.documentElement.classList.remove(oldThemeName)
     }
+    document.documentElement.classList.add(themeName)
 
     saveTheme(themeName);
   }
@@ -166,13 +155,16 @@ namespace Theming {
   export function loadTheme() {
     let themeName = localStorage.getItem("theme");
 
-    if (themeName === "theme-dark") {
-      (document.querySelector("#settings-theme-dark") as HTMLInputElement).checked = true;
-      enableDarkTheme();
-    } else {
-      (document.querySelector("#settings-theme-light") as HTMLInputElement).checked = true;
-      enableLightTheme();
+    if (themeName !== undefined) {
+      if (themeName === "theme-dark") {
+        (document.querySelector("#settings-theme-dark") as HTMLInputElement).checked = true;
+      } else {
+        (document.querySelector("#settings-theme-light") as HTMLInputElement).checked = true;
+      }
+
+      document.documentElement.classList.add(themeName)
     }
+
   }
 }
 

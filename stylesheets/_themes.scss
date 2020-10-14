@@ -1,0 +1,40 @@
+$darker: rgba(0, 0, 0, .2);
+
+$shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, .132), 0 0.3px 0.9px 0 rgba(0, 0, 0, .108);
+
+$themes: (
+    light: (
+        background-color: rgb(255, 255, 255),
+        text-color: rgb(33, 37, 41),
+        panel-color: rgb(242, 242, 242)
+    ),
+    dark: (
+        background-color: rgb(30, 30, 30),
+        text-color: rgb(242, 242, 242),
+        panel-color: rgb(45, 45, 45)
+    )
+);
+
+/*
+ * Implementation of themes
+ */
+
+$theme-map: null;
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}  

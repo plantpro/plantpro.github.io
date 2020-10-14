@@ -58,40 +58,32 @@
 					<a class="nav-card background-color-book" href="book/soil-science/density.html">
 						<strong>Учебник</strong>
 
-						<div class="cont">
-							<p class="nav-description">
-								Прочитайте наш учебник по агрономии
-							</p>
+						<div class="nav-card-description">
+							Прочитайте наш учебник по агрономии
 						</div>
 					</a>
 
 					<a class="nav-card background-color-library" href="library/index.html">
 						<strong>Библиотека</strong>
 
-						<div class="cont">
-							<p class="nav-description">
-								Более 100 бесплатных книг по теме
-							</p>
+						<div class="nav-card-description">
+							Более 100 бесплатных книг по теме
 						</div>
 					</a>
 
 					<a class="nav-card background-color-dictionary" href="dictionary/en-ru/A_words.html">
 						<strong>Словарь</strong>
 
-						<div class="cont">
-							<p class="nav-description">
-								Русско-английский и англо-русский словари
-							</p>
+						<div class="nav-card-description">
+							Русско-английский и англо-русский словари
 						</div>
 					</a>
 
 					<a class="nav-card background-color-applets" href="applets/index.html">
 						<strong>Апплеты</strong>
 
-						<div class="cont">
-							<p class="nav-description">
-								Апплеты - это небольшие приложения, призванные упростить жизнь
-							</p>
+						<div class="nav-card-description">
+							Апплеты - это небольшие приложения, призванные упростить жизнь
 						</div>
 					</a>
 				</div>
@@ -107,6 +99,17 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
+	<script>
+		function loadTheme() {
+			let themeName = localStorage.getItem("theme");
+
+			if (themeName !== undefined) {
+				document.documentElement.classList.add(themeName)
+			}
+		}
+
+		loadTheme();
+	</script>
 </body>
 
 </html>
