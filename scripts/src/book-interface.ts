@@ -14,7 +14,7 @@ namespace Visibility {
 
   export function settingsPanelVisibilityToggle() {
     $("#settings-panel").toggle();
-    $("main").toggleClass("trim");
+    $("main").toggleClass("hide-sm");
     $("#show-hide-settings-panel").toggleClass("darker");
 
     hideContentPanel();
@@ -22,7 +22,7 @@ namespace Visibility {
 
   export function contentPanelVisibilityToggle() {
     $("#content-panel").toggle();
-    $("main").toggleClass("trim");
+    $("main").toggleClass("hide-sm");
     $("#show-hide-content-panel").toggleClass("darker");
 	
     hideSettingsPanel();

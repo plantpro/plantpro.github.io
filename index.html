@@ -104,7 +104,9 @@
 			let themeName = localStorage.getItem("theme");
 
 			if (themeName !== undefined) {
-				document.documentElement.classList.add(themeName)
+				document.documentElement.classList.add(themeName);
+			} else {
+				document.documentElement.classList.add("theme-light");
 			}
 		}
 

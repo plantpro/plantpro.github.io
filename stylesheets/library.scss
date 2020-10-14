@@ -1,0 +1,274 @@
+@import 'common';
+
+@include applyAccentColor($hue: 150);
+$accent-color: getAccentColor($hue: 150);
+
+main {
+	width: calc(100% - 60px);
+}
+
+.row {
+	margin: 0;
+}
+
+#main-panel {
+	position: relative;
+    font-size: 14px;
+    
+	@include themify($themes) {
+        color: themed('text-color');  
+        background-color: themed('panel-color');  
+    } 
+
+	box-shadow: $shadow;
+}
+
+.main-panel-group {
+	margin: 20px 25px 10px 25px;
+}
+
+/* search-area */
+
+#search-area {
+	margin: 20px 25px 10px 25px;
+	display: flex;
+    gap: 3px;
+    
+    &>div {
+        flex-grow: 1;
+        display: flex;
+        border-radius: 2px;
+
+        @include themify($themes) {
+            background-color: themed('background-color');  
+        } 
+
+        border: solid 1px $darker;
+    }
+}
+
+#search-input {
+	width: 100%;
+	padding: 5px 0px 5px 10px;
+    border: none;
+    
+    background-color: transparent;	
+    @include themify($themes) {
+        color: themed('text-color');  
+    } 
+
+    &::placeholder {
+        color: rgba(0, 0, 0, .5);
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+    &:not(:placeholder-shown)+#search-clear:hover {
+        cursor: pointer;
+    }
+    
+    &:not(:placeholder-shown)+#search-clear>svg>path {
+        fill: rgba(0, 0, 0, .2);
+    }
+    
+    &:not(:placeholder-shown)+#search-clear  {
+        &:hover, &:active, &:focus {
+            svg>path {
+                fill: rgb(0, 0, 0);
+            }
+        }
+    }
+}
+
+#search-clear {
+	padding: 5px 5px;
+	border: none;
+    background-color: transparent;
+
+    &:hover {
+        cursor: default;
+    }
+
+    &:focus, &:active {
+        outline: none;
+    }
+
+    svg>path {
+        fill: none;
+    }
+}
+
+#search-button {
+	padding: 5px 15px;
+
+	border: none;
+	border-radius: 2px;
+
+	color: rgb(255, 255, 255);
+	background-color: $accent-color;
+}
+
+#search-button:hover,
+#search-button:active,
+#search-button:focus  {
+	outline: none;
+	background: hsl(150, 100%, 25%);
+}
+/* /search-area */
+
+.file-type-tag,
+.language-tag {
+  	color: rgb(255, 255, 255);
+  	padding: 3px 5px;
+	font-size: 12px;
+  	white-space: nowrap;
+	text-decoration: none;
+	border-radius: 2px;
+	margin-left: 3px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.language-tag {
+  background-color: hsl(260, 79%, 55%);
+}
+
+h1 {
+	font-size: 18px;
+	font-weight: bold;
+	display: block;
+	padding: 20px 25px 10px 1em;
+}
+
+/* record */
+.record {
+	padding: 1em;
+	margin-top: 1em;
+}
+
+.record-article-mark {
+	color: #aa0000;
+	font-size: smaller;
+}
+
+.record-title>a {
+	font-size: 16px;
+	color: var(--text-color);
+}
+
+.record-year,
+.record-size,
+.record-autor {
+	color: #999999;
+	font-size: smaller;
+}
+
+.record-autor {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* /record */
+
+.file-type-tag-pdf {
+	background-color: rgb(231, 47, 47);
+}
+
+.file-type-tag-djvu {
+	background-color: rgb(160, 0, 160);
+}
+
+.file-type-tag-online {
+	background-color: rgb(112, 112, 112);
+}
+
+#filter-area {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+/* filter-panel */
+.filter-panel {
+	font-size: 14px;
+	border-radius: 2px;
+    background-color: $accent-color;
+    @include themify($themes) {
+        color: themed('background-color');  
+    } 
+	margin-bottom: 1rem;
+}
+
+.close-panel-btn {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+	padding: 0;
+	float: right;
+  border: none;
+	outline: none;
+	background-color: transparent;
+}
+
+.close-panel-btn>svg {
+	fill: rgba(255, 255, 255, .5);
+	width:18px;
+	height:18px;
+}
+
+.close-panel-btn:hover,
+.close-panel-btn:focus,
+.close-panel-btn:active {
+	outline: none;
+}
+
+.close-panel-btn:hover>svg,
+.close-panel-btn:focus>svg,
+.close-panel-btn:active>svg {
+	fill: rgb(255, 255, 255);
+}
+/* /filter-panel */
+
+#nothing-is-found {
+	display:none;
+	margin: 1em 0;
+  background-color: rgba(255, 0, 0, .2);
+  padding: 1em;
+  border: 1px solid darkred;
+}
+
+#nothing-is-found>button {
+	font-size: 14px;
+	margin-left: auto;
+	padding: 5px 15px;
+
+	border: none;
+	border-radius: 2px;
+
+	color: var(--fore-color);
+	background-color: darkred;
+}
+
+#nothing-is-found>button:hover,
+#nothing-is-found>button:active,
+#nothing-is-found>button:focus {
+	outline: 0;
+	background-color: rgb(99, 0, 0);
+}
+
+#search-box {
+	height: 100vh;
+	overflow: auto;
+}
+
+@media (max-width: 768px) { 
+	#search-box {
+		height: auto;
+	}
+
+	main {
+		width: 100%;
+    }
+}

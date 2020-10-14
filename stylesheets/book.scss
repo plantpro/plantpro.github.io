@@ -1,26 +1,11 @@
 @import 'common';
 
-$accent-color: hsl(206, 100%, 30%);
-$accent-color-light: hsl(206, 100%, 50%);
-
-nav {
-	background: $accent-color;
-}
-
-.nav-panel-title {
-	color: $accent-color;
-}
+@include applyAccentColor($hue: 206);
+$accent-color: getAccentColor($hue: 206);
 
 main {
-	margin-top: 2em;
+	margin-top: 1em;
 	font-size: 18px;
-}
-
-h1 {
-	font-weight: bold;
-	font-size: 18px;
-	border-bottom: solid 1px var(--darker);
-	padding: 10px 0;
 }
 
 .section-title {
@@ -30,57 +15,53 @@ h1 {
 }
 
 .section-list {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
 
-	width: 100%;
-}
+    width: 100%;
+    
+    a {
+        display: block;
+        width: 100%;
+        padding: 10px 25px;
 
-.section-list>a {
-	display: block;
-	width: 100%;
-	padding: 10px 25px;
-}
+        @include themify($themes) {
+            color: themed('text-color');
+        } 
 
-.section-list>a {
-	color: var(--text-color);
-}
-
-.section-list>.active,
-.section-list>a:hover,
-.section-list>a:focus,
-.section-list>a:active {
-	text-decoration: none;
-	outline: none;
-	background-color: var(--darker);
-}
-
-.trim {
-	display: none;
+        &.active,
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none;
+            outline: none;
+            background-color: $darker;
+        }
+    }
 }
 
 @media (min-width: 992px){
 	.container {
 		max-width: 720px;
 	}
+}
 
-	.trim {
-		display: block;
-	}
+h1, h3 {
+    font: {
+        weight: bold;
+        size: 18px; ;
+    }
+
+    border-bottom: solid 1px $darker;
+	padding: 10px 0;
+}
+
+h1 {
+    margin: 1.5rem 0;
 }
 
 h3 {
-	font-size: 18px;
-	font-weight: bold;
 	margin: 20px 0 15px 0;
-	border-bottom: solid 1px var(--darker);
-	padding: 10px 0;
 }
 
 .formula {
@@ -89,79 +70,83 @@ h3 {
 	margin: 1rem 0;
 
 	overflow-x: auto;
-	overflow-y: hidden;
-}
+    overflow-y: hidden;
+    
+    position: relative;
+	min-width: 100%;
+    display: flex;
+    
+    span {
+        text-align: center;
+        margin: 0 auto;
+    }
 
-h1, .note {
-	margin: 1.5rem 0;
+    .eval-link {
+        font-size: 12px;
+        cursor: pointer;
+        background-color: $accent-color;
+        color: white;
+        padding: 5px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 5px;
+    }
 }
 
 .note {
+    margin: 1.5rem 0;
 	border-left: solid 5px;
-	padding: 10px 0 10px 10px;
-}
-
-.note-primary {
-	border-color: var(--primary);
-}
-
-.note-secondary {
-	border-color: var(--secondary);
-}
-
-.note-danger {
-	border-color: var(--danger);
-}
-
-.formula {
-	position: relative;
-	min-width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-
-.formula span {
-	text-align: center;
-	margin: 0 auto;
-}
-
-.formula .eval-link {
-	font-size: 12px;
-	cursor: pointer;
-	background-color: var(--accent-color);
-	color: white;
-	padding: 5px;
-	position: absolute;
-	right: 0;
-	top: 0;
-	border-radius: 5px;
+    padding: 10px 0 10px 10px;
+    
+    &-primary {
+        border-color: var(--primary);
+    }
+    
+    &-secondary {
+        border-color: var(--secondary);
+    }
+    
+    &-danger {
+        border-color: var(--danger);
+    }
+    
 }
 
 figure {
 	text-align: center;
 	margin: 2rem 0;
-	padding: 30px;
-	background-color: var(--secondary-background-color);
-}
+    padding: 30px;
+    
+    @include themify($themes) {
+        background-color: themed('panel-color');  
+    } 
 
-figure>img {
-	max-width: 100%;
-}
+    img {
+        max-width: 100%;
+    }
 
-figure>figcaption,
-.table-wrapper header {
-	font-size: 14px;
-	padding-top: .75rem;
-  padding-bottom: .75rem;
+    figcaption {
+        font-size: 14px;
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+    }
 }
 
 #source-list {
-
 	padding: 1em 2em;
 	width: 100%;
 
-	overflow-y: auto;
+    overflow-y: auto;
+    
+    a {
+        display: block;
+        width: 100%;
+        margin: 5px 10px;
+        padding: 10px 25px;
+        border-radius: 2px;
+        background-color: rgba(20, 20, 20, .05);
+    }
 }
 
 .source-mark {
@@ -174,15 +159,6 @@ figure>figcaption,
 	margin-left: 5px;
 }
 
-#source-list>a {
-	display: block;
-	width: 100%;
-	margin: 5px 10px;
-	padding: 10px 25px;
-	border-radius: 2px;
-	background-color: rgba(20, 20, 20, .05);
-}
-
 .fit-scroll {
 	overflow-x: auto;
 }
@@ -190,18 +166,24 @@ figure>figcaption,
 .table-wrapper {
 	width: 100%;
 	margin: 2rem 0;
-	padding: 30px;
-	background-color: var(--secondary-backgroundcolor);
-}
+    padding: 30px;
+    
+    @include themify($themes) {
+        background-color: themed('panel-color');  
+    } 
 
-.table-wrapper table {
-	margin-top: 1rem;
-	overflow-x: auto;
-	font-size: 14px;
-}
+    header {
+        font-size: 14px;
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+        text-align: center;
+    }
 
-.table-wrapper header {
-	text-align: center;
+    table {
+        margin-top: 1rem;
+        overflow-x: auto;
+        font-size: 14px;
+    }
 }
 
 .table-note {
@@ -212,7 +194,9 @@ figure>figcaption,
 }
 
 .table {
-	color: var(--text-color)
+    @include themify($themes) {
+        color: themed('text-color');  
+    } 
 }
 
 .table thead th {

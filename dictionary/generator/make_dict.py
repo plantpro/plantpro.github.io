@@ -340,6 +340,8 @@ class WordCounter:
     }}
 
     document.getElementById("menu-show").addEventListener("click", menuToggle);
+
+    menuToggle();
   </script>
 </body>
 

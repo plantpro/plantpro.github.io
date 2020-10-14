@@ -1,5 +1,5 @@
 <#
-	CoffeeScript compilation file
+	Compile script
 	Usage: powershell -File compile.ps1
 
 	Warning: with cyrillic symbols use in Windows 1251 encoding
@@ -7,30 +7,15 @@
 #>
 
 # Path to project
-$projectPath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection"
-# Path to Babel (installed globally)
-$babelPath = "C:\\Users\\ÔÍ\\AppData\\Roaming\\npm\\node_modules\\@babel"
+$projectPath = "C:\Users\Admin\Documents\plantpro.github.io"
 # Output path
-$libPath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection\\scripts\\lib"
+$libPath = "C:\\Users\\Admin\\Documents\\plantpro.github.io\\scripts\\lib"
 # Input path
-$srcPath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection\\scripts\\src"
-# Temporary directory with concatenated files
-$srcctPath = "C:\\Users\\ÔÍ\\Desktop\\—œ·√¿”\\plantprotection\\scripts\\src\\srcct"
+$srcPath = "C:\\Users\\Admin\\Documents\\plantpro.github.io\\scripts\\src"
 
-# Concat files
-py concater.py $srcPath $srcctPath
+$stylesPath = "C:\\Users\\Admin\\Documents\\plantpro.github.io\\stylesheets\\"
 
 # Apply CoffeScript compiler
-coffee -c -o $libPath $srcctPath
-
-# Apply Babel
-set-location $babelPath
-babel $libPath --out-dir $libPath --presets=@babel/env
-set-location $projectPath
-
-# Apply UglifyJS
-foreach ($script in get-childitem $libPath -file | where-object { -not $_.basename.endswith(".min" ) }) {
-	uglifyjs $script.fullname -o ($libPath + "\\" + $script.basename + ".min.js")
-}
-
-py .\dictionary\generator\make_dict.py .\dictionary\generator\src.txt .\dictionary\
+coffee -c -o $libPath $srcPath
+sass --watch $stylesPath
+postcss stylesheets/book.css -u autoprefixer -d stylesheets
