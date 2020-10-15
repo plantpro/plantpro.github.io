@@ -100,7 +100,6 @@ def write_to_file(content, recordsCount):
 		rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="../stylesheets/common.css">
 	<link rel="stylesheet" href="../stylesheets/library.css">
 </head>
 
@@ -117,23 +116,21 @@ def write_to_file(content, recordsCount):
 		</div>
 	</nav>
 
-	<main>
-		<div class="row">
-			<div class="col-md-4" id="main-panel">
-				<span class="nav-panel-title">Поиск</span>
+		<div id="main-panel" class="nav-panel">
+			<span class="nav-panel-title">Поиск</span>
 
-				<div id="search-area">
-					<div>
-						<input type="text" placeholder="Что ищем?" id="search-input">
+			<div id="search-area">
+				<div>
+					<input type="text" placeholder="Что ищем?" id="search-input">
 
-						<button type="button" id="search-clear">
-							<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
-								<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
-							</svg>
-						</button>
-					</div>
-					<button id="search-button">Поиск</button>
+					<button type="button" id="search-clear">
+						<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
+							<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+						</svg>
+					</button>
 				</div>
+				<button id="search-button">Поиск</button>
+			</div>
 
 				<div class="main-panel-group">
 					Тип файла:
@@ -151,17 +148,15 @@ def write_to_file(content, recordsCount):
 				<div id="filter-area"></div>
 			</div>
 
-			<div class="col-md-8" id="search-box">
-				<h1>Библиотека</h1>
+	<main id="search-box">
+		<h1>Библиотека</h1>
 
-				<div id="nothing-is-found">
-					Ничего не найдено.
-					<button type="button" id="nothing-is-found-clear">Сбросить фильтры</button>
-				</div>
-
-				{content}
-			</div>
+		<div id="nothing-is-found">
+			Ничего не найдено.
+			<button type="button" id="nothing-is-found-clear">Сбросить фильтры</button>
 		</div>
+
+		{content}
 	</main>
 				
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"

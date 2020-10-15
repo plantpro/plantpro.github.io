@@ -2,27 +2,37 @@
 // In this namespace we store functions to display or hide panels
 var Visibility;
 (function (Visibility) {
+    var contentPanelIsVisible = false;
+    var settingsPanelIsVisible = false;
     function hideContentPanel() {
         $("#content-panel").hide();
         $("#show-hide-content-panel").removeClass("darker");
+        contentPanelIsVisible = false;
     }
     Visibility.hideContentPanel = hideContentPanel;
     function hideSettingsPanel() {
         $("#settings-panel").hide();
         $("#show-hide-settings-panel").removeClass("darker");
+        settingsPanelIsVisible = false;
     }
     Visibility.hideSettingsPanel = hideSettingsPanel;
     function settingsPanelVisibilityToggle() {
         $("#settings-panel").toggle();
-        $("main").toggleClass("hide-sm");
+        if (!contentPanelIsVisible) {
+            $("main").toggleClass("hide-sm");
+        }
         $("#show-hide-settings-panel").toggleClass("darker");
+        settingsPanelIsVisible = !settingsPanelIsVisible;
         hideContentPanel();
     }
     Visibility.settingsPanelVisibilityToggle = settingsPanelVisibilityToggle;
     function contentPanelVisibilityToggle() {
         $("#content-panel").toggle();
-        $("main").toggleClass("hide-sm");
+        if (!settingsPanelIsVisible) {
+            $("main").toggleClass("hide-sm");
+        }
         $("#show-hide-content-panel").toggleClass("darker");
+        contentPanelIsVisible = !contentPanelIsVisible;
         hideSettingsPanel();
     }
     Visibility.contentPanelVisibilityToggle = contentPanelVisibilityToggle;

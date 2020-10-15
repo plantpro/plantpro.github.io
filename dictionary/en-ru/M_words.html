@@ -26,6 +26,20 @@
   <meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
+  <script>
+		function loadTheme() {
+			let themeName = localStorage.getItem("theme");
+
+			if (themeName !== undefined) {
+				document.documentElement.classList.add(themeName);
+			} else {
+				document.documentElement.classList.add("theme-light");
+			}
+		}
+
+		loadTheme();
+	</script>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
     rel="stylesheet">

@@ -3,24 +3,10 @@
 @include applyAccentColor($hue: 150);
 $accent-color: getAccentColor($hue: 150);
 
-main {
-	width: calc(100% - 60px);
-}
-
-.row {
-	margin: 0;
-}
-
-#main-panel {
-	position: relative;
-    font-size: 14px;
-    
-	@include themify($themes) {
-        color: themed('text-color');  
-        background-color: themed('panel-color');  
-    } 
-
-	box-shadow: $shadow;
+#main-panel, main {
+	@include respond-to($small) {
+		height: auto;
+	}
 }
 
 .main-panel-group {
@@ -40,10 +26,9 @@ main {
         border-radius: 2px;
 
         @include themify($themes) {
-            background-color: themed('background-color');  
+			background-color: themed('background-color');  
+			border: solid 1px themed('fifth-transparent');
         } 
-
-        border: solid 1px $darker;
     }
 }
 
@@ -58,7 +43,9 @@ main {
     } 
 
     &::placeholder {
-        color: rgba(0, 0, 0, .5);
+        @include themify($themes) {
+            color: themed('half-transparent');
+        } 
     }
 
     &:focus,
@@ -156,7 +143,9 @@ h1 {
 
 .record-title>a {
 	font-size: 16px;
-	color: var(--text-color);
+    @include themify($themes) {
+        color: themed('text-color');
+    } 
 }
 
 .record-year,
@@ -256,19 +245,4 @@ h1 {
 #nothing-is-found>button:focus {
 	outline: 0;
 	background-color: rgb(99, 0, 0);
-}
-
-#search-box {
-	height: 100vh;
-	overflow: auto;
-}
-
-@media (max-width: 768px) { 
-	#search-box {
-		height: auto;
-	}
-
-	main {
-		width: 100%;
-    }
 }

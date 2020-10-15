@@ -16,6 +16,12 @@
     }
 }
 
+$small: 768px;
+
+@mixin respond-to($max-width) {
+	@media only screen and (max-width: $max-width) { @content; }
+}
+
 $nav-width: 60px;
 $nav-panel-width: 400px;
 
@@ -32,24 +38,25 @@ body {
     @include themify($themes) {
         color: themed('text-color');  
         background-color: themed('background-color');  
-    } 
+	} 
+	
+	@include respond-to($small) {
+		flex-direction: column;
+	}
 }
 
 nav {
-	position: fixed;
 	width: $nav-width;
 	height: 100vh;
+
 	overflow-x: auto;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+
 	padding: 10px 0px;
     box-shadow: $shadow;
-    
-    img {
-        width: 24px;
-        height: 24px;
-    }
 
     a, button {
         display: flex;
@@ -67,16 +74,33 @@ nav {
         &:focus, &:hover, &:active {
             outline: none;
             background: $darker;
-        }
-    }
+		}
+	}
+	
+	img {
+        width: 24px;
+        height: 24px;
+	}
+	
+	.group {
+		display: flex; 
+		flex-direction: column; 
+		gap: 10px;
+
+		@include respond-to($small) {
+			flex-direction: row; 
+		}
+	}
+
+	@include respond-to($small) {
+		width: 100%;
+		height: $nav-width;
+		flex-direction: row;
+		padding: 0px 10px;
+	}
 }
 
 .nav-panel {
-	position: fixed;
-
-	left: $nav-width;
-	top: 0;
-
 	height: 100vh;
 	width: $nav-panel-width;
 
@@ -85,88 +109,64 @@ nav {
 	overscroll-behavior: contain;
 
 	border: none;
+	z-index: 100;
+
+	box-shadow: $shadow;
+
+	font-size: 14px;
 
     @include themify($themes) {
         color: themed('text-color');  
         background-color: themed('panel-color');  
-    } 
+	} 
+	
+	@include respond-to($small) {
+		height: calc(100vh - #{$nav-width});
+		width: 100%;
+	}
 
-	box-shadow: $shadow;
+	& &-title {
+		display: block;
+		padding: 20px 25px 10px 25px;
+	
+		font-weight: bold;
+		font-size: 18px;
+	}
 }
 
-.nav-panel-title {
-	display: block;
-	padding: 20px 25px 10px 25px;
+main {
+	flex: 1 1 0px;
+	height: 100vh;
+	overflow-y: auto;
 
-	font-weight: bold;
-	font-size: 18px;
-}
-
-.nav-group {
-	display: flex; 
-	flex-direction: column; 
-	gap: 10px;
+	@include respond-to($small) {
+		flex: auto;
+		height: calc(100vh - #{$nav-width});
+	}
 }
 
 a,
 a:focus,
 a:hover,
 a:active {
-	outline: none;
 	color: hsl(206, 100%, 30%);
-	-webkit-transition: .3s;
-	-o-transition: .3s;
-	transition: .3s;
-	text-decoration: underline;
+	transition: color .3s;
+	outline: none;
 }
 
 a {
-	color: hsl(206, 100%, 30%);
 	text-decoration: none;
 }
-
-main {
-	position: absolute;
-	left: $nav-width;
-}
-
-/* small screens */
-@media (max-width: 768px) { 
-	body {
-	    flex-direction: column;
-	}
-
-	nav {
-		position: relative;
-
-		width: 100%;
-		height: $nav-width;
-
-		flex-direction: row;
-
-		padding: 0px 10px;
-	}
-
-	.nav-group {
-		flex-direction: row; 
-	}
 	
-	main {
-		position: relative;
-		left: 0;
-	}
-
-	.nav-panel {
-		left: 0;
-		top: $nav-width;
-		height: 100vh;
-		width: 100%;
-	}
+a:focus,
+a:hover,
+a:active {
+	text-decoration: underline;
 }
 
 .panel {
 	padding: 1em 2em;
-	margin-top: 1em;
+	margin: 1em;
 
     backdrop-filter: blur(3px);
     
@@ -177,27 +177,14 @@ main {
 	letter-spacing: .03em;
 }
 
-.division-header {
-	padding: 15px 15px 3em 15px;
-}
-
-/* md */
-@media (min-width: 768px) { 
-	.division-header {
-		padding: 3em;
-	}
-}
-
 .darker {
 	background-color: $darker;
 }
 
 .hide-sm {
-	display: none;
-}
+	display: block;
 
-@media (min-width: 992px){
-	.hide-sm {
-		display: block;
+	@include respond-to($small) {
+		display: none;
 	}
 }
