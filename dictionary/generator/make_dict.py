@@ -128,7 +128,6 @@ class WordCounter:
     rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../stylesheets/common.css">
   <link rel="stylesheet" href="../../stylesheets/dictionary.css">
 </head>
 
@@ -142,12 +141,7 @@ class WordCounter:
     </a>
   </nav>
 
-  <main class="offseted">
-	  <h1>Слова на букву {title}</h1>
-    {self._generateTable(sorted(pairs, key=lambda x: x.word))}
-  </main>
-
-	  <div id="content-panel" class="nav-panel hide">
+   <div id="content-panel" class="nav-panel hide">
 	   <span class="nav-panel-title">Англо-русский словарь</span>
 
           <div class="main-panel-group">
@@ -328,6 +322,10 @@ class WordCounter:
             </div>
           </div>
 	  </div>
+
+  <main>
+	  <h1>Слова на букву {title}</h1>
+    {self._generateTable(sorted(pairs, key=lambda x: x.word))}
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

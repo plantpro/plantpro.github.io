@@ -166,10 +166,6 @@ nav {
   color: #870099;
 }
 
-main.offseted {
-  left: 460px;
-}
-
 h1 {
   font-size: 18px;
   font-weight: bold;
@@ -181,24 +177,6 @@ dl {
   padding-left: 1em;
 }
 
-.row {
-  margin: 0;
-}
-
-.main-panel {
-  position: relative;
-  font-size: 14px;
-  box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
-}
-.theme-light .main-panel {
-  color: #212529;
-  background-color: #f2f2f2;
-}
-.theme-dark .main-panel {
-  color: #f2f2f2;
-  background-color: #2d2d2d;
-}
-
 .main-panel-group {
   margin: 20px 25px 10px 25px;
 }
@@ -207,12 +185,6 @@ dl {
   height: 100vh;
 }
 
-@media (max-width: 768px) {
-  main.offseted {
-    display: none;
-    left: 0;
-  }
-}
 .letter-group {
   font-size: 2.5rem;
   text-align: center;

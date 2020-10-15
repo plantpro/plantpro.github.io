@@ -3,10 +3,6 @@
 @include applyAccentColor($hue: 293);
 $accent-color: getAccentColor($hue: 293);
 
-main.offseted {
-	left: 460px;
-}
-
 h1 {
 	font-size: 18px;
 	font-weight: bold;
@@ -18,33 +14,12 @@ dl {
 	padding-left: 1em;
 }
 
-.row {
-	margin: 0;
-}
-
-.main-panel {
-	position: relative;
-	font-size: 14px;
-    @include themify($themes) {
-        color: themed('text-color');  
-        background-color: themed('panel-color');  
-    } 
-	box-shadow: $shadow;
-}
-
 .main-panel-group {
 	margin: 20px 25px 10px 25px;
 }
 
 .col-md-8 {
 	height: 100vh;
-}
-
-@media (max-width: 768px) { 
-	main.offseted {
-		display: none;
-		left: 0;
-	}
 }
 
 .letter-group {
