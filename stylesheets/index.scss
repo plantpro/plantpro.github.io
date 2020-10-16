@@ -4,7 +4,8 @@ $divisions: (
     book: 206, 
     library: 150,
     dictionary: 293, 
-    applets: 0
+    applets: 0,
+    collections: 180
 );
 
 @mixin panel-background($id, $hue) {

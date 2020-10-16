@@ -29,6 +29,13 @@
   background: linear-gradient(45deg, #990000, #cc0000), #990000;
 }
 
+.background-color-collections {
+  background: #009999;
+}
+.background-color-collections:hover {
+  background: linear-gradient(45deg, #009999, #00cccc), #009999;
+}
+
 .theme-light body {
   color: #212529;
   background-color: white;

@@ -86,6 +86,14 @@
 							Апплеты - это небольшие приложения, призванные упростить жизнь
 						</div>
 					</a>
+
+					<a class="nav-card background-color-collections" href="collections/index.html">
+						<strong>Коллекции</strong>
+
+						<div class="nav-card-description">
+							Тематические подборки
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -106,7 +114,11 @@
 			if (themeName !== undefined) {
 				document.documentElement.classList.add(themeName);
 			} else {
-				document.documentElement.classList.add("theme-light");
+				if (window.matchMedia('(prefers-color-scheme)').media === 'dark') {
+					document.documentElement.classList.add("theme-dark");
+				} else {
+					document.documentElement.classList.add("theme-light");
+				}
 			}
 		}
 
