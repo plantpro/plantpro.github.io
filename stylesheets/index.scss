@@ -8,28 +8,10 @@ $divisions: (
     collections: 180
 );
 
-@function getAccentColor($hue, $light) {
-    @return hsl($hue, 100%, $light);
-}
-
-@mixin applyAccentColor($hue) {
-		nav {
-			@include themify($themes) {
-				background: getAccentColor($hue, themed('light'));
-			}
-		}
-		
-		.nav-panel-title {
-			@include themify($themes) {
-				color: getAccentColor($hue, 30);
-			}
-		}
-}
-
 @mixin panel-background($id, $hue) {
     .background-color-#{$id} {
         @include themify($themes) {
-            background: getAccentColor($hue, themed('light'));
+            background:  hsl($hue, 100%, themed('light'));
         }
 
         &:hover {
@@ -43,7 +25,6 @@ $divisions: (
 @each $division, $hue in $divisions {
     @include panel-background($division, $hue);
 }
-
 
 $small: 768px;
 
@@ -157,10 +138,34 @@ h4 {
     justify-content: center;
     margin: 3em;
 
-    img {
+    svg {
         width: 80vw;
         max-height: 50vh;
     }
+}
+
+.theme-light .st1 {
+    fill:  #A4E1F9;
+    transition: .3s;
+}
+
+
+.theme-dark .st1 {
+    fill:  #030303;
+    transition: .3s;
+}
+
+
+.theme-dark .stars {
+    opacity: 1;
+    transition: .3s;
+}
+
+.theme-dark .st2,
+.theme-dark .st3,
+.theme-light .stars {
+    opacity: 0;
+    transition: .3s;
 }
 
 h2 {

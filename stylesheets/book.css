@@ -2,10 +2,6 @@
 /*
  * Implementation of themes
  */
-:root {
-  color-scheme: light dark;
-}
-
 html {
   scroll-behavior: smooth;
 }

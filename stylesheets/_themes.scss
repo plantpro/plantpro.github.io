@@ -48,7 +48,3 @@ $theme-map: null;
 @function themed($key) {
     @return map-get($theme-map, $key);
 }  
-
-:root {
-    color-scheme: light dark;
-}

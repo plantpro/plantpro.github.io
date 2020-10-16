@@ -1,10 +1,6 @@
 /*
  * Implementation of themes
  */
-:root {
-  color-scheme: light dark;
-}
-
 .theme-light .background-color-book {
   background: #005799;
 }
@@ -175,9 +171,31 @@ h4 {
   justify-content: center;
   margin: 3em;
 }
-.main-illustration img {
+.main-illustration svg {
   width: 80vw;
   max-height: 50vh;
+}
+
+.theme-light .st1 {
+  fill: #A4E1F9;
+  transition: 0.3s;
+}
+
+.theme-dark .st1 {
+  fill: #030303;
+  transition: 0.3s;
+}
+
+.theme-dark .stars {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.theme-dark .st2,
+.theme-dark .st3,
+.theme-light .stars {
+  opacity: 0;
+  transition: 0.3s;
 }
 
 h2 {
