@@ -26,7 +26,7 @@ body {
     @include themify($themes) {
         color: themed('text-color');  
         background-color: themed('background-color');  
-    }    
+    }
 }
 
 .col-md-6 {

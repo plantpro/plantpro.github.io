@@ -109,12 +109,13 @@
 		crossorigin="anonymous"></script>
 	<script>
 		function loadTheme() {
+			localStorage.clear();
 			let themeName = localStorage.getItem("theme");
 
 			if (themeName !== undefined) {
 				document.documentElement.classList.add(themeName);
 			} else {
-				if (window.matchMedia('(prefers-color-scheme)').media === 'dark') {
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 					document.documentElement.classList.add("theme-dark");
 				} else {
 					document.documentElement.classList.add("theme-light");
