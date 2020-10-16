@@ -1,7 +1,7 @@
 @import 'common';
 
 @include applyAccentColor($hue: 293);
-$accent-color: getAccentColor($hue: 293);
+$hue: 293;
 
 h1 {
 	font-size: 18px;
@@ -31,7 +31,9 @@ dl {
     color: var(--secondary);
     
     &:hover {
-        color: $accent-color;
+		@include themify($themes) {
+			color: getAccentColor($hue, themed('light'));
+		}
         text-decoration: none;
     }
 }

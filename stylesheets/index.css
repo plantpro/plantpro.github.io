@@ -1,41 +1,95 @@
 /*
  * Implementation of themes
  */
-.background-color-book {
+:root {
+  color-scheme: light dark;
+}
+
+.theme-light .background-color-book {
   background: #005799;
 }
-.background-color-book:hover {
+.theme-dark .background-color-book {
+  background: #003a66;
+}
+.theme-light .background-color-book:hover {
   background: linear-gradient(45deg, #005799, #0074cc), #005799;
 }
+.theme-dark .background-color-book:hover {
+  background: linear-gradient(45deg, #003a66, #005799), #003a66;
+}
 
-.background-color-library {
+.theme-light .background-color-library {
   background: #00994d;
 }
-.background-color-library:hover {
+.theme-dark .background-color-library {
+  background: #006633;
+}
+.theme-light .background-color-library:hover {
   background: linear-gradient(45deg, #00994d, #00cc66), #00994d;
 }
+.theme-dark .background-color-library:hover {
+  background: linear-gradient(45deg, #006633, #00994d), #006633;
+}
 
-.background-color-dictionary {
+.theme-light .background-color-dictionary {
   background: #870099;
 }
-.background-color-dictionary:hover {
+.theme-dark .background-color-dictionary {
+  background: #5a0066;
+}
+.theme-light .background-color-dictionary:hover {
   background: linear-gradient(45deg, #870099, #b400cc), #870099;
 }
+.theme-dark .background-color-dictionary:hover {
+  background: linear-gradient(45deg, #5a0066, #870099), #5a0066;
+}
 
-.background-color-applets {
+.theme-light .background-color-applets {
   background: #990000;
 }
-.background-color-applets:hover {
+.theme-dark .background-color-applets {
+  background: #660000;
+}
+.theme-light .background-color-applets:hover {
   background: linear-gradient(45deg, #990000, #cc0000), #990000;
 }
+.theme-dark .background-color-applets:hover {
+  background: linear-gradient(45deg, #660000, #990000), #660000;
+}
 
-.background-color-collections {
+.theme-light .background-color-collections {
   background: #009999;
 }
-.background-color-collections:hover {
+.theme-dark .background-color-collections {
+  background: #006666;
+}
+.theme-light .background-color-collections:hover {
   background: linear-gradient(45deg, #009999, #00cccc), #009999;
 }
+.theme-dark .background-color-collections:hover {
+  background: linear-gradient(45deg, #006666, #009999), #006666;
+}
 
+.theme-switcher {
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  cursor: pointer;
+}
+.theme-switcher svg {
+  width: 24px;
+  height: 24px;
+}
+.theme-light .theme-switcher svg {
+  fill: rgba(0, 0, 0, 0.5);
+}
+.theme-dark .theme-switcher svg {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+body {
+  transition: color 0.3s, background-color 0.3s;
+}
 .theme-light body {
   color: #212529;
   background-color: white;
@@ -65,6 +119,7 @@
   flex: 1 0 300px;
   padding: 25px 20px;
   border-radius: 2px;
+  transition: color 0.3s, background-color 0.3s;
 }
 .theme-light .news-block {
   color: #212529;
@@ -144,7 +199,13 @@ h2 {
   font-weight: 500;
   font-size: 1.2rem;
   line-height: 28px;
-  color: rgba(0, 0, 0, 0.4);
+  transition: color 0.3s, background-color 0.3s;
+}
+.theme-light .main-screen-heading p {
+  color: rgba(0, 0, 0, 0.5);
+}
+.theme-dark .main-screen-heading p {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .buttons {
@@ -154,32 +215,27 @@ h2 {
   margin-left: 4em;
   margin-top: 3em;
 }
+@media only screen and (max-width: 768px) {
+  .buttons {
+    display: none;
+  }
+}
 .buttons a {
   display: block;
   font-style: normal;
   font-weight: 600;
   font-size: 1.2rem;
   line-height: 28px;
-  color: rgba(0, 0, 0, 0.4);
+  transition: color 0.3s, background-color 0.3s;
+}
+.theme-light .buttons a {
+  color: rgba(0, 0, 0, 0.5);
+}
+.theme-dark .buttons a {
+  color: rgba(255, 255, 255, 0.5);
 }
 .buttons a.accent {
   color: #68BD00;
-}
-
-#down-arrow {
-  display: flex;
-  justify-content: center;
-  height: 6em;
-}
-#down-arrow img {
-  width: 50px;
-}
-
-.main-screen-menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 2em 0;
 }
 
 .nav-card {
@@ -212,10 +268,6 @@ h2 {
   .main-screen-heading {
     margin-left: 4em;
     text-align: left;
-  }
-
-  #down-arrow {
-    display: none;
   }
 
   .main-illustration {

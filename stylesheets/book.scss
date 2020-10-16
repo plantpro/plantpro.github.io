@@ -1,7 +1,6 @@
 @import 'common';
 
 @include applyAccentColor($hue: 206);
-$accent-color: getAccentColor($hue: 206);
 
 main {
 	padding-top: 1em;
@@ -83,8 +82,9 @@ h3 {
 
     .eval-link {
         font-size: 12px;
-        cursor: pointer;
-        background-color: $accent-color;
+        @include themify($themes) {
+            background-color: getAccentColor($hue: 206, $light: themed('light'));
+        }
         color: white;
         padding: 5px;
         position: absolute;

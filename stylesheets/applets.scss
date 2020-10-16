@@ -1,7 +1,6 @@
 @import 'common';
 
 @include applyAccentColor($hue: 0);
-$accent-color: getAccentColor($hue: 0);
 
 main {
     padding: 25px 25px 10px 1em;

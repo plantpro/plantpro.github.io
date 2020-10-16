@@ -1,5 +1,7 @@
 $darker: rgba(0, 0, 0, .2);
 
+$theme-transition: color .3s, background-color .3s;
+
 $shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, .132), 0 0.3px 0.9px 0 rgba(0, 0, 0, .108);
 
 $themes: (
@@ -10,6 +12,7 @@ $themes: (
 
         fifth-transparent: rgba(0, 0, 0, .2),
         half-transparent: rgba(0, 0, 0, .5),
+        light: 30%
     ),
     dark: (
         background-color: rgb(30, 30, 30),
@@ -18,6 +21,7 @@ $themes: (
 
         fifth-transparent: rgba(255, 255, 255, .2),
         half-transparent: rgba(255, 255, 255, .5),
+        light: 20%
     )
 );
 
@@ -44,3 +48,7 @@ $theme-map: null;
 @function themed($key) {
     @return map-get($theme-map, $key);
 }  
+
+:root {
+    color-scheme: light dark;
+}

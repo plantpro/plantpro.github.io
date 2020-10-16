@@ -1,7 +1,8 @@
 @import 'common';
 
+$hue: 150;
+
 @include applyAccentColor($hue: 150);
-$accent-color: getAccentColor($hue: 150);
 
 #main-panel, main {
 	@include respond-to($small) {
@@ -95,7 +96,9 @@ $accent-color: getAccentColor($hue: 150);
 	border-radius: 2px;
 
 	color: rgb(255, 255, 255);
-	background-color: $accent-color;
+	@include themify($themes) {
+		background-color: getAccentColor($hue, themed('light'));
+	}
 }
 
 #search-button:hover,
@@ -183,7 +186,9 @@ h1 {
 .filter-panel {
 	font-size: 14px;
 	border-radius: 2px;
-    background-color: $accent-color;
+    @include themify($themes) {
+		background-color: getAccentColor($hue, themed('light'));
+	}
     @include themify($themes) {
         color: themed('background-color');  
     } 

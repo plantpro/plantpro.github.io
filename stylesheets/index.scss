@@ -8,12 +8,34 @@ $divisions: (
     collections: 180
 );
 
+@function getAccentColor($hue, $light) {
+    @return hsl($hue, 100%, $light);
+}
+
+@mixin applyAccentColor($hue) {
+		nav {
+			@include themify($themes) {
+				background: getAccentColor($hue, themed('light'));
+			}
+		}
+		
+		.nav-panel-title {
+			@include themify($themes) {
+				color: getAccentColor($hue, 30);
+			}
+		}
+}
+
 @mixin panel-background($id, $hue) {
     .background-color-#{$id} {
-        background: hsl($hue, 100%, 30%);
-        
+        @include themify($themes) {
+            background: getAccentColor($hue, themed('light'));
+        }
+
         &:hover {
-            background: linear-gradient(45deg, hsl($hue, 100%, 30%), hsl($hue, 100%, 40%)), hsl($hue, 100%, 30%);
+            @include themify($themes) {
+			    background: linear-gradient(45deg, hsl($hue, 100%, themed('light')), hsl($hue, 100%, themed('light') + 10)), hsl($hue, 100%, themed('light'));
+			}
         }
     }
 }
@@ -29,11 +51,31 @@ $small: 768px;
 	@media only screen and (max-width: $max-width) { @content; }
 }
 
+.theme-switcher {
+    position: absolute;
+
+    right: 50px;
+    top: 30px;
+
+    cursor: pointer;
+
+    svg {
+        width: 24px;
+        height: 24px;
+
+        @include themify($themes) {
+            fill: themed('half-transparent');   
+        }
+    }
+}
+
 body {
     @include themify($themes) {
         color: themed('text-color');  
         background-color: themed('background-color');  
     }
+
+    transition: $theme-transition;
 }
 
 .screen {
@@ -58,6 +100,7 @@ body {
     padding: 25px 20px;
     border-radius: 2px;
 
+    transition: $theme-transition;
 
     @include themify($themes) {
         color: themed('text-color');  
@@ -141,7 +184,10 @@ h2 {
         font-size: 1.2rem;
         line-height: 28px;
 
-        color: rgba(0, 0, 0, 0.4);
+        @include themify($themes) {
+            color: themed('half-transparent');   
+        }
+        transition: $theme-transition;
     }
 }
 
@@ -153,6 +199,10 @@ h2 {
     margin-left: 4em;
     margin-top: 3em;
 
+    @include respond-to($small) {
+        display: none;
+    }
+
     a {
         display: block;
         font-style: normal;
@@ -160,29 +210,15 @@ h2 {
         font-size: 1.2rem;
         line-height: 28px;
 
-        color: rgba(0, 0, 0, 0.4);
+        @include themify($themes) {
+            color: themed('half-transparent');   
+        }
+        transition: $theme-transition;
 
         &.accent {
             color: #68BD00;
         }
     }
-}
-
-#down-arrow {
-    display: flex;
-    justify-content: center;
-	height: 6em;
-    
-    img {
-        width: 50px;
-    }
-}
-
-.main-screen-menu {
-	display: flex;
-	flex-wrap: wrap;
-    gap: 10px;
-    margin: 2em 0;
 }
 
 .nav-card {
@@ -221,10 +257,6 @@ h2 {
 	.main-screen-heading {
 		margin-left: 4em;
 		text-align: left;
-	}
-
-	#down-arrow {
-		display: none;
 	}
 
 	.main-illustration {

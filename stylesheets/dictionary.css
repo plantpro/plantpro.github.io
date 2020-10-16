@@ -2,6 +2,10 @@
 /*
  * Implementation of themes
  */
+:root {
+  color-scheme: light dark;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,6 +14,7 @@ body {
   display: flex;
   flex-direction: row;
   font-family: "SF UI Text", sans-serif;
+  transition: color 0.3s, background-color 0.3s;
 }
 .theme-light body {
   color: #212529;
@@ -34,6 +39,7 @@ nav {
   justify-content: space-between;
   padding: 10px 0px;
   box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+  transition: color 0.3s, background-color 0.3s;
 }
 nav a, nav button {
   display: flex;
@@ -82,6 +88,7 @@ nav .group {
   z-index: 100;
   box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
   font-size: 14px;
+  transition: color 0.3s, background-color 0.3s;
 }
 .theme-light .nav-panel {
   color: #212529;
@@ -158,11 +165,17 @@ a:active {
   }
 }
 
-nav {
+.theme-light nav {
   background: #870099;
 }
+.theme-dark nav {
+  background: #5a0066;
+}
 
-.nav-panel-title {
+.theme-light .nav-panel-title {
+  color: #870099;
+}
+.theme-dark .nav-panel-title {
   color: #870099;
 }
 
@@ -194,8 +207,13 @@ dl {
   color: var(--secondary);
 }
 .letter:hover {
-  color: #870099;
   text-decoration: none;
+}
+.theme-light .letter:hover {
+  color: #870099;
+}
+.theme-dark .letter:hover {
+  color: #5a0066;
 }
 
 .top-panel {

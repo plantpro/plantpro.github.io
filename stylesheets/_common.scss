@@ -2,18 +2,22 @@
 
 @import 'themes';
 
-@function getAccentColor($hue) {
-    @return hsl($hue, 100%, 30%);
+@function getAccentColor($hue, $light) {
+    @return hsl($hue, 100%, $light);
 }
 
 @mixin applyAccentColor($hue) {
-    nav {
-        background: getAccentColor($hue);
-    }
-    
-    .nav-panel-title {
-        color: getAccentColor($hue);
-    }
+		nav {
+			@include themify($themes) {
+				background: getAccentColor($hue, themed('light'));
+			}
+		}
+		
+		.nav-panel-title {
+			@include themify($themes) {
+				color: getAccentColor($hue, 30);
+			}
+		}
 }
 
 $small: 768px;
@@ -43,6 +47,8 @@ body {
 	@include respond-to($small) {
 		flex-direction: column;
 	}
+
+	transition: color .3s, background-color .3s;
 }
 
 nav {
@@ -98,6 +104,8 @@ nav {
 		flex-direction: row;
 		padding: 0px 10px;
 	}
+
+	transition: color .3s, background-color .3s;
 }
 
 .nav-panel {
@@ -132,6 +140,8 @@ nav {
 		font-weight: bold;
 		font-size: 18px;
 	}
+
+	transition: color .3s, background-color .3s;
 }
 
 main {
