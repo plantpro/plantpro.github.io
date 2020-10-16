@@ -45,39 +45,125 @@
   background-color: #1e1e1e;
 }
 
+.screen {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 4em;
+  margin-bottom: 2em;
+}
+@media only screen and (max-width: 768px) {
+  .screen {
+    flex-direction: column;
+    padding: 0;
+    margin-top: 3em;
+  }
+}
+
+.news-block {
+  flex: 1 0 300px;
+  padding: 25px 20px;
+  border-radius: 2px;
+}
+.theme-light .news-block {
+  color: #212529;
+  background-color: #f2f2f2;
+}
+.theme-dark .news-block {
+  color: #f2f2f2;
+  background-color: #2d2d2d;
+}
+.news-block .news-item {
+  margin-bottom: 10px;
+}
+.news-block .news-item .news-date {
+  font-size: 12px;
+}
+.news-block .news-item .news-title {
+  font-weight: 600;
+}
+
+.menu {
+  flex: 1 1 60vw;
+}
+.menu .menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 2em 0 0 0;
+}
+@media only screen and (max-width: 768px) {
+  .menu .menu-items {
+    justify-content: center;
+  }
+}
+
+h4 {
+  font-weight: bold;
+}
+
 .col-md-6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
 }
 
 .left-panel {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: calc(100vh - 6em);
 }
 
 .main-illustration {
   display: flex;
   justify-content: center;
+  margin: 3em;
 }
 .main-illustration img {
   width: 80vw;
-  max-height: 60vh;
+  max-height: 50vh;
+}
+
+h2 {
+  font-size: 2rem;
+  word-break: normal;
+  font-weight: 700;
 }
 
 .main-screen-heading {
-  margin-top: 30px;
   text-align: center;
-  letter-spacing: 0.03em;
 }
 .main-screen-heading h1 {
-  text-transform: uppercase;
-  font-size: 2em;
+  font-size: 3rem;
   word-break: normal;
-  font-weight: bold;
+  font-weight: 700;
+}
+.main-screen-heading p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 4em;
+  margin-top: 3em;
+}
+.buttons a {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.buttons a.accent {
+  color: #68BD00;
 }
 
 #down-arrow {
@@ -92,18 +178,18 @@
 .main-screen-menu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
+  margin: 2em 0;
 }
 
 .nav-card {
   color: inherit;
-  max-width: 250px;
   letter-spacing: 0.03em;
   padding: 1em 1em;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
+  flex: 1 1 250px;
   color: white;
 }
 .nav-card:hover, .nav-card:focus {
@@ -124,7 +210,7 @@
 
 @media (min-width: 768px) {
   .main-screen-heading {
-    margin-left: 3em;
+    margin-left: 4em;
     text-align: left;
   }
 
@@ -133,12 +219,15 @@
   }
 
   .main-illustration {
-    margin-left: 2em;
-    justify-content: flex-start;
+    margin: 0;
   }
   .main-illustration img {
     width: 30vw;
     max-height: 100vh;
+  }
+
+  .buttons {
+    flex-direction: row;
   }
 
   .left-panel {

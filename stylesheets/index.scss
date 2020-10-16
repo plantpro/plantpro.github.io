@@ -22,6 +22,13 @@ $divisions: (
     @include panel-background($division, $hue);
 }
 
+
+$small: 768px;
+
+@mixin respond-to($max-width) {
+	@media only screen and (max-width: $max-width) { @content; }
+}
+
 body {
     @include themify($themes) {
         color: themed('text-color');  
@@ -29,42 +36,135 @@ body {
     }
 }
 
+.screen {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 4em;
+    margin-bottom: 2em;
+
+    @include respond-to($small) {
+        flex-direction: column;
+        padding: 0;
+        margin-top: 3em;
+    }
+}
+
+.news-block {
+    flex: 1 0 300px;
+
+    padding: 25px 20px;
+    border-radius: 2px;
+
+
+    @include themify($themes) {
+        color: themed('text-color');  
+        background-color: themed('panel-color');  
+    }
+
+    .news-item {
+        margin-bottom: 10px;
+
+        .news-date {
+            font-size: 12px;
+        }
+
+        .news-title {
+            font-weight: 600;
+        }
+    }
+}
+
+.menu {
+    flex: 1 1 60vw;
+
+    .menu-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 2em 0 0 0;
+
+        @include respond-to($small) {
+            justify-content: center;
+        }
+    }
+}
+
+
+h4 {
+    font-weight: bold;
+}
+
 .col-md-6 {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
-	min-height: 100vh;
 }
 
 .left-panel {
 	display: flex;
 	flex-direction: column;
     justify-content: center;
-    
-	height: calc(100vh - 6em);
 }
 
 .main-illustration {
     display: flex;
     justify-content: center;
+    margin: 3em;
 
     img {
         width: 80vw;
-        max-height: 60vh;
+        max-height: 50vh;
     }
 }
 
+h2 {
+    font-size: 2rem;
+    word-break: normal;
+    font-weight: 700;
+}
+
 .main-screen-heading {
-	margin-top: 30px;
 	text-align: center;
-    letter-spacing: .03em;
     
     h1 {
-        text-transform: uppercase;
-        font-size: 2em;
+        font-size: 3rem;
         word-break: normal;
-        font-weight: bold;
+        font-weight: 700;
+    }
+
+    p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 28px;
+
+        color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin-left: 4em;
+    margin-top: 3em;
+
+    a {
+        display: block;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.2rem;
+        line-height: 28px;
+
+        color: rgba(0, 0, 0, 0.4);
+
+        &.accent {
+            color: #68BD00;
+        }
     }
 }
 
@@ -81,18 +181,20 @@ body {
 .main-screen-menu {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	gap: 10px;
+    gap: 10px;
+    margin: 2em 0;
 }
 
 .nav-card {
 	color: inherit;
-	max-width: 250px;
+
 	letter-spacing: .03em;
 	padding: 1em 1em;
 	border-radius: 2px;
 	display: flex;
-	flex-direction: column;
+    flex-direction: column;
+    
+    flex: 1 1 250px;
 
     color: rgb(255, 255, 255);
     
@@ -117,7 +219,7 @@ body {
 
 @media (min-width: 768px) { 
 	.main-screen-heading {
-		margin-left: 3em;
+		margin-left: 4em;
 		text-align: left;
 	}
 
@@ -126,16 +228,19 @@ body {
 	}
 
 	.main-illustration {
-		margin-left: 2em;
-        justify-content: flex-start;
-        
+        margin: 0;
+
         img {
             width: 30vw;
             max-height: 100vh;
         }
-	}
+    }
+    
+    .buttons {
+        flex-direction: row;
+    }
 
 	.left-panel {
-		height: 100vh;
+        height: 100vh;
 	}
 }
