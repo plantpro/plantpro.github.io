@@ -1,22 +1,235 @@
-/* Error: Missing argument $light.
- *   ,--> stylesheets\collections.scss
- * 4 | $accent-color: getAccentColor($hue: 180);
- *   |                ^^^^^^^^^^^^^^^^^^^^^^^^^ invocation
- *   '
- *   ,--> stylesheets\_common.scss
- * 5 | @function getAccentColor($hue, $light) {
- *   |           ============================ declaration
- *   '
- *   stylesheets\collections.scss 4:16  getAccentColor()
- *   stylesheets\collections.scss 4:16  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Missing argument $light.\a   \250c \2500 \2500 > stylesheets\\collections.scss\a 4 \2502  $accent-color: getAccentColor($hue: 180);\d\a   \2502                 ^^^^^^^^^^^^^^^^^^^^^^^^^ invocation\a   \2575 \a   \250c \2500 \2500 > stylesheets\\_common.scss\a 5 \2502  @function getAccentColor($hue, $light) {\d\a   \2502            \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  declaration\a   \2575 \a   stylesheets\\collections.scss 4:16  getAccentColor()\a   stylesheets\\collections.scss 4:16  root stylesheet";
+/* Common styles, applied to all pages (with few exceptions) */
+/*
+ * Implementation of themes
+ */
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  display: flex;
+  flex-direction: row;
+  font-family: "SF UI Text", sans-serif;
+  transition: color 0.3s, background-color 0.3s;
+}
+.theme-light body {
+  color: #212529;
+  background-color: white;
+}
+.theme-dark body {
+  color: #f2f2f2;
+  background-color: #1e1e1e;
+}
+@media only screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+}
+
+nav {
+  width: 60px;
+  height: 100vh;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0px;
+  box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+  transition: color 0.3s, background-color 0.3s;
+}
+nav a, nav button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 15px;
+  border: none;
+  font-size: 12px;
+  background-color: transparent;
+}
+nav a:focus, nav a:hover, nav a:active, nav button:focus, nav button:hover, nav button:active {
+  outline: none;
+  background: rgba(0, 0, 0, 0.2);
+}
+nav img {
+  width: 24px;
+  height: 24px;
+}
+nav .group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media only screen and (max-width: 768px) {
+  nav .group {
+    flex-direction: row;
+  }
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    padding: 0px 10px;
+  }
+}
+
+.nav-panel {
+  height: 100vh;
+  width: 400px;
+  overflow-y: auto;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  border: none;
+  z-index: 100;
+  box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+  font-size: 14px;
+  transition: color 0.3s, background-color 0.3s;
+}
+.theme-light .nav-panel {
+  color: #212529;
+  background-color: #f2f2f2;
+}
+.theme-dark .nav-panel {
+  color: #f2f2f2;
+  background-color: #2e2e2e;
+}
+@media only screen and (max-width: 768px) {
+  .nav-panel {
+    height: calc(100vh - 60px);
+    width: 100%;
+  }
+}
+.nav-panel .nav-panel-title {
+  display: block;
+  padding: 20px 25px 10px 25px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+main {
+  flex: 1 1 0px;
+  height: 100vh;
+  overflow-y: auto;
+}
+@media only screen and (max-width: 768px) {
+  main {
+    flex: auto;
+    height: calc(100vh - 60px);
+  }
+}
+
+a,
+a:focus,
+a:hover,
+a:active {
+  color: #005799;
+  transition: color 0.3s;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+.panel {
+  padding: 1em 2em;
+  margin: 1em;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+}
+
+.darker {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.hide-sm {
+  display: block;
+}
+@media only screen and (max-width: 768px) {
+  .hide-sm {
+    display: none;
+  }
+}
+
+.theme-light nav {
+  background: #009999;
+}
+.theme-dark nav {
+  background: #006666;
+}
+
+.theme-light .nav-panel-title {
+  color: #009999;
+}
+.theme-dark .nav-panel-title {
+  color: #009999;
+}
+
+main {
+  padding: 1em;
+}
+
+h1 {
+  margin: 1.5rem 0;
+}
+
+h3 {
+  margin: 20px 0 15px 0;
+}
+
+.preface-panel {
+  padding: 25px 20px;
+  border-radius: 2px;
+  transition: color 0.3s, background-color 0.3s;
+}
+.theme-light .preface-panel {
+  color: #212529;
+  background-color: #f2f2f2;
+}
+.theme-dark .preface-panel {
+  color: #f2f2f2;
+  background-color: #2e2e2e;
+}
+
+.items {
+  display: flex;
+  margin: 20px 0 20px 0;
+}
+
+.item-panel {
+  flex: 0 1 200px;
+  padding: 25px 20px;
+  border-radius: 2px;
+  margin-right: 5px;
+  transition: color 0.3s, background-color 0.3s;
+  font-weight: 600;
+}
+.theme-light .item-panel {
+  color: #212529;
+  background-color: #f2f2f2;
+}
+.theme-dark .item-panel {
+  color: #f2f2f2;
+  background-color: #2e2e2e;
+}
+.item-panel:hover {
+  text-decoration: none;
+}
+.theme-light .item-panel:hover {
+  background-color: #d9d9d9;
+}
+.theme-dark .item-panel:hover {
+  background-color: #141414;
+}
+
+/*# sourceMappingURL=collections.css.map */

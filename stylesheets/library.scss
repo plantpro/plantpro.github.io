@@ -1,7 +1,6 @@
 @import 'common';
 
 $hue: 150;
-
 @include applyAccentColor($hue: 150);
 
 #main-panel, main {

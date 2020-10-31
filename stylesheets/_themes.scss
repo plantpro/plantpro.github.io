@@ -8,7 +8,8 @@ $themes: (
     light: (
         background-color: rgb(255, 255, 255),
         text-color: rgb(33, 37, 41),
-        panel-color: rgb(242, 242, 242),
+        panel-color: hsl(0, 0%, 95%),
+        panel-color-darker:hsl(0, 0%, 85%),
 
         fifth-transparent: rgba(0, 0, 0, .2),
         half-transparent: rgba(0, 0, 0, .5),
@@ -17,7 +18,8 @@ $themes: (
     dark: (
         background-color: rgb(30, 30, 30),
         text-color: rgb(242, 242, 242),
-        panel-color: rgb(45, 45, 45),
+        panel-color: hsl(0, 0%, 18%),
+        panel-color-darker:hsl(0, 0%, 8%),
 
         fifth-transparent: rgba(255, 255, 255, .2),
         half-transparent: rgba(255, 255, 255, .5),

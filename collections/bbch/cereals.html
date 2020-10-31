@@ -1,7 +1,12 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="theme-light">
 
 <head>
+	<title>Коды BBCH: стадии роста и развития злаков | Plant Protection</title>
+
+	<meta name="description" content="Описание фаз роста и развитя злаков">
+    <meta name="keywords" content="коды bbch, стадии роста и развития злаков, стадии роста и развития злаковых культур">
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,14 +32,26 @@
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="../../resources/fonts/stylesheet.css">
 	<link rel="stylesheet" href="../../stylesheets/collections.css">
-	<title>Коды BBCH</title>
+
+	<style>
+		tr>td:nth-child(1) {
+			border-right: 1px solid rgba(0, 0, 0, .12);
+		}
+
+		tr>td:nth-child(1)[colspan="2"] {
+			border-right: none;
+		}
+	</style>
+
+	<script>
+		document.documentElement.classList.add(localStorage.getItem("theme") || "theme-light");
+	</script>
 </head>
 
 <body>
 	<nav>
-		<button id="show-hide-content-panel">
-			<img src="../../resources/images/search.svg">
-		</button>
+		<div class="group">
+		</div>
 
 		<div class="group">
 			<a href="../../index.html">
@@ -44,9 +61,11 @@
 	</nav>
 
 	<main>
-		<h3 style="margin-bottom: 0px;">Коды BBCH: Злаки <span class="src-provider-info">[1]</span></h3>
-		<h6 style="margin-top: 0px;">(<i>Triticum</i> sp. L., <i>Hordeum vulgare</i> L., <i>Avena sativa</i> L.,
-			<i>Secale cereale</i> L.)</h6>
+		<h1 style="margin-bottom: 0px;">Коды BBCH: Злаки</h1>
+		<h6 style="margin: 0px 0px 20px 0px;">
+			(<i>Triticum</i> sp. L., <i>Hordeum vulgare</i> L., <i>Avena sativa</i> L.,
+			<i>Secale cereale</i> L.)
+		</h6>
 
 		<table class="table" style="width: 100%; display: inline-table;">
 			<thead>
@@ -331,28 +350,7 @@
 		2 - Кущение или удлинение стебля может начинаться до 13 стадии, в этом случае следует продолжить
 		с 21 стадии<br>
 		3 - Если выход в трубку начинается до конца кущения, продолжить со стадии 30<br><br>
-
-		Скачать:
-		<a href="../../../storage/bbch - cereals.csv" class="filetype-tag"
-			style="background-color: rgb(50, 148, 194); font-size: inherit;" download>
-			.csv
-		</a>
-		&nbsp;
-		<a href="../../../storage/bbch - cereals.tsv" class="filetype-tag"
-			style="background-color: rgb(129, 50, 194); font-size: inherit;" download>
-			.tsv
-		</a>
-		&nbsp;
-		<a href="../../../storage/bbch.ods" class="filetype-tag"
-			style="background-color: rgb(50, 194, 98); font-size: inherit;" download>
-			.ods
-		</a>
-		&nbsp;
-		<a href="../../../storage/bbch.xlsx" class="filetype-tag"
-			style="background-color: rgb(27, 146, 57); font-size: inherit;" download>
-			.xlsx
-		</a>
-</main>
+	</main>
 </body>
 
 </html>

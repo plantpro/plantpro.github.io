@@ -92,7 +92,7 @@ nav .group {
 }
 .theme-dark .nav-panel {
   color: #f2f2f2;
-  background-color: #2d2d2d;
+  background-color: #2e2e2e;
 }
 @media only screen and (max-width: 768px) {
   .nav-panel {
@@ -281,7 +281,7 @@ figure {
   background-color: #f2f2f2;
 }
 .theme-dark figure {
-  background-color: #2d2d2d;
+  background-color: #2e2e2e;
 }
 figure img {
   max-width: 100%;
@@ -329,7 +329,7 @@ figure figcaption {
   background-color: #f2f2f2;
 }
 .theme-dark .table-wrapper {
-  background-color: #2d2d2d;
+  background-color: #2e2e2e;
 }
 .table-wrapper header {
   font-size: 14px;

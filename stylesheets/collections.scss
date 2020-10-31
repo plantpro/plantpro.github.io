@@ -1,7 +1,7 @@
 @import 'common';
 
 @include applyAccentColor($hue: 180);
-$accent-color: getAccentColor($hue: 180);
+$hue: 180;
 
 main {
 	padding: 1em;
@@ -13,4 +13,47 @@ h1 {
 
 h3 {
 	margin: 20px 0 15px 0;
+}
+
+.preface-panel {
+    padding: 25px 20px;
+    border-radius: 2px;
+
+    transition: $theme-transition;
+
+    @include themify($themes) {
+        color: themed('text-color');  
+        background-color: themed('panel-color');  
+    }
+}
+
+.items {
+	display: flex;
+	margin: 20px 0 20px 0;
+}
+
+.item-panel {
+	flex: 0 1 200px;
+
+    padding: 25px 20px;
+	border-radius: 2px;
+	
+	margin-right: 5px;
+
+	transition: $theme-transition;
+	
+	font-weight: 600;
+
+    @include themify($themes) {
+        color: themed('text-color');  
+        background-color: themed('panel-color');  
+	}
+	
+	&:hover {
+		text-decoration: none;
+
+		@include themify($themes) {
+			background-color: themed('panel-color-darker');  
+		}
+	}
 }

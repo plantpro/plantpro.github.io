@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +16,7 @@
 	<link rel="apple-touch-icon" sizes="144x144" href="../resources/images/icons/apple-icon-144x144.png">
 	<link rel="apple-touch-icon" sizes="152x152" href="../resources/images/icons/apple-icon-152x152.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="../resources/images/icons/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="../resources/images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../resources/images/icons/android-icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="../resources/images/icons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="../resources/images/icons/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="../resources/images/icons/favicon-16x16.png">
@@ -61,37 +60,38 @@
 		</div>
 	</nav>
 
-		<div id="main-panel" class="nav-panel">
-			<span class="nav-panel-title">Поиск</span>
+	<div id="main-panel" class="nav-panel">
+		<span class="nav-panel-title">Поиск</span>
 
-			<div id="search-area">
-				<div>
-					<input type="text" placeholder="Что ищем?" id="search-input">
+		<div id="search-area">
+			<div>
+				<input type="text" placeholder="Что ищем?" id="search-input">
 
-					<button type="button" id="search-clear">
-						<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
-							<path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
-						</svg>
-					</button>
-				</div>
-				<button id="search-button">Поиск</button>
+				<button type="button" id="search-clear">
+					<svg style="width:18px;height:18px;fill:rgba(255, 255, 255, .3);" viewBox="0 0 24 24">
+						<path
+							d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' />
+					</svg>
+				</button>
 			</div>
+			<button id="search-button">Поиск</button>
+		</div>
 
-				<div class="main-panel-group">
-					Тип файла:
-					<span class="file-type-tag file-type-tag-pdf">.pdf</span>
-					<span class="file-type-tag file-type-tag-djvu">.djvu</span>
-					<span class="file-type-tag file-type-tag-online">online</span>
-				</div>
+		<div class="main-panel-group">
+			Тип файла:
+			<span class="file-type-tag file-type-tag-pdf">.pdf</span>
+			<span class="file-type-tag file-type-tag-djvu">.djvu</span>
+			<span class="file-type-tag file-type-tag-online">online</span>
+		</div>
 
-				<div class="main-panel-group">
-					Язык:
-					<span class="language-tag" onclick="document.filterByLanguage('Русский');">Русский</span>
-					<span class="language-tag" onclick="document.filterByLanguage('Английский');">Английский</span>
-				</div>
+		<div class="main-panel-group">
+			Язык:
+			<span class="language-tag" onclick="document.filterByLanguage('Русский');">Русский</span>
+			<span class="language-tag" onclick="document.filterByLanguage('Английский');">Английский</span>
+		</div>
 
-				<div id="filter-area"></div>
-			</div>
+		<div id="filter-area"></div>
+	</div>
 
 	<main id="search-box">
 		<h1>Библиотека</h1>
@@ -101,1758 +101,1964 @@
 			<button type="button" id="nothing-is-found-clear">Сбросить фильтры</button>
 		</div>
 
-		
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1TFuXEHKQKnuusicduuuM808Vfu8UFwgt/view?usp=sharing">Земледелие с основами почвоведения и агрохимии</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Баздырёв Г. И.</span> <span class="record-autor">Сафонов А. Ф.</span>
-		<span class="record-size">28 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1z7RhuF4S6rkFakoNb0tVxtfqHldI15yf">Ботаника в 4 томах. Т. 1. Водоросли и грибы</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Белякова Г. А.</span> <span class="record-autor">Дьяков Ю. Т.</span> <span class="record-autor">Тарасов К. Л.</span>
-		<span class="record-size">12 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=17Fyf74up63MuXMhqSN2EAeB--6Xrwxta">Ботаника в 4 томах. Т. 2. Водоросли и грибы</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Белякова Г. А.</span> <span class="record-autor">Дьяков Ю. Т.</span> <span class="record-autor">Тарасов К. Л.</span>
-		<span class="record-size">13 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=18QJeMheJsyg3tvxrtkn5OMzKXjK2W9NZ">Ботаника в 4 томах. Т. 4. Систематика высших растений в 2 книгах. Кн. 1</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Филин В. Р.</span>
-		<span class="record-size">39 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1vPLd4WDlT711wVZJocnZbo34BzaE8qaW">Ботаника в 4 томах. Т. 4. Систематика высших растений в 2 книгах. Кн. 2</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Соколов Д. Д.</span> <span class="record-autor">Шипунов А. Б.</span>
-		<span class="record-size">55 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1WLdxlcsgILQKePkW_kM0GvStO9q_bbBT">Ботаника в 4 томах. Т. 1. Клеточная биология. Анатомия. Морфология</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Чуб В. В.</span>
-		<span class="record-size">43 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=10iZqsJVSr-aEXGiyk1UbsgegSwqW7oFP">Ботаника в 4 томах. Т. 2. Физиология растений</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2008</span>
-		<span class="record-autor">Чуб В. В.</span>
-		<span class="record-size">37 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1ATj17Fowxa8t1VYURl7ItuzewuYZoY1H">Ботаника в 4 томах. Т. 3. Эволюция и систематика</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Сидорова И. И.</span>
-		<span class="record-size">19 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1TG-1ie0yiIZZHImjOs78HmDb6JPvhko_">Ботаника в 4 томах. Т. 4. Экология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Еленевский А. Г.</span> <span class="record-autor">Павлов В. Н.</span>
-		<span class="record-size">9 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1ZTdZeE_Hry0Gx_jVyEt3v74UqnK2Dim1/view">Общая энтомология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1980</span>
-		<span class="record-autor">Бей-Биенко Г. Я.</span>
-		<span class="record-size">7 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1GjXT7AIRh8YUFbW9ZX8xuE3GjTvlSAa8">Физиология насекомых</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1953</span>
-		<span class="record-autor">Шовен Р.</span>
-		<span class="record-size">16 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1bxem6IEYqk1431nUhJXWtrVkgxFN6zis">Растениеводство</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Посыпанов Г. С.</span> <span class="record-autor">Долгодворов В. Е.</span> <span class="record-autor">Жеруков Б. Х.</span> <span class="record-autor">Гатаулина Г. Г.</span> <span class="record-autor">Горбачёв И. В.</span> <span class="record-autor">Архангельский Н. С.</span> <span class="record-autor">Бугаев П. Д.</span> <span class="record-autor">Корниенко А. В.</span>
-		<span class="record-size">37 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1dATOe1an09uYjalkqMQ4kgxXh5aRdVyb">Растениеводство</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Коломейченко В. В.</span>
-		<span class="record-size">46 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1wj_ofEwjjIlgnH2iFwTW23NgeTOn7hwS/view">Сельскохозяйственные машины</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2004</span>
-		<span class="record-autor">Халанский В. М.</span> <span class="record-autor">Горбачёв И. В.</span>
-		<span class="record-size">12 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1Ol5KfSPfFUJvUb0csiNGH87iviRfITGJ/view">Зернобобовые культуры</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2000</span>
-		<span class="record-autor">Шпаар Д.</span> <span class="record-autor">Эллмер Ф.</span> <span class="record-autor">Постников А.</span> <span class="record-autor">Таранухо Г.</span> <span class="record-autor">Дрегер Д.</span> <span class="record-autor">Захаренко А.</span> <span class="record-autor">Крацш Г.</span> <span class="record-autor">Крахт В.</span> <span class="record-autor">Маковски Н.</span> <span class="record-autor">Шуманн П.</span> <span class="record-autor">Щербаков В.</span> <span class="record-autor">Ястер К.</span>
-		<span class="record-size">10 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/14ExULMVCKw6WC-R3zt4BHDhX_EumOK8I/view">Инсектицидный эффект против доминантных вредителей в люпиновом посеве</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2015</span>
-		<span class="record-autor">Пимохова Л.И.</span> <span class="record-autor">Слесарева Т.Н.</span> <span class="record-autor">Царапнёва Ж.В.</span>
-		<span class="record-size">762 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1B-7QDZ0zBR8RPAgb2q-7brpiCc0z9OoI">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 1</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Пиневич А. В.</span>
-		<span class="record-size">25 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1XFiyZQqwL_nKwCtzoVDSNiEpXKfOdyEZ">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 2</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Пиневич А. В.</span>
-		<span class="record-size">21 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=17UQNZceT4Wvcj7S-GRZsDq9_gmup_O4p">Микробиология. Биология прокариотов: учебник в 3 томах. Т. 3</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Пиневич А. В.</span>
-		<span class="record-size">33 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1VQwqYJ_n4df_bIESAtrknQMA9Xkm3I86/view">Микробиология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2003</span>
-		<span class="record-autor">Гусев М. В.</span> <span class="record-autor">Минеева Л. А.</span>
-		<span class="record-size">7 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1kKmTpB8sTzDtZ-yiWeotW2gOXpQWjvop">Микробиология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1987</span>
-		<span class="record-autor">Мишустин Е. Н.</span> <span class="record-autor">Емцев В. Т.</span>
-		<span class="record-size">12 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=16syzS8v6O1jGV-wzMBXln5vN5MyDfr_q">Микробиология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Нетрусов А. И.</span>
-		<span class="record-size">3 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1E7JOA67H07szlvnI6GCDM61H_pUcPL0R">Общая микробиология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1987</span>
-		<span class="record-autor">Шлегель Г.</span>
-		<span class="record-size">8 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1ks22IXlhArR1KyZi8FRbQiX9pHNi4_Rh">Введение в альгологию и микологию</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2000</span>
-		<span class="record-autor">Дьяков Ю. Т.</span>
-		<span class="record-size">3 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1EkJiV9KFXRYDKAFbmRYm4wzLYAxu7PFD/view">Введение в альгологию и микологию</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2000</span>
-		<span class="record-autor">Дьяков Ю. Т.</span>
-		<span class="record-size">8 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1vhyMjheVF8I4NoEyy6x7pvgmFoFu8gT2">Ботаника. Курс альгологии и микологии</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Дьяков Ю. Т.</span>
-		<span class="record-size">63 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1dGA7zL4aVZvXogUSlpPDsKhtMKEfgZXA">Малый практикум по ботанике. Водоросли и грибы</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2005</span>
-		<span class="record-autor">Барсукова Т. Н.</span> <span class="record-autor">Белякова Г. А.</span> <span class="record-autor">Прохоров В. П.</span> <span class="record-autor">Тарасов К. Л.</span>
-		<span class="record-size">25 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1uBMHh6FPZl6BmfhHZxnIItQAgQXHOUdY">Систематика грибов</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2005</span>
-		<span class="record-autor">Черепанова Н. П.</span>
-		<span class="record-size">77 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1e5hawflCKPO4K285H3NW0TUdvT3w5d0U">Микология: грибы и грибоподобные организмы</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Переведенцева Л. Г.</span>
-		<span class="record-size">22 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1PtoCTEsdDYH_6s9BAEW5Y0mk3Igskdhh">Фитопатогенные грибы (морфология и систематика)</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2014</span>
-		<span class="record-autor">Сокирко В. П.</span> <span class="record-autor">Горьковенко В. С.</span> <span class="record-autor">Зазимко М. И.</span>
-		<span class="record-size">27 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1pd5d3GIegUTcNfXM9gZJMbxjNswwTnM_">Dictionary of Fungi (9th ed.)</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2001</span>
-		<span class="record-autor">Kirk P. M.</span> <span class="record-autor">Cannon P. F.</span> <span class="record-autor">David J. C.</span> <span class="record-autor">Stalpers J. A.</span>
-		<span class="record-size">1 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1pjoEewdgM7KiYgVJXAKQ_1-MEjI3HVUX">Molecular Identiﬁcation of Fungi</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2010</span>
-		<span class="record-autor">Gherbawy Y.</span> <span class="record-autor">Voigt K.</span>
-		<span class="record-size">4 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1DQhoDG1pEzeCrO_MAtgrQPcpo92Qtvo8/view?usp=sharing">Сельскохозяйственная фитопатология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1989</span>
-		<span class="record-autor">Пересыпкин В. Ф.</span>
-		<span class="record-size">6 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=15pXQP-nH3TNjn-FYgVPVjRb5U4UIHe1Q">Фитопатология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2003</span>
-		<span class="record-autor">Семёнкова И. Г.</span> <span class="record-autor">Соколов Э. С.</span>
-		<span class="record-size">32 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://plantpro.github.io/library/online/1.html">Общая фитопатология</a>
-			<span class="file-type-tag file-type-tag-online float-right">
-				online
-			</span>
-		</div>
-
-		<span class="record-year">2019</span>
-		<span class="record-autor">Дьяков Ю. Т.</span> <span class="record-autor">Еланский С. Н.</span>
-		<span class="record-size"></span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://plantpro.github.io/library/online/2.html">Фитоиммунитет</a>
-			<span class="file-type-tag file-type-tag-online float-right">
-				online
-			</span>
-		</div>
-
-		<span class="record-year">2018</span>
-		<span class="record-autor">Дьяков Ю. Т.</span>
-		<span class="record-size"></span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1PXJLRLAthw6aJ0ZhejkN80CRPF_xahZA">Фундаментальная фитопатология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Дьяков Ю. Т.</span> <span class="record-autor">Багирова С. Ф.</span> <span class="record-autor">Джавахия В. Г.</span> <span class="record-autor">Озерцовская О. Л.</span> <span class="record-autor">Проворов Н. А.</span> <span class="record-autor">Тихонович И. А.</span> <span class="record-autor">Щербакова Л. А.</span>
-		<span class="record-size">5 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=10I7K1vvThRUeT28GTjY3X4E45HDl5WCP">Биологические основы эпифитотиологии</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">1991</span>
-		<span class="record-autor">Чулкина В. А.</span>
-		<span class="record-size">54 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1m7b09ju2cVmql4lRFswAaSmMeA87Hqu7">Общая фитопатология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2005</span>
-		<span class="record-autor">Попкова К. В.</span> <span class="record-autor">Шкаликов В. А.</span> <span class="record-autor">Стройков Ю. М.</span> <span class="record-autor">Лекомцева С. Н.</span> <span class="record-autor">Скворцова И. Н.</span>
-		<span class="record-size">13 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1lRBa_dt_T6qumgFMUgxMsrIm1r_2NXES">Общая фитопатология (часть 1)</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2001</span>
-		<span class="record-autor">Чикин Ю. А.</span>
-		<span class="record-size">2 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=13RRZ8vWV9m9rySRAaBM8gb8L0T5orfw6">Иллюстрированный атлас по защите сельскохозяйственных культур от болезней и вредителей</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Шёбер-Бутин Б.</span> <span class="record-autor">Гарбе Ф.</span> <span class="record-autor">Бартельс Г.</span>
-		<span class="record-size">13 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1g50w7HgWdxvOqMguda3COQJvvFzy7CEe">Фитовирусология</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2015</span>
-		<span class="record-autor">Аникина И. Н.</span> <span class="record-autor">Сейтжанова Д. Д.</span>
-		<span class="record-size">6 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=15Gd3HxAaIEPbv7viao6D5jSBrB-aUsP3">Вирусология и биотехнология</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2016</span>
-		<span class="record-autor">Волков М. Ю.</span> <span class="record-autor">Скребнева Е. Н.</span>
-		<span class="record-size">47 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1o4N-_hhyMpeYT76pf58q0cboZjKVVn9t">Вриусы растений</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1973</span>
-		<span class="record-autor">Мэтьюз Р.</span>
-		<span class="record-size">31 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1H99yN1yjyqObhiySmnfAkCGg1lAJjNKK">Защита растений от болезней</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2010</span>
-		<span class="record-autor">Шкаликов В. А.</span> <span class="record-autor">Белошапкина О. О.</span> <span class="record-autor">Букреев Д. Д.</span> <span class="record-autor">Горбачёв И. В.</span> <span class="record-autor">Джалилов Ф. С.-У.</span> <span class="record-autor">Корсак И. В.</span> <span class="record-autor">Минаев В. Ю.</span> <span class="record-autor">Стройков Ю. М.</span>
-		<span class="record-size">26 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=105PeRG34IiU203FGx19mHEkjwE6An_s6">Защита растений от болезней</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2003</span>
-		<span class="record-autor">Шкаликов В. А.</span> <span class="record-autor">Белошапкина О. О.</span> <span class="record-autor">Букреев Д. Д.</span> <span class="record-autor">Горбачёв И. В.</span> <span class="record-autor">Джалилов Ф. С.-У.</span> <span class="record-autor">Корсак И. В.</span> <span class="record-autor">Минаев В. Ю.</span> <span class="record-autor">Стройков Ю. М.</span>
-		<span class="record-size">9 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1rTTC1KGmSCcljBAVkV30cnIpCBJp_jql">Физиология и биохимия грибов</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1988</span>
-		<span class="record-autor">Беккер З. Э.</span>
-		<span class="record-size">2 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1XHJFfvWl46zsXRXh8MGQeHOCVXXNgAhm">Микология: основные понятия и термины</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2003</span>
-		<span class="record-autor">Шуканов А. С.</span> <span class="record-autor">Поликсенова В. Д.</span> <span class="record-autor">Стефанович А. И.</span> <span class="record-autor">Храмцов А. К.</span>
-		<span class="record-size">608 Кб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=17tS3T_S05JvdBBzghpBxGy44CSQCIbA6">Определитель микроскопических почвенных грибов</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">1967</span>
-		<span class="record-autor">Литвинов М. А.</span>
-		<span class="record-size">11 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1D0Ywiz-g8AbSa4WMawYgpwleFA921w-x">Определитель болезней и вредителей растений. Комнатное цветоводство</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2004</span>
-		<span class="record-autor">Палеева Т. В.</span>
-		<span class="record-size">2 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1HSY6HvcDMlMbospp3xK4akB0n88d1FJ0">Микология и лихенология. Лабораторный практикум</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Свирид А. А.</span> <span class="record-autor">Кавцевич В. Н.</span> <span class="record-autor">Деревинский А. В.</span> <span class="record-autor">Деревинская А. А.</span>
-		<span class="record-size">4 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1P3vwhNqWp8oxyREiLptMNzs1Ls1kbJSY">Альгология и микология: практикум</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2008</span>
-		<span class="record-autor">Лемеза Н. А.</span>
-		<span class="record-size">2 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=13xKRCo-V98EVw4p76xVU6pQ8E9c-eglq">Альгология и микология: лишайники</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Цуриков А. Г.</span> <span class="record-autor">Собченко В. А.</span> <span class="record-autor">Храмченкова О. М.</span>
-		<span class="record-size">267 Кб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1NTR6LpRY-LYVvxb9W5ELC9QtccRFukuM">Проблемы естественного и приобретённого иммунитета растений. К развитию идей Н. И. Вавилова</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Пухальский В. А.</span> <span class="record-autor">Одинцова Т. И.</span> <span class="record-autor">Извекова Л. И.</span> <span class="record-autor">Андреева Э. Н.</span> <span class="record-autor">Коростылева Т. В.</span> <span class="record-autor">Истомина Е. А.</span> <span class="record-autor">Славохотова А. А.</span> <span class="record-autor">Шиян А. Н.</span> <span class="record-autor">Козловская Г. В.</span> <span class="record-autor">Оболенкова Л. А.</span> <span class="record-autor">Бадаева Е. Д.</span> <span class="record-autor">Билинская Е. Н.</span>
-		<span class="record-size">2 Мб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1DmANUL8qmjhdWp8dGnGTNn75MwNt_ZmG">Создание ДНК-маркера гена устойчивости томата к фузариозному увяданию</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Фесенко И. А.</span> <span class="record-autor">Куклев М. Ю.</span> <span class="record-autor">Карлов Г.И.</span>
-		<span class="record-size">10 Мб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1ANM-CiR1nq2DM5Y9WuHiR_PtoWPYWtls">Principes of molecular virology</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Kann A. J.</span>
-		<span class="record-size">9 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1uA1MB5SENlmf74JG2oQRzABRlLKSY5Ba">Plant pathology</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2004</span>
-		<span class="record-autor">Agrios G. N.</span>
-		<span class="record-size">185 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1AVp9FxclCXpdBkFzOHprtZlxL8WXbju-">Characterization of cucumber mosaic virus isolated from yam (Dioscorea spp.) in West</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2013</span>
-		<span class="record-autor">Eni A. O.</span> <span class="record-autor">Lava Kumar P.</span> <span class="record-autor">Asiedu R.</span> <span class="record-autor">Alabi O. J.</span> <span class="record-autor">Naidu R. A.</span> <span class="record-autor">Hughes Jd'A.</span> <span class="record-autor">Rey M. E. C.</span>
-		<span class="record-size">577 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1fGusdEULsetK0QiTZuMHAQoROaiYsrpZ">Late Blight of Tomato</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2013</span>
-		<span class="record-autor">Nowicki M.</span> <span class="record-autor">Kozik E. U.</span> <span class="record-autor">Foolad M. R.</span>
-		<span class="record-size">310 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1QpxdwUFhWS-iiqYE2_sCx8s6qY6PagRO">Induced Systemic Resistance in Tomato Plants against Fusarium Wilt Disease using Biotic Inducers</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2014</span>
-		<span class="record-autor">Amer M. A.</span> <span class="record-autor">El-Samra I. A.</span> <span class="record-autor">Abou-El-Seoud I. I.</span> <span class="record-autor">El-Abd  Sawsan M.</span> <span class="record-autor">Shawertamimi N. K.</span>
-		<span class="record-size">327 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=12-yWHtED4xiZNOKI_c_UQw7cnJaEdmCx">Activation of tomato plant defence responses against bacterial wilt caused by Ralstonia solanacearum using DL-3-aminobutyric acid (BABA)</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Moahmed A. E. Hassan</span> <span class="record-autor">Kamal A. M. Abo-Elyousr</span>
-		<span class="record-size">361 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1ytGsNrorwbzed1_NTbAjmqStLjMa0fR1">Tomato Ve disease resistance genes encode cell surface-like receptors</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2001</span>
-		<span class="record-autor">Lawrence M. Kawchuk</span> <span class="record-autor">John Hachey</span> <span class="record-autor">Dermot R. Lynch</span> <span class="record-autor">Frank Kulcsar</span> <span class="record-autor">Gijs van Rooijen</span> <span class="record-autor">Doug R. Waterer</span> <span class="record-autor">Albert Robertson</span> <span class="record-autor">Eric Kokko</span> <span class="record-autor">Robert Byers</span> <span class="record-autor">Ronald J. Howard</span> <span class="record-autor">Rainer Fischer</span> <span class="record-autor">Dirk Pruferi</span>
-		<span class="record-size">3 Мб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1DYoANT-KNIB133Efb-ajg-CdL9jBDytz">Почвы Ленинградской области</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1973</span>
-		<span class="record-autor">Пестряков В. К.</span>
-		<span class="record-size">8 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=13_-_816JsonU4mAygyN0VvCsfzwibPrc">Почвы Московской области и их использование. Том 1.</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2002</span>
-		<span class="record-autor"></span>
-		<span class="record-size">20 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1JHZt-ROquT0BOpYF0OCew4cK4XQSxbx3">Атлас СССР</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1983</span>
-		<span class="record-autor">Точенов В. В.</span> <span class="record-autor">Марков В. Ф.</span> <span class="record-autor">Беляева Л. И.</span> <span class="record-autor">Бруггер В. Г.</span> <span class="record-autor">Граник Г. И.</span> <span class="record-autor">Дмитриев А. В.</span> <span class="record-autor">Жуков В. Т.</span> <span class="record-autor">Казанский Н. Н.</span> <span class="record-autor">Кельнер Ю. Г.</span>
-		<span class="record-size">52 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1kN0Y9byD1165Fim2NSeYSqVKZb298_Uw">Beginning statistics</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Douglas S. Shafer</span> <span class="record-autor">Zhiyi Zhang</span>
-		<span class="record-size">33 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/open?id=1phmPSZGWFLzctFUxhjkPwNm-swFTp-_Z">Growth stages of mono-and dicotyledonous plants (2 ed.)</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2001</span>
-		<span class="record-autor">Bleiholder H.</span> <span class="record-autor">Weber E.</span> <span class="record-autor">Feller C.</span> <span class="record-autor">Hess  M.</span> <span class="record-autor">Wicke H.</span> <span class="record-autor">Meier U.</span> <span class="record-autor"> van den Boom T.</span> <span class="record-autor">Lancashire P. D.</span> <span class="record-autor">Buhr L.</span> <span class="record-autor">Hack H.</span> <span class="record-autor">Klose R.</span> <span class="record-autor">Stauss R.</span>
-		<span class="record-size">2 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1tpoPFnj1TjbX7fIkpRDVqXqzqQYHWkr7/view?usp=sharing">Глинистые минералы в почвах</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2005</span>
-		<span class="record-autor">Соколова Т. А.</span> <span class="record-autor">Дронова Т. Я.</span> <span class="record-autor">Толпешта И. И. </span>
-		<span class="record-size">4.01 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1uAVsB2I9TBQJBt_-l6Sb7vZxUn4XTKNg/view?usp=sharing">Засоленные почвы России</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Панкова Е. И.</span> <span class="record-autor">Воробьёва Л. А.</span> <span class="record-autor">Гаджиев И. М.</span> <span class="record-autor">Горохова И. Н.</span> <span class="record-autor">Елизарова Т. Н.</span> <span class="record-autor">Королюк Т. В.</span> <span class="record-autor">Лопатовская О. Г.</span> <span class="record-autor">Новикова А. Ф.</span> <span class="record-autor">Решетов Г. Г.</span> <span class="record-autor">Скрипникова М. И.</span> <span class="record-autor">Славный Ю. А.</span> <span class="record-autor">Черноусенко Г. И.</span> <span class="record-autor">Ямнова И. А.</span>
-		<span class="record-size">16.9 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1HjKRgKHMqKpy6CrX3RtGdp9_nWZNLETL/view?usp=sharing">Взаимодействие лесных суглинистых подзолистых почв с модельными кислыми осадками и кислотно-основная буферность подзолистых почв</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2001</span>
-		<span class="record-autor">Соколова Т. А.</span> <span class="record-autor">Дронова Т. Я.</span> <span class="record-autor">Толпешта И. И.</span> <span class="record-autor">Иванова С. Е.</span>
-		<span class="record-size">4.92 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1NUj4R63tTBu9lpUKIg2FQp_qAYcAD5iH/view?usp=sharing">Экология и охрана биосферы при химическом загрязнении</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2002</span>
-		<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Садовникова Л. К.</span> <span class="record-autor">Лозановская И. Н.</span>
-		<span class="record-size">5.7 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1J-5B03QyhmWj7pDu19gCnWxPimmsTxYq/view?usp=sharing">Химия почв</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2005</span>
-		<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Садовникова Л. К.</span> <span class="record-autor">Суханова Л. И.</span>
-		<span class="record-size">6.61 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1nFgd_JJgt7VuiBgO40v87j-d8-9Lg0tq/view?usp=sharing">Химическое загрязнение биосферы и его экологические последствия</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2013</span>
-		<span class="record-autor">Мотузова Г. В.</span> <span class="record-autor">Карпова Е. А.</span>
-		<span class="record-size">3.3 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1Xn7OkdAcBzzHYb9TOE8lUqS4x3xsZOuY/view?usp=sharing">Спектральная отражательная способность почв и их компонентов</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2001</span>
-		<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Суханова Н. И.</span> <span class="record-autor">Розанова М. С.</span>
-		<span class="record-size">3.36 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1sTeu2kj9CmtOm_ljR7TlzaVGaBJuetXE/view?usp=sharing">Загрязнение почв и сопредельных сред</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2000</span>
-		<span class="record-autor">Мотузова Г. В.</span>
-		<span class="record-size">2.05 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1VKtl3aq_JTlB-XDznisPCxGXHb-PTGFF/view?usp=sharing">Теория и практика химического анализа почв</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Воробьёва Л. А.</span>
-		<span class="record-size">5.04 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1IsJ3ztHUr208J0oRLAfxu5wIQCn8quKr/view?usp=sharing">Ионный обмен и адсорбция в почвах</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2008</span>
-		<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Горшкова Е. И.</span> <span class="record-autor">Салпагарова И. А.</span>
-		<span class="record-size">1.38 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1y7bTOalvk2l_S73Ayf8w8BA0qB8T5n3C/view?usp=sharing">Практикум и семинары по химии почв</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2001</span>
-		<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Горшкова Е. И.</span> <span class="record-autor">Салпагарова И. А.</span>
-		<span class="record-size">669 Кб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1CvUgs9KgrpvoCfBdu-DETXzGSvzwL0cm/view?usp=sharing">Устойчивость почв к химическому воздействию</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2000</span>
-		<span class="record-autor">Мотузова Г. В.</span>
-		<span class="record-size">1.57 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1U4h_5s3VCxS9HzfY78vWeSxyKOItA5Yy/view?usp=sharing">Полевые исследования свойств почв</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Мазиров М. А.</span> <span class="record-autor">Шеин Е. В.</span> <span class="record-autor">Корчагин А. А.</span> <span class="record-autor">Шушкевич Н. И.</span> <span class="record-autor">Дембовецкий А. В.</span>
-		<span class="record-size">1.54 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1Kq3E-27vdpa_in4vfTFQwzpK4BhPwZpw/view?usp=sharing">Оценка и изменение плотности сложения чернозёма в полях севооборота</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Кураченко Н. Л.</span> <span class="record-autor">Солодченко С. Н.</span> <span class="record-autor">Романов В. Н.</span> <span class="record-autor">Литау В. М.</span>
-		<span class="record-size">109 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/14mjzE14a67ZGGWOBkxlPnzAKQ3JVByUx/view?usp=sharing">Procedures for soil analysis</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2002</span>
-		<span class="record-autor">L. P. van Reeuwijk</span>
-		<span class="record-size">39.3 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1r2oiR_mJhUvdcppzWx_th-J91-akW1Z2/view?usp=sharing">Guide to laboratory establishment for plant nutrient analysis </a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2008</span>
-		<span class="record-autor">Motsara M. R.</span> <span class="record-autor">Roy R. N.</span>
-		<span class="record-size">790 Кб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1jvHhk81Oa_qPpQG86fY77SIM5tY_AAK4/view?usp=sharing">Физика почв</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1983</span>
-		<span class="record-autor">Растворова О. Г.</span>
-		<span class="record-size">3.76 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1MDi6O-j5oyetCGEhVnZTD_EbLyraWyq5/view?usp=sharing">Физика почв: лабораторный практикум</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2011</span>
-		<span class="record-autor">Корчагин А. А.</span> <span class="record-autor">Мазиров М. А.</span> <span class="record-autor">Шушкевич Н. И.</span>
-		<span class="record-size">2.38 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/18V2zA5nP8FrTwg0pBIbMlxXPrJdJgav-/view?usp=sharing">Агрофизика</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2014</span>
-		<span class="record-autor">Шеин Е. В.</span> <span class="record-autor">Мазиров М. А.</span> <span class="record-autor">Корчагин А. А.</span> <span class="record-autor">Гончаров В. М.</span> <span class="record-autor">Умарова А. Б.</span> <span class="record-autor">Зинченко С. И.</span>
-		<span class="record-size">1.53 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1ZvHVt7cktSysUicnQtHSn6Ejj5Ri5H7j/view?usp=sharing">Курс физики почв</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2005</span>
-		<span class="record-autor">Шеин Е. В.</span>
-		<span class="record-size">16.6 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1p4oOI_eOEki0FXvp8P7IXHqyFOYjpCQy/view?usp=sharing">Задачи по органической химии</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2016</span>
-		<span class="record-autor">Травень В. Ф.</span> <span class="record-autor">Сухоруков А. Ю.</span> <span class="record-autor">Пожарская Н. А.</span>
-		<span class="record-size">29.3 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1TtCQMp1rwDkhw37DvYfTKkIhD1zALu7t/view?usp=sharing">Основы технологии сельскохозяйственного производства. Земледелие и растениеводство</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2000</span>
-		<span class="record-autor">Никляев В. С.</span> <span class="record-autor">Косинский В. С.</span> <span class="record-autor">Ткачёв В. В.</span> <span class="record-autor">Сучилина А. А.</span>
-		<span class="record-size">9.69 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1GGYKpWj3LWbIzC8PLfyR2nPQjxCS-m1V/view?usp=sharing">Загрязнение почв тяжелыми металлами</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Водяницкий Ю. Н.</span> <span class="record-autor">Ладонин Д. В.</span> <span class="record-autor">Савичев А. Т.</span>
-		<span class="record-size">7.53 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1hkJTroGqV7GtVMwY1FLtEtwRbE_YfrDn/view?usp=sharing">Методологические подходы к расчету критических нагрузок на экосистемы соединений азота и серы</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2014</span>
-		<span class="record-autor">Толпешта И. И.</span>
-		<span class="record-size">2.74 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1qCFNE8le978WyWOpthqUzfK9A3QRnjsI/view?usp=sharing">Экологический мониторинг. Практикум и семинары</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2019</span>
-		<span class="record-autor">Завгородняя Ю. А.</span> <span class="record-autor">Караванова Е. И.</span> <span class="record-autor">Салпагарова И. А.</span>
-		<span class="record-size">695 Кб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/19C9M05R-L36_ohMjSQz5y_PEkj5Zx3xd/view?usp=sharing">Plant Ecology</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2019</span>
-		<span class="record-autor">Ernst-Detlef Schulze</span> <span class="record-autor">Erwin Beck</span> <span class="record-autor">Nina Buchmann</span> <span class="record-autor">Stephan Clemens</span> <span class="record-autor">Klaus Müller-Hohenstein</span> <span class="record-autor">Michael Scherer-Lorenzen</span>
-		<span class="record-size">73.8 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1WRIsMdtYQN8Ohh8wItBE53mfzFC1Q6Ll/view?usp=sharing">Формы соединений тяжелых металлов в техногенно-загрязненных почвах</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2019</span>
-		<span class="record-autor">Ладонин Д. В.</span>
-		<span class="record-size">14.9 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1OR-B_BuKpwHK9DIh7Yi9qLl1ASpz2Jd3/view?usp=sharing">Plant Ecology</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2005</span>
-		<span class="record-autor">Ernst-Detlef Schulze</span> <span class="record-autor">Erwin Beck</span> <span class="record-autor">Nina Buchmann</span> <span class="record-autor">Stephan Clemens</span> <span class="record-autor">Klaus Müller-Hohenstein</span> <span class="record-autor">Michael Scherer-Lorenzen</span>
-		<span class="record-size">30.6 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1LpvT5BoaKYBX1k52ihp9EJOrmgFeYqCp/view?usp=sharing">Towards the quantitative modeling of pedogenesis - a review</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">1992</span>
-		<span class="record-autor">Marcel R. Hoosbeek</span> <span class="record-autor">Ray B. Bryant</span>
-		<span class="record-size">1.71 Мб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1D0NdbjgaspdPKSV4-JtwNwl5OoeqUyCK/view?usp=sharing">Жидкая фаза почв: учебное пособие по некоторым главам курса химии почв</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Караванова Е. И.</span>
-		<span class="record-size">880 Кб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1QJ9F_XVxaBkCg5Ap0qINbuxXp1_M8gML/view?usp=sharing">Минеральные компоненты почв: учебное пособие по некоторым главам курса химии почв</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Соколова Т. А.</span> <span class="record-autor">Дронова Т. Я.</span> <span class="record-autor">Толпешта И. И.</span>
-		<span class="record-size">1.71 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/133hghgyNo1DtdT9DgBsoDYMKiqMsf8lo/view?usp=sharing">Оптические свойства почв и их природа</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2003</span>
-		<span class="record-autor">Караванова Е. И.</span>
-		<span class="record-size">1.08 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1JcjEKZx9Gv_05TG4C9iCNBfJ2ISRfS5R/view?usp=sharing">Почвенная кислотность. Кислотно-основная буферность почв. Соединения алюминия в твердой фазе почвы и в почвенном растворе</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Соколова Т. А.</span> <span class="record-autor">Толпешта И. И.</span> <span class="record-autor">Трофимов С. Я.</span>
-		<span class="record-size">3.64 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1BGcoy_eagQDJ4ojwYvL2dXnZqrEbDA5L/view?usp=sharing">Соединения микроэлементов в почвах: системная организация, экологическое значение, мониторинг</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Мотузова Г. В.</span>
-		<span class="record-size">13.9 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1dbj7lQWD-AR4xOM5L3i8IcSTdEOzXx7x/view?usp=sharing">Сорбционные свойства почв. Адсорбция. Катионный обмен: учебное пособие по некоторым главам курса химии почв</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Соколова Т. А.</span>
-		<span class="record-size">2.36 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1u1r2mbwscak8kVp7h3goEiFKWr0ELjeE/view?usp=sharing">Химический анализ почв. Вопросы и ответы</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2011</span>
-		<span class="record-autor">Воробьева Л. А.</span> <span class="record-autor">Ладонин Д. В.</span> <span class="record-autor">Лопухина О. В.</span> <span class="record-autor">Рудакова Т. А.</span> <span class="record-autor">Кирюшин А. В.</span>
-		<span class="record-size">1.09 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1glDwfwpWQyoFnnRgVzf1LGay6bj9HPgS/view?usp=sharing">Химия почв: практикум и семинары</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2012</span>
-		<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Салпагарова И. А.</span> <span class="record-autor">Горшкова Е. И.</span>
-		<span class="record-size">1.05 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1e3Epbk1q5EohP7hBa6WoQbHVsASdaXgk/view?usp=sharing">Экологический мониторинг почв</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2007</span>
-		<span class="record-autor">Мотузова Г. В.</span> <span class="record-autor">Безуглова О. С.</span>
-		<span class="record-size">9.02 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1BXI1Un_6eVfuvxU6HQwfAE1MTPSKsesO/view?usp=sharing">Иллюстрированный определитель растений Ланинградской области</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Буданцев А. Л.</span> <span class="record-autor">Яковлев Г. П.</span>
-		<span class="record-size">18.4 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/13DD9UBA3N5luPzlvwf5T3G7sfMzGbXZd/view?usp=sharing">Комплексное применение минеральных удобрений при возделывании жёлтого и узколистного люпина на мелиорированных почвах белорусского полесья</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Шик А. С.</span> <span class="record-autor">Антонюк А. С.</span>
-		<span class="record-size">298 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1jS6RZZVERKyq6DlmQPKpNUrkFQB5qPvF/view?usp=sharing">Биотехнология в 8 книгах. Книга 1: Проблемы и перспективы</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1987</span>
-		<span class="record-autor">Егоров Н. С.</span> <span class="record-autor">Самуилов В. Д.</span> <span class="record-autor">Олескин А. В.</span>
-		<span class="record-size">4.22 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/14RpO4IyNYZmyoGGiNnNnt16JqohYp4EZ/view?usp=sharing">Ботаника высших, или наземных, растений</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year"></span>
-		<span class="record-autor">Еленевский А. Г.</span> <span class="record-autor">Соловьёва М. П.</span> <span class="record-autor">Тихомиров В. Н.</span>
-		<span class="record-size">14.3 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1Dgxc1DjwuUomXrKolrp1PC5X4xlfmwuF/view?usp=sharing">Болезни и вредители медоносных пчёл</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">1987</span>
-		<span class="record-autor">Гробов О. Ф.</span> <span class="record-autor">Смирнов А. М.</span> <span class="record-autor">Попов Е. Т.</span>
-		<span class="record-size">5.08 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/17atK4lY6s_6gpC8lQ6WC2fZGQjR-9qMA/view?usp=sharing">Болезни пчёл</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">1970</span>
-		<span class="record-autor">Ловчиновская М. Я.</span>
-		<span class="record-size">728 Кб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1YfGhIBoqgLG52L_h20xpg9r8dTM6Ya6s/view?usp=sharing">Метеорология и климатология</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Хромов С. П.</span> <span class="record-autor">Петросянц М. А.</span>
-		<span class="record-size">3.57 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1WFcAr3nygPgRLeL2AdfGoZ32ueHk713b/view?usp=sharing">Практикум по курсу общей ботаники</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1989</span>
-		<span class="record-autor">Хржановский В. Г.</span> <span class="record-autor">Пономаренко С. Ф.</span>
-		<span class="record-size">10.1 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/18dBf1dJ_qggqtNVyUCRSzI9ErkZfjO8j/view?usp=sharing">Почвоведение</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2004</span>
-		<span class="record-autor">Вальков В. Ф.</span> <span class="record-autor">Казеев К. Ш.</span> <span class="record-autor">Колесников С. И.</span>
-		<span class="record-size">9.57 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1uCreZqBUAM88O6egNsxOn2rL1trcnj2A/view?usp=sharing">Цитология растений</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1987</span>
-		<span class="record-autor">Атабекова А. И.</span> <span class="record-autor">Устинова Е. И.</span>
-		<span class="record-size">9.91 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1A6Zq8hqMCpAJzA43x6P9PWO_bmBwXYB_/view?usp=sharing">Систематика высших растений</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1971</span>
-		<span class="record-autor">Шостаковский С. А.</span>
-		<span class="record-size">13.2 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1EjB0ucRe5npW9MXGNlbDOTW3chVsoFai/view?usp=sharing">Технология производства растительных масел</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1982</span>
-		<span class="record-autor">Копейковский В. М.</span> <span class="record-autor">Данильчук С. И.</span> <span class="record-autor">Гарбузова Г. И.</span> <span class="record-autor">Мхитарьянц Л. А.</span> <span class="record-autor">Мосян А. К.</span> <span class="record-autor">Аришева Е. А.</span> <span class="record-autor">Костенко В. К.</span> <span class="record-autor">Трубицын Н. В.</span>
-		<span class="record-size">8.44 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1KBuZOpRYdNFU5JW57vZqDsXLd247ZPcL/view?usp=sharing">Теоретические основы современной фитоценологии</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1985</span>
-		<span class="record-autor">Миркин Б. М.</span>
-		<span class="record-size">1.96 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1a3u8W5vRFSD0gMbwzrBg3od7pyhg_kyK/view?usp=sharing">Аграрная экономика</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2002</span>
-		<span class="record-autor">Малыш М. Н.</span>
-		<span class="record-size">7.06 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/11jQ3fMXz_sJctHGmzT3cF0Sl13b7dE-l/view?usp=sharing">Научные основы и принципы построения севооборотов в интенсивном земледелии</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Бутов А. В.</span>
-		<span class="record-size">2.35 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Английский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1e_XpckaN97uxPd8YSpN83ypcW9xmspTi/view?usp=sharing">Oral Transmission of Kuru, Creutzfeldt-Jakob Disease, and Scrapie to Nonhuman Primates</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2004</span>
-		<span class="record-autor">Gibbs CJ Jr</span> <span class="record-autor">Amyx HL</span> <span class="record-autor">Bacote A</span> <span class="record-autor">Masters CL</span> <span class="record-autor">Gajdusek DC</span>
-		<span class="record-size">409 Кб</span>
-		<span class='record-article-mark'>статья</span>
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1hHpeF7cGupyRYEQhxbMgeHpKwnGu1h6-/view?usp=sharing">Кладистический анализ (методологические проблемы)</a>
-			<span class="file-type-tag file-type-tag-djvu float-right">
-				.djvu
-			</span>
-		</div>
-
-		<span class="record-year">1990</span>
-		<span class="record-autor">Павлинов И. Я.</span>
-		<span class="record-size">3.95 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/14PuIjlCAqqTSIUG_9sIjUmbkfMm7GK-8/view?usp=sharing">Основы полевых исследований в фитопатологии и фитоиммунологии</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2006</span>
-		<span class="record-autor">Шамрай С. H.</span> <span class="record-autor">Глушенко В. И.</span>
-		<span class="record-size">0.99 Мб</span>
-		
-	</div>
-	
-	<div class="record" data-language="Русский">
-		<div class="record-title">
-			<a href="https://drive.google.com/file/d/1YpB8qLPtp3biSHGPEkQrS_-QFhqCkGys/view?usp=sharing">Теория вероятностей и математическая статистика. Математические модели</a>
-			<span class="file-type-tag file-type-tag-pdf float-right">
-				.pdf
-			</span>
-		</div>
-
-		<span class="record-year">2009</span>
-		<span class="record-autor">Мятлев В.Д.</span> <span class="record-autor">Панченко Л.А.</span> <span class="record-autor">Ризниченко Г. Ю.</span> <span class="record-autor">Терехин А. Т.</span>
-		<span class="record-size">5.95 Мб</span>
-		
-	</div>
-	
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1TFuXEHKQKnuusicduuuM808Vfu8UFwgt/view?usp=sharing">Земледелие
+					с основами почвоведения и агрохимии</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Баздырёв Г. И.</span> <span class="record-autor">Сафонов А. Ф.</span>
+			<span class="record-size">28 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1z7RhuF4S6rkFakoNb0tVxtfqHldI15yf">Ботаника в 4 томах. Т. 1.
+					Водоросли и грибы</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Белякова Г. А.</span> <span class="record-autor">Дьяков Ю. Т.</span> <span
+				class="record-autor">Тарасов К. Л.</span>
+			<span class="record-size">12 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=17Fyf74up63MuXMhqSN2EAeB--6Xrwxta">Ботаника в 4 томах. Т. 2.
+					Водоросли и грибы</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Белякова Г. А.</span> <span class="record-autor">Дьяков Ю. Т.</span> <span
+				class="record-autor">Тарасов К. Л.</span>
+			<span class="record-size">13 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=18QJeMheJsyg3tvxrtkn5OMzKXjK2W9NZ">Ботаника в 4 томах. Т. 4.
+					Систематика высших растений в 2 книгах. Кн. 1</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Филин В. Р.</span>
+			<span class="record-size">39 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1vPLd4WDlT711wVZJocnZbo34BzaE8qaW">Ботаника в 4 томах. Т. 4.
+					Систематика высших растений в 2 книгах. Кн. 2</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Соколов Д. Д.</span> <span
+				class="record-autor">Шипунов А. Б.</span>
+			<span class="record-size">55 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1WLdxlcsgILQKePkW_kM0GvStO9q_bbBT">Ботаника в 4 томах. Т. 1.
+					Клеточная биология. Анатомия. Морфология</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Чуб В. В.</span>
+			<span class="record-size">43 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=10iZqsJVSr-aEXGiyk1UbsgegSwqW7oFP">Ботаника в 4 томах. Т. 2.
+					Физиология растений</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2008</span>
+			<span class="record-autor">Чуб В. В.</span>
+			<span class="record-size">37 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1ATj17Fowxa8t1VYURl7ItuzewuYZoY1H">Ботаника в 4 томах. Т. 3.
+					Эволюция и систематика</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Тимонин А. К.</span> <span class="record-autor">Сидорова И. И.</span>
+			<span class="record-size">19 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1TG-1ie0yiIZZHImjOs78HmDb6JPvhko_">Ботаника в 4 томах. Т. 4.
+					Экология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Еленевский А. Г.</span> <span class="record-autor">Павлов В. Н.</span>
+			<span class="record-size">9 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1ZTdZeE_Hry0Gx_jVyEt3v74UqnK2Dim1/view">Общая энтомология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1980</span>
+			<span class="record-autor">Бей-Биенко Г. Я.</span>
+			<span class="record-size">7 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1GjXT7AIRh8YUFbW9ZX8xuE3GjTvlSAa8">Физиология насекомых</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1953</span>
+			<span class="record-autor">Шовен Р.</span>
+			<span class="record-size">16 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1bxem6IEYqk1431nUhJXWtrVkgxFN6zis">Растениеводство</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Посыпанов Г. С.</span> <span class="record-autor">Долгодворов В. Е.</span> <span
+				class="record-autor">Жеруков Б. Х.</span> <span class="record-autor">Гатаулина Г. Г.</span> <span
+				class="record-autor">Горбачёв И. В.</span> <span class="record-autor">Архангельский Н. С.</span> <span
+				class="record-autor">Бугаев П. Д.</span> <span class="record-autor">Корниенко А. В.</span>
+			<span class="record-size">37 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1dATOe1an09uYjalkqMQ4kgxXh5aRdVyb">Растениеводство</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Коломейченко В. В.</span>
+			<span class="record-size">46 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1wj_ofEwjjIlgnH2iFwTW23NgeTOn7hwS/view">Сельскохозяйственные
+					машины</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2004</span>
+			<span class="record-autor">Халанский В. М.</span> <span class="record-autor">Горбачёв И. В.</span>
+			<span class="record-size">12 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1Ol5KfSPfFUJvUb0csiNGH87iviRfITGJ/view">Зернобобовые
+					культуры</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2000</span>
+			<span class="record-autor">Шпаар Д.</span> <span class="record-autor">Эллмер Ф.</span> <span
+				class="record-autor">Постников А.</span> <span class="record-autor">Таранухо Г.</span> <span
+				class="record-autor">Дрегер Д.</span> <span class="record-autor">Захаренко А.</span> <span
+				class="record-autor">Крацш Г.</span> <span class="record-autor">Крахт В.</span> <span
+				class="record-autor">Маковски Н.</span> <span class="record-autor">Шуманн П.</span> <span
+				class="record-autor">Щербаков В.</span> <span class="record-autor">Ястер К.</span>
+			<span class="record-size">10 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/14ExULMVCKw6WC-R3zt4BHDhX_EumOK8I/view">Инсектицидный эффект
+					против доминантных вредителей в люпиновом посеве</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2015</span>
+			<span class="record-autor">Пимохова Л.И.</span> <span class="record-autor">Слесарева Т.Н.</span> <span
+				class="record-autor">Царапнёва Ж.В.</span>
+			<span class="record-size">762 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1B-7QDZ0zBR8RPAgb2q-7brpiCc0z9OoI">Микробиология. Биология
+					прокариотов: учебник в 3 томах. Т. 1</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Пиневич А. В.</span>
+			<span class="record-size">25 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1XFiyZQqwL_nKwCtzoVDSNiEpXKfOdyEZ">Микробиология. Биология
+					прокариотов: учебник в 3 томах. Т. 2</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Пиневич А. В.</span>
+			<span class="record-size">21 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=17UQNZceT4Wvcj7S-GRZsDq9_gmup_O4p">Микробиология. Биология
+					прокариотов: учебник в 3 томах. Т. 3</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Пиневич А. В.</span>
+			<span class="record-size">33 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1VQwqYJ_n4df_bIESAtrknQMA9Xkm3I86/view">Микробиология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2003</span>
+			<span class="record-autor">Гусев М. В.</span> <span class="record-autor">Минеева Л. А.</span>
+			<span class="record-size">7 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1kKmTpB8sTzDtZ-yiWeotW2gOXpQWjvop">Микробиология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1987</span>
+			<span class="record-autor">Мишустин Е. Н.</span> <span class="record-autor">Емцев В. Т.</span>
+			<span class="record-size">12 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=16syzS8v6O1jGV-wzMBXln5vN5MyDfr_q">Микробиология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Нетрусов А. И.</span>
+			<span class="record-size">3 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1E7JOA67H07szlvnI6GCDM61H_pUcPL0R">Общая микробиология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1987</span>
+			<span class="record-autor">Шлегель Г.</span>
+			<span class="record-size">8 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1ks22IXlhArR1KyZi8FRbQiX9pHNi4_Rh">Введение в альгологию и
+					микологию</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2000</span>
+			<span class="record-autor">Дьяков Ю. Т.</span>
+			<span class="record-size">3 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1EkJiV9KFXRYDKAFbmRYm4wzLYAxu7PFD/view">Введение в альгологию и
+					микологию</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2000</span>
+			<span class="record-autor">Дьяков Ю. Т.</span>
+			<span class="record-size">8 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1vhyMjheVF8I4NoEyy6x7pvgmFoFu8gT2">Ботаника. Курс альгологии и
+					микологии</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Дьяков Ю. Т.</span>
+			<span class="record-size">63 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1dGA7zL4aVZvXogUSlpPDsKhtMKEfgZXA">Малый практикум по
+					ботанике. Водоросли и грибы</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2005</span>
+			<span class="record-autor">Барсукова Т. Н.</span> <span class="record-autor">Белякова Г. А.</span> <span
+				class="record-autor">Прохоров В. П.</span> <span class="record-autor">Тарасов К. Л.</span>
+			<span class="record-size">25 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1uBMHh6FPZl6BmfhHZxnIItQAgQXHOUdY">Систематика грибов</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2005</span>
+			<span class="record-autor">Черепанова Н. П.</span>
+			<span class="record-size">77 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1e5hawflCKPO4K285H3NW0TUdvT3w5d0U">Микология: грибы и
+					грибоподобные организмы</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Переведенцева Л. Г.</span>
+			<span class="record-size">22 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1PtoCTEsdDYH_6s9BAEW5Y0mk3Igskdhh">Фитопатогенные грибы
+					(морфология и систематика)</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2014</span>
+			<span class="record-autor">Сокирко В. П.</span> <span class="record-autor">Горьковенко В. С.</span> <span
+				class="record-autor">Зазимко М. И.</span>
+			<span class="record-size">27 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1pd5d3GIegUTcNfXM9gZJMbxjNswwTnM_">Dictionary of Fungi (9th
+					ed.)</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2001</span>
+			<span class="record-autor">Kirk P. M.</span> <span class="record-autor">Cannon P. F.</span> <span
+				class="record-autor">David J. C.</span> <span class="record-autor">Stalpers J. A.</span>
+			<span class="record-size">1 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1pjoEewdgM7KiYgVJXAKQ_1-MEjI3HVUX">Molecular Identiﬁcation of
+					Fungi</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2010</span>
+			<span class="record-autor">Gherbawy Y.</span> <span class="record-autor">Voigt K.</span>
+			<span class="record-size">4 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1DQhoDG1pEzeCrO_MAtgrQPcpo92Qtvo8/view?usp=sharing">Сельскохозяйственная
+					фитопатология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1989</span>
+			<span class="record-autor">Пересыпкин В. Ф.</span>
+			<span class="record-size">6 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=15pXQP-nH3TNjn-FYgVPVjRb5U4UIHe1Q">Фитопатология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2003</span>
+			<span class="record-autor">Семёнкова И. Г.</span> <span class="record-autor">Соколов Э. С.</span>
+			<span class="record-size">32 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://plantpro.github.io/library/online/1.html">Общая фитопатология</a>
+				<span class="file-type-tag file-type-tag-online float-right">
+					online
+				</span>
+			</div>
+
+			<span class="record-year">2019</span>
+			<span class="record-autor">Дьяков Ю. Т.</span> <span class="record-autor">Еланский С. Н.</span>
+			<span class="record-size"></span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://plantpro.github.io/library/online/2.html">Фитоиммунитет</a>
+				<span class="file-type-tag file-type-tag-online float-right">
+					online
+				</span>
+			</div>
+
+			<span class="record-year">2018</span>
+			<span class="record-autor">Дьяков Ю. Т.</span>
+			<span class="record-size"></span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1PXJLRLAthw6aJ0ZhejkN80CRPF_xahZA">Фундаментальная
+					фитопатология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Дьяков Ю. Т.</span> <span class="record-autor">Багирова С. Ф.</span> <span
+				class="record-autor">Джавахия В. Г.</span> <span class="record-autor">Озерцовская О. Л.</span> <span
+				class="record-autor">Проворов Н. А.</span> <span class="record-autor">Тихонович И. А.</span> <span
+				class="record-autor">Щербакова Л. А.</span>
+			<span class="record-size">5 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=10I7K1vvThRUeT28GTjY3X4E45HDl5WCP">Биологические основы
+					эпифитотиологии</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">1991</span>
+			<span class="record-autor">Чулкина В. А.</span>
+			<span class="record-size">54 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1m7b09ju2cVmql4lRFswAaSmMeA87Hqu7">Общая фитопатология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2005</span>
+			<span class="record-autor">Попкова К. В.</span> <span class="record-autor">Шкаликов В. А.</span> <span
+				class="record-autor">Стройков Ю. М.</span> <span class="record-autor">Лекомцева С. Н.</span> <span
+				class="record-autor">Скворцова И. Н.</span>
+			<span class="record-size">13 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1lRBa_dt_T6qumgFMUgxMsrIm1r_2NXES">Общая фитопатология (часть
+					1)</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2001</span>
+			<span class="record-autor">Чикин Ю. А.</span>
+			<span class="record-size">2 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=13RRZ8vWV9m9rySRAaBM8gb8L0T5orfw6">Иллюстрированный атлас по
+					защите сельскохозяйственных культур от болезней и вредителей</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Шёбер-Бутин Б.</span> <span class="record-autor">Гарбе Ф.</span> <span
+				class="record-autor">Бартельс Г.</span>
+			<span class="record-size">13 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1g50w7HgWdxvOqMguda3COQJvvFzy7CEe">Фитовирусология</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2015</span>
+			<span class="record-autor">Аникина И. Н.</span> <span class="record-autor">Сейтжанова Д. Д.</span>
+			<span class="record-size">6 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=15Gd3HxAaIEPbv7viao6D5jSBrB-aUsP3">Вирусология и
+					биотехнология</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2016</span>
+			<span class="record-autor">Волков М. Ю.</span> <span class="record-autor">Скребнева Е. Н.</span>
+			<span class="record-size">47 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1o4N-_hhyMpeYT76pf58q0cboZjKVVn9t">Вриусы растений</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1973</span>
+			<span class="record-autor">Мэтьюз Р.</span>
+			<span class="record-size">31 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1H99yN1yjyqObhiySmnfAkCGg1lAJjNKK">Защита растений от
+					болезней</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2010</span>
+			<span class="record-autor">Шкаликов В. А.</span> <span class="record-autor">Белошапкина О. О.</span> <span
+				class="record-autor">Букреев Д. Д.</span> <span class="record-autor">Горбачёв И. В.</span> <span
+				class="record-autor">Джалилов Ф. С.-У.</span> <span class="record-autor">Корсак И. В.</span> <span
+				class="record-autor">Минаев В. Ю.</span> <span class="record-autor">Стройков Ю. М.</span>
+			<span class="record-size">26 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=105PeRG34IiU203FGx19mHEkjwE6An_s6">Защита растений от
+					болезней</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2003</span>
+			<span class="record-autor">Шкаликов В. А.</span> <span class="record-autor">Белошапкина О. О.</span> <span
+				class="record-autor">Букреев Д. Д.</span> <span class="record-autor">Горбачёв И. В.</span> <span
+				class="record-autor">Джалилов Ф. С.-У.</span> <span class="record-autor">Корсак И. В.</span> <span
+				class="record-autor">Минаев В. Ю.</span> <span class="record-autor">Стройков Ю. М.</span>
+			<span class="record-size">9 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1rTTC1KGmSCcljBAVkV30cnIpCBJp_jql">Физиология и биохимия
+					грибов</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1988</span>
+			<span class="record-autor">Беккер З. Э.</span>
+			<span class="record-size">2 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1XHJFfvWl46zsXRXh8MGQeHOCVXXNgAhm">Микология: основные понятия
+					и термины</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2003</span>
+			<span class="record-autor">Шуканов А. С.</span> <span class="record-autor">Поликсенова В. Д.</span> <span
+				class="record-autor">Стефанович А. И.</span> <span class="record-autor">Храмцов А. К.</span>
+			<span class="record-size">608 Кб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=17tS3T_S05JvdBBzghpBxGy44CSQCIbA6">Определитель
+					микроскопических почвенных грибов</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">1967</span>
+			<span class="record-autor">Литвинов М. А.</span>
+			<span class="record-size">11 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1D0Ywiz-g8AbSa4WMawYgpwleFA921w-x">Определитель болезней и
+					вредителей растений. Комнатное цветоводство</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2004</span>
+			<span class="record-autor">Палеева Т. В.</span>
+			<span class="record-size">2 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1HSY6HvcDMlMbospp3xK4akB0n88d1FJ0">Микология и лихенология.
+					Лабораторный практикум</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Свирид А. А.</span> <span class="record-autor">Кавцевич В. Н.</span> <span
+				class="record-autor">Деревинский А. В.</span> <span class="record-autor">Деревинская А. А.</span>
+			<span class="record-size">4 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1P3vwhNqWp8oxyREiLptMNzs1Ls1kbJSY">Альгология и микология:
+					практикум</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2008</span>
+			<span class="record-autor">Лемеза Н. А.</span>
+			<span class="record-size">2 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=13xKRCo-V98EVw4p76xVU6pQ8E9c-eglq">Альгология и микология:
+					лишайники</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Цуриков А. Г.</span> <span class="record-autor">Собченко В. А.</span> <span
+				class="record-autor">Храмченкова О. М.</span>
+			<span class="record-size">267 Кб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1NTR6LpRY-LYVvxb9W5ELC9QtccRFukuM">Проблемы естественного и
+					приобретённого иммунитета растений. К развитию идей Н. И. Вавилова</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Пухальский В. А.</span> <span class="record-autor">Одинцова Т. И.</span> <span
+				class="record-autor">Извекова Л. И.</span> <span class="record-autor">Андреева Э. Н.</span> <span
+				class="record-autor">Коростылева Т. В.</span> <span class="record-autor">Истомина Е. А.</span> <span
+				class="record-autor">Славохотова А. А.</span> <span class="record-autor">Шиян А. Н.</span> <span
+				class="record-autor">Козловская Г. В.</span> <span class="record-autor">Оболенкова Л. А.</span> <span
+				class="record-autor">Бадаева Е. Д.</span> <span class="record-autor">Билинская Е. Н.</span>
+			<span class="record-size">2 Мб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1DmANUL8qmjhdWp8dGnGTNn75MwNt_ZmG">Создание ДНК-маркера гена
+					устойчивости томата к фузариозному увяданию</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Фесенко И. А.</span> <span class="record-autor">Куклев М. Ю.</span> <span
+				class="record-autor">Карлов Г.И.</span>
+			<span class="record-size">10 Мб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1ANM-CiR1nq2DM5Y9WuHiR_PtoWPYWtls">Principes of molecular
+					virology</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Kann A. J.</span>
+			<span class="record-size">9 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1uA1MB5SENlmf74JG2oQRzABRlLKSY5Ba">Plant pathology</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2004</span>
+			<span class="record-autor">Agrios G. N.</span>
+			<span class="record-size">185 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1AVp9FxclCXpdBkFzOHprtZlxL8WXbju-">Characterization of
+					cucumber mosaic virus isolated from yam (Dioscorea spp.) in West</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2013</span>
+			<span class="record-autor">Eni A. O.</span> <span class="record-autor">Lava Kumar P.</span> <span
+				class="record-autor">Asiedu R.</span> <span class="record-autor">Alabi O. J.</span> <span
+				class="record-autor">Naidu R. A.</span> <span class="record-autor">Hughes Jd'A.</span> <span
+				class="record-autor">Rey M. E. C.</span>
+			<span class="record-size">577 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1fGusdEULsetK0QiTZuMHAQoROaiYsrpZ">Late Blight of Tomato</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2013</span>
+			<span class="record-autor">Nowicki M.</span> <span class="record-autor">Kozik E. U.</span> <span
+				class="record-autor">Foolad M. R.</span>
+			<span class="record-size">310 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1QpxdwUFhWS-iiqYE2_sCx8s6qY6PagRO">Induced Systemic Resistance
+					in Tomato Plants against Fusarium Wilt Disease using Biotic Inducers</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2014</span>
+			<span class="record-autor">Amer M. A.</span> <span class="record-autor">El-Samra I. A.</span> <span
+				class="record-autor">Abou-El-Seoud I. I.</span> <span class="record-autor">El-Abd Sawsan M.</span> <span
+				class="record-autor">Shawertamimi N. K.</span>
+			<span class="record-size">327 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=12-yWHtED4xiZNOKI_c_UQw7cnJaEdmCx">Activation of tomato plant
+					defence responses against bacterial wilt caused by Ralstonia solanacearum using DL-3-aminobutyric
+					acid (BABA)</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Moahmed A. E. Hassan</span> <span class="record-autor">Kamal A. M.
+				Abo-Elyousr</span>
+			<span class="record-size">361 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1ytGsNrorwbzed1_NTbAjmqStLjMa0fR1">Tomato Ve disease
+					resistance genes encode cell surface-like receptors</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2001</span>
+			<span class="record-autor">Lawrence M. Kawchuk</span> <span class="record-autor">John Hachey</span> <span
+				class="record-autor">Dermot R. Lynch</span> <span class="record-autor">Frank Kulcsar</span> <span
+				class="record-autor">Gijs van Rooijen</span> <span class="record-autor">Doug R. Waterer</span> <span
+				class="record-autor">Albert Robertson</span> <span class="record-autor">Eric Kokko</span> <span
+				class="record-autor">Robert Byers</span> <span class="record-autor">Ronald J. Howard</span> <span
+				class="record-autor">Rainer Fischer</span> <span class="record-autor">Dirk Pruferi</span>
+			<span class="record-size">3 Мб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1DYoANT-KNIB133Efb-ajg-CdL9jBDytz">Почвы Ленинградской
+					области</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1973</span>
+			<span class="record-autor">Пестряков В. К.</span>
+			<span class="record-size">8 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=13_-_816JsonU4mAygyN0VvCsfzwibPrc">Почвы Московской области и
+					их использование. Том 1.</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2002</span>
+			<span class="record-autor"></span>
+			<span class="record-size">20 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1JHZt-ROquT0BOpYF0OCew4cK4XQSxbx3">Атлас СССР</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1983</span>
+			<span class="record-autor">Точенов В. В.</span> <span class="record-autor">Марков В. Ф.</span> <span
+				class="record-autor">Беляева Л. И.</span> <span class="record-autor">Бруггер В. Г.</span> <span
+				class="record-autor">Граник Г. И.</span> <span class="record-autor">Дмитриев А. В.</span> <span
+				class="record-autor">Жуков В. Т.</span> <span class="record-autor">Казанский Н. Н.</span> <span
+				class="record-autor">Кельнер Ю. Г.</span>
+			<span class="record-size">52 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1kN0Y9byD1165Fim2NSeYSqVKZb298_Uw">Beginning statistics</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Douglas S. Shafer</span> <span class="record-autor">Zhiyi Zhang</span>
+			<span class="record-size">33 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/open?id=1phmPSZGWFLzctFUxhjkPwNm-swFTp-_Z">Growth stages of mono-and
+					dicotyledonous plants (2 ed.)</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2001</span>
+			<span class="record-autor">Bleiholder H.</span> <span class="record-autor">Weber E.</span> <span
+				class="record-autor">Feller C.</span> <span class="record-autor">Hess M.</span> <span
+				class="record-autor">Wicke H.</span> <span class="record-autor">Meier U.</span> <span
+				class="record-autor"> van den Boom T.</span> <span class="record-autor">Lancashire P. D.</span> <span
+				class="record-autor">Buhr L.</span> <span class="record-autor">Hack H.</span> <span
+				class="record-autor">Klose R.</span> <span class="record-autor">Stauss R.</span>
+			<span class="record-size">2 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1tpoPFnj1TjbX7fIkpRDVqXqzqQYHWkr7/view?usp=sharing">Глинистые
+					минералы в почвах</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2005</span>
+			<span class="record-autor">Соколова Т. А.</span> <span class="record-autor">Дронова Т. Я.</span> <span
+				class="record-autor">Толпешта И. И. </span>
+			<span class="record-size">4.01 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1uAVsB2I9TBQJBt_-l6Sb7vZxUn4XTKNg/view?usp=sharing">Засоленные
+					почвы России</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Панкова Е. И.</span> <span class="record-autor">Воробьёва Л. А.</span> <span
+				class="record-autor">Гаджиев И. М.</span> <span class="record-autor">Горохова И. Н.</span> <span
+				class="record-autor">Елизарова Т. Н.</span> <span class="record-autor">Королюк Т. В.</span> <span
+				class="record-autor">Лопатовская О. Г.</span> <span class="record-autor">Новикова А. Ф.</span> <span
+				class="record-autor">Решетов Г. Г.</span> <span class="record-autor">Скрипникова М. И.</span> <span
+				class="record-autor">Славный Ю. А.</span> <span class="record-autor">Черноусенко Г. И.</span> <span
+				class="record-autor">Ямнова И. А.</span>
+			<span class="record-size">16.9 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1HjKRgKHMqKpy6CrX3RtGdp9_nWZNLETL/view?usp=sharing">Взаимодействие
+					лесных суглинистых подзолистых почв с модельными кислыми осадками и кислотно-основная буферность
+					подзолистых почв</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2001</span>
+			<span class="record-autor">Соколова Т. А.</span> <span class="record-autor">Дронова Т. Я.</span> <span
+				class="record-autor">Толпешта И. И.</span> <span class="record-autor">Иванова С. Е.</span>
+			<span class="record-size">4.92 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1NUj4R63tTBu9lpUKIg2FQp_qAYcAD5iH/view?usp=sharing">Экология и
+					охрана биосферы при химическом загрязнении</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2002</span>
+			<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Садовникова Л. К.</span> <span
+				class="record-autor">Лозановская И. Н.</span>
+			<span class="record-size">5.7 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1J-5B03QyhmWj7pDu19gCnWxPimmsTxYq/view?usp=sharing">Химия
+					почв</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2005</span>
+			<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Садовникова Л. К.</span> <span
+				class="record-autor">Суханова Л. И.</span>
+			<span class="record-size">6.61 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1nFgd_JJgt7VuiBgO40v87j-d8-9Lg0tq/view?usp=sharing">Химическое
+					загрязнение биосферы и его экологические последствия</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2013</span>
+			<span class="record-autor">Мотузова Г. В.</span> <span class="record-autor">Карпова Е. А.</span>
+			<span class="record-size">3.3 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1Xn7OkdAcBzzHYb9TOE8lUqS4x3xsZOuY/view?usp=sharing">Спектральная
+					отражательная способность почв и их компонентов</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2001</span>
+			<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Суханова Н. И.</span> <span
+				class="record-autor">Розанова М. С.</span>
+			<span class="record-size">3.36 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1sTeu2kj9CmtOm_ljR7TlzaVGaBJuetXE/view?usp=sharing">Загрязнение
+					почв и сопредельных сред</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2000</span>
+			<span class="record-autor">Мотузова Г. В.</span>
+			<span class="record-size">2.05 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1VKtl3aq_JTlB-XDznisPCxGXHb-PTGFF/view?usp=sharing">Теория и
+					практика химического анализа почв</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Воробьёва Л. А.</span>
+			<span class="record-size">5.04 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1IsJ3ztHUr208J0oRLAfxu5wIQCn8quKr/view?usp=sharing">Ионный
+					обмен и адсорбция в почвах</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2008</span>
+			<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Горшкова Е. И.</span> <span
+				class="record-autor">Салпагарова И. А.</span>
+			<span class="record-size">1.38 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1y7bTOalvk2l_S73Ayf8w8BA0qB8T5n3C/view?usp=sharing">Практикум и
+					семинары по химии почв</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2001</span>
+			<span class="record-autor">Орлов Д. С.</span> <span class="record-autor">Горшкова Е. И.</span> <span
+				class="record-autor">Салпагарова И. А.</span>
+			<span class="record-size">669 Кб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1CvUgs9KgrpvoCfBdu-DETXzGSvzwL0cm/view?usp=sharing">Устойчивость
+					почв к химическому воздействию</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2000</span>
+			<span class="record-autor">Мотузова Г. В.</span>
+			<span class="record-size">1.57 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1U4h_5s3VCxS9HzfY78vWeSxyKOItA5Yy/view?usp=sharing">Полевые
+					исследования свойств почв</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Мазиров М. А.</span> <span class="record-autor">Шеин Е. В.</span> <span
+				class="record-autor">Корчагин А. А.</span> <span class="record-autor">Шушкевич Н. И.</span> <span
+				class="record-autor">Дембовецкий А. В.</span>
+			<span class="record-size">1.54 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1Kq3E-27vdpa_in4vfTFQwzpK4BhPwZpw/view?usp=sharing">Оценка и
+					изменение плотности сложения чернозёма в полях севооборота</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Кураченко Н. Л.</span> <span class="record-autor">Солодченко С. Н.</span> <span
+				class="record-autor">Романов В. Н.</span> <span class="record-autor">Литау В. М.</span>
+			<span class="record-size">109 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/14mjzE14a67ZGGWOBkxlPnzAKQ3JVByUx/view?usp=sharing">Procedures
+					for soil analysis</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2002</span>
+			<span class="record-autor">L. P. van Reeuwijk</span>
+			<span class="record-size">39.3 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1r2oiR_mJhUvdcppzWx_th-J91-akW1Z2/view?usp=sharing">Guide to
+					laboratory establishment for plant nutrient analysis </a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2008</span>
+			<span class="record-autor">Motsara M. R.</span> <span class="record-autor">Roy R. N.</span>
+			<span class="record-size">790 Кб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1jvHhk81Oa_qPpQG86fY77SIM5tY_AAK4/view?usp=sharing">Физика
+					почв</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1983</span>
+			<span class="record-autor">Растворова О. Г.</span>
+			<span class="record-size">3.76 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1MDi6O-j5oyetCGEhVnZTD_EbLyraWyq5/view?usp=sharing">Физика
+					почв: лабораторный практикум</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2011</span>
+			<span class="record-autor">Корчагин А. А.</span> <span class="record-autor">Мазиров М. А.</span> <span
+				class="record-autor">Шушкевич Н. И.</span>
+			<span class="record-size">2.38 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a
+					href="https://drive.google.com/file/d/18V2zA5nP8FrTwg0pBIbMlxXPrJdJgav-/view?usp=sharing">Агрофизика</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2014</span>
+			<span class="record-autor">Шеин Е. В.</span> <span class="record-autor">Мазиров М. А.</span> <span
+				class="record-autor">Корчагин А. А.</span> <span class="record-autor">Гончаров В. М.</span> <span
+				class="record-autor">Умарова А. Б.</span> <span class="record-autor">Зинченко С. И.</span>
+			<span class="record-size">1.53 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1ZvHVt7cktSysUicnQtHSn6Ejj5Ri5H7j/view?usp=sharing">Курс физики
+					почв</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2005</span>
+			<span class="record-autor">Шеин Е. В.</span>
+			<span class="record-size">16.6 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1p4oOI_eOEki0FXvp8P7IXHqyFOYjpCQy/view?usp=sharing">Задачи по
+					органической химии</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2016</span>
+			<span class="record-autor">Травень В. Ф.</span> <span class="record-autor">Сухоруков А. Ю.</span> <span
+				class="record-autor">Пожарская Н. А.</span>
+			<span class="record-size">29.3 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1TtCQMp1rwDkhw37DvYfTKkIhD1zALu7t/view?usp=sharing">Основы
+					технологии сельскохозяйственного производства. Земледелие и растениеводство</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2000</span>
+			<span class="record-autor">Никляев В. С.</span> <span class="record-autor">Косинский В. С.</span> <span
+				class="record-autor">Ткачёв В. В.</span> <span class="record-autor">Сучилина А. А.</span>
+			<span class="record-size">9.69 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1GGYKpWj3LWbIzC8PLfyR2nPQjxCS-m1V/view?usp=sharing">Загрязнение
+					почв тяжелыми металлами</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Водяницкий Ю. Н.</span> <span class="record-autor">Ладонин Д. В.</span> <span
+				class="record-autor">Савичев А. Т.</span>
+			<span class="record-size">7.53 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1hkJTroGqV7GtVMwY1FLtEtwRbE_YfrDn/view?usp=sharing">Методологические
+					подходы к расчету критических нагрузок на экосистемы соединений азота и серы</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2014</span>
+			<span class="record-autor">Толпешта И. И.</span>
+			<span class="record-size">2.74 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1qCFNE8le978WyWOpthqUzfK9A3QRnjsI/view?usp=sharing">Экологический
+					мониторинг. Практикум и семинары</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2019</span>
+			<span class="record-autor">Завгородняя Ю. А.</span> <span class="record-autor">Караванова Е. И.</span> <span
+				class="record-autor">Салпагарова И. А.</span>
+			<span class="record-size">695 Кб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/19C9M05R-L36_ohMjSQz5y_PEkj5Zx3xd/view?usp=sharing">Plant
+					Ecology</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2019</span>
+			<span class="record-autor">Ernst-Detlef Schulze</span> <span class="record-autor">Erwin Beck</span> <span
+				class="record-autor">Nina Buchmann</span> <span class="record-autor">Stephan Clemens</span> <span
+				class="record-autor">Klaus Müller-Hohenstein</span> <span class="record-autor">Michael
+				Scherer-Lorenzen</span>
+			<span class="record-size">73.8 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1WRIsMdtYQN8Ohh8wItBE53mfzFC1Q6Ll/view?usp=sharing">Формы
+					соединений тяжелых металлов в техногенно-загрязненных почвах</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2019</span>
+			<span class="record-autor">Ладонин Д. В.</span>
+			<span class="record-size">14.9 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1OR-B_BuKpwHK9DIh7Yi9qLl1ASpz2Jd3/view?usp=sharing">Plant
+					Ecology</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2005</span>
+			<span class="record-autor">Ernst-Detlef Schulze</span> <span class="record-autor">Erwin Beck</span> <span
+				class="record-autor">Nina Buchmann</span> <span class="record-autor">Stephan Clemens</span> <span
+				class="record-autor">Klaus Müller-Hohenstein</span> <span class="record-autor">Michael
+				Scherer-Lorenzen</span>
+			<span class="record-size">30.6 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1LpvT5BoaKYBX1k52ihp9EJOrmgFeYqCp/view?usp=sharing">Towards the
+					quantitative modeling of pedogenesis - a review</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">1992</span>
+			<span class="record-autor">Marcel R. Hoosbeek</span> <span class="record-autor">Ray B. Bryant</span>
+			<span class="record-size">1.71 Мб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1D0NdbjgaspdPKSV4-JtwNwl5OoeqUyCK/view?usp=sharing">Жидкая фаза
+					почв: учебное пособие по некоторым главам курса химии почв</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Караванова Е. И.</span>
+			<span class="record-size">880 Кб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1QJ9F_XVxaBkCg5Ap0qINbuxXp1_M8gML/view?usp=sharing">Минеральные
+					компоненты почв: учебное пособие по некоторым главам курса химии почв</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Соколова Т. А.</span> <span
+				class="record-autor">Дронова Т. Я.</span> <span class="record-autor">Толпешта И. И.</span>
+			<span class="record-size">1.71 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/133hghgyNo1DtdT9DgBsoDYMKiqMsf8lo/view?usp=sharing">Оптические
+					свойства почв и их природа</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2003</span>
+			<span class="record-autor">Караванова Е. И.</span>
+			<span class="record-size">1.08 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1JcjEKZx9Gv_05TG4C9iCNBfJ2ISRfS5R/view?usp=sharing">Почвенная
+					кислотность. Кислотно-основная буферность почв. Соединения алюминия в твердой фазе почвы и в
+					почвенном растворе</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Соколова Т. А.</span> <span class="record-autor">Толпешта И. И.</span> <span
+				class="record-autor">Трофимов С. Я.</span>
+			<span class="record-size">3.64 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1BGcoy_eagQDJ4ojwYvL2dXnZqrEbDA5L/view?usp=sharing">Соединения
+					микроэлементов в почвах: системная организация, экологическое значение, мониторинг</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Мотузова Г. В.</span>
+			<span class="record-size">13.9 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1dbj7lQWD-AR4xOM5L3i8IcSTdEOzXx7x/view?usp=sharing">Сорбционные
+					свойства почв. Адсорбция. Катионный обмен: учебное пособие по некоторым главам курса химии почв</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Соколова Т. А.</span>
+			<span class="record-size">2.36 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1u1r2mbwscak8kVp7h3goEiFKWr0ELjeE/view?usp=sharing">Химический
+					анализ почв. Вопросы и ответы</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2011</span>
+			<span class="record-autor">Воробьева Л. А.</span> <span class="record-autor">Ладонин Д. В.</span> <span
+				class="record-autor">Лопухина О. В.</span> <span class="record-autor">Рудакова Т. А.</span> <span
+				class="record-autor">Кирюшин А. В.</span>
+			<span class="record-size">1.09 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1glDwfwpWQyoFnnRgVzf1LGay6bj9HPgS/view?usp=sharing">Химия почв:
+					практикум и семинары</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2012</span>
+			<span class="record-autor">Трофимов С. Я.</span> <span class="record-autor">Салпагарова И. А.</span> <span
+				class="record-autor">Горшкова Е. И.</span>
+			<span class="record-size">1.05 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1e3Epbk1q5EohP7hBa6WoQbHVsASdaXgk/view?usp=sharing">Экологический
+					мониторинг почв</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2007</span>
+			<span class="record-autor">Мотузова Г. В.</span> <span class="record-autor">Безуглова О. С.</span>
+			<span class="record-size">9.02 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1BXI1Un_6eVfuvxU6HQwfAE1MTPSKsesO/view?usp=sharing">Иллюстрированный
+					определитель растений Ланинградской области</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Буданцев А. Л.</span> <span class="record-autor">Яковлев Г. П.</span>
+			<span class="record-size">18.4 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/13DD9UBA3N5luPzlvwf5T3G7sfMzGbXZd/view?usp=sharing">Комплексное
+					применение минеральных удобрений при возделывании жёлтого и узколистного люпина на мелиорированных
+					почвах белорусского полесья</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Шик А. С.</span> <span class="record-autor">Антонюк А. С.</span>
+			<span class="record-size">298 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1jS6RZZVERKyq6DlmQPKpNUrkFQB5qPvF/view?usp=sharing">Биотехнология
+					в 8 книгах. Книга 1: Проблемы и перспективы</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1987</span>
+			<span class="record-autor">Егоров Н. С.</span> <span class="record-autor">Самуилов В. Д.</span> <span
+				class="record-autor">Олескин А. В.</span>
+			<span class="record-size">4.22 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/14RpO4IyNYZmyoGGiNnNnt16JqohYp4EZ/view?usp=sharing">Ботаника
+					высших, или наземных, растений</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year"></span>
+			<span class="record-autor">Еленевский А. Г.</span> <span class="record-autor">Соловьёва М. П.</span> <span
+				class="record-autor">Тихомиров В. Н.</span>
+			<span class="record-size">14.3 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1Dgxc1DjwuUomXrKolrp1PC5X4xlfmwuF/view?usp=sharing">Болезни и
+					вредители медоносных пчёл</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">1987</span>
+			<span class="record-autor">Гробов О. Ф.</span> <span class="record-autor">Смирнов А. М.</span> <span
+				class="record-autor">Попов Е. Т.</span>
+			<span class="record-size">5.08 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/17atK4lY6s_6gpC8lQ6WC2fZGQjR-9qMA/view?usp=sharing">Болезни
+					пчёл</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">1970</span>
+			<span class="record-autor">Ловчиновская М. Я.</span>
+			<span class="record-size">728 Кб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1YfGhIBoqgLG52L_h20xpg9r8dTM6Ya6s/view?usp=sharing">Метеорология
+					и климатология</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Хромов С. П.</span> <span class="record-autor">Петросянц М. А.</span>
+			<span class="record-size">3.57 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1WFcAr3nygPgRLeL2AdfGoZ32ueHk713b/view?usp=sharing">Практикум
+					по курсу общей ботаники</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1989</span>
+			<span class="record-autor">Хржановский В. Г.</span> <span class="record-autor">Пономаренко С. Ф.</span>
+			<span class="record-size">10.1 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a
+					href="https://drive.google.com/file/d/18dBf1dJ_qggqtNVyUCRSzI9ErkZfjO8j/view?usp=sharing">Почвоведение</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2004</span>
+			<span class="record-autor">Вальков В. Ф.</span> <span class="record-autor">Казеев К. Ш.</span> <span
+				class="record-autor">Колесников С. И.</span>
+			<span class="record-size">9.57 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1uCreZqBUAM88O6egNsxOn2rL1trcnj2A/view?usp=sharing">Цитология
+					растений</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1987</span>
+			<span class="record-autor">Атабекова А. И.</span> <span class="record-autor">Устинова Е. И.</span>
+			<span class="record-size">9.91 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1A6Zq8hqMCpAJzA43x6P9PWO_bmBwXYB_/view?usp=sharing">Систематика
+					высших растений</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1971</span>
+			<span class="record-autor">Шостаковский С. А.</span>
+			<span class="record-size">13.2 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1EjB0ucRe5npW9MXGNlbDOTW3chVsoFai/view?usp=sharing">Технология
+					производства растительных масел</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1982</span>
+			<span class="record-autor">Копейковский В. М.</span> <span class="record-autor">Данильчук С. И.</span> <span
+				class="record-autor">Гарбузова Г. И.</span> <span class="record-autor">Мхитарьянц Л. А.</span> <span
+				class="record-autor">Мосян А. К.</span> <span class="record-autor">Аришева Е. А.</span> <span
+				class="record-autor">Костенко В. К.</span> <span class="record-autor">Трубицын Н. В.</span>
+			<span class="record-size">8.44 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1KBuZOpRYdNFU5JW57vZqDsXLd247ZPcL/view?usp=sharing">Теоретические
+					основы современной фитоценологии</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1985</span>
+			<span class="record-autor">Миркин Б. М.</span>
+			<span class="record-size">1.96 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1a3u8W5vRFSD0gMbwzrBg3od7pyhg_kyK/view?usp=sharing">Аграрная
+					экономика</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2002</span>
+			<span class="record-autor">Малыш М. Н.</span>
+			<span class="record-size">7.06 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/11jQ3fMXz_sJctHGmzT3cF0Sl13b7dE-l/view?usp=sharing">Научные
+					основы и принципы построения севооборотов в интенсивном земледелии</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Бутов А. В.</span>
+			<span class="record-size">2.35 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Английский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1e_XpckaN97uxPd8YSpN83ypcW9xmspTi/view?usp=sharing">Oral
+					Transmission of Kuru, Creutzfeldt-Jakob Disease, and Scrapie to Nonhuman Primates</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2004</span>
+			<span class="record-autor">Gibbs CJ Jr</span> <span class="record-autor">Amyx HL</span> <span
+				class="record-autor">Bacote A</span> <span class="record-autor">Masters CL</span> <span
+				class="record-autor">Gajdusek DC</span>
+			<span class="record-size">409 Кб</span>
+			<span class='record-article-mark'>статья</span>
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1hHpeF7cGupyRYEQhxbMgeHpKwnGu1h6-/view?usp=sharing">Кладистический
+					анализ (методологические проблемы)</a>
+				<span class="file-type-tag file-type-tag-djvu float-right">
+					.djvu
+				</span>
+			</div>
+
+			<span class="record-year">1990</span>
+			<span class="record-autor">Павлинов И. Я.</span>
+			<span class="record-size">3.95 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/14PuIjlCAqqTSIUG_9sIjUmbkfMm7GK-8/view?usp=sharing">Основы
+					полевых исследований в фитопатологии и фитоиммунологии</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2006</span>
+			<span class="record-autor">Шамрай С. H.</span> <span class="record-autor">Глушенко В. И.</span>
+			<span class="record-size">0.99 Мб</span>
+
+		</div>
+
+		<div class="record" data-language="Русский">
+			<div class="record-title">
+				<a href="https://drive.google.com/file/d/1YpB8qLPtp3biSHGPEkQrS_-QFhqCkGys/view?usp=sharing">Теория
+					вероятностей и математическая статистика. Математические модели</a>
+				<span class="file-type-tag file-type-tag-pdf float-right">
+					.pdf
+				</span>
+			</div>
+
+			<span class="record-year">2009</span>
+			<span class="record-autor">Мятлев В.Д.</span> <span class="record-autor">Панченко Л.А.</span> <span
+				class="record-autor">Ризниченко Г. Ю.</span> <span class="record-autor">Терехин А. Т.</span>
+			<span class="record-size">5.95 Мб</span>
+
+		</div>
+
 	</main>
-				
+
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-  	crossorigin="anonymous"
-	></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
 	<script src="../scripts/lib/lib-index.js"></script>
 </body>
+
 </html>
-	

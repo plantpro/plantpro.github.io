@@ -1,7 +1,12 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="theme-light">
 
 <head>
+	<title>Коды BBCH: фазы роста и развития растений | Plant Protection</title>
+
+	<meta name="description" content="Описание фаз роста и развития растений">
+    <meta name="keywords" content="коды bbch, стадии роста и развития растений, стадии роста и развития сельскохозяйственных культур">
+	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,14 +32,15 @@
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="../../resources/fonts/stylesheet.css">
 	<link rel="stylesheet" href="../../stylesheets/collections.css">
-	<title>Коды BBCH</title>
+
+	<script>
+		document.documentElement.classList.add(localStorage.getItem("theme") || "theme-light");
+	</script>
 </head>
 
 <body>
 	<nav>
-		<button id="show-hide-content-panel">
-			<img src="../../resources/images/search.svg">
-		</button>
+		<div class="group"></div>
 
 		<div class="group">
 			<a href="../../index.html">
@@ -46,20 +52,24 @@
 	<main>
 		<h1>Коды BBCH</h1>
 
-		Расширенная BBCH-шкала это система для кодирования фенологически схожих страдий роста всех однодольных и
-		двудольных растений. Разработана комадной из различных научных учреждений Германии
-		(German Federal Biological Research Centre for Agriculture and Forestry (BBA),
-		German Federal Office of Plant Varieties (BSA),
-		German Agrochemical Association (IVA) и Institute for Vegetables and Ornamentals in Grossbeeren/Erfurt, Germany
-		(IGZ)).
-		Десятичный код, разделённый на главные и дополнительные стадии роста, основан на широко известном коде для
-		злаков, разработанным
-		Zadoks et al. (1974) для совместимости с этой широко используемой фенологической шкалой.
-		Название BBCH является аббревиатурой Biologische Bundesanstalt, Bundessortenamt и CHemical industry.
+		<div class="preface-panel">
+			Расширенная BBCH-шкала это система для кодирования фенологически схожих страдий роста всех однодольных и
+			двудольных растений. Разработана комадной из различных научных учреждений Германии
+			(German Federal Biological Research Centre for Agriculture and Forestry (BBA),
+			German Federal Office of Plant Varieties (BSA),
+			German Agrochemical Association (IVA) и Institute for Vegetables and Ornamentals in Grossbeeren/Erfurt,
+			Germany
+			(IGZ)).
+			Десятичный код, разделённый на главные и дополнительные стадии роста, основан на широко известном коде для
+			злаков, разработанным
+			Zadoks et al. (1974) для совместимости с этой широко используемой фенологической шкалой.
+			Название BBCH является аббревиатурой Biologische Bundesanstalt, Bundessortenamt и CHemical industry.
+		</div>
 
-
-		<h6><a href="cereals.html">Злаки</a></h6>
-		<h6><a href="beans.html">Фасоль</a></h6>
+		<div class="items">
+			<a href="cereals.html" class="item-panel">Злаки</a>
+			<a href="beans.html" class="item-panel">Фасоль</a>
+		</div>
 	</main>
 </body>
 
