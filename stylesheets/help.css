@@ -162,76 +162,26 @@ a:active {
 }
 
 .theme-light nav {
-  background: #009999;
+  background: #994d00;
 }
 .theme-dark nav {
-  background: #006666;
+  background: #663300;
 }
 
 .theme-light .nav-panel-title {
-  color: #009999;
+  color: #994d00;
 }
 .theme-dark .nav-panel-title {
-  color: #009999;
+  color: #994d00;
 }
 
 main {
-  padding: 1em;
+  padding: 20px 25px 10px 1em;
 }
 
 h1 {
-  margin: 1.5rem 0;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-h3 {
-  margin: 20px 0 15px 0;
-}
-
-.preface-panel {
-  padding: 25px 20px;
-  border-radius: 2px;
-  transition: color 0.3s, background-color 0.3s;
-}
-.theme-light .preface-panel {
-  color: #212529;
-  background-color: #f2f2f2;
-}
-.theme-dark .preface-panel {
-  color: #f2f2f2;
-  background-color: #2e2e2e;
-}
-
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px 0 10px 0;
-}
-
-.item-panel {
-  flex: 1 1 200px;
-  padding: 25px 20px;
-  border-radius: 2px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  transition: color 0.3s, background-color 0.3s;
-  font-weight: 600;
-}
-.theme-light .item-panel {
-  color: #212529;
-  background-color: #f2f2f2;
-}
-.theme-dark .item-panel {
-  color: #f2f2f2;
-  background-color: #2e2e2e;
-}
-.item-panel:hover {
-  text-decoration: none;
-}
-.theme-light .item-panel:hover {
-  background-color: #d9d9d9;
-}
-.theme-dark .item-panel:hover {
-  background-color: #141414;
-}
-
-/*# sourceMappingURL=collections.css.map */
+/*# sourceMappingURL=help.css.map */

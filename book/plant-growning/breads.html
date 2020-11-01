@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="theme-light">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Хлеба I и II групп</title>
+	<title>Хлеба I и II групп | Plant Protection</title>
 
 	<link rel="apple-touch-icon" sizes="57x57" href="../../resources/images/icons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../../resources/images/icons/apple-icon-60x60.png">
@@ -25,47 +25,90 @@
 	<meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link rel="stylesheet" href="./resources/fonts/stylesheet.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="../../stylesheets/common.css">
-	<link rel="stylesheet" href="../../stylesheets/book-content.css">
+	<link rel="stylesheet" href="../../resources/fonts/stylesheet.css">
+	<link rel="stylesheet" href="../../stylesheets/book.css">
 </head>
 
 <body>
-	<div class="top-panel">
-		<div class="top-panel-name">Учебник</div>
+	<nav>
+		<button id="show-hide-content-panel">
+			<img src="../../resources/images/menu.svg">
+		</button>
 
-		<div class="top-panel-controls">
-			<button id="show-hide-content-list">
-				<span>Содержание</span>
+		<div class="group">
+			<button id="show-hide-settings-panel">
+				<img src="../../resources/images/settings.svg">
 			</button>
 
-			<button id="show-hide-source-list">
-				<span>Источники</span>
-			</button>
-
-			<a href="../../index.html" data-toggle="popover" data-placement="bottom" data-content="На главную">
-				<span>Назад</span>
+			<a href="../../index.html">
+				<img src="../../resources/images/home.svg">
 			</a>
 		</div>
+	</nav>
+
+	<div id="content-panel" class="nav-panel" style="display: none;"></div>
+
+	<div id="settings-panel" class="nav-panel" style="display: none;">
+		<span class="nav-panel-title">Настройки</span>
+
+		<form>
+			<div class="form-check">
+				<input type="checkbox" id="show-sources">
+
+				<label class="form-check-label" for="show-sources">
+					Показать источники
+				</label>
+			</div>
+		</form>
+
+		<form>
+			<header>Тема:</header>
+			<div class="group-row">
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-light"
+						value="theme-light" checked>
+
+					<label class="form-check-label" for="settings-theme-light">
+						Светлая
+					</label>
+				</div>
+
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-dark"
+						value="theme-dark">
+
+					<label class="form-check-label" for="settings-theme-dark">
+						Тёмная
+					</label>
+				</div>
+			</div>
+		</form>
 	</div>
 
-	<div class="container-fluid">
-		<h1>Хлеба I и II групп</h1>
+	<main>
+		<div class="container">
+			<h1>§ 1. Хлеба I и II групп</h1>
 
-		<p>
-			Корневая система зерновых хлебов мочковатая. При прорастании сначала образуются зародышевые или продольные
-			корни:
-			у хлебов первой группы 3-8 корней, у хлебов второй - один. Затем из подземных стеблевых узлов появляются
-			придаточные
-			или узловые корни, которые при достаточном увлажнении быстро растут, однако первичные корни при этом не
-			отмирают.
-		</p>
+			<p>
+				Корневая система зерновых хлебов мочковатая. При прорастании сначала образуются зародышевые или
+				продольные
+				корни:
+				у хлебов первой группы 3-8 корней, у хлебов второй - один. Затем из подземных стеблевых узлов появляются
+				придаточные
+				или узловые корни, которые при достаточном увлажнении быстро растут, однако первичные корни при этом не
+				отмирают.
+			</p>
+		</div>
 
-		<h5>Родовые различия хлебов I и II групп</h5>
-		<div class="fit-scroll">
-			<table class="table table-bordered">
+		<div class="table-wrapper">
+			<header>
+				Таблица 1. Родовые различия хлебов I и II групп
+				<span class="source-mark">1</span>
+			</header>
+
+			<table class="table table-responsive table-striped table-bordered">
 				<thead class="thead">
 					<tr>
 						<td>Признаки</td>
@@ -112,128 +155,141 @@
 			</table>
 		</div>
 
-		<h5>Отличительные признаки зерновок хлебных злаков I и II групп</h5>
-		<div class="fit-scroll">
-		<table class="table">
-			<thead class="thead">
+		<div class="table-wrapper">
+			<header>
+				Таблица 2. Отличительные признаки зерновок хлебных злаков I и II групп
+				<span class="source-mark">1</span>
+			</header>
+
+			<table class="table table-responsive table-bordered">
+				<thead class="thead">
+					<tr>
+						<td>Культура</td>
+						<td>Плёнчатость</td>
+						<td>Форма</td>
+						<td>Поверхность зерновки</td>
+						<td>Окраска</td>
+						<td>Хохолок</td>
+					</tr>
+				</thead>
 				<tr>
-					<td>Культура</td>
-					<td>Плёнчатость</td>
-					<td>Форма</td>
-					<td>Поверхность зерновки</td>
-					<td>Окраска</td>
-					<td>Хохолок</td>
+					<td style="text-align: center;" colspan="6">
+						Хлеба I группы (на брюшной стороне имеется бороздка)
+					</td>
 				</tr>
-			</thead>
-			<tr>
-				<td style="text-align: center;" colspan="6">
-					Хлеба I группы (на брюшной стороне имеется бороздка)
-				</td>
-			</tr>
-			<tr>
-				<td>Пшеница</td>
-				<td>Обычно голые, реже плёнчатые, не сросшиеся чешуми</td>
-				<td>Продолговато-овальная, яйцевидная</td>
-				<td>Гладкая</td>
-				<td>Белая, янтарно-жёлтая, красная</td>
-				<td>Имеется, иногда слабо заметен</td>
-			</tr>
-			<tr>
-				<td>Рожь</td>
-				<td>Голые</td>
-				<td>Удлинённая, к основанию заострённая</td>
-				<td>Мелкоморщинистая</td>
-				<td>Светло-зелёная, желтая</td>
-				<td>Имеется</td>
-			</tr>
-			<tr>
-				<td>Ячмень</td>
-				<td>Плёнчатые, сросшиеся с чешуями, редко голые</td>
-				<td>Эллиптическая, удлинённая, с заостреньями на концах</td>
-				<td>Гладкая</td>
-				<td>У плёнчатых - жёлтая или чёрная, у голых - жёлтая</td>
-				<td>Отсутствует</td>
-			</tr>
-			<tr>
-				<td>Овёс</td>
-				<td>Плёнчатые, не сросшиеся с чешуями, редко голые</td>
-				<td>Удлинённая, суживающаяся к верхушке</td>
-				<td>В плёнках - гладкая, без плёнок - с волосками</td>
-				<td>У плёнчатых - белая, жёлтая, коричневая, у голых -
-					светло-жёлтая</td>
-				<td>Имеется</td>
-			</tr>
-			<tr>
-				<td style="text-align: center;" colspan="6">
-					Хлеба II группы (на брюшной стороне бороздка отсутствует)
-				</td>
-			</tr>
-			<tr>
-				<td>Кукуруза</td>
-				<td>Голые</td>
-				<td>Округлая, гранистая, реже вверху заострённая</td>
-				<td>Гладкая или морщнистая</td>
-				<td>Белая, жёлтая, красно-коричневая</td>
-				<td>Отсутствует</td>
-			</tr>
-			<tr>
-				<td>Просо</td>
-				<td>Плёнчатые</td>
-				<td>Округлая</td>
-				<td>Гладкая, глянцевая</td>
-				<td>Кремовая, жёлтая, красная, коричневая и др.</td>
-				<td>Отсутствует</td>
-			</tr>
-			<tr>
-				<td>Сорго</td>
-				<td>Голые и плёнчатые</td>
-				<td>Округлая</td>
-				<td>Гладкая, блестящая</td>
-				<td>Кремовая, белая, красная, коричневая и др.</td>
-				<td>Отсутствует</td>
-			</tr>
-			<tr>
-				<td>Рис</td>
-				<td>Плёнчатые</td>
-				<td>Удлинённо-овальная</td>
-				<td>Продольно-ребристая</td>
-				<td>Соломенно-жёлтая, коричневая</td>
-				<td>Отсутствует</td>
-			</tr>
-		</table>
-	</div>
-		<figure>
-			<img src="../../resources/article-res/images/plant-growning/grain-structure.png">
+				<tr>
+					<td>Пшеница</td>
+					<td>Обычно голые, реже плёнчатые, не сросшиеся чешуми</td>
+					<td>Продолговато-овальная, яйцевидная</td>
+					<td>Гладкая</td>
+					<td>Белая, янтарно-жёлтая, красная</td>
+					<td>Имеется, иногда слабо заметен</td>
+				</tr>
+				<tr>
+					<td>Рожь</td>
+					<td>Голые</td>
+					<td>Удлинённая, к основанию заострённая</td>
+					<td>Мелкоморщинистая</td>
+					<td>Светло-зелёная, желтая</td>
+					<td>Имеется</td>
+				</tr>
+				<tr>
+					<td>Ячмень</td>
+					<td>Плёнчатые, сросшиеся с чешуями, редко голые</td>
+					<td>Эллиптическая, удлинённая, с заостреньями на концах</td>
+					<td>Гладкая</td>
+					<td>У плёнчатых - жёлтая или чёрная, у голых - жёлтая</td>
+					<td>Отсутствует</td>
+				</tr>
+				<tr>
+					<td>Овёс</td>
+					<td>Плёнчатые, не сросшиеся с чешуями, редко голые</td>
+					<td>Удлинённая, суживающаяся к верхушке</td>
+					<td>В плёнках - гладкая, без плёнок - с волосками</td>
+					<td>У плёнчатых - белая, жёлтая, коричневая, у голых -
+						светло-жёлтая</td>
+					<td>Имеется</td>
+				</tr>
+				<tr>
+					<td style="text-align: center;" colspan="6">
+						Хлеба II группы (на брюшной стороне бороздка отсутствует)
+					</td>
+				</tr>
+				<tr>
+					<td>Кукуруза</td>
+					<td>Голые</td>
+					<td>Округлая, гранистая, реже вверху заострённая</td>
+					<td>Гладкая или морщнистая</td>
+					<td>Белая, жёлтая, красно-коричневая</td>
+					<td>Отсутствует</td>
+				</tr>
+				<tr>
+					<td>Просо</td>
+					<td>Плёнчатые</td>
+					<td>Округлая</td>
+					<td>Гладкая, глянцевая</td>
+					<td>Кремовая, жёлтая, красная, коричневая и др.</td>
+					<td>Отсутствует</td>
+				</tr>
+				<tr>
+					<td>Сорго</td>
+					<td>Голые и плёнчатые</td>
+					<td>Округлая</td>
+					<td>Гладкая, блестящая</td>
+					<td>Кремовая, белая, красная, коричневая и др.</td>
+					<td>Отсутствует</td>
+				</tr>
+				<tr>
+					<td>Рис</td>
+					<td>Плёнчатые</td>
+					<td>Удлинённо-овальная</td>
+					<td>Продольно-ребристая</td>
+					<td>Соломенно-жёлтая, коричневая</td>
+					<td>Отсутствует</td>
+				</tr>
+			</table>
+		</div>
+
+		<figure style="background-color: white;">
 			<figcaption>
-				1. Строение зерновки
+				Рисунок 1. Строение зерновки
 			</figcaption>
+
+			<img src="../../resources/article-res/images/plant-growning/grain-structure.png">
 		</figure>
 
-		<h5>Отличительные признаки соцветий</h5>
-		<p>
-			<b>Колос</b> - это соцветие, где главная ось ступенчатая, на её уступах распологаются простые колоски
-			(пшеница, рожь, ячмень, тритикале).
-		</p>
-		<p>
-			<b>Метёлка</b> - это соцветие, главная ось которого разветвлённая, но осях 2-ого и 3-ьего порядка
-			распологаются
-			простые колоски (овёс, просо, сорго, рис, мужское растение кукурузы).
-		</p>
-		<p>
-			<b>Початок</b> - соцветие, у которого главная ось удлинённая и утолщённая, на ней распологаются простые
-			колоски (женское растение кукурузы).
-		</p>
+		<div class="container">
+			<h5>Отличительные признаки соцветий</h5>
+			<p>
+				<b>Колос</b> - это соцветие, где главная ось ступенчатая, на её уступах распологаются простые колоски
+				(пшеница, рожь, ячмень, тритикале).
+			</p>
+			<p>
+				<b>Метёлка</b> - это соцветие, главная ось которого разветвлённая, но осях 2-ого и 3-ьего порядка
+				распологаются
+				простые колоски (овёс, просо, сорго, рис, мужское растение кукурузы).
+			</p>
+			<p>
+				<b>Початок</b> - соцветие, у которого главная ось удлинённая и утолщённая, на ней распологаются простые
+				колоски (женское растение кукурузы).
+			</p>
+		</div>
 
 		<figure>
-			<img src="../../resources/article-res/images/plant-growning/flower.png">
 			<figcaption>
 				2. Строение цветка злаков
 			</figcaption>
+
+			<img src="../../resources/images/illustrations/hort-breads.svg">
 		</figure>
 
-		<h5>Различия в строении колосков</h5>
-		<div class="fit-scroll">
-			<table class="table">
+		<div class="table-wrapper">
+			<header>
+				Таблица 2. Различия в строении колосков хлебных злаков I и II групп
+				<span class="source-mark">1</span>
+			</header>
+
+			<table class="table table-responsive table-bordered">
 				<thead class="thead">
 					<tr>
 						<td>Культура</td>
@@ -287,8 +343,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td rowspan="2" colspan="0.5">Кукуруза</td>
-					<td>Мужское</td>
+					<td>Кукуруза (мужское растение)</td>
 					<td>Метёлка</td>
 					<td>1</td>
 					<td>1-2</td>
@@ -296,7 +351,7 @@
 					<td>Оси нет</td>
 				</tr>
 				<tr>
-					<td>Женское</td>
+					<td>Кукуруза (женское растение)</td>
 					<td>Метёлка</td>
 					<td>1</td>
 					<td>1-2</td>
@@ -329,13 +384,11 @@
 				</tr>
 			</table>
 		</div>
-	</div>
 
-	<nav id="content-list"></nav>
+		<div id="source-list">
 
-	<div id="source-list">
-
-	</div>
+		</div>
+	</main>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -346,12 +399,6 @@
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
 	<script src="../../scripts/lib/book-interface.js"></script>
-
-	<script>
-		$('[data-toggle="popover"]').popover({
-			trigger: 'hover'
-		})
-	</script>
 </body>
 
 </html>

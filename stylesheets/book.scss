@@ -64,8 +64,6 @@ h3 {
 }
 
 .formula {
-	text-align: center;
-
 	margin: 1rem 0;
 
 	overflow-x: auto;
@@ -74,24 +72,8 @@ h3 {
     position: relative;
 	min-width: 100%;
     display: flex;
-    
-    span {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .eval-link {
-        font-size: 12px;
-        @include themify($themes) {
-            background-color: getAccentColor($hue: 206, $light: themed('light'));
-        }
-        color: white;
-        padding: 5px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        border-radius: 5px;
-    }
+    justify-content: center;
+    align-items: center;
 }
 
 .note {
@@ -123,7 +105,11 @@ figure {
     } 
 
     img {
-        max-width: 100%;
+        max-width: 40vw;
+
+        @include respond-to($small) {
+            max-width: 100%;
+        }
     }
 
     figcaption {
@@ -134,6 +120,10 @@ figure {
 }
 
 #source-list {
+    header {
+        font-weight: 600;
+    }
+
 	padding: 1em 2em;
 	width: 100%;
 
@@ -241,7 +231,7 @@ input[type="checkbox"]+label {
 
 input[type="radio"],
 input[type="checkbox"] {
-	visibility: hidden;
+	display: none;
 }
 
 input[type="radio"]+label::before {

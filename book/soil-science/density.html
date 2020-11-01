@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="theme-light">
 
 <head>
 	<meta charset="utf-8">
@@ -7,7 +7,8 @@
 
 	<title>Плотность и порозность почвы | Plant Protection</title>
 	<meta name="description" content="Понятие плотности и порозности почвы, агрегата, формулы расчёта">
-	<meta name="keywords" content="плотность почвы, твёрдая фаза почвы, общая порозность почвы, порозность аэрации, плотность агрегата">
+	<meta name="keywords"
+		content="плотность почвы, твёрдая фаза почвы, общая порозность почвы, порозность аэрации, плотность агрегата">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="../../resources/images/icons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../../resources/images/icons/apple-icon-60x60.png">
@@ -50,42 +51,42 @@
 		</div>
 	</nav>
 
-	<div id="content-panel" class="nav-panel"></div>
+	<div id="content-panel" class="nav-panel" style="display: none;"></div>
 
-	<div id="settings-panel" class="nav-panel">
+	<div id="settings-panel" class="nav-panel" style="display: none;">
 		<span class="nav-panel-title">Настройки</span>
 
 		<form>
 			<div class="form-check">
-			<input type="checkbox" id="show-sources">
+				<input type="checkbox" id="show-sources">
 
-			<label class="form-check-label" for="show-sources">
-				Показать источники
-			</label>
+				<label class="form-check-label" for="show-sources">
+					Показать источники
+				</label>
 			</div>
 		</form>
 
 		<form>
 			<header>Тема:</header>
 			<div class="group-row">
-			<div class="form-check">
-				<input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-light"
-					value="theme-light" checked>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-light"
+						value="theme-light" checked>
 
-				<label class="form-check-label" for="settings-theme-light">
-					Светлая
-				</label>
+					<label class="form-check-label" for="settings-theme-light">
+						Светлая
+					</label>
+				</div>
+
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-dark"
+						value="theme-dark">
+
+					<label class="form-check-label" for="settings-theme-dark">
+						Тёмная
+					</label>
+				</div>
 			</div>
-
-			<div class="form-check">
-				<input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-dark"
-					value="theme-dark">
-
-				<label class="form-check-label" for="settings-theme-dark">
-					Тёмная
-				</label>
-			</div>
-		</div>
 		</form>
 	</div>
 
@@ -108,12 +109,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`rho_s = (m_s)/(V_s)` [г/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/solid-phase-density.html">Вычислить</a>
+				`rho_s = (m_s)/(V_s) [tt "г" / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<div class="note note-secondary">
@@ -128,12 +125,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`rho_b = (m_s)/(V_t)` [г/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil-density.html">Вычислить</a>
+				`rho_b = (m_s)/(V_t) [tt "г" / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<div class="note note-secondary">
@@ -273,12 +266,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`epsilon = (V_t - V_s)/V_t = 1 - V_s/V_t = 1 - rho_b/rho_s` [см<sup>3</sup>/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/common-soil-space.html">Вычислить</a>
+				`epsilon = (V_t - V_s)/V_t = 1 - V_s/V_t = 1 - rho_b/rho_s [tt "см"^3 / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<div class="note note-secondary">
@@ -294,12 +283,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`theta = V_w/V_t` [см<sup>3</sup>/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#theta">Вычислить</a>
+				`theta = V_w/V_t [tt "см"^3 / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<p>
@@ -310,12 +295,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`epsilon_(air) = epsilon - theta` [см<sup>3</sup>/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#epsilon-air">Вычислить</a>
+				`epsilon_(air) = epsilon - theta [tt "см"^3 / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<div class="note note-primary">
@@ -334,12 +315,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`Phi = 1/rho_b - 1/rho_s` [см<sup>3</sup>/г]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#phi">Вычислить</a>
+				`Phi = 1/rho_b - 1/rho_s [tt "см"^3 / tt "г"]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<p>
@@ -349,13 +326,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`e = V_0/V_s = epsilon / (1-epsilon) = (rho_s-rho_b) / rho_b`
-					[см<sup>3</sup>/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#e">Вычислить</a>
+				`e = V_0/V_s = epsilon / (1-epsilon) = (rho_s-rho_b) / rho_b [tt "см"^3 / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<div class="note note-primary">
@@ -392,12 +364,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`rho_a = m_s/V_a` [г/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#rho_a">Вычислить</a>
+				`rho_a = m_s/V_a [tt "г" / tt "см"^3]` [г/см<sup>3</sup>]
+				<span class="source-mark">1</span>
 			</div>
 
 			<p>
@@ -407,12 +375,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`epsilon_a = V_(tt "пор")/V_a` [см<sup>3</sup>/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#epsilon_a">Вычислить</a>
+				`epsilon_a = V_(tt "пор")/V_a [tt "см"^3 / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<p>
@@ -436,13 +400,9 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`epsilon_(sum tt "агр") = V_(tt "пор")/V_t = (V_a - V_s)/V_t = rho_b/rho_a - rho_b/rho_s =
-					(epsilon_a(1-epsilon)) / (1-epsilon_a)` [см<sup>3</sup>/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#epsilon-agr">Вычислить</a>
+				`epsilon_(sum tt "агр") = V_(tt "пор")/V_t = (V_a - V_s)/V_t = rho_b/rho_a - rho_b/rho_s =
+				(epsilon_a(1-epsilon)) / (1-epsilon_a) [tt "см"^3 / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<p>
@@ -451,12 +411,8 @@
 			</p>
 
 			<div class="formula">
-				<span>
-					`epsilon_(tt "межагр") = epsilon-epsilon_(sum tt "агр")` [см<sup>3</sup>/см<sup>3</sup>]
-					<span class="source-mark">1</span>
-				</span>
-
-				<a class="eval-link" href="../../applets/soil.html#epsilon-inter-agr">Вычислить</a>
+				`epsilon_(tt "межагр") = epsilon-epsilon_(sum tt "агр") [tt "см"^3 / tt "см"^3]`
+				<span class="source-mark">1</span>
 			</div>
 
 			<div class="note note-secondary">
@@ -671,7 +627,11 @@
 				<span class="source-mark">1</span>
 			</figcaption>
 
-			<img src="../../resources/images/ss-1.png" />
+			<div class="row" style="justify-content: center;">
+				<div class="col-md-6">
+					<img src="../../resources/images/illustrations/soil-dens-7.svg" />
+				</div>
+			</div>
 		</figure>
 
 		<div class="container">
@@ -728,10 +688,10 @@
 				<span class="source-mark">1</span>
 			</p>
 
-			<h3>Методики определения плотности и порозности почвы</h3>
+			<!--h3>Методики определения плотности и порозности почвы</h3-->
 		</div>
 
-		<figure>
+		<!--figure>
 			<figcaption>
 				Рисунок 2. Методика определения плотности твёрдой фазы почвы пикнометрическим методом
 				<span class="source-mark">1</span>
@@ -774,15 +734,22 @@
 			</figcaption>
 
 			<img src="../../resources/images/illustrations/soil-dens-4.svg" style="max-width: 520px;" />
-		</figure>
+		</figure-->
 
-		<div id="source-list">
-			<span>Источники</span>
-			<a class="source"><span class="source-mark">1</span> Шеин Е. В. Курс физики почв. 2005.</a>
-			<a class="source"><span class="source-mark">2</span> Растворова О. Г. Физика почв (Практическое
-				руководство).
-				1983.</a>
-		</div>
+		<section id="source-list">
+			<header>Источники</header>
+
+			<a class="source">
+				<span class="source-mark">1</span>
+				Шеин Е. В. Курс физики почв. 2005.
+			</a>
+
+			<a class="source">
+				<span class="source-mark">2</span>
+				Растворова О. Г. Физика почв (Практическое
+				руководство). 1983.
+			</a>
+		</section>
 	</main>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_HTMLorMML"
@@ -795,16 +762,6 @@
     	MathJax.Hub.Config({
 			messageStyle: "none"
 		});
-
-		$(".eval-link").text("")
-
-		$(".eval-link").mouseenter((e) => {
-			$(e.target).text("Вычислить")
-		})
-
-		$(".eval-link").mouseleave((e) => {
-			$(e.target).text("")
-		})
 	</script>
 </body>
 

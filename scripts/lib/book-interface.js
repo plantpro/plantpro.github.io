@@ -1,4 +1,4 @@
-// Run: tsc scripts\src\book-interface.ts --outdir scripts\lib\book-interface.js
+// Run: tsc scripts\src\book-interface.ts --outdir scripts\lib\
 // In this namespace we store functions to display or hide panels
 var Visibility;
 (function (Visibility) {
@@ -59,23 +59,28 @@ var Content;
         return Item;
     }());
     var CONTENT_LIST = [{
-            name: "I. Физика почв",
+            name: "I. Общая химия",
+            items: [
+                new Item("Что такое pH и как его считать", "physical-chemistry/ph-basics.html")
+            ]
+        }, {
+            name: "II. Физика почв",
             items: [
                 new Item("Плотность и порозность почвы", "soil-science/density.html")
             ]
         }, {
-            name: "II. Фитопатология",
+            name: "III. Фитопатология",
             items: [
                 new Item("Неинфекционные болезни растений", "phytopathology/non-infectious-plant-diseases.html"),
                 new Item("Гаустории паразитических растений", "phytopathology/parasitic-plants-haustorium.html")
             ]
         }, {
-            name: "III. Растениеводство",
+            name: "IV. Растениеводство",
             items: [
                 new Item("Хлеба I и II групп", "plant-growning/breads.html")
             ]
         }, {
-            name: "IV. Статистика",
+            name: "V. Статистика",
             items: [
                 new Item("Введение в статистику", "statistics/introduction-to-statistics.html"),
                 new Item("Введение в визуализацию данных", "statistics/introduction-to-data-visualization.html")

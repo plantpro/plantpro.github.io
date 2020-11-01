@@ -1,0 +1,12 @@
+@import 'common';
+
+@include applyAccentColor($hue: 30);
+
+main {
+	padding: 20px 25px 10px 1em;
+}
+
+h1 {
+	font-size: 18px;
+	font-weight: bold;
+}

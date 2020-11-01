@@ -229,32 +229,14 @@ h3 {
 }
 
 .formula {
-  text-align: center;
   margin: 1rem 0;
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
   min-width: 100%;
   display: flex;
-}
-.formula span {
-  text-align: center;
-  margin: 0 auto;
-}
-.formula .eval-link {
-  font-size: 12px;
-  color: white;
-  padding: 5px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  border-radius: 5px;
-}
-.theme-light .formula .eval-link {
-  background-color: #005799;
-}
-.theme-dark .formula .eval-link {
-  background-color: #003a66;
+  justify-content: center;
+  align-items: center;
 }
 
 .note {
@@ -284,7 +266,12 @@ figure {
   background-color: #2e2e2e;
 }
 figure img {
-  max-width: 100%;
+  max-width: 40vw;
+}
+@media only screen and (max-width: 768px) {
+  figure img {
+    max-width: 100%;
+  }
 }
 figure figcaption {
   font-size: 14px;
@@ -296,6 +283,9 @@ figure figcaption {
   padding: 1em 2em;
   width: 100%;
   overflow-y: auto;
+}
+#source-list header {
+  font-weight: 600;
 }
 #source-list a {
   display: block;
@@ -397,7 +387,7 @@ input[type=checkbox] + label {
 
 input[type=radio],
 input[type=checkbox] {
-  visibility: hidden;
+  display: none;
 }
 
 input[type=radio] + label::before {

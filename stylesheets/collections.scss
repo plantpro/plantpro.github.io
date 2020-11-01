@@ -29,16 +29,18 @@ h3 {
 
 .items {
 	display: flex;
-	margin: 20px 0 20px 0;
+	flex-wrap: wrap;
+	margin: 10px 0 10px 0;
 }
 
 .item-panel {
-	flex: 0 1 200px;
+	flex: 1 1 200px;
 
     padding: 25px 20px;
 	border-radius: 2px;
 	
 	margin-right: 5px;
+	margin-bottom: 5px;
 
 	transition: $theme-transition;
 	
