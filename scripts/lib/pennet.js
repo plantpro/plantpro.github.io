@@ -22,7 +22,7 @@
 
     getTable(tableName) {
       var builder;
-      return builder = `<label class="small">${tableName}: </label><br>
+      return builder = `<label>${tableName}: </label><br>
 <table class="table table-bordered">
 	<tr>${ejoin(makeKeyCells(this.counter))}</tr>
 	<tr>${ejoin(makeValueCells(this.counter))}</tr>
@@ -57,7 +57,7 @@
     var builder, genotype, genotypeCounter, i, j, k, l, len, len1, len2, m, phenotype, phenotypeCounter, subbuilder;
     genotypeCounter = new Counter();
     phenotypeCounter = new Counter();
-    builder = `<br><label class="small">Решётка Пеннета: </label><br>
+    builder = `<br><label>Решётка Пеннета: </label><br>
 <table class="table table-bordered"><tr><td></td>`;
     for (k = 0, len = g2.length; k < len; k++) {
       i = g2[k];
@@ -179,11 +179,9 @@
   };
 
   createPhenotypeInput = function(allel) {
-    return `<div class="form-group">
-	<div class="mdl-textfield mdl-js-textfield">
-		<label for="inputFor${allel}" class="small">Фенотип ${allel}</label>
-		<input type="text" class="form-control" id="inputFor${allel}">
-	</div>
+    return `<div class="input-control">
+	<label for="inputFor${allel}">Фенотип ${allel}</label>
+	<input type="text" class="form-control" id="inputFor${allel}">
 </div>`;
   };
 

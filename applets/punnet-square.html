@@ -7,95 +7,79 @@
 
 	<title>Решётка Пеннета</title>
 
+	<link rel="apple-touch-icon" sizes="57x57" href="../resources/images/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../resources/images/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../resources/images/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../resources/images/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../resources/images/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../resources/images/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../resources/images/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../resources/images/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../resources/images/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../resources/images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../resources/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../resources/images/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../resources/images/icons/favicon-16x16.png">
+	<link rel="icon" type="image/ico" href="./favicon.ico" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../resources/images/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="../stylesheets/style.css">
-	<link rel="stylesheet" href="../stylesheets/applets.css">
+	<link rel="stylesheet" href="../stylesheets/applet.css">
+
+	<style>
+		.gamete {
+			border-radius: 50%;
+			display: flex;
+			width: fit-content;
+			height: 30px;
+			min-width: 30px;
+			padding: 5px;
+			justify-content: center;
+			align-items: center;
+
+			font-weight: 600;
+		}
+
+		.gamete-first {
+			background-color: teal;
+		}
+
+		.gamete-second {
+			background-color: tomato;
+		}
+
+		.table {
+			color: rgb(240, 240, 240)
+		}
+	</style>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-grey d-flex d-md-none">
-		<a class="navbar-brand">
-			<img src="../resources/images/logo-black.svg" />
-		</a>
-
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../library/index.html">Книги</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../media/index.html">Медиа</a>
-				</li>
-				<li class="nav-item mr-lg-5">
-					<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="division-header">
-		<div class="row">
-			<div class="col-md-4 col-lg-2 text-center">
-				<img class="division-header-img" src="../resources/images/applets-cover.jpg" />
-			</div>
-
-			<div class="col-md-8 col-lg-10 text-center text-sm-left">
-				<nav class="navbar navbar-expand-lg navbar-grey d-none d-md-flex">
-					<a class="navbar-brand">
-					</a>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#inline-navbar"
-						aria-controls="inline-navbar" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon navbar-toggler-dark-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="inline-navbar">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../index.html">Главная</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../articles/index.html">Статьи</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../library/index.html">Книги</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../media/index.html">Медиа</a>
-							</li>
-							<li class="nav-item mr-lg-5">
-								<a class="nav-link nav-link-grey" href="../dictionary/index.html">Словарь</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-				<h1 class="division-header-title">Апплеты</h1>
-				<p>Решётка Пеннета</p>
-			</div>
-		</div>
-	</div>
 
 	<div class="container-fluid mt-3">
-		<form class="m-3" name="mainForm">
-			<div class="form-group">
-				<label class="small" for="genotype1">Генотип 1</label>
+		<div id="closeButton">
+			<svg x="0px" y="0px" width="24px" height="24px" viewBox="0 0 357 357">
+				<polygon fill="#ffffff"
+					points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 214.2,178.5" />
+			</svg>
+		</div>
+
+		<h1>Решётка Пеннета</h1>
+
+		<form class="m-3 mt-5">
+			<div class="input-control">
+				<label for="genotype1">Генотип 1</label>
 				<input type="text" class="form-control" id="genotype1">
 			</div>
 
-			<div class="form-group">
-				<label class="small" for="genotype2">Генотип 2</label>
+			<div class="input-control">
+				<label for="genotype2">Генотип 2</label>
 				<input type="text" class="form-control" id="genotype2">
 			</div>
 
@@ -108,7 +92,7 @@
 			<div id="tableplace"></div>
 		</form>
 	</div>
-	<script src="../scripts/lib/pennet.min.js"></script>
+	<script src="../scripts/lib/pennet.js"></script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ class Counter
 	getTable: (tableName) ->
 		builder =
 		"""
-		<label class="small">#{tableName}: </label><br>
+		<label>#{tableName}: </label><br>
 		<table class="table table-bordered">
 			<tr>#{ejoin(makeKeyCells(@counter))}</tr>
 			<tr>#{ejoin(makeValueCells(@counter))}</tr>
@@ -50,7 +50,7 @@ createOutput = (g1, g2) ->
 	phenotypeCounter = new Counter
 
 	builder =
-	"""<br><label class="small">Решётка Пеннета: </label><br>
+	"""<br><label>Решётка Пеннета: </label><br>
 		 <table class="table table-bordered"><tr><td></td>"""
 
 	builder += "<td>#{i}</td>" for i in g2
@@ -125,11 +125,9 @@ onChangeText = () ->
 
 createPhenotypeInput = (allel) ->
 	"""
-		<div class="form-group">
-			<div class="mdl-textfield mdl-js-textfield">
-				<label for="inputFor#{allel}" class="small">Фенотип #{allel}</label>
-				<input type="text" class="form-control" id="inputFor#{allel}">
-			</div>
+		<div class="input-control">
+			<label for="inputFor#{allel}">Фенотип #{allel}</label>
+			<input type="text" class="form-control" id="inputFor#{allel}">
 		</div>
 	"""
 

@@ -9,7 +9,7 @@ type SequenceChar = DnaChar | RnaChar;
 
 type RnaTriplet = string;
 type DnaTriplet = string;
-type Triplet = RnaTriplet;
+type Triplet = RnaTriplet | DnaTriplet;
 type Aminoacid = string;
 
 type Protein = string;
@@ -28,22 +28,22 @@ type Result = {
 };
 
 enum InputType {
-  DNA1 = "ДНК 1",
-  DNA2 = "ДНК 2",
-  IRNA = "иРНК",
-  TRNA = "тРНК",
-  PROTEIN = "белку"
+  DNA1 = "firstDna",
+  DNA2 = "secondDna",
+  IRNA = "informationalRna",
+  TRNA = "transferRna",
+  PROTEIN = "protein"
 };
 
 const DNA_VALID_CHARS = "ATGCatgcАТГЦатгц ";
 const RNA_VALID_CHARS = "AUGCaugcАУГЦаугц ";
 
 const DNA_COMPLIMENTARITY_SCHEME = new Map<SequenceChar, DnaChar>([
-   ["А", "Т"],
-   ["Т", "А"],
-   ["Г", "Ц"],
-   ["У", "А"],
-   ["Ц", "Г"]
+  ["А", "Т"],
+  ["Т", "А"],
+  ["Г", "Ц"],
+  ["У", "А"],
+  ["Ц", "Г"]
 ]);
 
 const RNA_COMPLIMENTARITY_SCHEME = new Map<SequenceChar, RnaChar>([
@@ -54,7 +54,7 @@ const RNA_COMPLIMENTARITY_SCHEME = new Map<SequenceChar, RnaChar>([
   ["Ц", "Г"]
 ]);
 
-const GENETIC_CODE = new Map<Triplet, Aminoacid>([
+const GENETIC_CODE = new Map<RnaTriplet, Aminoacid>([
   ["УУУ", "ФЕН"],
   ["УУЦ", "ФЕН"],
   ["УУА", "ЛЕЙ"],
@@ -121,20 +121,41 @@ const GENETIC_CODE = new Map<Triplet, Aminoacid>([
 ]);
 
 let runButton = document.getElementById("runButton");
+runButton.innerText = getTextForButton(InputType.DNA1);
 
-var lastInputType = InputType.DNA1;
+let lastInputType = InputType.DNA1;
 
 function setLastInputType(inputType: InputType): void {
   lastInputType = inputType;
-  runButton.innerText = "Построить по " + inputType;
+  runButton.innerText = getTextForButton(inputType);
+}
+
+function getTextForButton(inputType: InputType): string {
+  switch (inputType) {
+    case InputType.DNA1:
+      return "Построить по ДНК 1";
+    case InputType.DNA2:
+      return "Построить по ДНК 2";
+    case InputType.IRNA:
+      return "Построить по иРНК";
+    case InputType.TRNA:
+      return "Построить по тРНК";
+    case InputType.PROTEIN:
+      return "Построить по белку";
+  }
 }
 
 function updateFields(result: Result): void {
-  $("#dnaInput").val(formatOutput(result.firstDna));
-  $("#dna2Input").val(formatOutput(result.secondDna));
-  $("#irnaInput").val(formatOutput(result.informationalRna));
-  $("#trnaInput").val(formatOutput(result.transferRna));
-  $("#proteinInput").val(result.protein);
+  document.querySelector<HTMLInputElement>("#firstDnaInput").value =
+    formatOutput(result.firstDna);
+  document.querySelector<HTMLInputElement>("#secondDnaInput").value =
+    formatOutput(result.secondDna);
+  document.querySelector<HTMLInputElement>("#informationalRnaInput").value =
+    formatOutput(result.informationalRna);
+  document.querySelector<HTMLInputElement>("#transferRnaInput").value =
+    formatOutput(result.transferRna);
+  document.querySelector<HTMLInputElement>("#proteinInput").value =
+    result.protein;
 }
 
 function runApplication() {
@@ -158,8 +179,7 @@ function runApplication() {
 }
 
 function buildByDnaOne(): Result {
-  let firstDna: Dna =
-    uniformSequence<Dna>((document.getElementById("dnaInput") as HTMLInputElement).value);
+  let firstDna = uniformSequence(document.querySelector<HTMLInputElement>("#firstDnaInput").value);
   let secondDna = makeComplimentaryDna(firstDna);
   let informationalRna = makeInformationalRna(firstDna);
   let transferRna = makeTransferRna(informationalRna);
@@ -169,7 +189,7 @@ function buildByDnaOne(): Result {
 }
 
 function buildByDnaTwo(): Result {
-  let secondDna = uniformSequence($("#dna2Input").val() as string);
+  let secondDna = uniformSequence(document.querySelector<HTMLInputElement>("#secondDnaInput").value);
   let firstDna = makeComplimentaryDna(secondDna);
   let informationalRna = makeInformationalRna(firstDna);
   let transferRna = makeTransferRna(informationalRna);
@@ -179,7 +199,7 @@ function buildByDnaTwo(): Result {
 }
 
 function buildByInformationalRna(): Result {
-  let informationalRna = uniformSequence($("#irnaInput").val() as string);
+  let informationalRna = uniformSequence(document.querySelector<HTMLInputElement>("#informationalRnaInput").value);
   let firstDna = makeDnaFromiRna(informationalRna);
   let secondDna = makeComplimentaryDna(firstDna);
   let transferRna = makeTransferRna(informationalRna);
@@ -189,7 +209,7 @@ function buildByInformationalRna(): Result {
 }
 
 function buildByTransferRna(): Result {
-  let transferRna = uniformSequence($("#trnaInput").val() as string);
+  let transferRna = uniformSequence(document.querySelector<HTMLInputElement>("#transferRnaInput").value);
   let secondDna = makeDnaFromiRna(transferRna);
   let firstDna = makeComplimentaryDna(secondDna);
   let informationalRna = makeInformationalRna(firstDna);
@@ -199,7 +219,7 @@ function buildByTransferRna(): Result {
 }
 
 function buildByProtein(): Result {
-  let protein = <Protein>(document.getElementById("proteinInput") as HTMLInputElement).value;
+  let protein = formatProteinSequence(document.querySelector<HTMLInputElement>("#proteinInput").value);
   let informationalRna = makeInformationalRnaFromProtein(protein);
   let firstDna = makeDnaFromiRna(informationalRna);
   let secondDna = makeComplimentaryDna(firstDna);
@@ -209,37 +229,34 @@ function buildByProtein(): Result {
 }
 
 function makeProteinFromInformationalRna(irna: InformationalRna): Protein {
-  function divideIntoTriplets(irna: string): string[] {
-    let triplets: string[] = [];
+  function divideIntoTriplets(irna: InformationalRna): RnaTriplet[] {
+    let triplets: RnaTriplet[] = [];
 
-    let currentTriplet = "";
-    let index = 0;
-    for (let i of irna) {
-      currentTriplet += i;
-      index++
+    let currentTriplet: RnaTriplet = "";
+    for (let nucleotide of irna) {
+      currentTriplet += nucleotide;
 
-      if (index === 3) {
+      if (currentTriplet.length === 3) {
         triplets.push(currentTriplet);
-
         currentTriplet = "";
-        index = 0;
       }
     }
 
     return triplets;
   }
+
   return divideIntoTriplets(irna)
     .map((x) => GENETIC_CODE.get(x))
     .join("-")
 }
 
-function makeInformationalRnaFromProtein(protein: string): string {
-  let result = "";
+function makeInformationalRnaFromProtein(protein: Protein): InformationalRna {
+  let result: InformationalRna = "";
 
-  for (let aminoacid in protein.split("-")) {
-    for (let i of GENETIC_CODE) {
-      if (i[1] === aminoacid) {
-        result += i[0];
+  for (const requiredAminoacid of protein.split(" ")) {
+    for (const [triplet, aminoacid] of GENETIC_CODE) {
+      if (aminoacid === requiredAminoacid) {
+        result += triplet;
         break;
       }
     }
@@ -248,12 +265,14 @@ function makeInformationalRnaFromProtein(protein: string): string {
   return result;
 }
 
-function mapString<T extends string>(string: T, mapper: (char: string) => T): T {
-  let chars: T[] = [];
+function mapString(string: string, mapper: (char: string) => string): string {
+  let chars: string[] = [];
+
   for (let char of string) {
     chars.push(mapper(char));
   }
-  return chars.join("") as T;
+
+  return chars.join("");
 }
 
 function makeComplimentaryDna(dna: Dna): Dna {
@@ -272,12 +291,12 @@ function makeTransferRna(irna: InformationalRna): TransferRna {
   return mapString(irna, (x: RnaChar) => RNA_COMPLIMENTARITY_SCHEME.get(x))
 }
 
-function delws<T extends string>(str: T): T {
-  return str.replace(/\s+/g, "") as T;
+function delws(str: string): string {
+  return str.replace(/\s+/g, "");
 }
 
-function uniformSequence<T extends NucleotideSequence>(seq: T): T {
-  return mapString<T>(delws(seq), uniformNucleotide)
+function uniformSequence(seq: string): string {
+  return mapString(delws(seq), uniformNucleotide)
 }
 
 function uniformNucleotide(nucleotide) {
@@ -292,94 +311,89 @@ function uniformNucleotide(nucleotide) {
   }
 }
 
-function validateInput(type) {
-  setLastInputType(type);
+function validateInput(inputType: InputType): boolean {
+  setLastInputType(inputType);
   clearError();
 
-  if (type === InputType.PROTEIN) {
-    let formatedInput = formatProteinSequence(($("#proteinInput").val() as string).replace(/\-/g, ''))
+  if (inputType === InputType.PROTEIN) {
+    const formatedInput = formatProteinSequence(
+      document.querySelector<HTMLInputElement>("#proteinInput").value.replace("-", ""));
 
-    for (let aminoacid of formatedInput.split("-")) {
+    for (const aminoacid of formatedInput.split(" ")) {
       if (!isValidAminoacid(aminoacid)) {
-        return logError(`Ошибка: неизвестная аминокислота '${aminoacid}'`, type);
+        logError(`Ошибка: неизвестная аминокислота '${aminoacid}'`, inputType);
+        return false;
       }
     }
 
     (document.getElementById("proteinInput") as HTMLInputElement).value = formatedInput
-  } else {
-    let { checker, inputElement } = getCheckerAndInputElement(type);
+    return true;
+  }
 
-    for (let i of inputElement.value) {
-      if (!checker(i)) {
-        return logError(`Ошибка: неожиданный символ '${i}'`, type);
-      }
-    }
+  let { checker, inputElement } = getCheckerAndInputElement(inputType);
 
-    inputElement.value = formatOutput(delws(inputElement.value));
-
-
-    if (uniformSequence(inputElement.value).length % 3 !== 0) {
-      logError("Ошибка: неполный триплет", type)
+  for (let i of inputElement.value) {
+    if (!checker(i)) {
+      logError(`Ошибка: неожиданный символ '${i}'`, inputType);
+      return false;
     }
   }
+
+  inputElement.value = formatOutput(delws(inputElement.value));
+
+
+  if (uniformSequence(inputElement.value).length % 3 !== 0) {
+    logError("Ошибка: неполный триплет", inputType)
+    return false;
+  }
+
+  return true;
 }
 
 function getCheckerAndInputElement(inputType) {
   switch (inputType) {
     case InputType.DNA1:
-      return { checker: isValidDnaChar, inputElement: <HTMLInputElement>document.querySelector("#dnaInput") };
+      return { checker: isValidDnaChar, inputElement: <HTMLInputElement>document.querySelector("#firstDnaInput") };
     case InputType.DNA2:
-      return { checker: isValidDnaChar, inputElement: <HTMLInputElement>document.querySelector("#dna2Input") };
+      return { checker: isValidDnaChar, inputElement: <HTMLInputElement>document.querySelector("#secondDnaInput") };
     case InputType.IRNA:
-      return { checker: isValidRnaChar, inputElement: <HTMLInputElement>document.querySelector("#irnaInput") };
+      return { checker: isValidRnaChar, inputElement: <HTMLInputElement>document.querySelector("#informationalRnaInput") };
     case InputType.TRNA:
-      return { checker: isValidRnaChar, inputElement: <HTMLInputElement>document.querySelector("#trnaInput") };
+      return { checker: isValidRnaChar, inputElement: <HTMLInputElement>document.querySelector("#transferRnaInput") };
     default:
-      return { checker: isValidDnaChar, inputElement: <HTMLInputElement>document.querySelector("#dnaInput") };
+      throw new Error("impossible value");
   }
 }
 
-function isValidAminoacid(aminoacid) {
+function isValidAminoacid(aminoacid: Aminoacid): boolean {
   if (aminoacid.length === 0) {
     return true;
   }
 
   let normalizedAminoacid = aminoacid.toUpperCase();
-
-  for (let v of GENETIC_CODE.values()) {
-    var isPart = v.startsWith(normalizedAminoacid);
-    if (isPart) {
-      break;
+  for (const currentAminoacid of GENETIC_CODE.values()) {
+    if (currentAminoacid.startsWith(normalizedAminoacid)) {
+      return true;
     }
   }
 
-  return isPart;
+  return false;
 }
 
-function isValidDnaChar(char) {
+function isValidDnaChar(char: string) {
   return DNA_VALID_CHARS.includes(char);
 }
-function isValidRnaChar(char) {
+function isValidRnaChar(char: string) {
   return RNA_VALID_CHARS.includes(char);
 }
 
-function logError(message, inputType) {
-  let logger;
+function getErrorLogByInputType(inputType: InputType): HTMLSpanElement {
+  return document.getElementById(inputType + "ErrorLog");
+}
 
-  switch (inputType) {
-    case InputType.DNA1:
-      logger = document.querySelector("#dna1err");
-    case InputType.DNA2:
-      logger = document.querySelector("#dna2err");
-    case InputType.IRNA:
-      logger = document.querySelector("#irnaerr");
-    case InputType.TRNA:
-      logger = document.querySelector("#trnaerr");
-    case InputType.PROTEIN:
-      logger = document.querySelector("#proteinerr");
-  }
-
-  logger.innerHTML = message
+function logError(message: string, inputType: InputType) {
+  let logger = getErrorLogByInputType(inputType);
+  logger.innerText = message
 }
 
 function clearError() {
@@ -411,19 +425,16 @@ function formatOutput(sequence) {
   return triplets.join(" ");
 }
 
-function formatProteinSequence(sequence) {
+function formatProteinSequence(sequence: Protein): Protein {
   let triplets = [];
 
   let currentTriplet = ""
-  let index = 0;
-  for (let i of sequence.toUpperCase()) {
+  for (let i of delws(sequence).toUpperCase()) {
     currentTriplet += i;
-    index++;
 
-    if ((index == 3 && currentTriplet != "СТО") || (index == 4)) {
+    if ((currentTriplet.length == 3 && currentTriplet != "СТО") || (currentTriplet.length == 4)) {
       triplets.push(currentTriplet);
       currentTriplet = "";
-      index = 0;
     }
   }
 
@@ -434,25 +445,15 @@ function formatProteinSequence(sequence) {
   return triplets.join(" ");
 }
 
-document.getElementById("dnaInput")
+document.getElementById("firstDnaInput")
   .addEventListener("input", () => validateInput(InputType.DNA1))
-document.getElementById("dna2Input")
+document.getElementById("secondDnaInput")
   .addEventListener("input", () => validateInput(InputType.DNA2))
-document.getElementById("irnaInput")
+document.getElementById("informationalRnaInput")
   .addEventListener("input", () => validateInput(InputType.IRNA))
-document.getElementById("trnaInput")
+document.getElementById("transferRnaInput")
   .addEventListener("input", () => validateInput(InputType.TRNA))
 document.getElementById("proteinInput")
   .addEventListener("input", () => validateInput(InputType.PROTEIN))
 document.getElementById("runButton")
   .addEventListener("click", runApplication)
-document.getElementById("buildByDna1Button")
-  .addEventListener("click", () => updateFields(buildByDnaOne()))
-document.getElementById("buildByDna2Button")
-  .addEventListener("click", () => updateFields(buildByDnaTwo()))
-document.getElementById("buildByiRnaButton")
-  .addEventListener("click", () => updateFields(buildByInformationalRna()))
-document.getElementById("buildBytRnaButton")
-  .addEventListener("click", () => updateFields(buildByTransferRna()))
-document.getElementById("buildByProteinButton")
-  .addEventListener("click", () => updateFields(buildByProtein()))
