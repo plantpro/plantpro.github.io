@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Введение в химическую термодинамику. Понятие системы. Парциальное давление и объём. | Plant Protection</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../resources/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../resources/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../resources/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../resources/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../resources/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../resources/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../resources/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../resources/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../resources/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../resources/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../resources/images/icons/favicon-16x16.png">
+    <link rel="icon" type="image/ico" href="./favicon.ico" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../../resources/images/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../resources/fonts/stylesheet.css">
+    <link rel="stylesheet" href="../../stylesheets/book.css">
+    <style>
+        .formula {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <button id="show-hide-content-panel">
+            <img src="../../resources/images/menu.svg">
+        </button>
+
+        <div class="group">
+            <button id="show-hide-settings-panel">
+                <img src="../../resources/images/settings.svg">
+            </button>
+
+            <a href="../../index.html">
+                <img src="../../resources/images/home.svg">
+            </a>
+        </div>
+    </nav>
+
+    <div id="content-panel" class="nav-panel"></div>
+
+    <div id="settings-panel" class="nav-panel">
+        <span class="nav-panel-title">Настройки</span>
+
+        <form>
+            <div class="form-check">
+                <input type="checkbox" id="show-sources">
+
+                <label class="form-check-label" for="show-sources">
+                    Показать источники
+                </label>
+            </div>
+        </form>
+
+        <form>
+            <header>Тема:</header>
+            <div class="group-row">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-light"
+                        value="theme-light" checked>
+
+                    <label class="form-check-label" for="settings-theme-light">
+                        Светлая
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="themeRadio" id="settings-theme-dark"
+                        value="theme-dark">
+
+                    <label class="form-check-label" for="settings-theme-dark">
+                        Тёмная
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <main>
+        <div class="container">
+            <h3>§ 2. Введение в химическую термодинамику. Понятие системы. Парциальное давление и объём</h3>
+
+            <p>
+                Химическая термодинамика изучает взаимопревращение теплоты и химической энергии.
+            </p>
+
+            <p>
+                <strong>Теплота</strong> - это способ передачи энергии за счёт броуновского движения
+                молекул.
+            </p>
+
+            <p>
+                Объектом изучения в термодинамике является система.
+            </p>
+
+            <p>
+                <strong>Система</strong> - это часть пространства, ограниченная мысленными или реальными
+                перегородками. Система связана с окружающей средой способностью передавать вещество и энергию.
+            </p>
+
+            <p>
+                Системы по <strong>степени изолированности</strong> подразделяются на:
+            </p>
+
+            <ol>
+                <li>
+                    <strong>Изолированные</strong> - не обмениваются ни веществом, ни энергией с окружающей средой
+                </li>
+                <li>
+                    <strong>Закрытые</strong> - могут обмениваться энергией, но не веществом.
+                </li>
+                <li>
+                    <strong>Открытые</strong> - могут обмениваться и веществом, и энергией.
+                </li>
+            </ol>
+
+            <p>
+                По <strong>степени дисперсности (раздробленности)</strong> системы подразделяются на:
+            </p>
+
+            <ol>
+                <li>
+                    <strong>Гомогенные (однородные)</strong> - имеют одинаковый химический состав, одинаковый
+                    агрегатный состав и одинаковые параметры состояния во всём объёме системы. Если реакция протекает в
+                    гомогенной системе, то она протекает <strong>во всём объёме системы</strong>.
+                    Пример гомогенных систем: газовые системы, чистые жидкости и идеальные растворы.
+                </li>
+                <li>
+                    <strong>Гетерогенные (неоднородные)</strong> - многофазные системы.
+                    <strong>Фазой</strong> называется гомогенная часть гетерогенной системы.
+                    В гетерогенных системах обязательно присутствуют границы разделов фаз и реакции,
+                    протекающие в гетерогенных системах протекают <strong>только на границах раздела фаз</strong>.
+                </li>
+            </ol>
+
+            <p>
+                Параметры состояния системы: давление, температура, объём, концентрация,
+                масса и количество вещества. Параметры в термодинамике связаны между собой в уравнении состояния
+                системы. Так, ниже представлено уравнение состояния газообразной системы:
+            </p>
+
+            <div class="formula">
+                `(PV)/t = const = R`
+            </div>
+
+            <p>
+                Где `R` - универсальная газовая постоянная:
+            </p>
+
+            <div class="formula">
+                `R = 8.314 [(tt "Дж" * tt "Моль") / tt "Кельвин"]`
+            </div>
+
+            <p>
+                Если в системе присутствует смесь газов, то давление смеси будет равно
+                сумме парциальных давлений всех газов:
+            </p>
+
+            <div class="formula">
+                `P = sum P_i`
+            </div>
+
+            <p>
+                <strong>Парциальное давление</strong> - это давление компонента
+                газовой смеси, когда он занимает весь объём газовой смеси, а все остальные 
+                компоненты отсутствуют.
+            </p>
+
+            <p>
+                <strong>Парциальный объём</strong> - это объём компонента газовой смеси, когда он 
+                занимает всё давление газа. 
+            </p>
+
+            <p>
+                Одинаковые объёмы разных газов при одинаковых условиях содержат одинаковое число молекул. 
+                Один моль любого газа при нормальных условиях занимает объём 22.4 литра. 
+            </p>
+
+            <div class="note note-secondary">
+                Нормальные условия: температура 0°C = 273.15 K, давление 1 атм. = 101.3 кПа.
+            </div>
+            
+            <p>
+                Если 2 газа занимают одинаковый объём при одинаковых условиях, то отношение
+                массы первого газа к массе второго газа равно отношению их молярных масс и называется
+                <strong>относительной плотностью</strong> газа 1 по газу 2.
+            </p>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_HTMLorMML"
+        async></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="../../scripts/lib/book-interface.js"></script>
+</body>
+
+</html>

@@ -65,7 +65,9 @@ namespace Content {
   const CONTENT_LIST = [{
     name: "I. Общая химия",
     items: [
-      new Item("Что такое pH и как его считать", "physical-chemistry/ph-basics.html")
+      new Item("Что такое pH и как его считать", "physical-chemistry/ph-basics.html"),
+      new Item("Введение в химическую термодинамику. Понятие системы. Парциальное давление и объём", "physical-chemistry/chem-termodynamics.html"),
+      new Item("Первый закон термодинамики", "physical-chemistry/term-first-law.html")
     ]
   }, {
     name: "II. Физика почв",
